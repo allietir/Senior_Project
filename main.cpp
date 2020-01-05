@@ -2,7 +2,10 @@
 #include "Game.h"
 using namespace std;
 int main(int argc, char *argv[]) {
+	printf("CHECK FOR SAVE FILE\n");
+	//if save file exists, load 
 	Game x;
+	x.load("saved.txt");
 	x.initialize_rooms();
 	
 	x.start();

@@ -18,6 +18,8 @@ public:
 	void start();
 	void get_next_step();
 	void init_verbs();
+	void save();
+	void load(string file_name);
 	void get_input(string prompt, int input_size);
 	
 	Object o_array[8];
@@ -26,16 +28,20 @@ public:
 	Room2 room_2;
 	Player player1;
 	string prompt_1;
-	//required verbs
-	string look;
-	string look_at_x;
-	string exit_1;
-	string exit_2;
-	string exit_3;
-	string exit_4;
-	string take;
-	string help;
-	string inventory;
+	//required & special verbs
+	string look;//call LONG ROOM description
+	string look_at_x;//call DESCRIPTION of FEATURE or OBJECT
+	
+	string exit_1;//text; go <exit>
+	string exit_2;//text; <exit>
+	string exit_3;//text; go <exit-description>
+	string exit_4;//text; <exit-description>
+	
+	string take;//only applied to OBJECTS and toggles PLAYER inventory
+	string help;//only called by GAME
+	string inventory;//only applies to PLAYER
+	
+	
 	//10 primary actions
 	/*string verb1;
 	string verb2;
@@ -48,6 +54,7 @@ public:
 	string verb9;
 	string verb10;*/
 	string verb_x[10];
+	string save_text;
 	
 };
 

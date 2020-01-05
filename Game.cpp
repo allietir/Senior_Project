@@ -21,11 +21,17 @@ void Game::initialize_rooms() {
 		room[i].set_name(name_array[i]);
 		printf("%s", room[i].get_name().c_str());
 	}*/
-	printf("Rooms We Have: %s, %s", room_1.get_name().c_str(), room_2.get_name().c_str());
+	printf("Rooms We Have: %s, %s\n", room_1.get_name().c_str(), room_2.get_name().c_str());
 	r_array[0]=room_1;
 	r_array[1]=room_2;
 	prompt_1 = "What do you want to do?\n TEMP CONTROLS: to toggle feature 1 and any of the other 10 personal action items with a0-9, feature 2 with a0_9, objects with c0_8\n";
 	init_objects();
+	save_text = "save\0";
+	inventory = "inventory\0";
+	help = "help\0";
+	take = "take\0";
+	look= "look\0";
+	
 	//update room description based on objects within it
 		
 	
@@ -62,7 +68,7 @@ void Game::init_objects()
 }
 void Game::start(){
 	printf("Welcome %s\n", player1.name.c_str());
-	printf("Current location is %i", player1.current_location);
+	printf("Current location is %s\n", r_array[player1.current_location].get_name().c_str());
 	string sd = r_array[player1.current_location].get_long_description();
 	r_array[player1.current_location].set_room_entered(1);
 	printf("%s", sd.c_str());
@@ -95,11 +101,11 @@ void Game::get_input(string prompt, int input_size){
 	if (count <=input_size-1){
 		x_array[count]='\0';
 	}
-	printf("\n%s", x_array);
+	printf("\n%s\n", x_array);
 	//printf("%i", strlen(x_array));
 	
 	int match_count = 0;
-	int flag = 0;
+	int exit_flag = 1;
 	string the_exit = r_array[player1.current_location].get_exit();
 	for (int i = 0; i < count; i++)
 	{
@@ -107,13 +113,33 @@ void Game::get_input(string prompt, int input_size){
 		{
 			match_count = match_count + 1;
 		}
-		else if (flag == 0)
+		else if (exit_flag == 1)
 		{
-			flag = 1;
+			exit_flag = 0;
 		}
+		
 	}
-	printf("%s vs %s\n", x_array, the_exit.c_str());
-	if (flag == 0){
+	match_count = 0;
+	int save_flag = 0;
+	/*for (int i = 0; i < count; i++)
+	{
+		if (x_array[i]==save_text[i])
+		{
+			match_count = match_count + 1;
+		}
+		else if (save_flag == 0)
+		{
+			save_flag = 1;
+		}
+		
+	}*/
+	if (save_text.compare(x_array)==0){
+		printf("RUN SAVE PROTOCOL");
+	}
+	
+//	printf("%s vs %s\n", x_array, the_exit.c_str());
+	//CLAUDIA TO RYAN: map this flag to all four exit description states
+	if (exit_flag == 1){
 		
 		printf("Next room is %i\n", r_array[player1.current_location].get_next_room());
 		player1.current_location = r_array[player1.current_location].get_next_room();
@@ -135,6 +161,28 @@ void Game::get_input(string prompt, int input_size){
 	}
 	//if input matches any combination of verbs or features, i.e. "verb1 Room1.feature1" run the function feature1.verb1
 	//example= to toggle feature 1 and any of the other 10 personal action items with a0-9, beature 2 with a0_9, objects with c0_8
+	
+	if (look.compare(x_array)==0){
+		printf("COMPARE value: %i", look.compare(x_array));
+		printf("%s", r_array[player1.current_location].get_long_description().c_str());
+	}
+	if (inventory.compare(x_array)==0){
+			printf("COMPARE value: %i", inventory.compare(x_array));
+			for (int i = 0; i < 8; i++){
+				//if player has this item...
+				if (player1.get_has_items(i)==1)
+				{
+					printf("ITEM: %s\n", o_array[i].name.c_str());
+				}
+			}
+		}
+	//CLAUDIA TO RYAN: 
+	//LOOK AT object x: call
+	// x.description; (works for objects AND features
+	
+	//CLAUDIA RYAN: EXAMPEL:verbx feature1 i.e. "touch feature"; 
+	//step 1: search x.verb_list for verbx and account for the INDEX i.e. if "touch" is the 3'rd verb index is 2
+	//this will toggle the attribute to an ALT attribute
 	if (x_array[0]=='a'){
 		printf("toggling data");
 		Feature x = r_array[player1.current_location].get_feature_1();
@@ -142,6 +190,7 @@ void Game::get_input(string prompt, int input_size){
 		x.verbx(x_array[1] - '0');
 		r_array[player1.current_location].set_feature_1(x);
 	}
+	//same logic
 	if (x_array[0]=='b'){
 			printf("toggling data");
 			Feature x = r_array[player1.current_location].get_feature_2();
@@ -149,6 +198,7 @@ void Game::get_input(string prompt, int input_size){
 			x.verbx(x_array[1] - '0');
 			r_array[player1.current_location].set_feature_1(x);
 		}
+	//CLAUDIA TO RYAN: logic here is "TAKE object'. get object name and parse to find index, then apply toggle accordingyl
 	if (x_array[0]=='c'){
 			printf("toggling object");
 			//check if object o_array[x_array[1] - '0'] is within the room you are currently in 
@@ -198,7 +248,10 @@ void Game::get_input(string prompt, int input_size){
 			
 			
 		}
-	 
+		
+}
+void Game::load(string file_name){
+	printf("LOADING GAME FROM FILE\n");
 }
 void Game::init_verbs()
 {
