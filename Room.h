@@ -47,6 +47,7 @@ public:
 	void set_all_has_items(int x);
 	void toggle_has_items(int is_has_items);
 	
+	void init_long_short_desc();
 	
 private:
 	string name;

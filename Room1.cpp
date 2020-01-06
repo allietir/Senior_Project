@@ -21,7 +21,7 @@ Room1::Room1() {
 	string long_descr = "LONG DESC: " + short_descr;
 	set_short_description(short_descr);
 	set_long_description(long_descr);
-	set_next_room(1);
+
 	
 	//printf("Room Name: %s\n", this->get_name().c_str());
 	

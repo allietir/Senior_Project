@@ -8,6 +8,19 @@
 #include "Player.h"
 #include "Room1.h"
 #include "Room2.h"
+#include "Room3.h"
+#include "Room4.h"
+#include "Room5.h"
+#include "Room6.h"
+#include "Room7.h"
+#include "Room8.h"
+#include "Room9.h"
+#include "Room10.h"
+#include "Room11.h"
+#include "Room12.h"
+#include "Room13.h"
+#include "Room14.h"
+#include "Room15.h"
 #include "Object.h"
 class Game {
 public:
@@ -26,6 +39,19 @@ public:
 	Room r_array[15];
 	Room1 room_1;
 	Room2 room_2;
+	Room3 room_3;
+	Room4 room_4;
+	Room5 room_5;
+	Room6 room_6;
+	Room7 room_7;
+	Room8 room_8;
+	Room9 room_9;
+	Room10 room_10;
+	Room11 room_11;
+	Room12 room_12;
+	Room13 room_13;
+	Room14 room_14;
+	Room15 room_15;
 	Player player1;
 	string prompt_1;
 	//required & special verbs

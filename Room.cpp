@@ -9,6 +9,7 @@
 Room::Room() {
 	//printf("Constructing base class 'Room'\n");
 	//printf("name %s\n", feature_1.name.c_str());
+	set_next_room(666);
 }
 
 Room::~Room() {
@@ -102,4 +103,10 @@ void Room::toggle_has_items(int is_has_items){
 		has_items[is_has_items]=0;
 	}
 	
+}
+void Room::init_long_short_desc(){
+	string short_descr = "This is " + get_name() + "." + " You see " + get_exit() + ". You see " + get_feature_1().description + " and " + get_feature_2().description;
+	string long_descr = "LONG DESC: This is " + get_name() + "." + " You see " + get_exit() + ". You see " + get_feature_1().description + " and " + get_feature_2().description;
+	set_short_description(short_descr);
+	set_long_description(long_descr);
 }

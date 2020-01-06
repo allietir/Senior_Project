@@ -21,9 +21,37 @@ void Game::initialize_rooms() {
 		room[i].set_name(name_array[i]);
 		printf("%s", room[i].get_name().c_str());
 	}*/
-	printf("Rooms We Have: %s, %s\n", room_1.get_name().c_str(), room_2.get_name().c_str());
+	//printf("Rooms We Have: %s, %s\n", room_1.get_name().c_str(), room_2.get_name().c_str());
 	r_array[0]=room_1;
 	r_array[1]=room_2;
+	r_array[2]=room_3;
+	r_array[3]=room_4;
+	r_array[4]=room_5;
+	r_array[5]=room_6;
+	r_array[6]=room_7;
+	r_array[7]=room_8;
+	r_array[8]=room_9;
+	r_array[9]=room_10;
+	r_array[10]=room_11;
+	r_array[11]=room_12;
+	r_array[12]=room_13;
+	r_array[13]=room_14;
+	r_array[14]=room_15;
+	
+	for (int i = 0; i < 15; i++){
+		r_array[i].set_room_entered(0);
+		//setting exit;
+		printf("setting exit\n");
+		r_array[i].set_exit("exit_"+to_string(i+1)+"\0");
+		r_array[i].init_long_short_desc();
+		if (i!=14){
+			r_array[i].set_next_room(i+1);
+		}
+		else {
+			r_array[i].set_next_room(0);
+		}
+	}
+	
 	prompt_1 = "What do you want to do?\n TEMP CONTROLS: to toggle feature 1 and any of the other 10 personal action items with a0-9, feature 2 with a0_9, objects with c0_8\n";
 	init_objects();
 	save_text = "save\0";
