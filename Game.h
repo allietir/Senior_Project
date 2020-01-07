@@ -32,6 +32,7 @@ public:
 	void get_next_step();
 	void init_verbs();
 	void save();
+	void get_help();
 	void load(string file_name);
 	void get_input(string prompt, int input_size);
 	
@@ -58,10 +59,11 @@ public:
 	string look;//call LONG ROOM description
 	string look_at_x;//call DESCRIPTION of FEATURE or OBJECT
 	
+	
 	string exit_1;//text; go <exit>
 	string exit_2;//text; <exit>
-	string exit_3;//text; go <exit-description>
-	string exit_4;//text; <exit-description>
+	string exit_3;//text; go <exit direction>
+	string exit_4;//text; <exit direction
 	
 	string take;//only applied to OBJECTS and toggles PLAYER inventory
 	string help;//only called by GAME
@@ -80,8 +82,9 @@ public:
 	string verb9;
 	string verb10;*/
 	string verb_x[10];
+	string req_verb[11];
 	string save_text;
-	
+	string load_text;
 };
 
 #endif

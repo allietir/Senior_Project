@@ -49,6 +49,14 @@ public:
 	
 	void init_long_short_desc();
 	
+	string get_alt_exp(int x);
+	void set_alt_exp(int x, string exper);
+	
+	string get_exit_dir();
+	void set_exit_dir(string exit_dir);
+	
+	void init_exits();
+	
 private:
 	string name;
 	int room_id;
@@ -57,6 +65,13 @@ private:
 	string short_description;//describes exit
 	
 	string exit;
+	string exit_direction;
+	
+	string exit_1;
+	string exit_2;
+	string exit_3;
+	string exit_4;
+	
 	string entrance;
 	
 	Feature feature_1;
@@ -66,6 +81,9 @@ private:
 	int next_room;
 	
 	int room_entered;
+	
+	string alt_desc[5];//You can also have additional explanations after the long or short-form description that talk about something that happens to occur while you're there (e.g. "A train whistle sounds across the lonely field").
+
 	//an array of 0 or 1 based on whether the item is in that room at that time 
 	int has_items[8];
 	//value at index denotes whether or not the item can be dropped in that room

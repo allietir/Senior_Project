@@ -15,6 +15,7 @@ public:
 //private
 	string name;
 	string description;
+	int index_id;
 	int current_room;//if is -1 that means it is with the PLAYER
 	int works_with_room[15];//1 if works with room
 	int feature[2];//1 if works with feature

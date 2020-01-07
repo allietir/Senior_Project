@@ -41,8 +41,10 @@ void Game::initialize_rooms() {
 	for (int i = 0; i < 15; i++){
 		r_array[i].set_room_entered(0);
 		//setting exit;
-		printf("setting exit\n");
+		//printf("setting exit\n");
 		r_array[i].set_exit("exit_"+to_string(i+1)+"\0");
+		r_array[i].set_exit_dir("direction x");
+		r_array[i].init_exits();
 		r_array[i].init_long_short_desc();
 		if (i!=14){
 			r_array[i].set_next_room(i+1);
@@ -54,17 +56,22 @@ void Game::initialize_rooms() {
 	
 	prompt_1 = "What do you want to do?\n TEMP CONTROLS: to toggle feature 1 and any of the other 10 personal action items with a0-9, feature 2 with a0_9, objects with c0_8\n";
 	init_objects();
-	save_text = "save\0";
-	inventory = "inventory\0";
-	help = "help\0";
-	take = "take\0";
-	look= "look\0";
-	
+	init_verbs();
+
 	//update room description based on objects within it
 		
 	
 	
 	
+}
+void Game::get_help(){
+	
+	for (int i = 0; i < 10; i++){
+		printf("%s\n", verb_x[i].c_str());
+	}
+	for (int i = 0; i < 10; i++){
+			printf("%s\n", req_verb[i].c_str());
+		}
 }
 void Game::init_objects()
 {
@@ -77,6 +84,7 @@ void Game::init_objects()
 		o_array[i].name = "object"+to_string(i);
 		o_array[i].description = " object" +to_string(i)+ " description."+to_string(i);
 		o_array[i].current_room = 0;	
+		o_array[i].index_id = i;
 		
 		string new_desc = r_array[o_array[i].current_room].get_long_description() + "YOU SEE: " + o_array[i].description + "\n";
 		r_array[o_array[i].current_room].set_long_description(new_desc);
@@ -95,12 +103,14 @@ void Game::init_objects()
 	
 }
 void Game::start(){
+	
 	printf("Welcome %s\n", player1.name.c_str());
 	printf("Current location is %s\n", r_array[player1.current_location].get_name().c_str());
 	string sd = r_array[player1.current_location].get_long_description();
 	r_array[player1.current_location].set_room_entered(1);
 	printf("%s", sd.c_str());
 	get_input(prompt_1, 100);
+
 	
 	
 }
@@ -189,24 +199,33 @@ void Game::get_input(string prompt, int input_size){
 	}
 	//if input matches any combination of verbs or features, i.e. "verb1 Room1.feature1" run the function feature1.verb1
 	//example= to toggle feature 1 and any of the other 10 personal action items with a0-9, beature 2 with a0_9, objects with c0_8
-	
+	if (help.compare(x_array)==0){
+		printf("VERB LIST:\n");
+		get_help();
+	}
 	if (look.compare(x_array)==0){
 		printf("COMPARE value: %i", look.compare(x_array));
 		printf("%s", r_array[player1.current_location].get_long_description().c_str());
 	}
 	if (inventory.compare(x_array)==0){
 			printf("COMPARE value: %i", inventory.compare(x_array));
+			int item_count = 0;
 			for (int i = 0; i < 8; i++){
 				//if player has this item...
 				if (player1.get_has_items(i)==1)
 				{
 					printf("ITEM: %s\n", o_array[i].name.c_str());
+					item_count++;
 				}
+			}
+			if (item_count == 0){
+				printf("%s has no items in inventory", player1.name.c_str());
 			}
 		}
 	//CLAUDIA TO RYAN: 
 	//LOOK AT object x: call
-	// x.description; (works for objects AND features
+	// x.description; (works for objects AND features)
+	
 	
 	//CLAUDIA RYAN: EXAMPEL:verbx feature1 i.e. "touch feature"; 
 	//step 1: search x.verb_list for verbx and account for the INDEX i.e. if "touch" is the 3'rd verb index is 2
@@ -279,20 +298,39 @@ void Game::get_input(string prompt, int input_size){
 		
 }
 void Game::load(string file_name){
+	//CONFIRM WITH USER THAT "loadgame" is really what the user wants to do
+	
 	printf("LOADING GAME FROM FILE\n");
 }
 void Game::init_verbs()
 {
 	//required verbs
-	look="look";
+	save_text = "savegame\0";
+	inventory = "inventory\0";
+	take = "take\0";
+	look= "look\0";
+	help = "help\0";
+	load_text = "loadgame\0";
 	look_at_x="look at";
-	exit_1="exit_1";
-	exit_2="exit_2";
-	exit_3="exit_3";
-	exit_4="exit_4";
-	take="take";
-	help="help";
-	inventory="inventory";
+
+
+	exit_1 = "go <exit_direction>";
+	exit_2 = "<exit_direction>";
+	exit_3 = "go <exit>";
+	exit_4 = "<exit>";
+	
+	
+	req_verb[0]=look;
+	req_verb[1]=look_at_x;
+	req_verb[2]=take;
+	req_verb[3]=help;
+	req_verb[4]=inventory;
+	req_verb[5]=exit_1;
+	req_verb[6]=exit_2;
+	req_verb[7]=exit_3;
+	req_verb[8]=exit_4;
+	req_verb[9]=save_text;
+	req_verb[10]=load_text;
 	//10 primary actions
 	/*verb1="verb1";
 	verb2="verb2";
@@ -314,6 +352,8 @@ void Game::init_verbs()
 	verb_x[7]="verb8";
 	verb_x[8]="verb9";
 	verb_x[9]="verb10";
+	
+	
 	
 }
 void Game::get_next_step(){

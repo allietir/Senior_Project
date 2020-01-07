@@ -10,6 +10,7 @@ Room::Room() {
 	//printf("Constructing base class 'Room'\n");
 	//printf("name %s\n", feature_1.name.c_str());
 	set_next_room(666);
+	set_exit_dir("No Direction");
 }
 
 Room::~Room() {
@@ -105,8 +106,31 @@ void Room::toggle_has_items(int is_has_items){
 	
 }
 void Room::init_long_short_desc(){
-	string short_descr = "This is " + get_name() + "." + " You see " + get_exit() + ". You see " + get_feature_1().description + " and " + get_feature_2().description;
-	string long_descr = "LONG DESC: This is " + get_name() + "." + " You see " + get_exit() + ". You see " + get_feature_1().description + " and " + get_feature_2().description;
+	string short_descr = "This is " + get_name() + "." + " You see " + get_exit() + " in the " + get_exit_dir() + ". You see " + get_feature_1().description + " and " + get_feature_2().description;
+	string long_descr = "LONG DESC: This is " + get_name() + "." + " You see " + get_exit() + " in the " + get_exit_dir() +  ". You see " + get_feature_1().description + " and " + get_feature_2().description;
 	set_short_description(short_descr);
 	set_long_description(long_descr);
+	
+}
+
+void Room::init_exits(){
+	exit_1 = "go "+exit_direction;
+	exit_2 = exit_direction;
+	exit_3 = "go "+get_exit();
+	exit_4 = get_exit();
+}
+
+string Room::get_alt_exp(int x){
+	return alt_desc[x];
+}
+void Room::set_alt_exp(int x, string exper){
+	alt_desc[x]=exper;
+}
+
+
+string Room::get_exit_dir(){
+	return exit_direction;
+}
+void Room::set_exit_dir(string exit_dir){
+	exit_direction = exit_dir;
 }
