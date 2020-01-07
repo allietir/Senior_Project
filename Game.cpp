@@ -120,7 +120,7 @@ void Game::start(){
 void Game::get_input(string prompt, int input_size){
 	
 	printf("%s", prompt.c_str());
-	char x;
+	char x='x';
 	//printf("%c", x);
 	char x_array[input_size];
 	memset(x_array, '\0', sizeof(x_array));
