@@ -7,6 +7,9 @@
 #include <cstdio>
 
 #include <string>
+#include <cstring>
+
+
 Game::Game() {
 	
 }
