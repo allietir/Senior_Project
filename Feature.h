@@ -32,7 +32,7 @@ public:
 	int get_current_room();
 	void set_current_room(int s_current_room);
 	string look();//return desc
-	string read();//verb func 0: verb_func_toggled[0]
+	virtual string read();//verb func 0: verb_func_toggled[0]
 	
 	int func_togg_count_x(int x);
 	

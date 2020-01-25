@@ -31,8 +31,8 @@ public:
 	string get_extra_description();
 	void set_extra_description(string description);
 	
-	Feature get_feature_x(int x);
-	void set_feature_x(Feature s_feature_x, int x);
+	Feature* get_feature_x(int x);
+	void set_feature_x(Feature* s_feature_x, int x);
 	
 	string get_exit_name(int direction);//0 = north, 1 = south; 2 = east; 3 west;
 	void set_exit_name(string s_exit_name, int direction);//0 = north, 1 = south; 2 = east; 3 west;
@@ -53,17 +53,26 @@ public:
 	int get_exit_id(int exit_index);
 	void set_exit_id(int room_id, int exit_index);
 	
+	int get_num_exits();
+	void set_num_exits(int x);
+	
+	int get_num_events();
+	void set_num_events(int x);
 
 	string exit_text();
 	string feature_text();
 	void add_object_text(string object_name, string object_desc);
-	int get_num_exits();
+	int set_get_num_exits();
 	int get_num_obj();
 
 	void init_long_short_desc();
 	string look();//if user has been there before, return short desc;
-
 	
+	void event_one();
+	void event_two();
+	void event_three();
+
+	Feature* fixed_list[MAX_FIXED]; 
 	
 	
 
@@ -88,7 +97,7 @@ private:
 	string exit_4[MAX_EXITS];//name
 		
 	//Number of features
-	Feature fixed_list[MAX_FIXED];
+	
 	int room_entered;
 
 
@@ -97,6 +106,7 @@ private:
 	
 	int obj_count;
 	int num_exits;
+	int num_events;
 	
 	
 

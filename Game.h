@@ -14,7 +14,7 @@
 
 
 //OBJECT
-#include "Knife.h"
+#include "Object1.h"
 class Game {
 public:
 	Game();
@@ -36,13 +36,22 @@ public:
 	int get_obj_location(int obj_id);
 	
 
+
 	
 	Object o_array[NUM_OBJECTS];
-	Room r_array[NUM_ROOMS];
+	Room* r_array[NUM_ROOMS];
 	Room1 room_1;
-	Room2 room_2;
-	Room3 room_3;
-	Knife object_1;
+	//Room2 room_2;
+	//Room3 room_3;
+	Object1 object_1;
+//	Object2 object_2;
+//	Object3 object_3;
+//	Object4 object_4;
+//	Object5 object_5;
+//	Object6 object_6;
+//	Object7 object_7;
+//	Object8 object_8;
+
 	/*Room4 room_4;
 	Room5 room_5;
 	Room6 room_6;

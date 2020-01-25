@@ -14,9 +14,9 @@ Game::Game() {
 void Game::init_rooms() {
 	init_objects();
 	//place individual rooms in the array
-	r_array[0]=room_1;
-	r_array[1]=room_2;
-	r_array[2]=room_3;
+	r_array[0]= new Room1;
+	//r_array[1]=room_2;
+	//r_array[2]=room_3;
 //	r_array[3]=room_4;
 //	r_array[4]=room_5;
 //	r_array[5]=room_6;
@@ -30,9 +30,9 @@ void Game::init_rooms() {
 //	r_array[13]=room_14;
 //	r_array[14]=room_15;
 	//add objects to array
-	r_array[0].set_has_objects(0, 1);
+	r_array[0]->set_has_objects(0, 1);
 	//add description
-	r_array[0].add_object_text(o_array[0].get_name(), o_array[0].get_desc());
+	r_array[0]->add_object_text(o_array[0].get_name(), o_array[0].get_desc());
 	
 }
 void Game::init_objects()
@@ -58,9 +58,9 @@ void Game::start(){
 	
 	init_rooms();
 	printf("Welcome %s\n", player1.get_name().c_str());
-	printf("Current location is %s\n", r_array[player1.get_current_room()].get_name().c_str());
+	printf("Current location is %s\n", r_array[player1.get_current_room()]->get_name().c_str());
 	
-	string sd = r_array[player1.get_current_room()].look();
+	string sd = r_array[player1.get_current_room()]->look();
 	printf("%s", sd.c_str());
 	printf("%s", "-----GET INPUT FUNCTION HERE------");
 }
@@ -69,13 +69,13 @@ void Game::take(int object_id){
 	//player 
 	int p_has_item = player1.get_has_objects(object_id);
 	int current_room = player1.get_current_room();
-	int r_has_item = r_array[current_room].get_has_objects(object_id);
+	int r_has_item = r_array[current_room]->get_has_objects(object_id);
 	//if item is in the room and the player does not have the item
 	if ((p_has_item == 0)&&(r_has_item==1)){
 		player1.set_has_objects(object_id, 1);
-		r_array[current_room].set_has_objects(object_id, 0);
+		r_array[current_room]->set_has_objects(object_id, 0);
 		set_obj_location(object_id, -1);
-		printf("%s no longer has %s\n", r_array[current_room].get_name().c_str(), o_array[object_id].get_name().c_str());	
+		printf("%s no longer has %s\n", r_array[current_room]->get_name().c_str(), o_array[object_id].get_name().c_str());	
 		printf("Updated player inventory:");
 		inventory();
 		
@@ -93,13 +93,13 @@ void Game::drop(int object_id){
 	//player 
 	int p_has_item = player1.get_has_objects(object_id);
 	int current_room = player1.get_current_room();
-	int r_has_item = r_array[current_room].get_has_objects(object_id);
+	int r_has_item = r_array[current_room]->get_has_objects(object_id);
 	//if item is in the room and the player does not have the item
 	if ((p_has_item == 1)&&(r_has_item==0)){
 		player1.set_has_objects(object_id, 0);
-		r_array[current_room].set_has_objects(object_id, 1);
+		r_array[current_room]->set_has_objects(object_id, 1);
 		set_obj_location(object_id, -1);
-		printf("%s now has %s\n", r_array[current_room].get_name().c_str(), o_array[object_id].get_name().c_str());	
+		printf("%s now has %s\n", r_array[current_room]->get_name().c_str(), o_array[object_id].get_name().c_str());	
 		printf("Updated player inventory:");
 		inventory();
 		

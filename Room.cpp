@@ -30,7 +30,12 @@ Room::Room() {
 	}
 	obj_count = 0;
 	num_exits = get_num_exits();
-	init_long_short_desc();
+	//init_long_short_desc();
+	num_events = 0;
+	for (int i = 0; i < MAX_FIXED; i++){
+		set_feature_x(new Feature, i);
+	}
+	
 
 }
 string Room::get_name(){
@@ -66,13 +71,13 @@ int Room::get_room_id(){
 void Room::set_room_id(int set_room_id){
 	room_id = set_room_id;
 }
-Feature Room::get_feature_x(int x){
+Feature* Room::get_feature_x(int x){
 	return fixed_list[x];
 }
-void Room::set_feature_x(Feature set_feature_x, int x){
+void Room::set_feature_x(Feature* set_feature_x, int x){
 	fixed_list[x]=set_feature_x;
 	//make sure it is set to fixed
-	fixed_list[x].set_fixed(1);
+	fixed_list[x]->set_fixed(1);
 }
 string Room::get_exit_name(int direction){
 	return exit_name[direction];
@@ -128,7 +133,7 @@ void Room::set_has_objects(int object_index, int val)
 {
 	has_objects[object_index]=val;
 }
-int Room::get_num_exits(){
+int Room::set_get_num_exits(){
 	num_exits=0;
 	for (int i = 0; i < MAX_EXITS; i++){
 		if (exit_name[i]!="no_exit"){
@@ -154,11 +159,11 @@ string Room::feature_text(){
 	
 	string feature_text = "You see: ";
 	for (int i = 0; i < MAX_FIXED; i ++){
-		if ((fixed_list[i].get_name()!="no feature name")&&(i<MAX_FIXED-1)){
-			feature_text = feature_text + fixed_list[i].get_desc() + "and ";
+		if ((fixed_list[i]->get_name()!="no feature name")&&(i<MAX_FIXED-1)){
+			feature_text = feature_text + fixed_list[i]->get_desc() + "and ";
 		}
-		if ((fixed_list[i].get_name()!="no feature name")&&(i==MAX_FIXED-1)){
-			feature_text = feature_text + fixed_list[i].get_desc() + ".\n";
+		if ((fixed_list[i]->get_name()!="no feature name")&&(i==MAX_FIXED-1)){
+			feature_text = feature_text + fixed_list[i]->get_desc() + ".\n";
 		}
 
 	}
@@ -209,6 +214,32 @@ string Room::look(){
 			}
 	return "error";
 }
+int Room::get_num_exits(){
+	return num_exits;
+}
+void Room::set_num_exits(int x){
+	num_exits = x;
+}
+
+int Room::get_num_events(){
+	return num_events;
+}
+void Room::set_num_events(int x){
+	num_events = x;
+}
+
+void Room::event_one(){
+	printf("A description of event one and perhaps a game state change");
+}
+void Room::event_two(){
+	printf("A description of event two and perhaps a game state change");
+}
+void Room::event_three(){{
+	printf("A description of event three and perhaps a game state change");
+}}
 Room::~Room() {
 	//printf("Destroying pure virtual base class 'Room'\n");
+	for (int i = 0; i < MAX_FIXED; i++){
+		delete fixed_list[i];
+	}
 }

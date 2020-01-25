@@ -5,15 +5,16 @@
 #ifndef _Room1_h_
 #define _Room1_h_
 #include "Room.h"
-#include "Gravestone.h"//feature 1
+#include "Feature1.h"//feature 1
 #include "globals.h"
 
 class Room1: public Room {
 public:
 	Room1();
 	virtual ~Room1();	
+	Feature1 get_feature_1();
 private:
-	Gravestone feature_1;
+	Feature1 feature_1;
 	
 };
 
