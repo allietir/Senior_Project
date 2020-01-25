@@ -7,14 +7,15 @@
 #include <string>
 #include <cstdio>
 #include "Feature.h"
-using namespace std;
 
+#include "globals.h"
+using namespace std;
 //an abstract class
 class Room {
 public:
 	Room();
 	virtual ~Room();
-//get/set
+
 	string get_name();
 	void set_name(string name);
 	
@@ -27,67 +28,78 @@ public:
 	string get_long_description();
 	void set_long_description(string description);
 	
-	string get_exit();
-	void set_exit(string exit);
+	string get_extra_description();
+	void set_extra_description(string description);
 	
-	Feature get_feature_1();
-	void set_feature_1(Feature feature_1);
+	Feature get_feature_x(int x);
+	void set_feature_x(Feature s_feature_x, int x);
+	
+	string get_exit_name(int direction);//0 = north, 1 = south; 2 = east; 3 west;
+	void set_exit_name(string s_exit_name, int direction);//0 = north, 1 = south; 2 = east; 3 west;
+	string get_exit_dir(int exit_index);
+	void set_exit_dir(string exit_dir, int exit_index);
 	
 	
-	Feature get_feature_2();
-	void set_feature_2(Feature feature_1);
-	
-	int get_next_room();
-	void set_next_room(int next_room);
-	
-	int get_room_entered();
-	void set_room_entered(int room_entered);
-	
-	int get_has_items(int is_has_items);
-	void set_all_has_items(int x);
-	void toggle_has_items(int is_has_items);
-	
-	void init_long_short_desc();
-	
-	string get_alt_exp(int x);
-	void set_alt_exp(int x, string exper);
-	
-	string get_exit_dir();
-	void set_exit_dir(string exit_dir);
-	
+	string get_exit_x(int direction, int x);//x being exit_1 : go + direction, exit_2 : direction, exit_3 : exit_namae
 	void init_exits();
 	
-private:
-	string name;
-	int room_id;
 	
-	string long_description;//describes exit
-	string short_description;//describes exit
+	int get_room_entered();
+	void set_room_entered(int s_room_entered);
 	
-	string exit;
-	string exit_direction;
+	int get_has_objects(int object_index);
+	void set_has_objects(int object_index, int val);
 	
-	string exit_1;
-	string exit_2;
-	string exit_3;
-	string exit_4;
+	int get_exit_id(int exit_index);
+	void set_exit_id(int room_id, int exit_index);
 	
-	string entrance;
-	
-	Feature feature_1;
-	Feature feature_2;
-	
-	
-	int next_room;
-	
-	int room_entered;
-	
-	string alt_desc[5];//You can also have additional explanations after the long or short-form description that talk about something that happens to occur while you're there (e.g. "A train whistle sounds across the lonely field").
 
-	//an array of 0 or 1 based on whether the item is in that room at that time 
-	int has_items[8];
-	//value at index denotes whether or not the item can be dropped in that room
-	int can_drop_item[8];
+	string exit_text();
+	string feature_text();
+	void add_object_text(string object_name, string object_desc);
+	int get_num_exits();
+	int get_num_obj();
+
+	void init_long_short_desc();
+	string look();//if user has been there before, return short desc;
+
+	
+	
+	
+
+	
+	
+private:
+	
+	string name;//name of room
+	int room_id;//room id corresponding to its index within the Game class array of rooms. 
+	string long_description;//include exit name & long description, exit direction FIXED feature description, UNFIXED object description
+	string short_description;//include exit name & short description, exit direction FIXED feature description, UNFIXED object descriptoin
+	string extra_description; //the piece added to the short description to make it longer
+	
+	string exit_name[MAX_EXITS];//name for each exit for north = 0, south = 1; east = 2; west = 3; if no exit, "no_exit"
+	string exit_desc[MAX_EXITS];//exit description
+	string exit_direction[MAX_EXITS];//for ease of setting exit_1 and exit_2; 
+	int exit_ids[MAX_EXITS];//array of exits on north, south, east, west; if none, number is -1;
+	
+	string exit_1[MAX_EXITS];//go + direction
+	string exit_2[MAX_EXITS];//direction
+	string exit_3[MAX_EXITS];//go + name
+	string exit_4[MAX_EXITS];//name
+		
+	//Number of features
+	Feature fixed_list[MAX_FIXED];
+	int room_entered;
+
+
+	//an array of 0 or 1 based on whether the item is in that room at that time; for purpose of accurate room description
+	int has_objects[NUM_OBJECTS];
+	
+	int obj_count;
+	int num_exits;
+	
+	
+
 	
 };
 

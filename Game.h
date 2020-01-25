@@ -9,39 +9,41 @@
 #include "Room1.h"
 #include "Room2.h"
 #include "Room3.h"
-#include "Room4.h"
-#include "Room5.h"
-#include "Room6.h"
-#include "Room7.h"
-#include "Room8.h"
-#include "Room9.h"
-#include "Room10.h"
-#include "Room11.h"
-#include "Room12.h"
-#include "Room13.h"
-#include "Room14.h"
-#include "Room15.h"
 #include "Object.h"
+#include "globals.h"
+
+
+//OBJECT
+#include "Knife.h"
 class Game {
 public:
 	Game();
 	virtual ~Game();
-	void initialize_rooms();
+	void init_rooms();
 	void init_objects();
-	void start();
-	void get_next_step();
-	void init_verbs();
-	void save();
-	void get_help();
-	void load(string file_name);
-	void get_input(string prompt, int input_size);
+	void init_player();
 	
-	Object o_array[8];
-	Room r_array[15];
+	void start();
+
+	void set_save_version(int int_x);
+	int get_save_version();
+	
+	void take(int object_id);
+	void drop(int object_id);
+	void inventory();
+	//so game can know where objects currently are, updated in "take" and "drop" functions
+	void set_obj_location(int obj_id, int location);
+	int get_obj_location(int obj_id);
+	
+
+	
+	Object o_array[NUM_OBJECTS];
+	Room r_array[NUM_ROOMS];
 	Room1 room_1;
 	Room2 room_2;
 	Room3 room_3;
-	Room4 room_4;
+	Knife object_1;
+	/*Room4 room_4;
 	Room5 room_5;
 	Room6 room_6;
 	Room7 room_7;
@@ -52,39 +54,19 @@ public:
 	Room12 room_12;
 	Room13 room_13;
 	Room14 room_14;
-	Room15 room_15;
+	Room15 room_15;*/
+	
 	Player player1;
-	string prompt_1;
-	//required & special verbs
-	string look;//call LONG ROOM description
-	string look_at_x;//call DESCRIPTION of FEATURE or OBJECT
 	
 	
-	string exit_1;//text; go <exit>
-	string exit_2;//text; <exit>
-	string exit_3;//text; go <exit direction>
-	string exit_4;//text; <exit direction
 	
-	string take;//only applied to OBJECTS and toggles PLAYER inventory
-	string help;//only called by GAME
-	string inventory;//only applies to PLAYER
-	
-	
-	//10 primary actions
-	/*string verb1;
-	string verb2;
-	string verb3;
-	string verb4;
-	string verb5;
-	string verb6;
-	string verb7;
-	string verb8;
-	string verb9;
-	string verb10;*/
-	string verb_x[10];
-	string req_verb[11];
 	string save_text;
 	string load_text;
+	int save_version;
+	int current_obj_location[NUM_OBJECTS];
+	
+	
+	
 };
 
 #endif

@@ -5,22 +5,28 @@
 #ifndef _Object_h_
 #define _Object_h_
 #include <string>
+#include "Feature.h"
 
 using namespace std;
 
-class Object {
+class Object : public Feature {
 public:
 	Object();
 	virtual ~Object();
-//private
-	string name;
-	string description;
-	int index_id;
-	int current_room;//if is -1 that means it is with the PLAYER
-	int works_with_room[15];//1 if works with room
-	int feature[2];//1 if works with feature
+
+	int get_current_room();
+	void set_current_room(int s_current_room);
 	
+	int get_works_with_room(int room_num);
+	void set_works_with_room(int room_num, int val);
 	
+	int get_works_with_feature(int feature_num);
+	void set_works_with_feature(int feature_num, int val);
+	
+private:
+
+	int works_with_room[NUM_ROOMS];//1 if works with room i.e. maybe there are some rooms it doesn't work with 
+	int works_with_feature[TOTAL_FIXED];//1 if works with feature i.e. maybe it works with a feature
 };
 
 #endif

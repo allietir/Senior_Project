@@ -8,69 +8,72 @@
 
 using namespace std;
 Feature::Feature() {
-	name = "no name";
-	description = "no description";
-	attributes[0] = "attribute1";
-	attributes[1] = "attribute2";
-	attributes[2] = "attribute3";
-	attributes[3] = "attribute4";
-	attributes[4] = "attribute5";
-	attributes[5] = "attribute6";
-	attributes[6] = "attribute7";
-	attributes[7] = "attribute8";
-	attributes[8] = "attribute9";
-	attributes[9] = "attribute10";
 	
-	attributes_alt[0] = "attributes_alt1";
-	attributes_alt[1] = "attribute_alt2";
-	attributes_alt[2] = "attribute_alt3";
-	attributes_alt[3] = "attribute_alt4";
-	attributes_alt[4] = "attribute_alt5";
-	attributes_alt[5] = "attribute_alt6";
-	attributes_alt[6] = "attribute_alt7";
-	attributes_alt[7] = "attribute_alt8";
-	attributes_alt[8] = "attribute_alt9";
-	attributes_alt[9] = "attribute_alt10";
+	name = "no feature name";
+	desc = "no feature description";
+	error_message = "feature error";
+	index_id = -666;
+	fixed = 1;
+	//init
+	look_count = 0;
+	for (int i = 0; i < NUM_VERB_FUNCS; i++){
+		verb_func_toggled[i]=0;
+	}
+		
+}
+string Feature::get_name(){
+	return name;
+}
+void Feature::set_name(string s_name){
+	name = s_name;	
+}
 	
-	for (int i = 0; i < 10; i++){
-		attr_toggle[i]=0;
-	}
+int Feature::get_index_id(){
+	return index_id;
 }
-void Feature::init_attributes(string atts[10], string alts[10]){
-	for (int i = 0; i < 10; i++){
-		attributes[i]=atts[i];
-		attributes_alt[i]=alts[i];
-		attr_toggle[i]=0;
-	}
+void Feature::set_index_id(int s_index_id){
+	index_id = s_index_id;
 }
-
-void Feature::init_verbs(string verbs[10]){
-	for (int i = 0; i < 10; i++){
-		verb_list[i]=verbs[i];
-	}
+string Feature::get_desc(){
+	return desc;
 }
-void Feature::verbx(int verb){
-	//the "ith" verb toggles the attribute change i.e. 
-	printf("verb %i: first: %i", verb, attr_toggle[verb]);
-
-	if (attr_toggle[verb]==0)
-	{
-		printf("switched on");
-		attr_toggle[verb]=1;
-		printf("%i", attr_toggle[verb]);
-	}
-	else if (attr_toggle[verb]==1){
-		printf("switched off");
-		attr_toggle[verb]=0;
-	}
-	if (attr_toggle[verb]==1){
-		printf("%s is %s\n", name.c_str(), attributes_alt[verb].c_str());
-	}
-	else{
-		printf("%s is %s\n", name.c_str(), attributes[verb].c_str());
-	}
+void Feature::set_desc(string s_desc){
+	desc = s_desc;
+}
+	
+int Feature::get_feature_examined(){
+	return feature_examined;
+}
+void Feature::set_feature_examined(int s_feature_examined){
+	feature_examined = s_feature_examined;
 }
 
+int Feature::get_fixed(){
+	return fixed;
+}
+void Feature::set_fixed(int s_fixed){
+	fixed = s_fixed;
+}
+int Feature::get_current_room(){
+	return current_room;
+}
+void Feature::set_current_room(int s_current_room){
+	current_room = s_current_room;
+}
+string Feature::look()//retunr description
+{
+	look_count = look_count + 1;
+	return desc;
+}
+string Feature::read(){
+	string read_response = get_name() + " cannot be read\n";
+	verb_func_toggled[0]=verb_func_toggled[0]+1;
+	return read_response;
+}
+int Feature::func_togg_count_x(int x){
+	verb_func_toggled[x]=verb_func_toggled[x] + 1;
+	return verb_func_toggled[x];
+}
 Feature::~Feature() {
 	
 }
