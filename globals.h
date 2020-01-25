@@ -1,0 +1,9 @@
+#define MAX_FIXED 3
+#define NUM_VERBS 10
+#define NUM_OBJECTS 8
+#define NUM_ROOMS 15
+#define TOTAL_FIXED 45
+#define MAX_EXITS 4
+#define MAX_DESCS 5
+#define NUM_VERB_FUNCS 10
+#define FRIEND_NAME "ALEX"
