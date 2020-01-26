@@ -65,6 +65,13 @@ string Feature::look()//retunr description
 	look_count = look_count + 1;
 	return desc;
 }
+int Feature::get_look_count()
+{
+	return look_count;
+}
+void Feature::set_look_count(int x){
+	look_count = x;
+}
 string Feature::read(){
 	string read_response = get_name() + " cannot be read\n";
 	verb_func_toggled[0]=verb_func_toggled[0]+1;

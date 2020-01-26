@@ -9,8 +9,8 @@ CXXFLAGS = -Wall -g -std=c++11
 # ****************************************************
 # Targets needed to bring the executable up to date
 
-main: main.o Game.o Player.o Room.o Room1.o Room2.o Room3.o Feature.o Object.o Gravestone.o Knife.o
-	$(CXX) $(CXXFLAGS) -o main main.o Game.o Player.o Room.o Room1.o Room2.o Room3.o Feature.o Object.o Gravestone.o Knife.o
+main: main.o Game.o Player.o Room.o Room1.o Room2.o Room3.o Feature.o Object.o Feature1.o Feature2.o Object1.o
+	$(CXX) $(CXXFLAGS) -o main main.o Game.o Player.o Room.o Room1.o Room2.o Room3.o Feature.o Object.o Feature1.o Feature2.o Object1.o
 
 # The main.o target can be written more simply
 
@@ -23,7 +23,7 @@ Player.o: Player.h globals.h
 
 Room.o: Room.h Feature.h Globals.h
 
-Room1.o: Room1.h Room.h Gravestone.h
+Room1.o: Room1.h Room.h Feature1.h Feature2.h
 
 Room2.o: Room2.h Room.h
 
@@ -33,9 +33,11 @@ Feature.o: Feature.h globals.h
 
 Object.o: Object.h Feature.h
 
-Gravestone.o: Gravestone.h Feature.h
+Feature1.o: Feature1.h Feature.h
 
-Knife.o: Knife.h Object.h
+Feature2.o: Feature2.h Feature.h
+
+Object1.o: Object1.h Object.h
 
 clean:
 	rm main *.o

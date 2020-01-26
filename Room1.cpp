@@ -8,8 +8,9 @@ Room1::Room1() {
 	set_name("Front Garden");
 	set_extra_description("There is a general feeling of drearyness and unease in the air.");
 	set_room_id(0);
+
 	set_feature_x(new Feature1, 0);
-	
+	set_feature_x(new Feature2, 1);
 	
 	init_long_short_desc();
 	//set exits; name, direction

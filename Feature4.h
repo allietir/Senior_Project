@@ -4,7 +4,7 @@
 
 #ifndef _Feature1_h_
 #define _Feature1_h_
-#include "Feature.h"
+#include "Object.h"
 class Feature1 : public Feature {
 public:
 	Feature1();
