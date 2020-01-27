@@ -9,6 +9,19 @@
 #include "Room1.h"
 #include "Room2.h"
 #include "Room3.h"
+#include "Room4.h"
+#include "Room5.h"
+#include "Room6.h"
+#include "Room7.h"
+#include "Room8.h"
+#include "Room9.h"
+#include "Room10.h"
+#include "Room11.h"
+#include "Room12.h"
+#include "Room13.h"
+#include "Room14.h"
+#include "Room15.h"
+
 #include "Object.h"
 #include "globals.h"
 
@@ -35,15 +48,23 @@ public:
 	void set_obj_location(int obj_id, int location);
 	int get_obj_location(int obj_id);
 	
-
-
+	void exit_room(int dir);//take room of exit as parameter and update variables so that player is in new room
 	
-	Object o_array[NUM_OBJECTS];
+	Object* get_object_x(int x);
+	void set_object_x(Object obj, int x);
+	Room* get_room_x(int x);
+	void set_room_x(Room r, int x);
+	
+	void event1();
+	
+
+//private:	
+	Object* o_array[NUM_OBJECTS];
 	Room* r_array[NUM_ROOMS];
-	Room1 room_1;
-	//Room2 room_2;
+	string event1_text;
+
 	//Room3 room_3;
-	Object1 object_1;
+	//Object1 object_1;
 //	Object2 object_2;
 //	Object3 object_3;
 //	Object4 object_4;

@@ -12,13 +12,13 @@ Feature2::Feature2() {
 	set_index_id(1);
 }
 string Feature2::look(){
-	if (get_look_count()==1){
+	if (get_look_count()==0){
 		set_desc(desc1);
 	}
 
-	if (get_look_count()==2){
+	if (get_look_count()==1){
 		set_desc(desc2);
-		set_look_count(1);
+		set_look_count(0);
 	}
 	Feature::look();
 	return get_desc();

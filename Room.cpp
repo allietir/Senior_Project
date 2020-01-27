@@ -144,23 +144,69 @@ int Room::set_get_num_exits(){
 	}
 	return num_exits;
 }
-string Room::exit_text(){
+string Room::long_exit_text(){
 	string exit_text = "You see: ";
+	int exit_exist = 0;
 	for (int i = 0; i < MAX_EXITS; i++){
-		string exit_x = get_exit_name(i);
-		if (exit_x !="no_exit"){
-			exit_text = exit_text + exit_x + " in the " + get_exit_dir(i);
+		
+		if (get_exit_name(i)!="no_exit"){
+			exit_exist = 1;
+			string exit_x = get_exit_desc(i);
+			exit_text = exit_text + exit_x;
 		}
 		
 	}
+	if (exit_exist == 0){
+		exit_text = "";
+	}
+	else{
+			exit_text = exit_text + ".  " ;
+		}
+	
 	return exit_text;
 }
-string Room::feature_text(){
+string Room::short_exit_text(){
+	string exit_text = "You see: ";
+	int exit_exist = 0;
+	for (int i = 0; i < MAX_EXITS; i++){
+		string exit_x = get_exit_name(i);
+		if (exit_x!="no_exit"){
+			exit_exist = 1;
+			exit_text = exit_text + exit_x + " in the " + get_exit_dir(i) + ". ";
+		}
+		
+	}
+	
+	if (exit_exist == 0){
+			exit_text = "";
+	}
+	else{
+		exit_text = exit_text + ".  " ;
+	}
+		
+	return exit_text;
+}
+string Room::long_feature_text(){
 	
 	string feature_text = "You see: ";
 	for (int i = 0; i < MAX_FIXED; i ++){
 		if ((fixed_list[i]->get_name()!="no feature name")&&(i<MAX_FIXED-1)){
 			feature_text = feature_text + fixed_list[i]->get_desc() + "and ";
+		}
+		if ((fixed_list[i]->get_name()!="no feature name")&&(i==MAX_FIXED-1)){
+			feature_text = feature_text + fixed_list[i]->get_desc() + ".\n";
+		}
+
+	}
+	return feature_text;
+	
+}
+string Room::short_feature_text(){
+	
+	string feature_text = "You see: ";
+	for (int i = 0; i < MAX_FIXED; i ++){
+		if ((fixed_list[i]->get_name()!="no feature name")&&(i<MAX_FIXED-1)){
+			feature_text = feature_text + fixed_list[i]->get_desc() + " and ";
 		}
 		if ((fixed_list[i]->get_name()!="no feature name")&&(i==MAX_FIXED-1)){
 			feature_text = feature_text + fixed_list[i]->get_desc() + ".\n";
@@ -178,8 +224,8 @@ void Room::add_object_text(string name, string desc){
 	set_long_description(new_long_descs);
 }
 void Room::init_long_short_desc(){
-	string short_descr = "This is " + get_name() + ". " + exit_text() + ".  " + feature_text();
-	string long_descr = "This is " + get_name() + ". " + get_extra_description() + exit_text() + ". "+ feature_text();
+	string short_descr = "This is " + get_name() + ". " + short_exit_text() + short_feature_text();
+	string long_descr = "This is " + get_name() + ". " + get_extra_description() + long_exit_text() + long_feature_text();
 	set_short_description(short_descr);
 	set_long_description(long_descr);
 	
@@ -202,12 +248,15 @@ void Room::set_exit_id(int room_id, int exit_index){
 	exit_ids[exit_index]=room_id;
 }
 string Room::look(){
+	//
+	
 	if (room_entered == 1)
 	{
 		return short_description;
 		
 	}
-	else {
+	else 
+	{
 		room_entered = 1;
 
 		return long_description;
@@ -237,6 +286,13 @@ void Room::event_two(){
 void Room::event_three(){{
 	printf("A description of event three and perhaps a game state change");
 }}
+
+string Room::get_exit_desc(int dir){
+	return exit_desc[dir];
+}
+void Room::set_exit_desc(string desc, int dir){
+	exit_desc[dir]=desc;
+}
 Room::~Room() {
 	//printf("Destroying pure virtual base class 'Room'\n");
 	for (int i = 0; i < MAX_FIXED; i++){

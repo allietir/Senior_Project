@@ -3,28 +3,31 @@
 // Created by Claudia Rodriguez-Schroeder on 1/3/20.
 
 #include "Room11.h"
-
+//#define ROOM11 "Library"//exit north->attic:10 east->parlor/lounge:5 west->conservatory:12
 Room11::Room11() {
-	//printf("Constructing derived class Room11\n");
-	set_name("Room11");
-	set_room_id(1);
-	set_exit("exit_2");
-	Feature f1;
-	Feature f2;
-	f1.name = "Room11.feature_1";
-	f1.description = "Room11.feature_1.description";
-	set_feature_1(f1);
-	f2.name = "Room11.feature_2";
-	f2.description = "Room11.feature_2.description";
-	set_feature_2(f2);
-	string short_descr = "This is " + get_name() + "." + " You see " + get_exit() + ". You see " + get_feature_1().description + " and " + get_feature_2().description;
-	string long_descr = "LONG DESC: This is " + get_name() + "." + " You see " + get_exit() + ". You see " + get_feature_1().description + " and " + get_feature_2().description;
+	set_name("Library");
+	set_extra_description("The comforting crackling of a fire and the smell of books surround you. ");
+	set_room_id(10);
 
-	set_short_description(short_descr);
-	set_long_description(long_descr);
+	//set_feature_x(new Feature21, 0);//Fire
+	//set_feature_x(new Feature22, 1);//Bookshelf
 	
-
-	//printf("Room Name: %s\n", this->get_name().c_str());
+	set_exit_name("Ladder to attic", 0);//north
+	set_exit_name("Door to parlor", 2);//east
+	set_exit_name("Door to conservatory", 3);//west
+	
+	string exit_desc0 = "A ladder up to the attic is in the north";
+	string exit_desc2 = "A door to the parlor is in the east";
+	string exit_desc3 = "A door to the consevatory is in the west";
+	set_exit_desc(exit_desc0, 0);
+	set_exit_desc(exit_desc2, 2);
+	set_exit_desc(exit_desc3, 3);
+	set_exit_id(9, 0);//exit south
+	set_exit_id(4, 2);//exit east
+	set_exit_id(11, 3);//exit east
+	init_long_short_desc();
+	//object set in Game, therefor description initialized in Game	
+	
 	
 }
 

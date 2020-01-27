@@ -3,28 +3,25 @@
 // Created by Claudia Rodriguez-Schroeder on 1/3/20.
 
 #include "Room7.h"
+//exit west->upstaris hallway:3
 
 Room7::Room7() {
-	//printf("Constructing derived class Room7\n");
-	set_name("Room7");
-	set_room_id(1);
-	set_exit("exit_2");
-	Feature f1;
-	Feature f2;
-	f1.name = "Room7.feature_1";
-	f1.description = "Room7.feature_1.description";
-	set_feature_1(f1);
-	f2.name = "Room7.feature_2";
-	f2.description = "Room7.feature_2.description";
-	set_feature_2(f2);
-	string short_descr = "This is " + get_name() + "." + " You see " + get_exit() + ". You see " + get_feature_1().description + " and " + get_feature_2().description;
-	string long_descr = "LONG DESC: This is " + get_name() + "." + " You see " + get_exit() + ". You see " + get_feature_1().description + " and " + get_feature_2().description;
+	set_name("Guest Bedroom");
+	set_extra_description("You feel a heavy sadness; the grief of loss, the pain of lonliness");
+	set_room_id(6);
 
-	set_short_description(short_descr);
-	set_long_description(long_descr);
+	//set_feature_x(new Feature13, 0);
+	//set_feature_x(new Feature14, 1);
 	
+	set_exit_name("Door to hallway", 3);
 
-	//printf("Room Name: %s\n", this->get_name().c_str());
+	string exit_desc3 = "The doorway back to the hallway is back to the west.";
+	set_exit_desc(exit_desc3, 3);
+
+	set_exit_id(2, 3);//exit at west goes to upstairs hallway
+	
+	init_long_short_desc();
+	//object set in Game, therefor description initialized in Game	
 	
 }
 

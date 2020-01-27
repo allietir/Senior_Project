@@ -3,28 +3,26 @@
 // Created by Claudia Rodriguez-Schroeder on 1/3/20.
 
 #include "Room9.h"
-
+//#define ROOM9 "Bathroom"//exit south->master bedroom:8 east->child room:6 exit 
 Room9::Room9() {
-	//printf("Constructing derived class Room9\n");
-	set_name("Room9");
-	set_room_id(1);
-	set_exit("exit_2");
-	Feature f1;
-	Feature f2;
-	f1.name = "Room9.feature_1";
-	f1.description = "Room9.feature_1.description";
-	set_feature_1(f1);
-	f2.name = "Room9.feature_2";
-	f2.description = "Room9.feature_2.description";
-	set_feature_2(f2);
-	string short_descr = "This is " + get_name() + "." + " You see " + get_exit() + ". You see " + get_feature_1().description + " and " + get_feature_2().description;
-	string long_descr = "LONG DESC: This is " + get_name() + "." + " You see " + get_exit() + ". You see " + get_feature_1().description + " and " + get_feature_2().description;
+	set_name("Bathroom");
+	set_extra_description("The sound of water and weeping, and a sense of anxiety and horror permeates your very bones.");
+	set_room_id(8);
 
-	set_short_description(short_descr);
-	set_long_description(long_descr);
+	//set_feature_x(new Feature17, 0);
+	//set_feature_x(new Feature18, 1);
 	
+	set_exit_name("Door to master bedroom", 1);//south
+	set_exit_name("Door to nursury", 2);//east
 
-	//printf("Room Name: %s\n", this->get_name().c_str());
+	string exit_desc1 = "The doorway back to the master bedroom is in the south.";
+	string exit_desc2 = "The doorway back to the nursuery is in the east.";
+	set_exit_desc(exit_desc1, 1);
+	set_exit_desc(exit_desc1, 2);
+	set_exit_id(7, 1);//exit south
+	set_exit_id(5, 2);//exit east
+	init_long_short_desc();
+	//object set in Game, therefor description initialized in Game	
 	
 }
 

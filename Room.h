@@ -43,6 +43,8 @@ public:
 	string get_exit_x(int direction, int x);//x being exit_1 : go + direction, exit_2 : direction, exit_3 : exit_namae
 	void init_exits();
 	
+	string get_exit_desc(int dir);
+	void set_exit_desc(string desc, int dir);
 	
 	int get_room_entered();
 	void set_room_entered(int s_room_entered);
@@ -59,8 +61,11 @@ public:
 	int get_num_events();
 	void set_num_events(int x);
 
-	string exit_text();
-	string feature_text();
+	string short_exit_text();
+	string long_exit_text();
+	string short_feature_text();
+	string long_feature_text();
+
 	void add_object_text(string object_name, string object_desc);
 	int set_get_num_exits();
 	int get_num_obj();

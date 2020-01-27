@@ -3,29 +3,26 @@
 // Created by Claudia Rodriguez-Schroeder on 1/3/20.
 
 #include "Room6.h"
-
+//exit south->upstrais hallway:3  west->bathroom:9
 Room6::Room6() {
-	//printf("Constructing derived class Room6\n");
-	set_name("Room6");
-	set_room_id(1);
-	set_exit("exit_2");
-	Feature f1;
-	Feature f2;
-	f1.name = "Room6.feature_1";
-	f1.description = "Room6.feature_1.description";
-	set_feature_1(f1);
-	f2.name = "Room6.feature_2";
-	f2.description = "Room6.feature_2.description";
-	set_feature_2(f2);
-	string short_descr = "This is " + get_name() + "." + " You see " + get_exit() + ". You see " + get_feature_1().description + " and " + get_feature_2().description;
-	string long_descr = "LONG DESC: This is " + get_name() + "." + " You see " + get_exit() + ". You see " + get_feature_1().description + " and " + get_feature_2().description;
+	set_name("Nursury");
+	set_extra_description("The room is painted in colors that were once bright, are cracked and faded by time.");
+	set_room_id(5);
 
-	set_short_description(short_descr);
-	set_long_description(long_descr);
+	//set_feature_x(new Feature11, 0);
+	//set_feature_x(new Feature12, 1);
 	
-
-	//printf("Room Name: %s\n", this->get_name().c_str());
+	set_exit_name("Door to hallway", 1);
+	set_exit_name("Doorway to bathroom", 3);
+	string exit_desc1 = "There's a mirrored door back to the hallway, strange and fogged. ";
+	string exit_dex3 = "There's a dooway to what looks like a bathroom. You can hear water running";
+	set_exit_desc(exit_desc1, 1);
+	set_exit_desc(exit_desc1, 3);
+	set_exit_id(2, 1);//exit at south goes to upstairs hallway
+	set_exit_id(8, 3);//exit at south goes to upstairs hallway
 	
+	init_long_short_desc();
+	//object set in Game, therefor description initialized in Game	
 }
 
 Room6::~Room6() {
