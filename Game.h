@@ -28,6 +28,13 @@
 
 //OBJECT
 #include "Object1.h"
+#include "Object2.h"
+#include "Object3.h"
+#include "Object4.h"
+#include "Object5.h"
+#include "Object6.h"
+#include "Object7.h"
+#include "Object8.h"
 class Game {
 public:
 	Game();
@@ -54,6 +61,8 @@ public:
 	void set_object_x(Object obj, int x);
 	Room* get_room_x(int x);
 	void set_room_x(Room r, int x);
+	
+	int exit_valid(int next_room);
 	
 	void event1();
 	

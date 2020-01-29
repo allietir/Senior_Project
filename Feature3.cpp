@@ -1,15 +1,15 @@
 //
-// Feature1.cpp
+// Feature3.cpp
 // Created by Claudia Rodriguez-Schroeder on 1/22/20.
 
-#include "Feature1.h"
+#include "Feature3.h"
 
-Feature1::Feature1() {
-	set_name("Gravestone");
-	set_desc("A gray, dreary looking Gravestone with vines covering the name of the deceased. ");
-	set_index_id(0);
+Feature3::Feature3() {
+	set_name("Feature3");
+	set_desc("Feature3 description");
+	set_index_id(2);
 }
-string Feature1::read(){
+string Feature3::read(){
 	string read_response = "The " + get_name() + "'s first name is too faded to read, but the last name says 'Smith'.\n 'Hey', says" + FRIEND_NAME + ". 'Wasn't that your mom's maiden name?'. 'Yeah', you reply, ";
 	func_togg_count_x(0);
 	
@@ -17,6 +17,6 @@ string Feature1::read(){
 	
 	
 }
-Feature1::~Feature1() {
+Feature3::~Feature3() {
 	
 }

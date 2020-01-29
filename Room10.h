@@ -5,6 +5,8 @@
 #ifndef _Room10_h_
 #define _Room10_h_
 #include "Room.h"
+#include "Feature20.h"
+#include "Feature19.h"
 
 class Room10: public Room {
 public:

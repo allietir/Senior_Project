@@ -9,8 +9,8 @@ Room10::Room10() {
 	set_extra_description("The sound of coins and the smell of salt assault your senses as you enter the attic.");
 	set_room_id(9);
 
-	//set_feature_x(new Feature19, 0);//treasure chest
-	//set_feature_x(new Feature20, 1);//pirate
+	set_feature_x(new Feature19, 0);//treasure chest
+	set_feature_x(new Feature20, 1);//pirate
 	
 	set_exit_name("Ladder to library", 1);//south
 	set_exit_name("Ladder to master bedroom", 2);//east

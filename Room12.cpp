@@ -9,8 +9,8 @@ Room12::Room12() {
 	set_extra_description("The smell of life and earth, the sound of water, and the feeling that something important is coming; all these sensations are perceived by you.");
 	set_room_id(11);
 
-	//set_feature_x(new Feature23, 0);//Fountain
-	//set_feature_x(new Feature24, 1);//Gaurdina
+	set_feature_x(new Feature23, 0);//Fountain
+	set_feature_x(new Feature24, 1);//Gaurdina
 	//OBJECTS: holy water
 	
 	set_exit_name("Door to front garden", 1);//SOUTH

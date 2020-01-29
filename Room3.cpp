@@ -9,7 +9,8 @@ Room3::Room3() {
 	set_name("Upstairs Hallways");
 	set_extra_description("The hallway is so dark and cold, it seems to go on forever. Your teeth start chattering and you pull yourself closer. ");//FEATURE mirror at end of hall
 	set_room_id(2);
-	//set_feature_x(feature_1, 0);
+	set_feature_x(new Feature5, 0);
+	set_feature_x(new Feature6, 1);
 	init_long_short_desc();
 	//set exits; name, direction
 	set_exit_name("Mirrored door", 0);//to chils bedroom room 6/5

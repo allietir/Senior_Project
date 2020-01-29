@@ -52,6 +52,9 @@ public:
 	int get_has_objects(int object_index);
 	void set_has_objects(int object_index, int val);
 	
+	int get_needs_objects(int object_index);
+	void set_needs_objects(int object_index, int val);
+	
 	int get_exit_id(int exit_index);
 	void set_exit_id(int room_id, int exit_index);
 	
@@ -108,6 +111,8 @@ private:
 
 	//an array of 0 or 1 based on whether the item is in that room at that time; for purpose of accurate room description
 	int has_objects[NUM_OBJECTS];
+	
+	int player_needs_objects[NUM_OBJECTS];//set to 0 if not needed, 1 if needed to enter the room
 	
 	int obj_count;
 	int num_exits;

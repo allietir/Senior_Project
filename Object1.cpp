@@ -5,17 +5,14 @@
 #include "Object1.h"
 
 Object1::Object1() {
-	set_name("Knife");
-	string desc = "A sharp silver " + get_name() + " with a worn handle";
-	set_desc(desc);
+	set_name("Oil Lamp");
+	set_desc("A dusty old oil lamp, glass chipped and handle rusted. It looks like there is an enscription on the metal");
 	set_index_id(0);
 }
 string Object1::read(){
-	string read_response = "The " + get_name() + "'s first name is too faded to read, but the last name says 'Smith'.\n 'Hey', says" + FRIEND_NAME + ". 'Wasn't that your mom's maiden name?'. 'Yeah', you reply, ";
+	string read_response = "Vos postulo mihi tenebris";
 	func_togg_count_x(0);
 	return read_response;
-	
-	
 }
 Object1::~Object1() {
 	

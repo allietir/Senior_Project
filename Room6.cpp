@@ -9,8 +9,8 @@ Room6::Room6() {
 	set_extra_description("The room is painted in colors that were once bright, are cracked and faded by time.");
 	set_room_id(5);
 
-	//set_feature_x(new Feature11, 0);
-	//set_feature_x(new Feature12, 1);
+	set_feature_x(new Feature11, 0);
+	set_feature_x(new Feature12, 1);
 	
 	set_exit_name("Door to hallway", 1);
 	set_exit_name("Doorway to bathroom", 3);

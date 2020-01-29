@@ -9,8 +9,8 @@ Room4::Room4() {
 	set_extra_description("The room is uncomfortably warm and the smell of cooking flesh wafts in the air, of fresh blood. ");
 	set_room_id(3);
 
-	//set_feature_x(new Feature7, 0);
-	//set_feature_x(new Feature8, 1);
+	set_feature_x(new Feature7, 0);
+	set_feature_x(new Feature8, 1);
 	
 
 	//set exits; name, direction

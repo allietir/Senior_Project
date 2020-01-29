@@ -9,8 +9,8 @@ Room14::Room14() {
 	set_extra_description("The weight of the house and its secrets seems to be crushing your spirit and your resolve. ");
 	set_room_id(13);
 
-	//set_feature_x(new Feature27, 0);//lucifer statue
-	//set_feature_x(new Feature28, 1);//black hole in corner
+	set_feature_x(new Feature27, 0);//lucifer statue
+	set_feature_x(new Feature28, 1);//black hole in corner
 	
 	set_exit_name("Door to crypt", 0);//north
 	set_exit_name("Ladder up to kitchen", 1);//south

@@ -9,8 +9,8 @@ Room2::Room2() {
 	set_name("Entranceway");
 	set_extra_description("The room is dark and damp, simultaneously cloistering yet overwhelmingly large. ");
 	set_room_id(1);
-	//set_feature_x(feature_1, 0);
-	
+	set_feature_x(new Feature3, 0);
+	set_feature_x(new Feature4, 1);
 	//set exits; name, direction
 	set_exit_name("Staircase", 0);//to Upstairs Hallway 3/2
 	set_exit_name("Back Door", 1);//to Front Garden 1/0

@@ -9,8 +9,8 @@ Room5::Room5() {
 	set_extra_description("You feel like you can hear music, but can't quite place it; you strain to listen, but fail to understand.");
 	set_room_id(4);
 
-	//set_feature_x(new Feature9, 0);
-	//set_feature_x(new Feature10, 1);
+	set_feature_x(new Feature9, 0);
+	set_feature_x(new Feature10, 1);
 	
 
 	//set exits; name, direction

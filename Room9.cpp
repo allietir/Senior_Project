@@ -9,8 +9,8 @@ Room9::Room9() {
 	set_extra_description("The sound of water and weeping, and a sense of anxiety and horror permeates your very bones.");
 	set_room_id(8);
 
-	//set_feature_x(new Feature17, 0);
-	//set_feature_x(new Feature18, 1);
+	set_feature_x(new Feature17, 0);
+	set_feature_x(new Feature18, 1);
 	
 	set_exit_name("Door to master bedroom", 1);//south
 	set_exit_name("Door to nursury", 2);//east

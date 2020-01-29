@@ -9,8 +9,8 @@ Room15::Room15() {
 	set_extra_description("The final confrontation is at last upon you. Are you ready? ");
 	set_room_id(14);
 
-	//set_feature_x(new Feature29, 0);//
-	//set_feature_x(new Feature30, 1);//
+	set_feature_x(new Feature29, 0);//
+	set_feature_x(new Feature30, 1);//
 	
 	set_exit_name("Basement exit", 0);//north
 

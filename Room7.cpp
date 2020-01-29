@@ -10,8 +10,8 @@ Room7::Room7() {
 	set_extra_description("You feel a heavy sadness; the grief of loss, the pain of lonliness");
 	set_room_id(6);
 
-	//set_feature_x(new Feature13, 0);
-	//set_feature_x(new Feature14, 1);
+	set_feature_x(new Feature13, 0);
+	set_feature_x(new Feature14, 1);
 	
 	set_exit_name("Door to hallway", 3);
 

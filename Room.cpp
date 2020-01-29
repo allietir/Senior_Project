@@ -27,6 +27,7 @@ Room::Room() {
 	room_entered = 0;
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		has_objects[i]=0;
+		player_needs_objects[i]=0;
 	}
 	obj_count = 0;
 	num_exits = get_num_exits();
@@ -34,7 +35,9 @@ Room::Room() {
 	num_events = 0;
 	for (int i = 0; i < MAX_FIXED; i++){
 		set_feature_x(new Feature, i);
+		
 	}
+	
 	
 
 }
@@ -132,6 +135,15 @@ int Room::get_has_objects(int object_index)
 void Room::set_has_objects(int object_index, int val)
 {
 	has_objects[object_index]=val;
+}
+
+int Room::get_needs_objects(int object_index)
+{
+	return player_needs_objects[object_index];
+}
+void Room::set_needs_objects(int object_index, int val)
+{
+	player_needs_objects[object_index]=val;
 }
 int Room::set_get_num_exits(){
 	num_exits=0;

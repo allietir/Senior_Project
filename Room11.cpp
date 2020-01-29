@@ -9,8 +9,8 @@ Room11::Room11() {
 	set_extra_description("The comforting crackling of a fire and the smell of books surround you. ");
 	set_room_id(10);
 
-	//set_feature_x(new Feature21, 0);//Fire
-	//set_feature_x(new Feature22, 1);//Bookshelf
+	set_feature_x(new Feature21, 0);//Fire
+	set_feature_x(new Feature22, 1);//Bookshelf
 	
 	set_exit_name("Ladder to attic", 0);//north
 	set_exit_name("Door to parlor", 2);//east

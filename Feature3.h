@@ -1,14 +1,14 @@
 //
-// Feature1.h
+// Feature3.h
 // Created by Claudia Rodriguez-Schroeder on 1/22/20.
 
-#ifndef _Feature1_h_
-#define _Feature1_h_
+#ifndef _Feature3_h_
+#define _Feature3_h_
 #include "Object.h"
-class Feature1 : public Feature {
+class Feature3 : public Feature {
 public:
-	Feature1();
-	virtual ~Feature1();
+	Feature3();
+	virtual ~Feature3();
 	string read();
 	int special=666;
 };

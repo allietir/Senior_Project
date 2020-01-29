@@ -9,8 +9,8 @@ Room8::Room8() {
 	set_extra_description("The smell of blood and death lingers heavily in the air. ");
 	set_room_id(7);
 
-	//set_feature_x(new Feature15, 0);
-	//set_feature_x(new Feature16, 1);
+	set_feature_x(new Feature15, 0);
+	set_feature_x(new Feature16, 1);
 	
 	
 	set_exit_name("Door to bathroom", 0);

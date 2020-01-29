@@ -9,8 +9,8 @@ Room13::Room13() {
 	set_extra_description("The smell of apple pie wafts pleasently under your nose, but you don't see any pie. However, as your eyes adjust from the dark, you smell an undertone of rot and decay. ");
 	set_room_id(12);
 
-	//set_feature_x(new Feature25, 0);//stovetop
-	//set_feature_x(new Feature26, 1);//crow with clue to basement
+	set_feature_x(new Feature25, 0);//stovetop
+	set_feature_x(new Feature26, 1);//crow with clue to basement
 	
 	
 	set_exit_name("Trapdoor to basement", 0);//SOUTH
