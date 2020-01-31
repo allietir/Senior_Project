@@ -5,7 +5,7 @@
 #define TOTAL_FIXED 45
 #define MAX_EXITS 4
 #define MAX_DESCS 5
-#define NUM_VERB_FUNCS 10
+#define NUM_VERB_FUNCS 11
 #define FRIEND_NAME "ALEX"
 
 #define ROOM1 "Front Garden"
