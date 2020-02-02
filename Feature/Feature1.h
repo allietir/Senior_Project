@@ -9,8 +9,12 @@ class Feature1 : public Feature {
 public:
 	Feature1();
 	virtual ~Feature1();
-	string read();
+	void read();
+	void look();
 	int special=666;
+private:
+	string desc1;
+	string desc2;
 };
 
 #endif

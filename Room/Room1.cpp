@@ -24,6 +24,7 @@ Room1::Room1() {
 	
 }
 
+
 Room1::~Room1() {
 	
 }

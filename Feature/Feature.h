@@ -35,41 +35,48 @@ public:
 	int get_look_count();
 	void set_look_count(int x);
 	
-	virtual string look();//return desc
+	virtual void look();//return desc
 	
 	/*Your game must support an action vocabulary space (verbs) of at least ten primary actions (hit, pull, go, eat, etc.). These verbs must allow interaction with each feature in each room (a generic "you can't eat that" type of message is OK to use with some verbs).
 	Some verbs must cause the player to move between rooms.*/
 	
 	
 	//objec verbs
-	virtual string read();//verb func 0: verb_func_toggled[0]
-	//virtual string light();//light the lamp or rooms that have switches
-	//virtual string fill();//used to fill chalice with blood or holy water within the conservatory feature and vampire blood feature
+	virtual void read();//verb func 0: verb_func_toggled[0]
+	//virtual void light();//light the lamp or rooms that have switches
+	//virtual void fill();//used to fill chalice with blood or holy water within the conservatory feature and vampire blood feature
 	
 	//
-	virtual string pull();
-	virtual string push();
-	virtual string turn();
-	virtual string peel();
-	virtual string pet();//for cat features
-	virtual string speak();//talk to a feature or object 
-	virtual string listen();//user to interact with some features or objects potentially
+	virtual void pull();//1
+	virtual void push();//2
+
+	virtual void turn();//3
+	virtual void play();//4
+	virtual void open();//5
+	virtual void speak();//6talk to a feature or object 
+	virtual void listen();//7user to interact with some features or objects potentially
 	//will allow user to exit
-	virtual string climb();//use to interact with some features to exit between rooms
-	virtual string jump();//user to interact with some features to exit between rooms
-	virtual string consider();
+	virtual void climb();//8use to interact with some features to exit between rooms
+	virtual void jump();//9user to interact with some features to exit between rooms
+	virtual void attack();//10 
+	
+
 		
 		
 	//object plus feature
-	//virtual string place(int feature_index);//called on an object verb you use in conjunction with a feature
+	//virtual void place(int feature_index);//called on an object verb you use in conjunction with a feature
 	//will allow user to exit
-	//virtual string open(int object_index);//called on a feature that needs to use a KEY object 
-	//virtual string attack(int feature_index);//called on object plus a feature; attack something using a feature id
+	//virtual void open(int object_index);//called on a feature that needs to use a KEY object 
+	//virtual void attack(int feature_index);//called on object plus a feature; attack something using a feature id
 		
 	
 	
 	
 	int func_togg_count_x(int x);
+	
+	int get_times_toggled(int function_id);
+	void set_togg_count_x(int x, int new_count);
+	
 	
 	//TO ADD:
 		// a list of functions that correspond to each verb within the game

@@ -5,12 +5,15 @@
 #ifndef _Object1_h_
 #define _Object1_h_
 #include "Object.h"
+
 class Object1 : public Object{
 public:
 	Object1();
 	virtual ~Object1();
-	string read();
+	void read();
+	
 	int special=666;
+	
 };
 
 #endif

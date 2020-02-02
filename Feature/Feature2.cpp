@@ -6,23 +6,44 @@
 
 Feature2::Feature2() {
 	set_name("Gnarled Tree");
-	desc1 = "A large, gnarled looking black tree without a single leaf. It looks like there is something stuck in the tree.";
-	desc2 = "There appears to be a tattered cloth in the tree. It rustles in the wind";
+	desc1 = "A large, gnarled looking black tree without a single leaf. It seems to be as tall as the second floor.";
+	desc2 = "The banches seem to poke almost directly into the open window of the second story.";
 	set_desc(desc1);//
 	set_index_id(1);
 }
-string Feature2::look(){
+void Feature2::look(){
 	if (get_look_count()==0){
-		set_desc(desc1);
-	}
+			set_desc(desc1);
+			set_look_count(1);
+		}
 
-	if (get_look_count()==1){
-		set_desc(desc2);
-		set_look_count(0);
-	}
-	Feature::look();
-	return get_desc();
+		else if (get_look_count()==1){
+			set_desc(desc2);
 	
+			set_look_count(0);
+		}	
+		printf("%s\n", get_desc().c_str());
+	
+}
+void Feature2::climb(){
+	if (get_times_toggled(8)==0){
+		printf("You climb up the tree and are able to see that a second story window is open. The room is so dark but it looks like a master bedroom.\n");
+		func_togg_count_x(8);
+	}
+	else if (get_times_toggled(8)==1){
+		printf("You climb down the tree and you are back on the ground\n");
+		set_togg_count_x(8, 0);
+	}
+}
+void Feature2::jump(){
+	if (get_times_toggled(8)==1){
+		printf("You jump through the window and as you do so the branch below you snaps.");
+
+		func_togg_count_x(9);
+	}
+	else{
+		printf("The branch is broken, you can't jump through.\n");
+	}
 }
 Feature2::~Feature2() {
 	

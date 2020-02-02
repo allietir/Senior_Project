@@ -11,30 +11,48 @@ Feature3::Feature3() {
 	set_desc(desc1);
 	set_index_id(2);
 }
-string Feature3::look(){
+void Feature3::look(){
 	if (get_look_count()==0){
 		set_desc(desc1);
+		set_look_count(1);
 	}
 
 	if (get_look_count()==1){
 		set_desc(desc2);
 		set_look_count(0);
 	}
-	Feature::look();
-	return get_desc();
+	func_togg_count_x(0);
+	printf("%s\n", get_desc().c_str());
 	
 }
-string Feature3::pull(){
+void Feature3::pull(){
 	
-	string pull_event = "The painting seems to groan and suddenly the father's eyes seem to shift directly towards you, but it's dark so you might be seeing things. You decide not to pull the painting again";
+	if(get_times_toggled(1)==0){
+		string pull_event = "The painting seems to groan and suddenly the father's eyes seem to shift directly towards you, but it's dark so you might be seeing things. You decide not to pull the painting again";
 	func_togg_count_x(1);
-	return pull_event;
+	printf("%s\n", pull_event.c_str());
+	}
+	else{
+		string pull_event = "Nothing happens; you wonder if you imagined it before.\n";
+		func_togg_count_x(1);
+		printf("%s\n", pull_event.c_str());
+		
+	}
 }
-string Feature3::push(){
+void Feature3::push(){
 	
-	string push_event = "";
-	func_togg_count_x(2);
-	return push_event;
+	if(get_times_toggled(2)==0){
+		string push_event = "You feel a chill and you see the doll in the girls arms dissapear. The girls face suddenly goes even sadder, and you see a single tear drop out of theh panting and onto your feet.\n";
+			func_togg_count_x(2);
+			printf("%s\n", push_event.c_str());
+
+	}
+	if(get_times_toggled(2)>1){
+		string push_event = "Poor little girl. You are creeped out but sad for the family in the portrait.\n";
+		func_togg_count_x(2);
+		printf("%s\n", push_event.c_str());
+
+	}
 }
 Feature3::~Feature3() {
 	

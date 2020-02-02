@@ -74,11 +74,11 @@ public:
 	int get_num_obj();
 
 	void init_long_short_desc();
-	string look();//if user has been there before, return short desc;
+	void look();//if user has been there before, return short desc;
 	
-	void event_one();
-	void event_two();
-	void event_three();
+	virtual void event_one();
+	virtual void event_two();
+	virtual void event_three();
 
 	Feature* fixed_list[MAX_FIXED]; 
 	

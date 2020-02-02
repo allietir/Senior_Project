@@ -37,25 +37,26 @@ void Game::init_rooms() {
 	r_array[14]= new Room15;
 
 	//add objects to array
-	int room_obj_set[]={0, 3, 10, 6, 7, 11, 5, 9};
+	int room_obj_set[]={1, 3, 10, 6, 0, 11, 5, 9};
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		int room_id = room_obj_set[i];
 		
 		r_array[room_id]->set_has_objects(i, 1);
-		r_array[room_id]->add_object_text(o_array[i]->get_name(), o_array[i]->get_desc());
+		//only add object text after object is LOOKED at
+		//r_array[room_id]->add_object_text(o_array[i]->get_name(), o_array[i]->get_desc());
 		if (r_array[room_id]->get_has_objects(i)==1){
-			printf("%s now has %s\n", r_array[room_id]->get_name().c_str(), o_array[i]->get_name().c_str());
+			//printf("%s now has %s\n", r_array[room_id]->get_name().c_str(), o_array[i]->get_name().c_str());
 		}
 		
 	}
 	int room_needs_object1[]={2, 3, 4, 5, 6, 7, 8, 13};
 	for (int i = 0; i < 8; i++){
 		int room_id = room_needs_object1[i];
-		printf("setting %s to require oil lamp\n", r_array[room_id]->get_name().c_str());
+		//printf("setting %s to require %s\n", r_array[room_id]->get_name().c_str(), o_array[0]->get_name().c_str());
 		r_array[room_id]->set_needs_objects(0, 1);
-		if (r_array[room_id]->get_needs_objects(0)==1){
+		/*if (r_array[room_id]->get_needs_objects(0)==1){
 			printf("%s now needs %s\n", r_array[room_id]->get_name().c_str(), o_array[0]->get_name().c_str());
-		}
+		}*/
 	}
 	
 	
@@ -92,8 +93,8 @@ void Game::start(){
 	printf("Welcome %s\n", player1.get_name().c_str());
 	printf("Current location is %s\n", r_array[player1.get_current_room()]->get_name().c_str());
 	
-	string sd = r_array[player1.get_current_room()]->look();
-	printf("%s", sd.c_str());
+	r_array[player1.get_current_room()]->look();
+
 	printf("%s", "-----GET INPUT FUNCTION HERE------");
 }
 //take implemented at game level, since objects are at game level
@@ -173,6 +174,13 @@ int Game::exit_valid(int next_room)
 	}
 	return 0;
 }
+void Game::exit_r1_r8(){
+	
+	player1.set_current_room(7);
+	printf("You are entering: %s\n", r_array[7]->get_name().c_str());
+	r_array[7]->look();
+}
+
 void Game::exit_room(int dir){
 	
 	
@@ -201,7 +209,7 @@ void Game::exit_room(int dir){
 			//intro room
 			current_room = player1.get_current_room();
 			printf("You are entering: %s\n", r_array[current_room]->get_name().c_str());
-			printf("%s\n", r_array[current_room]->look().c_str());
+			r_array[current_room]->look();
 		}
 		else{
 			printf("------Failure----\n");
@@ -212,6 +220,9 @@ void Game::exit_room(int dir){
 	
 
 	
+}
+void Game::look(){
+	r_array[player1.get_current_room()]->look();
 }
 Game::~Game() {
 

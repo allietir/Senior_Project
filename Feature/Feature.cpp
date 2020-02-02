@@ -60,11 +60,7 @@ int Feature::get_current_room(){
 void Feature::set_current_room(int s_current_room){
 	current_room = s_current_room;
 }
-string Feature::look()//retunr description
-{
-	look_count = look_count + 1;
-	return desc;
-}
+
 int Feature::get_look_count()
 {
 	return look_count;
@@ -73,73 +69,85 @@ void Feature::set_look_count(int x){
 	look_count = x;
 }
 int Feature::func_togg_count_x(int x){
+	
 	verb_func_toggled[x]=verb_func_toggled[x] + 1;
 	return verb_func_toggled[x];
 }
-
-string Feature::read(){
-	string read_response = get_name() + " cannot be read\n";
-	verb_func_toggled[0]=verb_func_toggled[0]+1;
-	return read_response;
+void Feature::set_togg_count_x(int x, int new_count){
+	
+	verb_func_toggled[x]=new_count;
+	
 }
 
-string Feature::pull(){
-	string read_response = get_name() + " cannot be pulled\n";
-	verb_func_toggled[1]=verb_func_toggled[2]+1;
-	return read_response;
-}
-string Feature::push(){
-	string read_response = get_name() + " cannot be pushed\n";
-	verb_func_toggled[2]=verb_func_toggled[2]+1;
-	return read_response;
-}
-string Feature::turn(){
-	string read_response = get_name() + " cannot be turned\n";
-	verb_func_toggled[3]=verb_func_toggled[3]+1;
-	return read_response;
+void Feature::read(){
+	string response = get_name() + " cannot be read\n";
+	printf("%s\n", response.c_str());
 
 }
-string Feature::peel(){
-	string read_response = get_name() + " cannot be peeled\n";
-	verb_func_toggled[4]=verb_func_toggled[4]+1;
-	return read_response;
+void Feature::look()//print description
+{
+	look_count = look_count + 1;
+	printf("%s\n", desc.c_str());
+}
+void Feature::pull(){
+	string response = get_name() + " cannot be pulled\n";
+	printf("%s\n", response.c_str());
 
 }
-string Feature::pet(){
-	string read_response = get_name() + " cannot be pet\n";
-	verb_func_toggled[5]=verb_func_toggled[5]+1;
-	return read_response;
+void Feature::push(){
+	string response = get_name() + " cannot be pushed\n";
+	printf("%s\n", response.c_str());
+
+}
+
+void Feature::turn(){
+	string response = get_name() + " cannot be turned\n";
+	printf("%s\n", response.c_str());
+
+}
+void Feature::play(){
+	string response = get_name() + " cannot be played\n";
+	printf("%s\n", response.c_str());
+
+}
+void Feature::open(){
+	string response = get_name() + " cannot be open\n";
+	printf("%s\n", response.c_str());
+
 }//for cat features
-string Feature::speak(){
-	string read_response = get_name() + " cannot be spoken to\n";
-	verb_func_toggled[6]=verb_func_toggled[6]+1;
-	return read_response;
+void Feature::speak(){
+	string response = get_name() + " cannot be spoken to\n";
+	printf("%s\n", response.c_str());
+
 
 }//talk to a feature or object 
-string Feature::listen(){
-	string read_response = get_name() + " cannot be listened to\n";
-	verb_func_toggled[7]=verb_func_toggled[7]+1;
-	return read_response;
+void Feature::listen(){
+	string response = get_name() + " cannot be listened to\n";
+	printf("%s\n", response.c_str());
+
 
 }//user to interact with some features or objects potentially
 //will allow user to exit
-string Feature::climb(){
-	string read_response = get_name() + " cannot be climbed\n";
-	verb_func_toggled[8]=verb_func_toggled[8]+1;
-	return read_response;
+void Feature::climb(){
+	string response = get_name() + " cannot be climbed\n";
+	printf("%s\n", response.c_str());
+
 
 }//use to interact with some features to exit between rooms
-string Feature::jump(){
-	string read_response = get_name() + " cannot be jumped on or through\n";
-	verb_func_toggled[9]=verb_func_toggled[9]+1;
-	return read_response;
+void Feature::jump(){
+	string response = get_name() + " cannot be jumped on or through\n";
+	printf("%s\n", response.c_str());
+
 
 }//user to interact with some features to exit between rooms
-string Feature::consider(){
-	string read_response = get_name() + " cannot be considered\n";
-	verb_func_toggled[10]=verb_func_toggled[10]+1;
-	return read_response;
+void Feature::attack(){
+	string response = get_name() + " cannot be attacked\n";
+	printf("%s\n", response.c_str());
 
+
+}
+int Feature::get_times_toggled(int function_id){
+	return verb_func_toggled[function_id];
 }
 
 Feature::~Feature() {

@@ -56,6 +56,7 @@ public:
 	int get_obj_location(int obj_id);
 	
 	void exit_room(int dir);//take room of exit as parameter and update variables so that player is in new room
+	void exit_r1_r8();
 	
 	Object* get_object_x(int x);
 	void set_object_x(Object obj, int x);
@@ -65,40 +66,15 @@ public:
 	int exit_valid(int next_room);
 	
 	void event1();
+	void look();//trigger current room look
+	
 	
 
 //private:	
 	Object* o_array[NUM_OBJECTS];
 	Room* r_array[NUM_ROOMS];
-	string event1_text;
-
-	//Room3 room_3;
-	//Object1 object_1;
-//	Object2 object_2;
-//	Object3 object_3;
-//	Object4 object_4;
-//	Object5 object_5;
-//	Object6 object_6;
-//	Object7 object_7;
-//	Object8 object_8;
-
-	/*Room4 room_4;
-	Room5 room_5;
-	Room6 room_6;
-	Room7 room_7;
-	Room8 room_8;
-	Room9 room_9;
-	Room10 room_10;
-	Room11 room_11;
-	Room12 room_12;
-	Room13 room_13;
-	Room14 room_14;
-	Room15 room_15;*/
-	
+	string event1_text;	
 	Player player1;
-	
-	
-	
 	string save_text;
 	string load_text;
 	int save_version;

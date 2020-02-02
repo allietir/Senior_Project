@@ -259,21 +259,22 @@ int Room::get_exit_id(int exit_index){
 void Room::set_exit_id(int room_id, int exit_index){
 	exit_ids[exit_index]=room_id;
 }
-string Room::look(){
+void Room::look(){
 	//
 	
 	if (room_entered == 1)
 	{
-		return short_description;
+		printf("%s\n", short_description.c_str());
 		
 	}
 	else 
 	{
 		room_entered = 1;
 
-		return long_description;
-			}
-	return "error";
+		printf("%s\n", long_description.c_str());
+
+	}
+
 }
 int Room::get_num_exits(){
 	return num_exits;

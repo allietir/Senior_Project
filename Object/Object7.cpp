@@ -9,10 +9,10 @@ Object7::Object7() {
 	set_desc("The key is large and jewel encrusted. It must open something previous. ");
 	set_index_id(6);
 }
-string Object7::read(){
+void Object7::read(){
 	string read_response = "caeli desuper";
 	func_togg_count_x(0);
-	return read_response;
+	printf("%s\n", read_response.c_str());
 	
 	
 }

@@ -11,7 +11,9 @@
 class Room1: public Room {
 public:
 	Room1();
+
 	virtual ~Room1();	
+	
 
 	
 };

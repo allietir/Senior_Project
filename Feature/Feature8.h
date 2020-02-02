@@ -5,12 +5,17 @@
 #ifndef _Feature8_h_
 #define _Feature8_h_
 #include "Feature.h"
+#include "../Room/Room4.h"
 class Feature8 : public Feature {
 public:
 	Feature8();
 	virtual ~Feature8();
-	string read();
+	void read();
+	void push();
+	void pull();
+	
 	int special=666;
+	friend class Room4;
 };
 
 #endif

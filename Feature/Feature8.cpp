@@ -5,18 +5,35 @@
 #include "Feature8.h"
 
 Feature8::Feature8() {
-	set_name("Feature8");
-	set_desc("Feature8 description");
+	set_name("Feast Table");
+	set_desc("An elaborate banquate appears before you; the table is laden with a centerpiece of fruit, and several delicious smelling dishes. There are about 10 places set. However, when you try to step forward to further look at the setting, everything fades away like a mirage. It looks like there is a single book placed at the edge of the table.");
 	set_index_id(7);
 }
-string Feature8::read(){
-	string read_response = "The " + get_name() + "'s first name is too faded to read, but the last name says 'Smith'.\n 'Hey', says" + FRIEND_NAME + ". 'Wasn't that your mom's maiden name?'. 'Yeah', you reply, ";
-	func_togg_count_x(0);
-	
-	return read_response;
-	
+void Feature8::read(){
+	printf("There is nothing to read on the table, not even the expression on the creatures face. Because he is faceless.\n");		
+}
+void Feature8::push(){
+	if (get_times_toggled(2)==0){
+		printf("You try to push the table, but it is much too heavy. However, it seems to upset some of the items on the table slightly, and you catch a glint of a ring on the center of the table. You consider taking the ring and giving it to the creauture, but that seems foolish. If you push the table agian, you may be able to get the ring to jostle to the the front of the monster.\n");	
+			func_togg_count_x(2);
+	}
+	else if (get_times_toggled(2)==1){
+		printf("You push the table again, and this seems to justle the ring towards the monster. The monster clutches at the ring. You wait in terror.\n");	
+		Room4 room_four;
+		room_four.event_two();
+		func_togg_count_x(2);
+	}
+		
+}
+void Feature8::pull(){
+	if (get_times_toggled(2)==1){
+		printf("The ring jostles back to its original position. Oops.\n");
+		set_togg_count_x(2, 0);
+		func_togg_count_x(1);
+	}
 	
 }
+
 Feature8::~Feature8() {
 	
 }

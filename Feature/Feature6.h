@@ -9,7 +9,7 @@ class Feature6 : public Feature {
 public:
 	Feature6();
 	virtual ~Feature6();
-	string read();
+	void read();
 	int special=666;
 };
 
