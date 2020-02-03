@@ -90,11 +90,13 @@ void Feature::look()//print description
 	look_count = look_count + 1;
 	printf("%s\n", desc.c_str());
 }
+
+/*
 void Feature::pull(){
 	string response = get_name() + " cannot be pulled\n";
 	printf("%s\n", response.c_str());
+}*/
 
-}
 void Feature::push(){
 	string response = get_name() + " cannot be pushed\n";
 	printf("%s\n", response.c_str());
