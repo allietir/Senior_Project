@@ -55,17 +55,18 @@ void Feature1::look(){
 string Feature1::get_desc1(){
 	return desc1;
 }
-string Feature1::get_desc2()
+
+/*string Feature1::get_desc2()
 {
 	return desc2;
-}
+}*/
 
 /*string Feature1::get_desc2_no_obj(){
 	return desc2_no_obj;
 }*/
 
 string Feature1::get_desc1_no_obj(){
-	return desc2_no_obj;
+	return desc1_no_obj;
 }
 
 void Feature1::set_desc1(string x){

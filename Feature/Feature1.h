@@ -23,8 +23,8 @@ public:
 	int special=666;
 private:
 	string desc1;
-	string desc2;
-	string desc2_no_obj;
+	//string desc2;
+	string desc1_no_obj;
 };
 
 #endif
