@@ -46,15 +46,11 @@ public:
 	/*Your game must support an action vocabulary space (verbs) of at least ten primary actions (hit, pull, go, eat, etc.). These verbs must allow interaction with each feature in each room (a generic "you can't eat that" type of message is OK to use with some verbs).
 	Some verbs must cause the player to move between rooms.*/
 	
-	
+	/*
 	//objec verbs
 	virtual void read();//verb func 0: verb_func_toggled[0]
-
-	
-	//
 	virtual void pull();//1
 	virtual void push();//2
-
 	virtual void turn();//3
 	virtual void play();//4
 	virtual void open();//5
@@ -72,10 +68,20 @@ public:
 	virtual void give();//14
 	virtual void eat();//15
 	virtual void smell();//16
-	
-				
+	*/
 
-		
+	virtual void read();//1
+	virtual void open();//2
+	virtual void use();//3
+	virtual void eat();//4
+	virtual void smell();//5
+	virtual int attack(string obj_name);//6
+	virtual void play();//7
+	virtual void speak();//8
+	virtual int climb();//9
+	virtual void drop();//10
+	virtual void give();//11
+
 		
 	//object plus feature
 	//virtual void place(int feature_index);//called on an object verb you use in conjunction with a feature
