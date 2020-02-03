@@ -59,8 +59,12 @@ string Feature1::get_desc2()
 {
 	return desc2;
 }
-string Feature1::get_desc2_no_obj()
-{
+
+/*string Feature1::get_desc2_no_obj(){
+	return desc2_no_obj;
+}*/
+
+string Feature1::get_desc1_no_obj(){
 	return desc2_no_obj;
 }
 
