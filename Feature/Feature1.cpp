@@ -9,10 +9,14 @@ Feature1::Feature1() {
 	set_desc1(
 		"A gray, dreary looking Gravestone with vines covering the name of the deceased. "
 		"Something shiny is glinting on the floor behind the gravestone. "
-		"What is it? A weapon of some sort?\n"
+		"What is it? A weapon of some sort? A dagger?\n"
 		);
 	//set_desc2("Something shiny is glinting on the floor behind the gravestone. What is it? A weapon of some sort?\n");
-	set_desc2_no_obj("The indent of the knife you picked up is still in the grass.\n");
+
+	set_desc2_no_obj(
+		"A gray, dreary looking Gravestone with vines covering the name of the deceased. "
+		"The indent of the knife you picked up is still in the grass.\n"
+		);
 	set_desc(desc1);
 	set_index_id(0);
 }
@@ -26,7 +30,7 @@ void Feature1::read(){
 void Feature1::look(){
 	set_desc(get_desc1());
 	//set_look_count(1);
-	printf("%s\n", get_desc().c_str());		
+	printf("%s\n", get_desc().c_str());
 }
 
 /*void Feature1::look(){
@@ -65,13 +69,13 @@ void Feature1::set_desc1(string x){
 }
 void Feature1::set_desc2(string x)
 {
-	desc2=x;
+	desc2 = x;
 }
 void Feature1::set_desc2_no_obj(string x){
-	desc2_no_obj=x;
+	desc2_no_obj = x;
 }
 void Feature1::remove_object_desc(){
-	set_desc2(get_desc2_no_obj());
+	set_desc1(get_desc2_no_obj());
 }
 Feature1::~Feature1() {
 	
