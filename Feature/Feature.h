@@ -46,6 +46,10 @@ public:
 	/*Your game must support an action vocabulary space (verbs) of at least ten primary actions (hit, pull, go, eat, etc.). These verbs must allow interaction with each feature in each room (a generic "you can't eat that" type of message is OK to use with some verbs).
 	Some verbs must cause the player to move between rooms.*/
 	
+	/**********
+	TODO: Eliminate verbs, see list below. Cannot delete
+	yet due to multiple dependencies in rooms we have not completed yet.
+	***********/
 	//object verbs
 	virtual void read();//verb func 0: verb_func_toggled[0]
 	virtual void pull();//1
@@ -66,8 +70,10 @@ public:
 	virtual void eat();//15
 	virtual void smell();//16
 	
-	/*VERB LIST GOAL: Our goal is to have the following verbs
+	/*********************
+	VERB LIST GOAL: Our goal is to have the following verbs
 	be our final verbs. We can go room by room to achieve this.
+
 	virtual void read();//1
 	virtual void open();//2
 	virtual void use();//3
@@ -79,7 +85,7 @@ public:
 	virtual int climb();//9
 	virtual void drop();//10
 	virtual void give();//11
-	*/
+	************************/
 
 	//object plus feature
 	//virtual void place(int feature_index);//called on an object verb you use in conjunction with a feature
@@ -87,8 +93,6 @@ public:
 	//virtual void open(int object_index);//called on a feature that needs to use a KEY object 
 	//virtual void attack(int feature_index);//called on object plus a feature; attack something using a feature id
 		
-	
-	
 	
 	int func_togg_count_x(int x);
 	
