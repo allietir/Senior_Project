@@ -248,7 +248,7 @@ void Game::climb(int feature_x){
 		printf("You are entering: %s\n", r_array[current_room]->get_name().c_str());
 		r_array[current_room]->look();
 	}
-}/*
+}
 void Game::jump(int feature_x){
 
 	int get_next_room = r_array[player1.get_current_room()]->get_feature_x(feature_x)->jump();
@@ -259,7 +259,7 @@ void Game::jump(int feature_x){
 		printf("You are entering: %s\n", r_array[current_room]->get_name().c_str());
 		r_array[current_room]->look();
 	}
-}*/
+}
 int Game::attack(int feature_x, int obj_id){
 	
 	//get attack item

@@ -11,8 +11,8 @@ public:
 	virtual ~Feature4();
 	void open();
 	void play();
-	//void pull();
-	//void push();
+	void pull();
+	void push();
 	int special=666;
 };
 

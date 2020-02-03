@@ -90,93 +90,72 @@ void Feature::look()//print description
 	look_count = look_count + 1;
 	printf("%s\n", desc.c_str());
 }
-
-/*
 void Feature::pull(){
 	string response = get_name() + " cannot be pulled\n";
 	printf("%s\n", response.c_str());
-}*/
 
-/*
+}
 void Feature::push(){
 	string response = get_name() + " cannot be pushed\n";
 	printf("%s\n", response.c_str());
 
 }
-*/
 
-/*
 void Feature::turn(){
 	string response = get_name() + " cannot be turned\n";
 	printf("%s\n", response.c_str());
 
 }
-*/
-
 void Feature::play(){
 	string response = get_name() + " cannot be played\n";
 	printf("%s\n", response.c_str());
 
 }
-
 void Feature::open(){
 	string response = get_name() + " cannot be open\n";
 	printf("%s\n", response.c_str());
 
 }//for cat features
-
 void Feature::speak(){
 	string response = get_name() + " cannot be spoken to\n";
 	printf("%s\n", response.c_str());
 
 
 }//talk to a feature or object 
-
-/*
 void Feature::listen(){
 	string response = get_name() + " cannot be listened to\n";
 	printf("%s\n", response.c_str());
 
 
 }//user to interact with some features or objects potentially
-*/
 //will allow user to exit
 int Feature::climb(){
 	string response = get_name() + " cannot be climbed\n";
 	printf("%s\n", response.c_str());
 	return -1;
 
-}//use to interact with some features to exit between rooms
 
-/*
+}//use to interact with some features to exit between rooms
 int Feature::jump(){
 	string response = get_name() + " cannot be jumped on or through\n";
 	printf("%s\n", response.c_str());
 	return -1;
 
-}//user to interact with some features to exit between rooms
-*/
 
+}//user to interact with some features to exit between rooms
 int Feature::attack(string object_name){
 	string response = get_name() + " cannot be attacked with " + object_name + "\n";
 	printf("%s\n", response.c_str());
 	return 0;
 }
-
-/*
 void Feature::light(){
 	string response = get_name() + " cannot be lit\n";
 		printf("%s\n", response.c_str());
 }//11light the lamp or rooms that have switches
-*/
-
-/*
 void Feature::fill(){
 	string response = get_name() + " cannot be filled\n";
 	printf("%s\n", response.c_str());
 }//12used to fill chalice with blood or holy water within the conservatory feature and vampire blood feature
-
-*/
 	
 void Feature::use(){
 	string response = get_name() + " cannot be used\n";

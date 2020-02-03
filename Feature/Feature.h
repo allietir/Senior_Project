@@ -46,8 +46,7 @@ public:
 	/*Your game must support an action vocabulary space (verbs) of at least ten primary actions (hit, pull, go, eat, etc.). These verbs must allow interaction with each feature in each room (a generic "you can't eat that" type of message is OK to use with some verbs).
 	Some verbs must cause the player to move between rooms.*/
 	
-	/*
-	//objec verbs
+	//object verbs
 	virtual void read();//verb func 0: verb_func_toggled[0]
 	virtual void pull();//1
 	virtual void push();//2
@@ -60,16 +59,15 @@ public:
 	virtual int climb();//8use to interact with some features to exit between rooms, returns -1 if nothing, else returnsn room to exit to
 	virtual int jump();//9user to interact with some features to exit between rooms, reutnr -1 if nothing, else returns room to exit to
 	virtual int attack(string obj_name);//10 
-	
 	virtual void light();//11light the lamp or rooms that have switches
 	virtual void fill();//12used to fill chalice with blood or holy water within the conservatory feature and vampire blood feature
-	
 	virtual void use();//13
 	virtual void give();//14
 	virtual void eat();//15
 	virtual void smell();//16
-	*/
-
+	
+	/*VERB LIST GOAL: Our goal is to have the following verbs
+	be our final verbs. We can go room by room to achieve this.
 	virtual void read();//1
 	virtual void open();//2
 	virtual void use();//3
@@ -81,8 +79,8 @@ public:
 	virtual int climb();//9
 	virtual void drop();//10
 	virtual void give();//11
+	*/
 
-		
 	//object plus feature
 	//virtual void place(int feature_index);//called on an object verb you use in conjunction with a feature
 	//will allow user to exit
