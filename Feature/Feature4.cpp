@@ -9,6 +9,7 @@ Feature4::Feature4() {
 	set_desc("At the entranceway of the foyer there is table. On top of the table is a little music box.");
 	set_index_id(3);
 }
+/*
 void Feature4::pull(){
 	if (get_times_toggled(4)>=1)
 	{
@@ -34,6 +35,7 @@ void Feature4::push(){
 		Feature::pull();
 	}
 }
+*/
 void Feature4::play(){
 if (get_times_toggled(5)>=1)
 {
