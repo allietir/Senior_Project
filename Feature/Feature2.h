@@ -6,15 +6,16 @@
 #define _Feature2_h_
 #include "Feature.h"
 #include "../Room/Room1.h"
+
+
 class Feature2 : public Feature {
 public:
 	Feature2();
 	virtual ~Feature2();
 	void look();
-	void climb();
+	int climb();
+	int jump();
 
-	void jump();
-	friend class Room1;
 private:
  	string desc1;
 	string desc2;

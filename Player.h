@@ -25,6 +25,8 @@ public:
 	int get_move_count();
 	void set_move_count(int s_move_count); 
 	
+	int get_player_alive();
+	void set_player_alive(int s_move_count); 
 
 		
 	
@@ -34,6 +36,7 @@ private:
 	//an array of 0 or 1 based on whether the player currently has those items
 	int has_objects[NUM_OBJECTS];
 	int move_count;
+	int player_alive;
 	
 
 

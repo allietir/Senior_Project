@@ -165,7 +165,20 @@ int main(int argc, char *argv[]) {
 //		}
 //	}
 	Game flow_test;
+	printf("////////////////START///////////////////\n\n");
 	flow_test.start();
+	
+	//----parser helper demo---//
+	string x = "Gravestone";
+	int y = flow_test.get_context_id_from_string(x);
+	printf("%s: %i", x.c_str(), y);
+	
+	string obj = "Gilded dagger";
+	int obj_num = flow_test.get_obj_id_from_string(obj);
+	printf("gilded dagger: %i", obj_num);
+	
+
+	
 	printf("+++++++++++++++PLAYER STARTS IN FRONT GARDEN++++++++++++++\n");
 	flow_test.r_array[0]->look();
 	
@@ -176,25 +189,34 @@ int main(int argc, char *argv[]) {
 	flow_test.r_array[0]->get_feature_x(0)->look();
 	printf("+++++++++++++++PLAYER look() at knife++++++++++++++\n");
 	flow_test.o_array[4]->look();
-	printf("+++++++++++++++PLAYER look() at knife++++++++++++++\n");
+	printf("+++++++++++++++PLAYER take() knife++++++++++++++\n");
 	flow_test.take(4);
+	printf("+++++++++++++++PLAYER look at gravestone++++++++++++++\n");
+	flow_test.r_array[0]->get_feature_x(0)->look();
+	printf("+++++++++++++++PLAYER look at gravestone++++++++++++++\n");
+	flow_test.r_array[0]->get_feature_x(0)->look();
+	printf("+++++++++++++++PLAYER drop knife++++++++++++++\n");
+	flow_test.drop(4);
+	printf("+++++++++++++++PLAYER look at room++++++++++++++\n");
+	flow_test.look();
 	printf("+++++++++++++++PLAYER look() at tree++++++++++++++\n");
 	flow_test.r_array[0]->get_feature_x(1)->look();
 	printf("+++++++++++++++PLAYER look() at tree again++++++++++++++\n");
 	flow_test.r_array[0]->get_feature_x(1)->look();
 	printf("+++++++++++++++ example of exiting with a feature START ++++++++++++++\n");	
 	printf("+++++++++++++++PLAYER climb() ++++++++++++++\n");
-	flow_test.r_array[0]->get_feature_x(1)->climb();
+	flow_test.climb(1);
 	printf("+++++++++++++++PLAYER climb()again ++++++++++++++\n");
-	flow_test.r_array[0]->get_feature_x(1)->climb();
+	flow_test.climb(1);
 		
 	printf("+++++++++++++++PLAYER climb()again ++++++++++++++\n");
-	flow_test.r_array[0]->get_feature_x(1)->climb();
+	flow_test.climb(1);
 	
-	printf("+++++++++++++++PLAYER climb()again ++++++++++++++\n");
-	flow_test.r_array[0]->get_feature_x(1)->jump();
-	flow_test.exit_r1_r8();
+	printf("+++++++++++++++PLAYER jump()again ++++++++++++++\n");
+	flow_test.jump(1);
 	
+//	flow_test.exit_r1_r8();
+//	
 	printf("+++++++++++++++ example of exiting with a feature END, back to FRONT GARDEN ++++++++++++++\n");	
 	flow_test.player1.set_current_room(0);
 
@@ -246,6 +268,22 @@ int main(int argc, char *argv[]) {
 	flow_test.take(0);
 	printf("------PLAYER TRIES TO EXIT ROOM AGAIN --------\n");
 	flow_test.exit_room(2);
+	
+	
+	printf("------PLAYER TRIES TO ATTACK Faceless Man-------\n");
+	int res = flow_test.attack(0, 4);
+	if (res == -1)
+	{
+		printf("ask user if they want to start a new game; if so, start a new game\n");
+	}	
+	printf("----give player gilded dagger to show death sequence----");
+	flow_test.player1.set_has_objects(4, 1);
+	res = flow_test.attack(0, 4);
+	if (res == -1)
+	{
+		printf("ask user if they want to start a new game; if so, start a new game\n");
+	}
+	printf("-----ELSE IF DOESN'T ATTACK------\n");
 	printf("------PLAYER LOOKS AT Faceless Man-------\n");
 	flow_test.r_array[3]->get_feature_x(0)->look();
 	printf("------PLAYER speak() Faceless Man------\n");
@@ -267,5 +305,6 @@ int main(int argc, char *argv[]) {
 	flow_test.r_array[3]->get_feature_x(1)->push();
 	printf("------PLAYER take diary----\n");
 	flow_test.take(1);
+	
 	
 }

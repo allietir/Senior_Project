@@ -7,6 +7,7 @@
 #define MAX_DESCS 5
 #define NUM_VERB_FUNCS 11
 #define FRIEND_NAME "ALEX"
+#define MAX_EVENTS 3
 
 #define ROOM1 "Front Garden"
 #define ROOM2 "Entranceway"//exit north->upstarishallway:3 south->front garden:1 east->dining room:4 west->parlour:5
@@ -35,3 +36,4 @@
 #define VERB8 "speak"
 #define VERB9 "climb"
 #define VERB10 "hit"
+

@@ -70,11 +70,14 @@ public:
 	string long_feature_text();
 
 	void add_object_text(string object_name, string object_desc);
+	void remove_object_text();
 	int set_get_num_exits();
 	int get_num_obj();
 
 	void init_long_short_desc();
 	void look();//if user has been there before, return short desc;
+	int get_event_triggered(int event_id);
+	void set_event_triggered(int event_id, int val);
 	
 	virtual void event_one();
 	virtual void event_two();
@@ -93,6 +96,9 @@ private:
 	string long_description;//include exit name & long description, exit direction FIXED feature description, UNFIXED object description
 	string short_description;//include exit name & short description, exit direction FIXED feature description, UNFIXED object descriptoin
 	string extra_description; //the piece added to the short description to make it longer
+	
+	string no_obj_long_desc;
+	string no_obj_short_desc;
 	
 	string exit_name[MAX_EXITS];//name for each exit for north = 0, south = 1; east = 2; west = 3; if no exit, "no_exit"
 	string exit_desc[MAX_EXITS];//exit description
@@ -117,6 +123,8 @@ private:
 	int obj_count;
 	int num_exits;
 	int num_events;
+	
+	int event_triggered[MAX_EVENTS];
 	
 	
 

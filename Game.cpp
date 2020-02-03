@@ -13,8 +13,6 @@ Game::Game() {
 }
 void Game::event1()
 {
-	
-	
 	printf("The chandelair beings to flicker; the wind you've been sensing seems to pick up. Suddenly the room goes completely dark and %s only has time to gasp before you feel suddenly like you are being watched. The light turn back on. 'What the hell was that' you say, turning to look at %s. But %s is gone.\n You have to find %s. \n\n\n", FRIEND_NAME, FRIEND_NAME, FRIEND_NAME, FRIEND_NAME);
 }
 void Game::init_rooms() {
@@ -37,7 +35,7 @@ void Game::init_rooms() {
 	r_array[14]= new Room15;
 
 	//add objects to array
-	int room_obj_set[]={1, 3, 10, 6, 0, 11, 5, 9};
+	//int room_obj_set[]={1, 3, 10, 6, 0, 11, 5, 9};
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		int room_id = room_obj_set[i];
 		
@@ -49,7 +47,7 @@ void Game::init_rooms() {
 		}
 		
 	}
-	int room_needs_object1[]={2, 3, 4, 5, 6, 7, 8, 13};
+	//int room_needs_object1[]={2, 3, 4, 5, 6, 7, 8, 13};
 	for (int i = 0; i < 8; i++){
 		int room_id = room_needs_object1[i];
 		//printf("setting %s to require %s\n", r_array[room_id]->get_name().c_str(), o_array[0]->get_name().c_str());
@@ -112,7 +110,11 @@ void Game::take(int object_id){
 		printf("Updated player inventory:");
 		inventory();
 		printf("\n");
-		
+		//update room description:
+		r_array[current_room]->remove_object_text();
+		//update feature description:
+		r_array[current_room]->get_feature_x(0)->remove_object_desc();
+		r_array[current_room]->get_feature_x(1)->remove_object_desc();
 	}
 	if (p_has_item == 1){
 		printf("You already have this item\n");
@@ -123,6 +125,18 @@ void Game::take(int object_id){
 
 	
 }
+//trigger take event
+//void Game::check_take_event(int obj_id, int room_id){
+//	//check initail array;
+//	//if this is the room the object was taken in...
+//	if (room_obj_set[obj_id]==room_id){
+//		if (r_array[room_id]->get_event_triggered(0)==0){
+//			r_array[room_id]->event_one();
+//		}
+//		
+//	}
+//	
+//}
 void Game::drop(int object_id){
 	//player 
 	int p_has_item = player1.get_has_objects(object_id);
@@ -136,6 +150,9 @@ void Game::drop(int object_id){
 		printf("%s now has %s\n", r_array[current_room]->get_name().c_str(), o_array[object_id]->get_name().c_str());	
 		printf("Updated player inventory:");
 		inventory();
+		//add object text
+		r_array[current_room]->add_object_text(o_array[object_id]->get_name(), o_array[object_id]->get_desc());
+		
 		
 	}
 	if (p_has_item == 0){
@@ -174,12 +191,12 @@ int Game::exit_valid(int next_room)
 	}
 	return 0;
 }
-void Game::exit_r1_r8(){
-	
-	player1.set_current_room(7);
-	printf("You are entering: %s\n", r_array[7]->get_name().c_str());
-	r_array[7]->look();
-}
+//void Game::exit_r1_r8(){
+//	
+//	player1.set_current_room(7);
+//	printf("You are entering: %s\n", r_array[7]->get_name().c_str());
+//	r_array[7]->look();
+//}
 
 void Game::exit_room(int dir){
 	
@@ -216,14 +233,87 @@ void Game::exit_room(int dir){
 		}
 		
 	}
-	
-	
 
-	
 }
 void Game::look(){
 	r_array[player1.get_current_room()]->look();
 }
+void Game::climb(int feature_x){
+
+	int get_next_room = r_array[player1.get_current_room()]->get_feature_x(feature_x)->climb();
+	if (get_next_room != -1){
+		player1.set_current_room(get_next_room);
+		//intro room
+		int current_room = player1.get_current_room();
+		printf("You are entering: %s\n", r_array[current_room]->get_name().c_str());
+		r_array[current_room]->look();
+	}
+}
+void Game::jump(int feature_x){
+
+	int get_next_room = r_array[player1.get_current_room()]->get_feature_x(feature_x)->jump();
+	if (get_next_room != -1){
+		player1.set_current_room(get_next_room);
+		//intro room
+		int current_room = player1.get_current_room();
+		printf("You are entering: %s\n", r_array[current_room]->get_name().c_str());
+		r_array[current_room]->look();
+	}
+}
+int Game::attack(int feature_x, int obj_id){
+	
+	//get attack item
+	//if you attack with the correct object..
+	int needed_object = r_array[player1.get_current_room()]->get_feature_x(feature_x)->get_attack_obj_id();
+	if (player1.get_has_objects(obj_id)){
+		if (obj_id==needed_object)
+			{
+				int get_attack_result=r_array[player1.get_current_room()]->get_feature_x(feature_x)->attack(o_array[obj_id]->get_name());
+				if (get_attack_result == -1){
+					//player dead, game over, exit game totally. 
+					player1.set_player_alive(0);
+					printf("------GAME OVER; YOU HAVE DIED------\n");
+					return -1;
+					
+					
+				}
+				else if (get_attack_result == 0){
+					//
+					//nothin
+				}
+				else if (get_attack_result == 1)
+				{
+					printf("You won!");
+				}
+			}
+			else{
+				printf("You can't attack with %s", o_array[obj_id]->get_name().c_str());
+			}
+	
+	}
+	else{
+		printf("you don't have the %s", o_array[needed_object]->get_name().c_str());
+	}
+	return 0;
+}
+int Game::get_context_id_from_string(string feat_name){
+	for (int i = 0; i < MAX_FIXED; i++){
+		if (r_array[player1.get_current_room()]->get_feature_x(i)->get_name().compare(feat_name)==0){
+			return i;
+		}
+	}
+	return -1;
+}
+int Game::get_obj_id_from_string(string obj_name){
+	for (int i = 0; i < NUM_OBJECTS; i++){
+		if (o_array[i]->get_name().compare(obj_name))
+		{
+			return o_array[i]->get_index_id();
+		}
+	}
+	return -1;
+}
+//helper for parse
 Game::~Game() {
 
 }

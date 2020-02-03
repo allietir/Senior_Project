@@ -8,9 +8,13 @@
 #include <cstdio>
 #include "../globals.h"
 
+
 using namespace std;
+
 class Feature {
+	
 public:
+	
 	Feature();
 	void init_attributes(string atts[10], string alts[10]);
 	
@@ -22,6 +26,8 @@ public:
 	
 	string get_desc();
 	void set_desc(string s_desc);
+	
+
 	
 	int get_feature_examined();
 	void set_feature_examined(int s_feature_examined);
@@ -43,8 +49,7 @@ public:
 	
 	//objec verbs
 	virtual void read();//verb func 0: verb_func_toggled[0]
-	//virtual void light();//light the lamp or rooms that have switches
-	//virtual void fill();//used to fill chalice with blood or holy water within the conservatory feature and vampire blood feature
+
 	
 	//
 	virtual void pull();//1
@@ -56,10 +61,19 @@ public:
 	virtual void speak();//6talk to a feature or object 
 	virtual void listen();//7user to interact with some features or objects potentially
 	//will allow user to exit
-	virtual void climb();//8use to interact with some features to exit between rooms
-	virtual void jump();//9user to interact with some features to exit between rooms
-	virtual void attack();//10 
+	virtual int climb();//8use to interact with some features to exit between rooms, returns -1 if nothing, else returnsn room to exit to
+	virtual int jump();//9user to interact with some features to exit between rooms, reutnr -1 if nothing, else returns room to exit to
+	virtual int attack(string obj_name);//10 
 	
+	virtual void light();//11light the lamp or rooms that have switches
+	virtual void fill();//12used to fill chalice with blood or holy water within the conservatory feature and vampire blood feature
+	
+	virtual void use();//13
+	virtual void give();//14
+	virtual void eat();//15
+	virtual void smell();//16
+	
+				
 
 		
 		
@@ -76,16 +90,22 @@ public:
 	
 	int get_times_toggled(int function_id);
 	void set_togg_count_x(int x, int new_count);
+	virtual void remove_object_desc();//remove the description that includes the object, if it exits
 	
-	
+	int get_attack_obj_id();
+	void set_attack_obj_id(int obj_id);
 	//TO ADD:
 		// a list of functions that correspond to each verb within the game
 	
 virtual ~Feature();
 private:
+	
 	string name;//Feature or Object Name
 	int index_id;//Feature or object id so that it is easy for an object to see if it works with that feature or object; this is set in the Game class and corresponds exactly to its poisiton within an array; features and objects will have separate arrays to reference 
 	string desc;//Description of Feature or Object 
+
+	string desc_without_obj;
+	string desc_with_obj;//if the room the feature is in initially has an object and this feature description has it, toggle that. 
 	//IDEA:  that can be up to MAX_DESC; each will be revealed each time the user "look"s at it. 
 	int feature_examined;//indicate whether a feature or object has been examined 
 	
@@ -98,7 +118,10 @@ private:
 	int look_count;//a measure of how many times "look" is toggled 
 	int verb_func_toggled[NUM_VERB_FUNCS];//keep track of how many times the function is toggled. 
 	
-friend class Room;
+	int attack_obj_id;
+
+	
+
 };
 
 #endif

@@ -53,13 +53,13 @@ Room/Room14.o: Room/Room14.h Room/Room.h Feature/Feature27.h Feature/Feature28.h
 
 Room/Room15.o: Room/Room15.h Room/Room.h Feature/Feature29.h Feature/Feature30.h
 
-Feature/Feature.o: Feature/Feature.h globals.h
+Feature/Feature.o: Feature/Feature.h globals.h 
 
 Object/Object.o: Object/Object.h Feature/Feature.h
 
 Feature/Feature1.o: Feature/Feature1.h Feature/Feature.h
 
-Feature/Feature2.o: Feature/Feature2.h Feature/Feature.h
+Feature/Feature2.o: Feature/Feature2.h Feature/Feature.h 
 
 Feature/Feature3.o: Feature/Feature3.h Feature/Feature.h
 

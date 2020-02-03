@@ -12,7 +12,7 @@ public:
 	virtual ~Feature7();
 	void speak();
 	void listen();
-	void attack();
+	int attack(string obj_name);
 	int special=666;
 	friend class Room4;
 };

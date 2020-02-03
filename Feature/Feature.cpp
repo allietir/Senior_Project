@@ -11,6 +11,7 @@ Feature::Feature() {
 	
 	name = "no feature name";
 	desc = "no feature description";
+
 	error_message = "feature error";
 	index_id = -666;
 	fixed = 1;
@@ -128,26 +129,61 @@ void Feature::listen(){
 
 }//user to interact with some features or objects potentially
 //will allow user to exit
-void Feature::climb(){
+int Feature::climb(){
 	string response = get_name() + " cannot be climbed\n";
 	printf("%s\n", response.c_str());
+	return -1;
 
 
 }//use to interact with some features to exit between rooms
-void Feature::jump(){
+int Feature::jump(){
 	string response = get_name() + " cannot be jumped on or through\n";
 	printf("%s\n", response.c_str());
+	return -1;
 
 
 }//user to interact with some features to exit between rooms
-void Feature::attack(){
-	string response = get_name() + " cannot be attacked\n";
+int Feature::attack(string object_name){
+	string response = get_name() + " cannot be attacked with " + object_name + "\n";
 	printf("%s\n", response.c_str());
-
-
+	return 0;
 }
+void Feature::light(){
+	string response = get_name() + " cannot be lit\n";
+		printf("%s\n", response.c_str());
+}//11light the lamp or rooms that have switches
+void Feature::fill(){
+	string response = get_name() + " cannot be filled\n";
+	printf("%s\n", response.c_str());
+}//12used to fill chalice with blood or holy water within the conservatory feature and vampire blood feature
+	
+void Feature::use(){
+	string response = get_name() + " cannot be used\n";
+		printf("%s\n", response.c_str());
+}//13
+void Feature::give(){
+	string response = get_name() + " cannot be given\n";
+		printf("%s\n", response.c_str());
+}//14
+void Feature::eat(){
+	string response = get_name() + " cannot be eaten\n";
+		printf("%s\n", response.c_str());
+}//15
+void Feature::smell(){
+	string response = get_name() + " cannot be smelled\n";
+		printf("%s\n", response.c_str());
+}//16
 int Feature::get_times_toggled(int function_id){
 	return verb_func_toggled[function_id];
+}
+void Feature::remove_object_desc(){
+	//nothing changes
+}
+int Feature::get_attack_obj_id(){
+	return attack_obj_id;
+}
+void Feature::set_attack_obj_id(int obj_id){
+	attack_obj_id = obj_id;
 }
 
 Feature::~Feature() {

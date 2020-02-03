@@ -8,6 +8,7 @@ Feature7::Feature7() {
 	set_name("Faceless");
 	set_desc("There is a still, mummified looking man at the end of the table. The create is absolutly still and appears to have no features at all; no eyes, no mouth, not an orafice in sight. The create's hands are laid on the table, enormous and clawed.");
 	set_index_id(6);
+	set_attack_obj_id(4);//uses gilded knife to attack
 }
 void Feature7::speak(){
 	string speak_response="";
@@ -44,9 +45,10 @@ void Feature7::listen(){
 	printf("%s\n", listen_response.c_str());
 	
 }
-void Feature7::attack(){
-
-}
+int Feature7::attack(string obj_name){
+	printf("You attack the %s with the %s. The creature raises his hand and with a single motion, stills your hand. ' You shouldn't have done that ' the creatue says, sadly. You watch in horror as the %s turns towards yourself. This is the end.\n", get_name().c_str(), obj_name.c_str(), obj_name.c_str());
+	return -1;
+} 
 Feature7::~Feature7() {
 	
 }

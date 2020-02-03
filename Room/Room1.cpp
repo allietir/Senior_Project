@@ -15,7 +15,7 @@ Room1::Room1() {
 	init_long_short_desc();
 	//set exits; name, direction
 	set_exit_name("Front door", 0);
-	string exit_desc = "A large, imposing " + get_exit_name(0) + " in the " + get_exit_dir(0) + ", dark and heavy looking. It appears to be slightly adjar. ";
+	string exit_desc = "A large, imposing front door in the north, dark and heavy looking. It appears to be slightly adjar. ";
 	set_exit_desc(exit_desc, 0);
 	set_exit_id(1, 0);//exit at north goes to Room2
 
@@ -23,7 +23,10 @@ Room1::Room1() {
 	//object set in Game, therefor description initialized in Game
 	
 }
-
+void Room1::event_one(){
+	printf("The dagger resonates in your hand as you pick it up. The item has great power, and you can feel the power within your hand. The gilded handle reminds you of someting powerful and ancient.\n");
+	set_event_triggered(0, 1);
+}
 
 Room1::~Room1() {
 	

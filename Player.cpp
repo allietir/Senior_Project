@@ -12,6 +12,7 @@ Player::Player() {
 	for (int i=0; i < NUM_OBJECTS; i++){
 		has_objects[i]=0;
 	}
+	player_alive = 1;
 }
 string Player::get_name(){
 	return name;
@@ -39,6 +40,12 @@ int Player::get_move_count(){
 void Player::set_move_count(int s_move_count){
 	move_count = s_move_count;
 }
+int Player::get_player_alive(){
+	return player_alive;
+}
+void Player::set_player_alive(int val){
+	player_alive = val;
+} 
 
 Player::~Player() {
 	

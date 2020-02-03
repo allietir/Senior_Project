@@ -37,7 +37,9 @@ Room::Room() {
 		set_feature_x(new Feature, i);
 		
 	}
-	
+	for (int i=0; i < MAX_EVENTS; i++){
+		event_triggered[i]=0;
+	}
 	
 
 }
@@ -235,9 +237,19 @@ void Room::add_object_text(string name, string desc){
 	string new_long_descs = get_long_description() + "You see: " + desc + ".";
 	set_long_description(new_long_descs);
 }
+void Room::remove_object_text(){
+	
+	set_short_description(no_obj_short_desc);
+
+	set_long_description(no_obj_short_desc);
+}
 void Room::init_long_short_desc(){
 	string short_descr = "This is " + get_name() + ". " + short_exit_text() + short_feature_text();
 	string long_descr = "This is " + get_name() + ". " + get_extra_description() + long_exit_text() + long_feature_text();
+	
+	no_obj_short_desc = short_descr;
+	no_obj_long_desc = long_descr;
+	
 	set_short_description(short_descr);
 	set_long_description(long_descr);
 	
@@ -305,6 +317,12 @@ string Room::get_exit_desc(int dir){
 }
 void Room::set_exit_desc(string desc, int dir){
 	exit_desc[dir]=desc;
+}
+int Room::get_event_triggered(int x){
+	return event_triggered[x];
+}
+void Room::set_event_triggered(int x, int val){
+	event_triggered[x]=val;
 }
 Room::~Room() {
 	//printf("Destroying pure virtual base class 'Room'\n");

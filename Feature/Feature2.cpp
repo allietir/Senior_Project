@@ -25,7 +25,7 @@ void Feature2::look(){
 		printf("%s\n", get_desc().c_str());
 	
 }
-void Feature2::climb(){
+int Feature2::climb(){
 	if (get_times_toggled(8)==0){
 		printf("You climb up the tree and are able to see that a second story window is open. The room is so dark but it looks like a master bedroom.\n");
 		func_togg_count_x(8);
@@ -34,8 +34,9 @@ void Feature2::climb(){
 		printf("You climb down the tree and you are back on the ground\n");
 		set_togg_count_x(8, 0);
 	}
+	return -1;
 }
-void Feature2::jump(){
+int Feature2::jump(){
 	if (get_times_toggled(8)==1){
 		printf("You jump through the window and as you do so the branch below you snaps.");
 
@@ -44,6 +45,7 @@ void Feature2::jump(){
 	else{
 		printf("The branch is broken, you can't jump through.\n");
 	}
+	return 7;
 }
 Feature2::~Feature2() {
 	
