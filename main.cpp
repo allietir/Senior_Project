@@ -225,6 +225,8 @@ int main(int argc, char *argv[]) {
 	
 	printf("-------PLAYER LOOK AT ROOM---------\n");
 	flow_test.r_array[1]->look();
+
+/*
 	printf("------PLAYER LOOKS AT MUSIC BOX--------\n");
 	flow_test.r_array[1]->get_feature_x(1)->look();
 	printf("------PLAYER TRY TO play() MUSIC BOX BEFORE OPENING --------\n");
@@ -305,6 +307,6 @@ int main(int argc, char *argv[]) {
 	flow_test.r_array[3]->get_feature_x(1)->push();
 	printf("------PLAYER take diary----\n");
 	flow_test.take(1);
-	
+*/
 	
 }
