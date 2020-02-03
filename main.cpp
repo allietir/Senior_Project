@@ -164,6 +164,8 @@ int main(int argc, char *argv[]) {
 //			test_obj_exits.exit_room(i);
 //		}
 //	}
+
+	/*******ALLIE'S TESTS START HERE*******/
 	Game flow_test;
 	printf("////////////////START///////////////////\n\n");
 	flow_test.start();
@@ -179,10 +181,51 @@ int main(int argc, char *argv[]) {
 	
 
 	
-	printf("+++++++++++++++PLAYER STARTS IN FRONT GARDEN++++++++++++++\n");
+	printf("\n+++++++++++++++PLAYER STARTS IN FRONT GARDEN++++++++++++++\n");
 	flow_test.r_array[0]->look();
 	
-	printf("+++++++++++++++PLAYER look() Gravestone++++++++++++++\n");
+	printf("+++++++++++++++PLAYER look() at Gravestone++++++++++++++\n");
+	flow_test.r_array[0]->get_feature_x(0)->look();
+
+	printf("+++++++++++++++PLAYER look() at knife++++++++++++++\n");
+	flow_test.o_array[4]->look();
+	printf("+++++++++++++++PLAYER take() knife++++++++++++++\n");
+	flow_test.take(4);
+	printf("+++++++++++++++PLAYER look at gravestone++++++++++++++\n");
+	flow_test.r_array[0]->get_feature_x(0)->look();
+	printf("+++++++++++++++PLAYER drop knife++++++++++++++\n");
+	flow_test.drop(4);
+	printf("+++++++++++++++PLAYER look at room++++++++++++++\n");
+	flow_test.look();
+	printf("+++++++++++++++PLAYER look() at tree++++++++++++++\n");
+	flow_test.r_array[0]->get_feature_x(1)->look();
+	printf("+++++++++++++++ Player exits front garden to entranceway ++++++++++++++\n");	
+	flow_test.exit_room(0);
+	
+	printf("-------PLAYER LOOK AT ROOM---------\n");
+	flow_test.r_array[1]->look();]
+	/*******ALLIE'S TESTS END HERE*******/
+
+/*
+	Game flow_test;
+	printf("////////////////START///////////////////\n\n");
+	flow_test.start();
+	
+	//----parser helper demo---//
+	string x = "Gravestone";
+	int y = flow_test.get_context_id_from_string(x);
+	printf("%s: %i", x.c_str(), y);
+	
+	string obj = "Gilded dagger";
+	int obj_num = flow_test.get_obj_id_from_string(obj);
+	printf("gilded dagger: %i", obj_num);
+	
+
+	
+	printf("\n+++++++++++++++PLAYER STARTS IN FRONT GARDEN++++++++++++++\n");
+	flow_test.r_array[0]->look();
+	
+	printf("+++++++++++++++PLAYER look() at Gravestone++++++++++++++\n");
 	flow_test.r_array[0]->get_feature_x(0)->look();
 	
 	printf("+++++++++++++++PLAYER look() Gravestone again ++++++++++++++\n");
@@ -225,7 +268,7 @@ int main(int argc, char *argv[]) {
 	
 	printf("-------PLAYER LOOK AT ROOM---------\n");
 	flow_test.r_array[1]->look();
-
+*/
 /*
 	printf("------PLAYER LOOKS AT MUSIC BOX--------\n");
 	flow_test.r_array[1]->get_feature_x(1)->look();
