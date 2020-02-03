@@ -170,10 +170,13 @@ void Feature::light(){
 }//11light the lamp or rooms that have switches
 */
 
+/*
 void Feature::fill(){
 	string response = get_name() + " cannot be filled\n";
 	printf("%s\n", response.c_str());
 }//12used to fill chalice with blood or holy water within the conservatory feature and vampire blood feature
+
+*/
 	
 void Feature::use(){
 	string response = get_name() + " cannot be used\n";
