@@ -212,8 +212,8 @@ int main(int argc, char *argv[]) {
 	printf("+++++++++++++++PLAYER climb()again ++++++++++++++\n");
 	flow_test.climb(1);
 	
-	printf("+++++++++++++++PLAYER jump()again ++++++++++++++\n");
-	flow_test.jump(1);
+	//printf("+++++++++++++++PLAYER jump()again ++++++++++++++\n");
+	//flow_test.jump(1);
 	
 //	flow_test.exit_r1_r8();
 //	
