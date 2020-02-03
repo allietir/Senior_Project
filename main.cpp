@@ -179,8 +179,6 @@ int main(int argc, char *argv[]) {
 	int obj_num = flow_test.get_obj_id_from_string(obj);
 	printf("gilded dagger: %i", obj_num);
 	
-
-	
 	printf("\n+++++++++++++++PLAYER STARTS IN FRONT GARDEN++++++++++++++\n");
 	flow_test.r_array[0]->look();
 	
@@ -203,7 +201,7 @@ int main(int argc, char *argv[]) {
 	flow_test.exit_room(0);
 	
 	printf("-------PLAYER LOOK AT ROOM---------\n");
-	flow_test.r_array[1]->look();]
+	flow_test.r_array[1]->look();
 	/*******ALLIE'S TESTS END HERE*******/
 
 /*
