@@ -182,6 +182,9 @@ int main(int argc, char *argv[]) {
 	printf("+++++++++++++++PLAYER look() at Gravestone++++++++++++++\n");
 	flow_test.r_array[0]->get_feature_x(0)->look();
 
+	printf("+++++++++++++++PLAYER read() Gravestone++++++++++++++\n");
+	flow_test.r_array[0]->get_feature_x(0)->read();
+
 	printf("+++++++++++++++PLAYER look() at knife++++++++++++++\n");
 	flow_test.o_array[4]->look();
 
