@@ -181,28 +181,38 @@ int main(int argc, char *argv[]) {
 	
 	printf("\n+++++++++++++++PLAYER STARTS IN FRONT GARDEN++++++++++++++\n");
 	flow_test.r_array[0]->look();
+
+	printf("+++++++++++++++PLAYER look() at tree++++++++++++++\n");
+	flow_test.r_array[0]->get_feature_x(1)->look();
+
+	printf("+++++++++++++++PLAYER climb() tree++++++++++++++\n");
+	flow_test.climb(1);
 	
 	printf("+++++++++++++++PLAYER look() at Gravestone++++++++++++++\n");
 	flow_test.r_array[0]->get_feature_x(0)->look();
 
 	printf("+++++++++++++++PLAYER look() at knife++++++++++++++\n");
 	flow_test.o_array[4]->look();
+
 	printf("+++++++++++++++PLAYER take() knife++++++++++++++\n");
 	flow_test.take(4);
+
 	printf("+++++++++++++++PLAYER look at gravestone++++++++++++++\n");
 	flow_test.r_array[0]->get_feature_x(0)->look();
+
 	printf("+++++++++++++++PLAYER drop knife++++++++++++++\n");
 	flow_test.drop(4);
+
 	printf("+++++++++++++++PLAYER look at room++++++++++++++\n");
 	flow_test.look();
-	printf("+++++++++++++++PLAYER look() at tree++++++++++++++\n");
-	flow_test.r_array[0]->get_feature_x(1)->look();
+
 	printf("+++++++++++++++ Player exits front garden to entranceway ++++++++++++++\n");	
 	flow_test.exit_room(0);
 	
 	printf("-------PLAYER LOOK AT ROOM---------\n");
 	flow_test.r_array[1]->look();
 	/*******ALLIE'S TESTS END HERE*******/
+
 
 /*
 	Game flow_test;
