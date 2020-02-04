@@ -166,15 +166,15 @@ void Game::drop(int object_id){
 }
 
 void Game::inventory(){
-	int none = 1;
+	int empty = 1;
 	printf("INVENTORY: \n");
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		if (player1.get_has_objects(i)==1){
 			printf("%s\n ", o_array[i]->get_name().c_str());
-			none = 0;
+			empty = 0;
 		}
 	}
-	if (none)
+	if (empty)
 	{
 		printf("(empty)\n");
 	}
