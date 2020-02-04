@@ -20,6 +20,7 @@ Feature1::Feature1() {
 	set_desc(desc1);
 	set_index_id(0);
 }
+
 void Feature1::read(){
 	string read_response = "The " + get_name() + "'s first name is too faded to read, but the last name says 'Smith'.\n 'Hey', says" + FRIEND_NAME + ". 'Wasn't that your mom's maiden name?'. 'Yeah', you reply, ";
 	func_togg_count_x(0);

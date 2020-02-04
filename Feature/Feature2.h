@@ -14,7 +14,7 @@ public:
 	virtual ~Feature2();
 	void look();
 	int climb();
-	int jump();
+	//int jump();
 
 private:
  	string desc1;
