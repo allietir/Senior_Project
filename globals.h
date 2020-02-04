@@ -1,4 +1,4 @@
-#define MAX_FIXED 3
+#define MAX_FIXED 2
 #define NUM_VERBS 10
 #define NUM_OBJECTS 8
 #define NUM_ROOMS 15
