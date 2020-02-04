@@ -21,7 +21,7 @@ Game.o: Game.h Player.h Room/Room.h Room/Room1.h Room/Room2.h Room/Room3.h Room/
 
 Player.o: Player.h globals.h
 
-Room/Room.o: Room/Room.h Feature/Feature.h Globals.h
+Room/Room.o: Room/Room.h Feature/Feature.h globals.h
 
 Room/Room1.o: Room/Room1.h Room/Room.h Feature/Feature1.h Feature/Feature2.h
 
