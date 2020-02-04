@@ -169,7 +169,7 @@ int main(int argc, char *argv[]) {
 	Game flow_test;
 	printf("////////////////START///////////////////\n\n");
 	flow_test.start();
-	
+	/*
 	//----parser helper demo---//
 	string x = "Gravestone";
 	int y = flow_test.get_context_id_from_string(x);
@@ -177,7 +177,7 @@ int main(int argc, char *argv[]) {
 	
 	string obj = "Gilded dagger";
 	int obj_num = flow_test.get_obj_id_from_string(obj);
-	printf("gilded dagger: %i", obj_num);
+	printf("gilded dagger: %i", obj_num);*/
 	
 	printf("\n+++++++++++++++PLAYER STARTS IN FRONT GARDEN++++++++++++++\n");
 	flow_test.r_array[0]->look();
