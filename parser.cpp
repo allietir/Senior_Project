@@ -34,7 +34,10 @@ int main() {
 	status = inputParsing(input);
 	input = "go to the west";
 	status = inputParsing(input);
-
+	input = "take dagger";
+	status = inputParsing(input);
+	input = "look at gravestone";
+	status = inputParsing(input);
 	return 0;
 }
 
@@ -151,8 +154,20 @@ int checkMoveCommands(vector<string> inputVector){
 //If a pair is found calls the correct function
 //Returns an int 0 if no action command is found or 1 if command found and executed
 //NOT IMPLEMENTED
-int checkActions(vector<string> inputVector){
-	int actionStatus = 0;
+int checkActions(vector<string> inputVector) {
+	int actionStatus = 1;
+
+	if (inputVector[0] == "take" && inputVector[1] == "dagger") {
+		cout << "call take dagger\n";
+		//take dagger action call
+	}
+	else if (inputVector[0] == "look" &&
+		(inputVector[1] == "gravestone"
+			|| (inputVector[1] == "at" && inputVector[2] == "gravestone"))) {
+		cout << "call look at gravestone\n";
+		//look gravestone action
+	}
+	else actionStatus = 0;
 	
 	return actionStatus;
 }
