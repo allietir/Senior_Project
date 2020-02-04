@@ -49,7 +49,7 @@ if (get_times_toggled(5)>=1)
 	
 }			
 
-void Feature4::open(){
+void Feature4::open(int room_id, int feat_obj_id){
 	
 	string open_response = "The music box is opened to reveal a little ballarina. It has a switch that says 'play' ";
 	func_togg_count_x(5);

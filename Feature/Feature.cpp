@@ -111,7 +111,7 @@ void Feature::play(){
 	printf("%s\n", response.c_str());
 
 }
-void Feature::open(){
+void Feature::open(int room_id, int feat_obj_id){
 	string response = get_name() + " cannot be open\n";
 	printf("%s\n", response.c_str());
 

@@ -56,7 +56,7 @@ public:
 	virtual void push();//2
 	virtual void turn();//3
 	virtual void play();//4
-	virtual void open();//5
+	virtual void open(int room_id, int obj_feat_id);//5//works for chest with key or locket dependent on room
 	virtual void speak();//6talk to a feature or object 
 	virtual void listen();//7user to interact with some features or objects potentially
 	//will allow user to exit

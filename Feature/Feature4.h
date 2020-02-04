@@ -9,7 +9,7 @@ class Feature4 : public Feature {
 public:
 	Feature4();
 	virtual ~Feature4();
-	void open();
+	void open(int room_id, int feat_obj_id);
 	void play();
 	void pull();
 	void push();
