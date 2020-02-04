@@ -6,8 +6,7 @@
 
 Feature2::Feature2() {
 	set_name("Tree");
-	desc1 = "A large, gnarled looking black tree without a single leaf. It seems to be as tall as the second floor. "
-			"The banches seem to poke almost directly into the open window of the second story. \n";
+	desc1 = "A large, gnarled looking black tree without a single leaf. It seems to be as tall as the second floor.The branches seem to poke almost directly into the open window of the second story. \n";
 	set_desc(desc1);//
 	set_index_id(1);
 }
