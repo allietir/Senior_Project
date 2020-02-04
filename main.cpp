@@ -169,15 +169,6 @@ int main(int argc, char *argv[]) {
 	Game flow_test;
 	printf("////////////////START///////////////////\n\n");
 	flow_test.start();
-	/*
-	//----parser helper demo---//
-	string x = "Gravestone";
-	int y = flow_test.get_context_id_from_string(x);
-	printf("%s: %i", x.c_str(), y);
-	
-	string obj = "Gilded dagger";
-	int obj_num = flow_test.get_obj_id_from_string(obj);
-	printf("gilded dagger: %i", obj_num);*/
 	
 	printf("\n+++++++++++++++PLAYER STARTS IN FRONT GARDEN++++++++++++++\n");
 	flow_test.r_array[0]->look();
@@ -185,7 +176,7 @@ int main(int argc, char *argv[]) {
 	printf("+++++++++++++++PLAYER look() at tree++++++++++++++\n");
 	flow_test.r_array[0]->get_feature_x(1)->look();
 
-	printf("+++++++++++++++PLAYER climb() tree++++++++++++++\n");
+	printf("+++++++++++++++PLAYER climb() up tree++++++++++++++\n");
 	flow_test.climb(1);
 	
 	printf("+++++++++++++++PLAYER look() at Gravestone++++++++++++++\n");
@@ -196,6 +187,9 @@ int main(int argc, char *argv[]) {
 
 	printf("+++++++++++++++PLAYER take() knife++++++++++++++\n");
 	flow_test.take(4);
+
+	printf("+++++++++++++++PLAYER climb() down tree ++++++++++++++\n");
+	flow_test.climb(1);
 
 	printf("+++++++++++++++PLAYER look at gravestone++++++++++++++\n");
 	flow_test.r_array[0]->get_feature_x(0)->look();
@@ -209,8 +203,8 @@ int main(int argc, char *argv[]) {
 	printf("+++++++++++++++ Player exits front garden to entranceway ++++++++++++++\n");	
 	flow_test.exit_room(0);
 	
-	printf("-------PLAYER LOOK AT ROOM---------\n");
-	flow_test.r_array[1]->look();
+	//printf("-------PLAYER LOOK AT ROOM---------\n");
+	//flow_test.r_array[1]->look();
 	/*******ALLIE'S TESTS END HERE*******/
 
 
