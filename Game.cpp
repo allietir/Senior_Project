@@ -107,7 +107,7 @@ void Game::take(int object_id){
 		r_array[current_room]->set_has_objects(object_id, 0);
 		set_obj_location(object_id, -1);
 		printf("%s no longer has %s\n", r_array[current_room]->get_name().c_str(), o_array[object_id]->get_name().c_str());	
-		printf("Updated player inventory:");
+		printf("Updated player inventory...\n");
 		inventory();
 		printf("\n");
 		//update room description:
@@ -165,7 +165,7 @@ void Game::drop(int object_id){
 	
 }
 void Game::inventory(){
-	printf("INVENTORY: ");
+	printf("INVENTORY: \n");
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		if (player1.get_has_objects(i)==1){
 			printf("%s\n ", o_array[i]->get_name().c_str());
