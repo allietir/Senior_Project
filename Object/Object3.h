@@ -10,6 +10,7 @@ public:
 	Object3();
 	virtual ~Object3();
 	void read();
+	void open(int x, int y);
 	int special=666;
 };
 

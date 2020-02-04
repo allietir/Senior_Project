@@ -5,7 +5,7 @@
 #include "Object1.h"
 
 Object1::Object1() {
-	set_name("Oil Lamp");
+	set_name("Lamp");
 	set_desc("A dusty old oil lamp, glass chipped and handle rusted. It looks like there is an enscription on the metal");
 	set_index_id(0);
 }

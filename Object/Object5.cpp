@@ -5,7 +5,7 @@
 #include "Object5.h"
 
 Object5::Object5() {
-	set_name("Gilded dagger");
+	set_name("Dagger");
 	set_desc("The dagger appears impossilby sharp, like it could cut through the very fabric of reality. ");
 	set_index_id(4);
 }
