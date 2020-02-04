@@ -26,18 +26,20 @@
 #define ROOM14 "Basement"//exit north->crypt:15 south->kicthe:13
 #define ROOM15 "Crypt"//exit south->basement:14
 
+//TODO: Update this verb map
+//Current suggestion to replace the following
+//#define VERB6 "attack"
+//#define VERB5 "smell"
+//#define VERB10 "drop"
+
 #define VERB1 "read"
 #define VERB2 "open"
 #define VERB3 "use"
 #define VERB4 "eat"
-//#define VERB5 "drink"
-#define VERB5 "smell"
-//#define VERB6 "fill"
-#define VERB6 "attack"
+#define VERB5 "drink"
+#define VERB6 "fill"
 #define VERB7 "play"
 #define VERB8 "speak"
 #define VERB9 "climb"
-//#define VERB10 "hit"
-#define VERB10 "drop"
+#define VERB10 "hit"
 #define VERB11 "give"
-
