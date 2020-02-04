@@ -77,20 +77,27 @@ public:
 	
 	//extra exits
 	void climb(int context_id);//
-	void jump(int context_id);//
 	int attack(int context_id, int obj_id);//
 	//HELPER FOR PARSER//
 	int get_context_id_from_string(string feat_name);//return context_id 
 	int get_obj_id_from_string(string obj_name);
+	
+	int kill_player();
+	
+	void gen_feat_list();
+	string get_feat_list(int x);
+	void output_feat_list();
 //todo:
 	/*
 		get connect string to feat_id in room for climb/jump
 		start new game interface when player dies
 	*/
-//private:	
+	
+private:	
 	Object* o_array[NUM_OBJECTS];
 	Room* r_array[NUM_ROOMS];
 	string event1_text;	
+	
 	Player player1;
 	string save_text;
 	string load_text;
@@ -98,6 +105,10 @@ public:
 	int current_obj_location[NUM_OBJECTS];
 	int room_obj_set[NUM_OBJECTS]={1, 3, 10, 6, 0, 11, 5, 9};
 	int room_needs_object1[NUM_OBJECTS]={2, 3, 4, 5, 6, 7, 8, 13};
+	
+	int room_events_triggered[NUM_EVENTS];
+	string feat_list[TOTAL_FIXED];
+	
 	
 
 	

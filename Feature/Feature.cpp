@@ -79,53 +79,59 @@ void Feature::set_togg_count_x(int x, int new_count){
 	verb_func_toggled[x]=new_count;
 	
 }
-void Feature::look()//print description
+int Feature::look()//print description
 {
 	look_count = look_count + 1;
 	printf("%s\n", desc.c_str());
+	return 0;
 }
-void Feature::read(){
+int Feature::read(){
 	string response = get_name() + " cannot be read\n";
 	printf("%s\n", response.c_str());
+	return 0;
 
 }
 
-void Feature::smell(){
+int Feature::smell(){
 	string response = get_name() + " cannot be smelled\n";
 	printf("%s\n", response.c_str());
+	return 0;
 
 }
-void Feature::use(){
+int Feature::use(){
 	string response = get_name() + " cannot be useed\n";
 	printf("%s\n", response.c_str());
+	return 0;
 
 }
 
-void Feature::eat(){
+int Feature::eat(){
 	string response = get_name() + " cannot be eaten\n";
 	printf("%s\n", response.c_str());
+	return 0;
 
 }
-void Feature::play(){
+int Feature::play(){
 	string response = get_name() + " cannot be played\n";
 	printf("%s\n", response.c_str());
+	return 0;
 
 }
-void Feature::open(int room_id, int feat_obj_id){
+int Feature::open(int room_id, int feat_obj_id){
 	string response = get_name() + " cannot be open\n";
 	printf("%s\n", response.c_str());
+	return 0;
 
-}//for cat features
-void Feature::speak(){
+}
+int Feature::speak(){
 	string response = get_name() + " cannot be spoken to\n";
 	printf("%s\n", response.c_str());
-
-
-}//talk to a feature or object 
-void Feature::give(){
+	return 0;
+}
+int Feature::give(int room_id, int feat_obj_id){
 	string response = get_name() + " cannot be given to\n";
 	printf("%s\n", response.c_str());
-
+	return 0;
 
 }//user to interact with some features or objects potentially
 //will allow user to exit

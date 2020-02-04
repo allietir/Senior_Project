@@ -9,8 +9,7 @@ class Feature1 : public Feature {
 public:
 	Feature1();
 	virtual ~Feature1();
-	void read();
-	void look();
+	int read();
 	void remove_object_desc();
 	string get_desc1();
 	void set_desc1(string x);

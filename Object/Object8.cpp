@@ -9,10 +9,11 @@ Object8::Object8() {
 	set_desc("The cup shines brigher than anything in the home has shone, like it is new. ");
 	set_index_id(7);
 }
-void Object8::read(){
+int Object8::read(){
 	string read_response = "Sanguis seu spiritus";
 	func_togg_count_x(0);
 	printf("%s\n", read_response.c_str());
+	return 0;
 	
 	
 }

@@ -5,10 +5,9 @@
 #include "Feature2.h"
 
 Feature2::Feature2() {
-	set_name("Gnarled Tree");
+	set_name("Tree");
 	desc1 = "A large, gnarled looking black tree without a single leaf. It seems to be as tall as the second floor. "
 			"The banches seem to poke almost directly into the open window of the second story. \n";
-	//desc2 = "The banches seem to poke almost directly into the open window of the second story.";
 	set_desc(desc1);//
 	set_index_id(1);
 }
@@ -24,9 +23,6 @@ int Feature2::climb(){
 	}
 	return -1;
 }
-
-
-
 Feature2::~Feature2() {
 	
 }

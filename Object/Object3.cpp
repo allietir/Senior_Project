@@ -9,15 +9,17 @@ Object3::Object3() {
 	set_desc("The locket is silver and small; it looks surprisingly shiny and new for what appears to be an very old fashioend design. ");
 	set_index_id(2);
 }
-void Object3::read(){
+int Object3::read(){
 	string read_response = "The locket has a tiny inscription that says 'Open me below\n' ";
 	func_togg_count_x(0);
 	printf("%s\n", read_response.c_str());
+	return 0;
 }
-void Object3::open(int room_id, int feat_id){	
+int Object3::open(int room_id, int feat_id){	
 	string open_response = "The ";
 	func_togg_count_x(0);
 	printf("%s\n", open_response.c_str());
+	return 0;
 }
 Object3::~Object3() {
 	

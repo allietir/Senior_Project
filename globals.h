@@ -2,12 +2,13 @@
 #define NUM_VERBS 10
 #define NUM_OBJECTS 8
 #define NUM_ROOMS 15
-#define TOTAL_FIXED 45
+#define TOTAL_FIXED 30
 #define MAX_EXITS 4
 #define MAX_DESCS 5
 #define NUM_VERB_FUNCS 10
 #define FRIEND_NAME "ALEX"
 #define MAX_EVENTS 3
+#define NUM_EVENTS 45
 
 #define ROOM1 "Front Garden"
 #define ROOM2 "Entranceway"//exit north->upstarishallway:3 south->front garden:1 east->dining room:4 west->parlour:5
@@ -36,3 +37,14 @@
 #define VERB8 "give"
 #define VERB9 "climb"
 #define VERB10 "attack"
+
+#define READ 0
+#define SMELL 1
+#define USE 2
+#define EAT 3
+#define PLAY 4
+#define OPEN 5
+#define SPEAK 6
+#define GIVE 7
+#define CLIMB 8
+#define ATTACK 9

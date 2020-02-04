@@ -9,8 +9,8 @@ class Object3 : public Object{
 public:
 	Object3();
 	virtual ~Object3();
-	void read();
-	void open(int x, int y);
+	int read();
+	int open(int x, int y);
 	int special=666;
 };
 

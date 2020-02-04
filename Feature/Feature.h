@@ -41,19 +41,19 @@ public:
 	int get_look_count();
 	void set_look_count(int x);
 	
-	virtual void look();//return desc
+	virtual int look();//return desc
 	
 	/*Your game must support an action vocabulary space (verbs) of at least ten primary actions (hit, pull, go, eat, etc.). These verbs must allow interaction with each feature in each room (a generic "you can't eat that" type of message is OK to use with some verbs).
 	Some verbs must cause the player to move between rooms.*/
 
-	virtual void read();//0
-	virtual void smell();//1
-	virtual void use();//2
-	virtual void eat();//3
-	virtual void play();//4
-	virtual void open(int room_id, int obj_feat_id);//5
-	virtual void speak();//6
-	virtual void give();//7
+	virtual int read();//0
+	virtual int smell();//1
+	virtual int use();//2
+	virtual int eat();//3
+	virtual int play();//4
+	virtual int open(int room_id, int obj_feat_id);//5
+	virtual int speak();//6
+	virtual int give(int room_id, int obj_feat_id);//7
 	virtual int climb();//8
 	virtual int attack(string obj_name);//9
 	

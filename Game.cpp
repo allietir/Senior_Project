@@ -70,6 +70,8 @@ void Game::start(){
 	r_array[player1.get_current_room()]->look();
 
 	printf("%s", "-----GET INPUT FUNCTION HERE------");
+
+	gen_feat_list();
 }
 //take implemented at game level, since objects are at game level
 void Game::take(int object_id){
@@ -267,6 +269,31 @@ int Game::get_obj_id_from_string(string obj_name){
 		}
 	}
 	return -1;
+}
+int Game::kill_player(){
+	player1.set_player_alive(0);
+	return 0;
+}
+void Game::gen_feat_list(){
+	int x = 0 ;
+	for (int i = 0; i < NUM_ROOMS; i++){
+		
+		feat_list[x]=r_array[i]->get_feature_x(0)->get_name();
+		//printf("%s", feat_list[x].c_str());
+		feat_list[x+1]=r_array[i]->get_feature_x(1)->get_name();
+		//printf("%s", feat_list[x+1].c_str());
+		x = x + 2;
+		
+	}
+	
+}
+string Game::get_feat_list(int x){
+	return feat_list[x];
+}
+void Game::output_feat_list(){
+	for (int i = 0; i < TOTAL_FIXED; i++){
+		printf("%i:%s\n",i, get_feat_list(i).c_str());
+	}
 }
 //helper for parse
 Game::~Game() {

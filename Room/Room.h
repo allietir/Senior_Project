@@ -79,9 +79,9 @@ public:
 	int get_event_triggered(int event_id);
 	void set_event_triggered(int event_id, int val);
 	
-	virtual void event_one();
-	virtual void event_two();
-	virtual void event_three();
+	virtual int event_one();
+	virtual int event_two();
+	virtual int event_three();
 
 	Feature* fixed_list[MAX_FIXED]; 
 	
