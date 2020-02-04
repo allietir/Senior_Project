@@ -12,9 +12,7 @@ class Feature2 : public Feature {
 public:
 	Feature2();
 	virtual ~Feature2();
-	void look();
 	int climb();
-	//int jump();
 
 private:
  	string desc1;

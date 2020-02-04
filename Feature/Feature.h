@@ -45,53 +45,20 @@ public:
 	
 	/*Your game must support an action vocabulary space (verbs) of at least ten primary actions (hit, pull, go, eat, etc.). These verbs must allow interaction with each feature in each room (a generic "you can't eat that" type of message is OK to use with some verbs).
 	Some verbs must cause the player to move between rooms.*/
-	
-	/**********
-	TODO: Eliminate verbs, see list below. Cannot delete
-	yet due to multiple dependencies in rooms we have not completed yet.
-	***********/
-	//object verbs
-	virtual void read();//verb func 0: verb_func_toggled[0]
-	virtual void pull();//1
-	virtual void push();//2
-	virtual void turn();//3
+
+	virtual void read();//0
+	virtual void smell();//1
+	virtual void use();//2
+	virtual void eat();//3
 	virtual void play();//4
-	virtual void open(int room_id, int obj_feat_id);//5//works for chest with key or locket dependent on room
-	virtual void speak();//6talk to a feature or object 
-	virtual void listen();//7user to interact with some features or objects potentially
-	//will allow user to exit
-	virtual int climb();//8use to interact with some features to exit between rooms, returns -1 if nothing, else returnsn room to exit to
-	virtual int jump();//9user to interact with some features to exit between rooms, reutnr -1 if nothing, else returns room to exit to
-	virtual int attack(string obj_name);//10 
-	virtual void light();//11light the lamp or rooms that have switches
-	virtual void fill();//12used to fill chalice with blood or holy water within the conservatory feature and vampire blood feature
-	virtual void use();//13
-	virtual void give();//14
-	virtual void eat();//15
-	virtual void smell();//16
+	virtual void open(int room_id, int obj_feat_id);//5
+	virtual void speak();//6
+	virtual void give();//7
+	virtual int climb();//8
+	virtual int attack(string obj_name);//9
 	
-	/*********************
-	VERB LIST GOAL: Our goal is to have the following verbs
-	be our final verbs. We can go room by room to achieve this.
 
-	virtual void read();//1
-	virtual void open();//2
-	virtual void use();//3
-	virtual void eat();//4
-	virtual void smell();//5
-	virtual int attack(string obj_name);//6
-	virtual void play();//7
-	virtual void speak();//8
-	virtual int climb();//9
-	virtual void drop();//10
-	virtual void give();//11
-	************************/
-
-	//object plus feature
-	//virtual void place(int feature_index);//called on an object verb you use in conjunction with a feature
-	//will allow user to exit
-	//virtual void open(int object_index);//called on a feature that needs to use a KEY object 
-	//virtual void attack(int feature_index);//called on object plus a feature; attack something using a feature id
+	
 		
 	
 	int func_togg_count_x(int x);

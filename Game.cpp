@@ -35,41 +35,17 @@ void Game::init_rooms() {
 	r_array[14]= new Room15;
 
 	//add objects to array
-	//int room_obj_set[]={1, 3, 10, 6, 0, 11, 5, 9};
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		int room_id = room_obj_set[i];
 		
 		r_array[room_id]->set_has_objects(i, 1);
-		//only add object text after object is LOOKED at
-		//r_array[room_id]->add_object_text(o_array[i]->get_name(), o_array[i]->get_desc());
-		if (r_array[room_id]->get_has_objects(i)==1){
-			//printf("%s now has %s\n", r_array[room_id]->get_name().c_str(), o_array[i]->get_name().c_str());
-		}
 		
 	}
-	//int room_needs_object1[]={2, 3, 4, 5, 6, 7, 8, 13};
 	for (int i = 0; i < 8; i++){
 		int room_id = room_needs_object1[i];
-		//printf("setting %s to require %s\n", r_array[room_id]->get_name().c_str(), o_array[0]->get_name().c_str());
 		r_array[room_id]->set_needs_objects(0, 1);
-		/*if (r_array[room_id]->get_needs_objects(0)==1){
-			printf("%s now needs %s\n", r_array[room_id]->get_name().c_str(), o_array[0]->get_name().c_str());
-		}*/
 	}
 	
-	
-//	r_array[0]->set_has_objects(0, 1);//entrance has oilamp
-//	r_array[3]->set_has_objects(1, 1);//dining room has diary
-//	r_array[10]->set_has_objects(2, 1);//library has crystal ball 
-//	r_array[6]->set_has_objects(3, 1);//guest bedroom has sheet music
-//	r_array[7]->set_has_objects(4, 1);//master bedroom has gilded dagger'
-//	r_array[11]->set_has_objects(5, 1);//conservatory has doll
-//	r_array[5]->set_has_objects(6, 1);//nursuery has chest key
-//	r_array[9]->set_has_objects(7, 1);//attick has silver challice
-	//add description
-//	r_array[0]->add_object_text(o_array[0]->get_name(), o_array[0]->get_desc());
-//	//add description
-//	r_array[3]->add_object_text(o_array[2]->get_name(), o_array[2]->get_desc());	
 }
 void Game::init_objects()
 {
@@ -125,18 +101,6 @@ void Game::take(int object_id){
 
 	
 }
-//trigger take event
-//void Game::check_take_event(int obj_id, int room_id){
-//	//check initail array;
-//	//if this is the room the object was taken in...
-//	if (room_obj_set[obj_id]==room_id){
-//		if (r_array[room_id]->get_event_triggered(0)==0){
-//			r_array[room_id]->event_one();
-//		}
-//		
-//	}
-//	
-//}
 void Game::drop(int object_id){
 	//player 
 	int p_has_item = player1.get_has_objects(object_id);
@@ -199,12 +163,6 @@ int Game::exit_valid(int next_room)
 	}
 	return 0;
 }
-//void Game::exit_r1_r8(){
-//	
-//	player1.set_current_room(7);
-//	printf("You are entering: %s\n", r_array[7]->get_name().c_str());
-//	r_array[7]->look();
-//}
 
 void Game::exit_room(int dir){
 	
@@ -249,17 +207,6 @@ void Game::look(){
 void Game::climb(int feature_x){
 
 	int get_next_room = r_array[player1.get_current_room()]->get_feature_x(feature_x)->climb();
-	if (get_next_room != -1){
-		player1.set_current_room(get_next_room);
-		//intro room
-		int current_room = player1.get_current_room();
-		printf("You are entering: %s\n", r_array[current_room]->get_name().c_str());
-		r_array[current_room]->look();
-	}
-}
-void Game::jump(int feature_x){
-
-	int get_next_room = r_array[player1.get_current_room()]->get_feature_x(feature_x)->jump();
 	if (get_next_room != -1){
 		player1.set_current_room(get_next_room);
 		//intro room

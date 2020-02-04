@@ -13,25 +13,6 @@ Feature2::Feature2() {
 	set_index_id(1);
 }
 
-void Feature2::look(){
-	printf("%s\n", get_desc().c_str());
-}
-
-/*void Feature2::look(){
-	if (get_look_count()==0){
-			set_desc(desc1);
-			set_look_count(1);
-		}
-
-		else if (get_look_count()==1){
-			set_desc(desc2);
-	
-			set_look_count(0);
-		}	
-		printf("%s\n", get_desc().c_str());
-	
-}*/
-
 int Feature2::climb(){
 	if (get_times_toggled(8)==0){
 		printf("You climb up the tree and are able to see that a second story window is open. The room is so dark but it looks like a master bedroom.\n");
@@ -44,18 +25,7 @@ int Feature2::climb(){
 	return -1;
 }
 
-/*
-int Feature2::jump(){
-	if (get_times_toggled(8)==1){
-		printf("You jump through the window and as you do so the branch below you snaps.");
 
-		func_togg_count_x(9);
-	}
-	else{
-		printf("The branch is broken, you can't jump through.\n");
-	}
-	return 7;
-}*/
 
 Feature2::~Feature2() {
 	

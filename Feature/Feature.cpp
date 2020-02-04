@@ -79,30 +79,30 @@ void Feature::set_togg_count_x(int x, int new_count){
 	verb_func_toggled[x]=new_count;
 	
 }
-
-void Feature::read(){
-	string response = get_name() + " cannot be read\n";
-	printf("%s\n", response.c_str());
-
-}
 void Feature::look()//print description
 {
 	look_count = look_count + 1;
 	printf("%s\n", desc.c_str());
 }
-void Feature::pull(){
-	string response = get_name() + " cannot be pulled\n";
-	printf("%s\n", response.c_str());
-
-}
-void Feature::push(){
-	string response = get_name() + " cannot be pushed\n";
+void Feature::read(){
+	string response = get_name() + " cannot be read\n";
 	printf("%s\n", response.c_str());
 
 }
 
-void Feature::turn(){
-	string response = get_name() + " cannot be turned\n";
+void Feature::smell(){
+	string response = get_name() + " cannot be smelled\n";
+	printf("%s\n", response.c_str());
+
+}
+void Feature::use(){
+	string response = get_name() + " cannot be useed\n";
+	printf("%s\n", response.c_str());
+
+}
+
+void Feature::eat(){
+	string response = get_name() + " cannot be eaten\n";
 	printf("%s\n", response.c_str());
 
 }
@@ -122,8 +122,8 @@ void Feature::speak(){
 
 
 }//talk to a feature or object 
-void Feature::listen(){
-	string response = get_name() + " cannot be listened to\n";
+void Feature::give(){
+	string response = get_name() + " cannot be given to\n";
 	printf("%s\n", response.c_str());
 
 
@@ -133,46 +133,13 @@ int Feature::climb(){
 	string response = get_name() + " cannot be climbed\n";
 	printf("%s\n", response.c_str());
 	return -1;
-
-
 }//use to interact with some features to exit between rooms
-int Feature::jump(){
-	string response = get_name() + " cannot be jumped on or through\n";
-	printf("%s\n", response.c_str());
-	return -1;
-
-
-}//user to interact with some features to exit between rooms
 int Feature::attack(string object_name){
 	string response = get_name() + " cannot be attacked with " + object_name + "\n";
 	printf("%s\n", response.c_str());
 	return 0;
 }
-void Feature::light(){
-	string response = get_name() + " cannot be lit\n";
-		printf("%s\n", response.c_str());
-}//11light the lamp or rooms that have switches
-void Feature::fill(){
-	string response = get_name() + " cannot be filled\n";
-	printf("%s\n", response.c_str());
-}//12used to fill chalice with blood or holy water within the conservatory feature and vampire blood feature
-	
-void Feature::use(){
-	string response = get_name() + " cannot be used\n";
-		printf("%s\n", response.c_str());
-}//13
-void Feature::give(){
-	string response = get_name() + " cannot be given\n";
-		printf("%s\n", response.c_str());
-}//14
-void Feature::eat(){
-	string response = get_name() + " cannot be eaten\n";
-		printf("%s\n", response.c_str());
-}//15
-void Feature::smell(){
-	string response = get_name() + " cannot be smelled\n";
-		printf("%s\n", response.c_str());
-}//16
+
 int Feature::get_times_toggled(int function_id){
 	return verb_func_toggled[function_id];
 }

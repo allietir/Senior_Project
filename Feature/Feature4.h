@@ -11,8 +11,8 @@ public:
 	virtual ~Feature4();
 	void open(int room_id, int feat_obj_id);
 	void play();
-	void pull();
-	void push();
+	void use();
+	void smell();
 	int special=666;
 };
 

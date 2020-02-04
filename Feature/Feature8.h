@@ -11,8 +11,8 @@ public:
 	Feature8();
 	virtual ~Feature8();
 	void read();
-	void push();
-	void pull();
+	void smell();
+	void use();
 	
 	int special=666;
 	friend class Room4;

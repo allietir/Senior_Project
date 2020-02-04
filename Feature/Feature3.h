@@ -10,8 +10,8 @@ public:
 	Feature3();
 	virtual ~Feature3();
 	void look();
-	void pull();
-	void push();
+	void smell();
+	void use();
 	int special=666;
 private:
 	string desc1;
