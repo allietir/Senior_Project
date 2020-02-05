@@ -13,20 +13,21 @@ Feature3::Feature3() {
 int Feature3::smell(){
 	if(get_times_toggled(1)==0){
 		string smell_event = "The painting seems to groan and suddenly the father's eyes seem to shift directly towards you, but it's dark so you might be seeing things. You decide not to smell the painting again";
-	func_togg_count_x(1);
-	printf("%s\n", smell_event.c_str());
+		func_togg_count_x(1);
+		printf("%s\n", smell_event.c_str());
 	}
-	else{
+	else
+	{
 		string smell_event = "Nothing happens; you wonder if you imagined it before.\n";
 		func_togg_count_x(1);
 		printf("%s\n", smell_event.c_str());
 	}
-	return 0;
+	return 4;
 }
 int Feature3::use(){
 	
 	if(get_times_toggled(2)==0){
-		string use_event = "You feel a chill and you see the doll in the girls arms dissapear. The girls face suddenly goes even sadder, and you see a single tear drop out of theh panting and onto your feet.\n";
+		string use_event = "You feel a chill and you see the doll in the girls arms disapear. The girls face suddenly goes even sadder, and you see a single tear drop out of theh panting and onto your feet.\n";
 			func_togg_count_x(2);
 			printf("%s\n", use_event.c_str());
 	}
@@ -36,7 +37,7 @@ int Feature3::use(){
 		printf("%s\n", use_event.c_str());
 
 	}
-	return 0;
+	return 4;
 }
 Feature3::~Feature3() {
 	

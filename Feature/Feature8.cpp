@@ -20,9 +20,6 @@ int Feature8::smell(){
 	}
 	else if (get_times_toggled(2)==1){
 		printf("You take another whiff again, and this seems to justle the ring towards the monster. The monster clutches at the ring. You wait in terror.\n");	
-		//Room4 room_four;
-		//room_four.event_two();
-		//func_togg_count_x(1);
 	}
 	return 2;//return event # being triggered		
 }
@@ -32,7 +29,7 @@ int Feature8::use(){
 		set_togg_count_x(1, 0);
 		func_togg_count_x(2);
 	}
-	return 0;
+	return 4;
 }
 
 Feature8::~Feature8() {

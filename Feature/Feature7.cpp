@@ -24,7 +24,7 @@ int Feature7::speak(){
 		
 	}
 	printf("%s\n", speak_response.c_str());
-	return 0;	
+	return 4;	
 }
 int Feature7::give(int room_id, int obj_feat_id){
 	string give_response = "";
@@ -40,7 +40,7 @@ int Feature7::give(int room_id, int obj_feat_id){
 
 	printf("%s\n", give_response.c_str());
 	//in game, triggers event_one
-	return 0;
+	return 4;
 }	
 int Feature7::attack(string obj_name){
 	printf("You attack the %s with the %s. The creature raises his hand and with a single motion, stills your hand. ' You shouldn't have done that ' the creatue says, sadly. You watch in horror as the %s turns towards yourself. This is the end.\n", get_name().c_str(), obj_name.c_str(), obj_name.c_str());

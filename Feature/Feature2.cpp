@@ -20,9 +20,9 @@ int Feature2::climb(){
 	else if (get_times_toggled(8)==1){
 		printf("You climb down the tree and you are back on the ground\n");
 		set_togg_count_x(8, 0);
-		return 10;
+		return 4;
 	}
-	return 10;
+	return 5;
 }
 Feature2::~Feature2() {
 	

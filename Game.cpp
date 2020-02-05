@@ -329,9 +329,16 @@ int Game::run_func(string item, string obj_name, string verb){
 	if (res==-2){
 		player1.set_can_take(0);//set to FALSE
 	}
+	//if anything else happens, the lock on take is nullified
 	else
 	{
 		player1.set_can_take(1);//set to TRUE
+	}
+	if (res==4){
+		//nothing happens; four is the "nothing" value
+	}
+	if (res==5){
+		printf("----something unexpected has occured----\n");
 	}
 	return 0;
 	
