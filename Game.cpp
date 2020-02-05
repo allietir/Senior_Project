@@ -68,6 +68,7 @@ void Game::start(){
 	printf("Current location is %s\n", r_array[player1.get_current_room()]->get_name().c_str());
 	
 	r_array[player1.get_current_room()]->look();
+	
 
 	printf("%s", "-----GET INPUT FUNCTION HERE------");
 
@@ -315,7 +316,7 @@ int Game::run_func(string item, string obj_name, string verb){
 	else if (verb.compare(STR_VERB9)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB9(); }
 	else if (verb.compare(STR_VERB10)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB10(obj_name); }
 
-	
+	printf("RES: %i\n", res);
 	if ((res==0)||(res==1)||(res==2)){
 		//rach player can have max 3 events, so get result (event 0->1, 1->2, 2->3), plus 3 times the current room you are in to set the value to EVENT TRIGGERED 
 		room_events_triggered[res+(3*player1.get_current_room())]=1;

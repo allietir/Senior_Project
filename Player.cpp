@@ -13,6 +13,7 @@ Player::Player() {
 		has_objects[i]=0;
 	}
 	player_alive = 1;
+	can_take = 1;
 }
 string Player::get_name(){
 	return name;
