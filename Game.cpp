@@ -76,30 +76,36 @@ void Game::start(){
 //take implemented at game level, since objects are at game level
 void Game::take(int object_id){
 	//player 
-	int p_has_item = player1.get_has_objects(object_id);
-	int current_room = player1.get_current_room();
-	int r_has_item = r_array[current_room]->get_has_objects(object_id);
-	//if item is in the room and the player does not have the item
-	if ((p_has_item == 0)&&(r_has_item==1)){
-		player1.set_has_objects(object_id, 1);
-		r_array[current_room]->set_has_objects(object_id, 0);
-		set_obj_location(object_id, -1);
-		printf("%s no longer has %s\n", r_array[current_room]->get_name().c_str(), o_array[object_id]->get_name().c_str());	
-		printf("Updated player inventory...\n");
-		inventory();
-		printf("\n");
-		//update room description:
-		r_array[current_room]->remove_object_text();
-		//update feature description:
-		r_array[current_room]->get_feature_x(0)->remove_object_desc();
-		r_array[current_room]->get_feature_x(1)->remove_object_desc();
+	if (player1.get_can_take()==1){
+		int p_has_item = player1.get_has_objects(object_id);
+			int current_room = player1.get_current_room();
+			int r_has_item = r_array[current_room]->get_has_objects(object_id);
+			//if item is in the room and the player does not have the item
+			if ((p_has_item == 0)&&(r_has_item==1)){
+				player1.set_has_objects(object_id, 1);
+				r_array[current_room]->set_has_objects(object_id, 0);
+				set_obj_location(object_id, -1);
+				printf("%s no longer has %s\n", r_array[current_room]->get_name().c_str(), o_array[object_id]->get_name().c_str());	
+				printf("Updated player inventory...\n");
+				inventory();
+				printf("\n");
+				//update room description:
+				r_array[current_room]->remove_object_text();
+				//update feature description:
+				r_array[current_room]->get_feature_x(0)->remove_object_desc();
+				r_array[current_room]->get_feature_x(1)->remove_object_desc();
+			}
+			if (p_has_item == 1){
+				printf("You already have this item\n");
+			}
+			else if (r_has_item == 0){
+				printf("Item is not in this room\n");
+			}
 	}
-	if (p_has_item == 1){
-		printf("You already have this item\n");
+	else{
+		printf("You can't take %s right now.\n", o_array[object_id]->get_name().c_str());
 	}
-	else if (r_has_item == 0){
-		printf("Item is not in this room\n");
-	}
+	
 
 	
 }
@@ -294,6 +300,40 @@ void Game::output_feat_list(){
 	for (int i = 0; i < TOTAL_FIXED; i++){
 		printf("%i:%s\n",i, get_feat_list(i).c_str());
 	}
+}
+//climb can only refer to FEATURES validly so get context_id from string 
+int Game::run_func(string item, string obj_name, string verb){
+	int res = -666;
+	if (verb.compare(STR_VERB1)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB1(); }
+	else if (verb.compare(STR_VERB2)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB2(); }
+	else if (verb.compare(STR_VERB3)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB3(); }
+	else if (verb.compare(STR_VERB4)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB4(); }
+	else if (verb.compare(STR_VERB5)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB5(); }
+	else if (verb.compare(STR_VERB6)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB6(player1.get_current_room(), get_obj_id_from_string(obj_name)); }
+	else if (verb.compare(STR_VERB7)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB7(); }
+	else if (verb.compare(STR_VERB8)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB8(player1.get_current_room(), get_obj_id_from_string(obj_name)); }
+	else if (verb.compare(STR_VERB9)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB9(); }
+	else if (verb.compare(STR_VERB10)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB10(obj_name); }
+
+	
+	if ((res==0)||(res==1)||(res==2)){
+		//rach player can have max 3 events, so get result (event 0->1, 1->2, 2->3), plus 3 times the current room you are in to set the value to EVENT TRIGGERED 
+		room_events_triggered[res+(3*player1.get_current_room())]=1;
+	}
+	//player is DEAD
+	else if (res==-1){
+		player1.set_player_alive(0);//set to FALSE
+	}
+	//player can't TAKE anything
+	if (res==-2){
+		player1.set_can_take(0);//set to FALSE
+	}
+	else
+	{
+		player1.set_can_take(1);//set to TRUE
+	}
+	return 0;
+	
 }
 //helper for parse
 Game::~Game() {

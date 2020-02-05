@@ -87,13 +87,15 @@ public:
 	void gen_feat_list();
 	string get_feat_list(int x);
 	void output_feat_list();
+	
+	int run_func(string item, string obj_name, string verb);
 //todo:
 	/*
 		get connect string to feat_id in room for climb/jump
 		start new game interface when player dies
 	*/
 	
-private:	
+//private:	
 	Object* o_array[NUM_OBJECTS];
 	Room* r_array[NUM_ROOMS];
 	string event1_text;	
