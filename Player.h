@@ -26,8 +26,10 @@ public:
 	void set_move_count(int s_move_count); 
 	
 	int get_player_alive();
-	void set_player_alive(int s_move_count); 
+	void set_player_alive(int alive_val); 
 
+	int get_can_take();
+	void set_can_take(int s_can_take);
 		
 	
 private:
@@ -37,7 +39,7 @@ private:
 	int has_objects[NUM_OBJECTS];
 	int move_count;
 	int player_alive;
-	
+	int can_take;
 
 
 	
