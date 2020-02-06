@@ -312,6 +312,9 @@ Player* Game::get_player()
 {
 	return &player1;
 }
+void Game::set_player(Player* playerx){
+	player1 = *playerx;
+}
 string Game::get_feat_list(int x){
 	return feat_list[x];
 }

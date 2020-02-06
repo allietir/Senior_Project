@@ -72,6 +72,9 @@ for (int j = 0; j < NUM_ROOMS; j++){
 		//try to take each object in each room
 		for (int j = 0; j < NUM_OBJECTS; j++){
 			test_take_drop.take(j);
+			string x = test_take_drop.get_all_player_objects();
+			printf("%s\n", x.c_str());
+			
 		}
 	}
 	//after you have all items in your inventory...
@@ -83,6 +86,16 @@ for (int j = 0; j < NUM_ROOMS; j++){
 			test_take_drop.take(j);
 		}
 	}
+	printf("-artificially setting all player objects to have all--");
+	int y[]={1, 1, 1, 1, 1, 1, 1, 1};
+	test_take_drop.set_all_player_objects(y);
+	test_take_drop.inventory();
+	printf("-artificially setting all player objects to have non--");
+	int x[]={0, 0, 0, 0, 0, 0, 0, 0};
+	test_take_drop.set_all_player_objects(x);
+	test_take_drop.inventory();
+	
+	
 
 /*FEATURE TESTS*/
 /*OBJECT TESTS*/

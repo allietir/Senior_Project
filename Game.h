@@ -78,6 +78,7 @@ public:
 	
 	
 	Player* get_player();
+	void set_player(Player* playerx);
 	
 	//------HELPERS FOR PARSER//
 	int get_context_id_from_string(string feat_name);//return context_id 
