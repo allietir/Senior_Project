@@ -428,11 +428,35 @@ string Game::get_all_game_events_triggered(){
 		}
 		else{
 			bin_str_arr=bin_str_arr + to_string(get_game_events_triggered(i));
-		}
-		
+		}	
 	}
 	return bin_str_arr;
 }
+
+	
+void Game::set_all_player_objects(int bin_arr[NUM_OBJECTS]){
+	for (int i = 0; i < NUM_OBJECTS; i++){
+		player1.set_has_objects(i, bin_arr[i]);
+	}
+}
+string Game::get_all_player_objects(){
+	string bin_str_arr="";
+	for (int i = 0; i < NUM_OBJECTS; i++){
+		if (i<NUM_OBJECTS-1){
+			bin_str_arr=bin_str_arr + to_string(player1.get_has_objects(i))+", ";
+		}
+		else{
+			bin_str_arr=bin_str_arr + to_string(player1.get_has_objects(i));
+		}	
+	}
+	return bin_str_arr;
+}
+
+//void Game::set_all_room_objects(int bin_arr[NUM_OBJECTS]){
+//	
+//}
+//string Game::get_all_room_objects(){
+//}
 Game::~Game() {
 
 }

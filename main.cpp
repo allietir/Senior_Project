@@ -65,18 +65,24 @@ for (int j = 0; j < NUM_ROOMS; j++){
 		printf("%s\n", rooms_visited.c_str());
 	}
 }
-
-//* LOAD SAVE HELPER output EXAMPLE*//
-//Game test_load_funcs;
-//int x[]={3, 1, 5, 6, 1, 2, 3, 4, 0, 10, 11, 12, 0, 1, 12};
-//test_load_funcs.set_all_times_rooms_visited(x);
-//string y=test_load_funcs.get_all_times_rooms_visited();
-//printf("%s\n", y.c_str());
-
-
-
-
-
+//**TEST TAKE AND INVENTORY AND SAVE/LOAD**/
+	Game test_take_drop;
+	for (int i = 0; i < NUM_ROOMS; i++){
+		test_take_drop.player1.set_current_room(i);
+		//try to take each object in each room
+		for (int j = 0; j < NUM_OBJECTS; j++){
+			test_take_drop.take(j);
+		}
+	}
+	//after you have all items in your inventory...
+	for (int i = 0; i < NUM_ROOMS; i++){
+		test_take_drop.player1.set_current_room(i);
+		//...try to drop each item in each room and then take it again
+		for (int j = 0; j < NUM_OBJECTS; j++){
+			test_take_drop.drop(j);
+			test_take_drop.take(j);
+		}
+	}
 
 /*FEATURE TESTS*/
 /*OBJECT TESTS*/

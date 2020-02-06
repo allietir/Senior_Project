@@ -103,6 +103,12 @@ public:
 	void set_all_game_events_triggered(int bin_arr[NUM_GAME_EVENTS]);
 	string get_all_game_events_triggered();
 	
+	void set_all_player_objects(int bin_arr[NUM_OBJECTS]);
+	string get_all_player_objects();
+	
+	void set_all_room_objects(int bin_arr[NUM_OBJECTS]);
+	string get_all_room_objects();
+	
 
 	
 	
