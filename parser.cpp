@@ -3,16 +3,22 @@
 #include <string>
 #include <sstream>
 #include <iterator>
+#include <map>
+#include <algorithm>
+
+#include "Game.h"
+#include "parser.h"
 
 using namespace std;
 
-int inputParsing(string userInput);
+int inputParsing(Game &game, string userInput);
 string cleanInput(string userInput); 
-int checkBasicCommands(string cleanInput); 
+int checkBasicCommands(Game &game, string cleanInput); 
 vector<string> splitCleanInput(string cleanInput);
-int checkMoveCommands(vector<string> inputVector); 
-int checkActions(vector<string> inputVector); 
-
+int checkMoveCommands(Game &game, vector<string> inputVector); 
+int checkActions(Game &game, vector<string> inputVector); 
+/*
+//independent main for testing functions
 int main() {
 	string input = "help"; 
 	int status = inputParsing(input);
@@ -41,21 +47,21 @@ int main() {
 	return 0;
 }
 
-
+*/
 //main parsing function that will be called from the main game
 //takes user input as string
 //calls any necessary commands
 //returns 0 if command recognized and executed
 //prints error and returns 1 if invalid command
-int inputParsing(string userInput){
+int inputParsing(Game &game, string userInput){
 	string clean = cleanInput(userInput); 
 	int status = 0; 
-	status = checkBasicCommands(clean);
+	status = checkBasicCommands(game, clean);
 	if (status == 1) return 0; 
 	vector<string> wordList = splitCleanInput(clean); 
-	status = checkMoveCommands(wordList); 
+	status = checkMoveCommands(game, wordList); 
 	if (status == 1) return 0; 
-	status = checkActions(wordList); 
+	status = checkActions(game, wordList); 
 	if (status == 1) return 0;
 	else //(give error statement);
 	return 1;
@@ -75,12 +81,12 @@ string cleanInput(string userInput){
 //recognizes look, inventory, savegame, loadgame, and help
 //calls the corresponding functions
 //Returns an int 0 if no basic command is found or 1 if command found and executed
-//needs current room, player, and game
-int checkBasicCommands(string cleanInput){
+//needs commands for help, savegame, loadgame
+int checkBasicCommands(Game &game, string cleanInput){
 	int basicStatus =1;
 	if (cleanInput == "look"){
 		cout << "look called\n";
-		//call current room long description
+		game.look();
 	}
 	else if (cleanInput == "help"){
 		cout << "help called \n";
@@ -88,7 +94,7 @@ int checkBasicCommands(string cleanInput){
 	}
 	else if (cleanInput == "inventory"){
 		cout << "inventory called \n"; 
-		//call display player inventory
+		game.inventory();
 	}
 	else if (cleanInput == "savegame"){
 		cout << "savegame called \n";
@@ -122,27 +128,37 @@ vector<string> splitCleanInput(string cleanInput){
 //recognizes: go <direction/room>, <direction/room>
 //calls the correct movement function
 //returns an int 0 if no movement command is found or 1 if command found and executed
-//directions IMPLEMENTD, room names NOT IMPLEMENTED
-int checkMoveCommands(vector<string> inputVector){
+//call needed for room by ID
+int checkMoveCommands(Game &game, vector<string> inputVector){
 	int moveStatus = 1;
 	while (inputVector[0] == "go" || inputVector[0] == "to" || inputVector[0] == "the") {
 		inputVector.erase(inputVector.begin());
 	}
-	if (inputVector[0] == "north") {
+	
+	map<string, int>::iterator it;
+	it = roomIDmap.find(inputVector[0]);
+	
+	if (it != roomIDmap.end()) {
+		// room name matched
+		cout << "room name found \n"; 
+		int roomID = it->second;
+		// call move to room
+	}
+	else if (inputVector[0] == "north") {
 		cout << "called move north\n";
-		//add movement to north
+		game.exit_room(0);
 	}
 	else if (inputVector[0] == "east") {
 		cout << "called move east\n";
-		//add movement to north
+		game.exit_room(2);
 	}
 	else if (inputVector[0] == "south") {
 		cout << "called move south\n";
-		//add movement to north
+		game.exit_room(1);
 	}
 	else if (inputVector[0] == "west") {
 		cout << "called move west\n";
-		//add movement to north
+		game.exit_room(3);
 	}
 	else {
 		moveStatus = 0;
@@ -154,22 +170,20 @@ int checkMoveCommands(vector<string> inputVector){
 //If a pair is found calls the correct function
 //Returns an int 0 if no action command is found or 1 if command found and executed
 //NOT IMPLEMENTED
-int checkActions(vector<string> inputVector) {
+int checkActions(Game &game, vector<string> inputVector) {
 	int actionStatus = 1;
 
 	if (inputVector[0] == "take" && inputVector[1] == "dagger") {
 		cout << "call take dagger\n";
-		//take dagger action call
+		game.take(4);
 	}
 	else if (inputVector[0] == "look" &&
 		(inputVector[1] == "gravestone"
 			|| (inputVector[1] == "at" && inputVector[2] == "gravestone"))) {
 		cout << "call look at gravestone\n";
-		//look gravestone action
+		//game.r_array[game.player1.get_current_room()]->get_feature_X(0)->look();
 	}
 	else actionStatus = 0;
 	
 	return actionStatus;
 }
-
-
