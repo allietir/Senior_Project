@@ -36,6 +36,19 @@ tph.exit_current_from_room_id(13);
 //invalid room
 tph.exit_current_from_room_id(33);
 
+
+
+/**/
+tph.exit_current_from_room_id(2);
+tph.exit_current_from_room_id(3);
+tph.exit_current_from_room_id(4);
+
+tph.take(0);
+tph.exit_current_from_room_id(3);
+tph.exit_current_from_room_id(12);
+
+
+
 //*ROOM TESTS*/
 
 /*FEATURE TESTS*/
