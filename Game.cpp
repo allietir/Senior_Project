@@ -308,6 +308,10 @@ void Game::gen_feat_list(){
 	}
 	
 }
+Player* Game::get_player()
+{
+	return &player1;
+}
 string Game::get_feat_list(int x){
 	return feat_list[x];
 }

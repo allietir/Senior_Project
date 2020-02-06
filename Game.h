@@ -75,6 +75,10 @@ public:
 	//extra exits
 	void climb(int context_id);//
 	int attack(int context_id, int obj_id);//
+	
+	
+	Player* get_player();
+	
 	//------HELPERS FOR PARSER//
 	int get_context_id_from_string(string feat_name);//return context_id 
 	int get_obj_id_from_string(string obj_name);
@@ -109,7 +113,7 @@ public:
 	void set_all_room_objects(int bin_arr[NUM_OBJECTS]);
 	string get_all_room_objects();
 	
-
+	
 	
 	
 
