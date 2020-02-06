@@ -98,7 +98,7 @@ int Feature::smell(){
 	return 0;
 
 }
-int Feature::use(){
+int Feature::use(int obj_feat_id){
 	string response = get_name() + " cannot be useed\n";
 	printf("%s\n", response.c_str());
 	return 0;

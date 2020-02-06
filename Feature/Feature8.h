@@ -12,7 +12,7 @@ public:
 	virtual ~Feature8();
 	int read();
 	int smell();
-	int use();
+	int use(int feat_obj_id);
 	
 	int special=666;
 	friend class Room4;

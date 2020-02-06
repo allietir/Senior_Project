@@ -24,7 +24,7 @@ int Feature3::smell(){
 	}
 	return 4;
 }
-int Feature3::use(){
+int Feature3::use(int feat_obj_id){
 	
 	if(get_times_toggled(2)==0){
 		string use_event = "You feel a chill and you see the doll in the girls arms disapear. The girls face suddenly goes even sadder, and you see a single tear drop out of theh panting and onto your feet.\n";

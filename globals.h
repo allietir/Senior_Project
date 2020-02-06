@@ -76,3 +76,5 @@
 #define GIVE 7
 #define CLIMB 8
 #define ATTACK 9
+
+#define NUM_PLAYER_STATES

@@ -37,12 +37,11 @@
 #include "Object/Object8.h"
 
 
-
-
 class Game {
 public:
 	Game();
 	virtual ~Game();
+	
 	void init_rooms();
 	void init_objects();
 	void init_player();
@@ -68,8 +67,6 @@ public:
 	Room* get_room_x(int x);
 	void set_room_x(Room r, int x);
 	
-	
-	
 	int exit_valid(int next_room);
 	
 	void event1();
@@ -94,6 +91,9 @@ public:
 	
 	
 	//------HELPERS FOR LOADER----//
+	
+
+
 //todo:
 	/*
 		get connect string to feat_id in room for climb/jump
@@ -114,7 +114,10 @@ public:
 	int room_needs_object1[NUM_OBJECTS]={2, 3, 4, 5, 6, 7, 8, 13};
 	
 	int room_events_triggered[NUM_EVENTS];
+	int times_rooms_visited[NUM_ROOMS];
 	string feat_list[TOTAL_FIXED];
+	
+		
 	
 	
 

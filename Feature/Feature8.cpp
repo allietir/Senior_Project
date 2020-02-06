@@ -23,7 +23,7 @@ int Feature8::smell(){
 	}
 	return 2;//return event # being triggered		
 }
-int Feature8::use(){
+int Feature8::use(int feat_obj_id){
 	if (get_times_toggled(1)==1){
 		printf("The ring jostles back to its original position. Oops.\n");
 		set_togg_count_x(1, 0);

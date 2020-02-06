@@ -312,7 +312,7 @@ int Game::run_func(string item, string obj_name, string verb){
 	int res = -666;
 	if (verb.compare(STR_VERB1)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB1(); }
 	else if (verb.compare(STR_VERB2)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB2(); }
-	else if (verb.compare(STR_VERB3)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB3(); }
+	else if (verb.compare(STR_VERB3)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB3(get_obj_id_from_string(obj_name)); }
 	else if (verb.compare(STR_VERB4)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB4(); }
 	else if (verb.compare(STR_VERB5)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB5(); }
 	else if (verb.compare(STR_VERB6)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB6(player1.get_current_room(), get_obj_id_from_string(obj_name)); }
@@ -370,6 +370,8 @@ int Game::exit_current_from_room_id(int room_id){
 	
 	return -1;
 }
+//LOAD HELPER
+
 Game::~Game() {
 
 }

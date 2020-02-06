@@ -22,7 +22,7 @@ int Feature4::smell(){
 	}
 	return 4;
 }
-int Feature4::use(){
+int Feature4::use(int feat_obj_id){
 	if (get_times_toggled(1)>=1)
 	{
 		string use_response = "Using the box remains you see a golden pentagram revelaed etched in the table. Somehow, it wasn't there before. ";

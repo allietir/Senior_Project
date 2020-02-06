@@ -48,7 +48,7 @@ public:
 
 	virtual int read();//0
 	virtual int smell();//1
-	virtual int use();//2
+	virtual int use(int obj_feat_id);//2
 	virtual int eat();//3
 	virtual int play();//4
 	virtual int open(int room_id, int obj_feat_id);//5
