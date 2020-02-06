@@ -176,16 +176,6 @@ int Game::exit_valid(int next_room)
 void Game::exit_room(int dir){
 	
 	
-	//update player move count
-	int mc = player1.get_move_count();
-	mc = mc + 1;
-	player1.set_move_count(mc);
-		
-	//update player
-	if (player1.get_move_count()==2){
-		
-		event1();
-	}
 	int current_room = player1.get_current_room();
 	printf("You are exiting: %s\n", r_array[current_room]->get_name().c_str());
 	
@@ -198,6 +188,17 @@ void Game::exit_room(int dir){
 		if (exit_valid(get_next_room)==0){
 			printf("Success, you have the object required to enter the next room.\n\n");
 			player1.set_current_room(get_next_room);
+			//update player move count
+				int mc = player1.get_move_count();
+				mc = mc + 1;
+				player1.set_move_count(mc);
+					
+				//update player
+				if (player1.get_move_count()==2){
+					
+					event1();
+				}
+
 			//intro room
 			current_room = player1.get_current_room();
 			printf("You are entering: %s\n", r_array[current_room]->get_name().c_str());
