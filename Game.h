@@ -125,7 +125,7 @@ public:
 		start new game interface when player dies
 	*/
 	
-//private:	
+private:	
 	Object* o_array[NUM_OBJECTS];
 	Room* r_array[NUM_ROOMS];
 	string event1_text;	
