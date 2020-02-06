@@ -165,8 +165,11 @@ int Game::exit_valid(int next_room)
 		if (r_array[next_room]->get_needs_objects(i)==1){
 			int has_obj = player1.get_has_objects(i);
 			if (has_obj!=1){
-				printf("You need the %s to enter this room.", o_array[i]->get_name().c_str());
+				printf("You need the %s to enter this room.\n", o_array[i]->get_name().c_str());
 				return -1;
+			}
+			else{
+				printf("Success, you have the %s require to enter this room.\n", o_array[i]->get_name().c_str());
 			}
 		}
 	}
@@ -177,16 +180,17 @@ void Game::exit_room(int dir){
 	
 	
 	int current_room = player1.get_current_room();
-	printf("You are exiting: %s\n", r_array[current_room]->get_name().c_str());
+	printf("You are attempting to exit: %s\n", r_array[current_room]->get_name().c_str());
 	
 	int get_next_room = r_array[current_room]->get_exit_id(dir);
 	if (get_next_room == -1){
-		printf("%s has no exit to the %s\n", r_array[current_room]->get_name().c_str(),  r_array[current_room]->get_exit_dir(dir).c_str());
+		printf("Error: %s has no exit to the %s\n", r_array[current_room]->get_name().c_str(),  r_array[dir]->get_name().c_str());
 	}
 	else
 	{
 		if (exit_valid(get_next_room)==0){
-			printf("Success, you have the object required to enter the next room.\n\n");
+		
+			printf("Success, there is an exit from the %s to the %s\n\n", r_array[current_room]->get_name().c_str(), r_array[dir]->get_name().c_str());
 			player1.set_current_room(get_next_room);
 			//update player move count
 			int mc = player1.get_move_count();
@@ -345,6 +349,27 @@ int Game::run_func(string item, string obj_name, string verb){
 	
 }
 //helper for parse
+int Game::exit_current_from_room_id(int room_id){
+	if ((room_id < 0)||(room_id > 14))
+	{
+		printf("Error: Invalid room id\n");
+	}
+	else{
+		//check each exit_index
+			int exit_room_id =-666;
+			for (int i = 0; i < MAX_EXITS; i++){
+				exit_room_id = r_array[player1.get_current_room()]->get_exit_id(i);
+				if (exit_room_id == room_id){
+					printf("Success, move from %s to %s\n", r_array[room_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+					exit_room(i);
+					return 0;
+				}
+			}
+			printf("Error: cannot exit to %s from %s\n", r_array[room_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+	}
+	
+	return -1;
+}
 Game::~Game() {
 
 }

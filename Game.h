@@ -78,17 +78,22 @@ public:
 	//extra exits
 	void climb(int context_id);//
 	int attack(int context_id, int obj_id);//
-	//HELPER FOR PARSER//
+	//------HELPERS FOR PARSER//
 	int get_context_id_from_string(string feat_name);//return context_id 
 	int get_obj_id_from_string(string obj_name);
 	
 	int kill_player();
 	
+
 	void gen_feat_list();
 	string get_feat_list(int x);
 	void output_feat_list();
 	
 	int run_func(string item, string obj_name, string verb);
+	int exit_current_from_room_id(int room_id);
+	
+	
+	//------HELPERS FOR LOADER----//
 //todo:
 	/*
 		get connect string to feat_id in room for climb/jump

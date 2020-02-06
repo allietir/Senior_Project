@@ -25,7 +25,18 @@ printf("mc: %i\n", mc);
 new_game1.exit_room(0);
 mc = new_game1.player1.get_move_count();
 printf("mc: %i\n", mc);
-/*ROOM TESTS*/
+
+
+/*PARSER HELPER FOR ROOM EXIT*/
+Game tph;
+//valid exit
+tph.exit_current_from_room_id(1);
+//invalid exit
+tph.exit_current_from_room_id(13);
+//invalid room
+tph.exit_current_from_room_id(33);
+
+//*ROOM TESTS*/
 
 /*FEATURE TESTS*/
 /*OBJECT TESTS*/
