@@ -100,6 +100,10 @@ public:
 	void set_game_events_triggered(int event_index, int val);
 	int get_game_events_triggered(int event_index);
 	
+	void set_room_events_triggered(int event_index, int val);
+	int get_room_events_triggered(int event_index);
+	
+	
 	//------HELPERS FOR LOADER----//
 	//wrappers
 	void set_all_times_rooms_visited(int bin_arr[NUM_ROOMS]);
@@ -113,6 +117,9 @@ public:
 	
 	void set_all_room_objects(int bin_arr[NUM_OBJECTS]);
 	string get_all_room_objects();
+	
+	void set_all_room_events_triggered(int bin_arr[NUM_EVENTS]);
+	string get_all_room_events_triggered();
 	
 	
 	

@@ -10,6 +10,10 @@
 
 Game::Game() {
 		init_rooms();
+		//set all game events triggered to not triggered
+		for (int i = 0; i < NUM_EVENTS; i++){
+			set_room_events_triggered(i, 0);
+		}
 }
 void Game::event1()
 {
@@ -424,6 +428,15 @@ int Game::get_game_events_triggered(int event_index){
 	return game_events_triggered[event_index];
 }
 
+void Game::set_room_events_triggered(int event_index, int val){
+	if ((event_index>-1)&&(event_index<NUM_EVENTS)){
+		room_events_triggered[event_index]=val;
+	}
+	
+}
+int Game::get_room_events_triggered(int event_index){
+	return room_events_triggered[event_index];
+}
 void Game::set_all_game_events_triggered(int bin_arr[NUM_GAME_EVENTS]){
 	for (int i = 0; i < NUM_GAME_EVENTS; i++){
 			set_game_events_triggered(i, bin_arr[i]);
@@ -499,6 +512,24 @@ string Game::get_all_room_objects(){
 			}	
 		}
 		
+	}
+	return bin_str_arr;
+}
+
+void Game::set_all_room_events_triggered(int bin_arr[NUM_EVENTS]){
+	for (int i = 0; i < NUM_EVENTS; i++){
+		set_room_events_triggered(i, bin_arr[i]);
+	}
+}
+string Game::get_all_room_events_triggered(){
+	string bin_str_arr="";
+	for (int i = 0; i < NUM_EVENTS; i++){
+		if (i<NUM_EVENTS-1){
+			bin_str_arr=bin_str_arr + to_string(get_room_events_triggered(i))+", ";
+		}
+		else{
+			bin_str_arr=bin_str_arr + to_string(get_room_events_triggered(i));
+		}	
 	}
 	return bin_str_arr;
 }

@@ -59,6 +59,9 @@ for (int j = 0; j < NUM_ROOMS; j++){
 	//test exit for each room
 	for (int i = 0; i < MAX_EXITS; i++){
 		test_exits.get_player()->set_current_room(j);
+		//test player event functionality//
+		string x = test_exits.get_all_room_events_triggered();
+		printf("RET: %s\n", x.c_str());
 		test_exits.exit_room(i);
 		//*TEST ROOM TOGGLE ROOM VISITED FUNCTIONALITY*//
 		string rooms_visited = test_exits.get_all_times_rooms_visited();
@@ -101,6 +104,7 @@ for (int j = 0; j < NUM_ROOMS; j++){
 	int set[]={9, 8, 1, 5, 2, 4, 1, 2};
 	test_has_objs.set_all_room_objects(set);
 	printf("%s\n", test_has_objs.get_all_room_objects().c_str());
+	
 
 /*FEATURE TESTS*/
 /*OBJECT TESTS*/
