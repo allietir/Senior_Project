@@ -35,6 +35,8 @@ There are 30 Features
 
 There is one player.
 
+The player has a `int move_count`. This is used by the Game class to trigger Game events. It is incremented every time a player successfully exits a room. It starts at '1'. 
+> At move_count==3, i.e. at the 3rd room, the Player Friend Dissapears event occurs. 
 > Player DS Visualization here
 
 
@@ -48,6 +50,17 @@ There is one player.
 > Explain return value and parameters verbs tak
 
 ## State Saving
+
+### Event Arrays
+Event arrays are utilized within the Game glass to keep track of what events have veen triggered
+
+> array tracking 45 events to
+
+### Integer States
+The Player `int current_room` saves what room the player is currently in.
+The Player `int has_objects[NUM_OBJECTS]` saves what items the player currently has
+The Room `int has_objects[NUM_OBJECTS]` saves what items the room currently has 
+
 
 ## Tests
 

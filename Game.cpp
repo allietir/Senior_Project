@@ -189,15 +189,15 @@ void Game::exit_room(int dir){
 			printf("Success, you have the object required to enter the next room.\n\n");
 			player1.set_current_room(get_next_room);
 			//update player move count
-				int mc = player1.get_move_count();
-				mc = mc + 1;
-				player1.set_move_count(mc);
-					
-				//update player
-				if (player1.get_move_count()==2){
-					
-					event1();
-				}
+			int mc = player1.get_move_count();
+			mc = mc + 1;
+			player1.set_move_count(mc);
+				
+			//update player
+			if (player1.get_move_count()==2){
+				
+				event1();
+			}
 
 			//intro room
 			current_room = player1.get_current_room();
