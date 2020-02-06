@@ -89,8 +89,22 @@ public:
 	int run_func(string item, string obj_name, string verb);
 	int exit_current_from_room_id(int room_id);
 	
+	void set_times_rooms_visited(int room_id, int new_time);
+	int get_times_room_visited(int room_id);
+	
+	void set_game_events_triggered(int event_index, int val);
+	int get_game_events_triggered(int event_index);
 	
 	//------HELPERS FOR LOADER----//
+	//wrappers
+	void set_all_times_rooms_visited(int bin_arr[NUM_ROOMS]);
+	string get_all_times_rooms_visited();
+	
+	void set_all_game_events_triggered(int bin_arr[NUM_GAME_EVENTS]);
+	string get_all_game_events_triggered();
+	
+
+	
 	
 
 
@@ -104,6 +118,8 @@ public:
 	Object* o_array[NUM_OBJECTS];
 	Room* r_array[NUM_ROOMS];
 	string event1_text;	
+	
+	int game_events_triggered[NUM_GAME_EVENTS];
 	
 	Player player1;
 	string save_text;

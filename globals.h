@@ -77,4 +77,5 @@
 #define CLIMB 8
 #define ATTACK 9
 
-#define NUM_PLAYER_STATES
+
+#define NUM_GAME_EVENTS 1

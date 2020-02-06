@@ -14,6 +14,7 @@ Game::Game() {
 void Game::event1()
 {
 	printf("The chandelair beings to flicker; the wind you've been sensing seems to pick up. Suddenly the room goes completely dark and %s only has time to gasp before you feel suddenly like you are being watched. The light turn back on. 'What the hell was that' you say, turning to look at %s. But %s is gone.\n You have to find %s. \n\n\n", FRIEND_NAME, FRIEND_NAME, FRIEND_NAME, FRIEND_NAME);
+	set_game_events_triggered(0, 1);
 }
 void Game::init_rooms() {
 	init_objects();
@@ -45,6 +46,10 @@ void Game::init_rooms() {
 		int room_id = room_needs_object1[i];
 		r_array[room_id]->set_needs_objects(0, 1);
 	}
+	//init times rooms visited to 0
+	for (int i = 0; i < NUM_ROOMS; i++){
+		set_times_rooms_visited(i,0);
+	}
 	
 }
 void Game::init_objects()
@@ -68,7 +73,8 @@ void Game::start(){
 	printf("Current location is %s\n", r_array[player1.get_current_room()]->get_name().c_str());
 	
 	r_array[player1.get_current_room()]->look();
-	
+	//set room visited to 1; 
+	set_times_rooms_visited(0, 1);
 
 	printf("%s", "-----GET INPUT FUNCTION HERE------");
 
@@ -195,7 +201,10 @@ void Game::exit_room(int dir){
 			//update player move count
 			int mc = player1.get_move_count();
 			mc = mc + 1;
+			//update player move count
 			player1.set_move_count(mc);
+			//update state of knowing how many times a room has been visited
+			set_times_rooms_visited(get_next_room, get_times_room_visited(get_next_room)+1);
 				
 			//update player
 			if (player1.get_move_count()==2){
@@ -371,7 +380,59 @@ int Game::exit_current_from_room_id(int room_id){
 	return -1;
 }
 //LOAD HELPER
+void Game::set_times_rooms_visited(int room_id, int new_time){
+	times_rooms_visited[room_id]=new_time;
+}
+int Game::get_times_room_visited(int room_id){
+	return times_rooms_visited[room_id];
+}
 
+void Game::set_all_times_rooms_visited(int bin_arr[NUM_ROOMS]){
+	for (int i = 0; i < NUM_ROOMS; i++){
+		set_times_rooms_visited(i, bin_arr[i]);
+	}
+}
+string Game::get_all_times_rooms_visited(){
+	string bin_str_arr="";
+	for (int i = 0; i < NUM_ROOMS; i++){
+		if (i<NUM_ROOMS-1){
+			bin_str_arr=bin_str_arr + to_string(get_times_room_visited(i))+", ";
+		}
+		else{
+			bin_str_arr=bin_str_arr + to_string(get_times_room_visited(i));
+		}
+		
+	}
+	return bin_str_arr;
+}
+void Game::set_game_events_triggered(int event_index, int val){
+	if ((event_index>-1)&&(event_index<NUM_GAME_EVENTS)){
+		game_events_triggered[event_index]=val;
+	}
+	
+}
+int Game::get_game_events_triggered(int event_index){
+	return game_events_triggered[event_index];
+}
+
+void Game::set_all_game_events_triggered(int bin_arr[NUM_GAME_EVENTS]){
+	for (int i = 0; i < NUM_GAME_EVENTS; i++){
+			set_game_events_triggered(i, bin_arr[i]);
+		}
+}
+string Game::get_all_game_events_triggered(){
+	string bin_str_arr="";
+	for (int i = 0; i < NUM_GAME_EVENTS; i++){
+		if (i<NUM_GAME_EVENTS-1){
+			bin_str_arr=bin_str_arr + to_string(get_game_events_triggered(i))+", ";
+		}
+		else{
+			bin_str_arr=bin_str_arr + to_string(get_game_events_triggered(i));
+		}
+		
+	}
+	return bin_str_arr;
+}
 Game::~Game() {
 
 }
