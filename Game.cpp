@@ -40,6 +40,8 @@ void Game::init_rooms() {
 		int room_id = room_obj_set[i];
 		
 		r_array[room_id]->set_has_objects(i, 1);
+		//init obj_location
+		set_obj_location(i, room_obj_set[i]);
 		
 	}
 	for (int i = 0; i < 8; i++){
@@ -459,11 +461,47 @@ string Game::get_all_player_objects(){
 	return bin_str_arr;
 }
 
-//void Game::set_all_room_objects(int bin_arr[NUM_OBJECTS]){
-//	
-//}
-//string Game::get_all_room_objects(){
-//}
+void Game::set_all_room_objects(int bin_arr[NUM_OBJECTS]){
+	for (int i = 0; i < NUM_OBJECTS; i++){
+			for (int j = 0; j < NUM_ROOMS; j++){
+				if (j==bin_arr[i]){
+					r_array[j]->set_has_objects(i, 1);
+					
+			}
+			else{
+				r_array[j]->set_has_objects(i, 0);
+			}
+			
+		}
+	}
+}
+string Game::get_all_room_objects(){
+	
+	string bin_str_arr="";
+	//for each objects
+	for (int i = 0; i < NUM_OBJECTS; i++){
+		//check if object is in room
+		for (int j = 0; j < NUM_ROOMS; j++){
+			//if i < num_objects -1...
+			if (i<NUM_OBJECTS-1){
+				//check if r_array[j] has object
+				if (r_array[j]->get_has_objects(i)==1){
+					//output "j" room
+					bin_str_arr=bin_str_arr + to_string(j)+", ";
+				}
+				
+			}
+			else{
+				if (r_array[j]->get_has_objects(i)==1){
+					//output "j" room
+					bin_str_arr=bin_str_arr + to_string(j);
+				}
+			}	
+		}
+		
+	}
+	return bin_str_arr;
+}
 Game::~Game() {
 
 }

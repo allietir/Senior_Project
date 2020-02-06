@@ -95,7 +95,12 @@ for (int j = 0; j < NUM_ROOMS; j++){
 	test_take_drop.set_all_player_objects(x);
 	test_take_drop.inventory();
 	
-	
+	Game test_has_objs;
+	test_has_objs.start();
+	printf("%s\n", test_has_objs.get_all_room_objects().c_str());
+	int set[]={9, 8, 1, 5, 2, 4, 1, 2};
+	test_has_objs.set_all_room_objects(set);
+	printf("%s\n", test_has_objs.get_all_room_objects().c_str());
 
 /*FEATURE TESTS*/
 /*OBJECT TESTS*/
