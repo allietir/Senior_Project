@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Game.h"
+#include "parser.h"
 
 
 using namespace std;
@@ -111,5 +112,14 @@ for (int j = 0; j < NUM_ROOMS; j++){
 /*PLAYER TESTS*/
 /*GAME TESTS*/
 /*FLOW TESTS*/
+
+/*PARSER TESTS*/
+
+	string userInput = ""; 
+	while (1) {
+		cout << "what would you like to do: \n";
+		getline(cin, userInput);
+		inputParsing(new_game, userInput);
+	}
 	
 }

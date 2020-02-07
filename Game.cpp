@@ -382,7 +382,7 @@ int Game::exit_current_from_room_id(int room_id){
 			for (int i = 0; i < MAX_EXITS; i++){
 				exit_room_id = r_array[player1.get_current_room()]->get_exit_id(i);
 				if (exit_room_id == room_id){
-					printf("Success, move from %s to %s\n", r_array[room_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+					printf("you are attempting to move to %s from %s\n", r_array[room_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
 					exit_room(i);
 					return 0;
 				}

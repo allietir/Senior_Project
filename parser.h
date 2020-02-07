@@ -23,25 +23,7 @@ int checkMoveCommands(Game& game, vector<string> inputVector);
 int checkActions(Game& game, vector<string> inputVector);
 
 
-//map to look up room ID
 
-map<string, int> roomIDmap = {
-	{ "front", 1 },
-	{ "entranceway", 2 },
-	{ "upstairs", 3 },
-	{ "dining", 4},
-	{ "parlor", 5},
-	{ "nursery", 6},
-	{ "guest", 7},
-	{ "master", 8},
-	{ "bathroom", 9},
-	{ "attic", 10},
-	{ "library", 11},
-	{ "conservatory", 12},
-	{ "kitchen", 13},
-	{ "basement", 14},
-	{ "crypt", 15}
-};
 
 //map to look up object ID
 static const map<string, int> objectIDmap = {

@@ -9,17 +9,19 @@ CXXFLAGS = -Wall -g -std=c++11
 # ****************************************************
 # Targets needed to bring the executable up to date
 
-main: main.o Game.o Player.o Room/Room.o Room/Room1.o Room/Room2.o Room/Room3.o Room/Room4.o Room/Room5.o Room/Room6.o Room/Room7.o Room/Room8.o Room/Room9.o Room/Room10.o Room/Room11.o Room/Room12.o Room/Room13.o Room/Room14.o Room/Room15.o Feature/Feature.o Object/Object.o Feature/Feature1.o Feature/Feature2.o Feature/Feature3.o Feature/Feature4.o Feature/Feature5.o Feature/Feature6.o Feature/Feature7.o Feature/Feature8.o Feature/Feature9.o Feature/Feature10.o Feature/Feature11.o Feature/Feature12.o Feature/Feature13.o Feature/Feature14.o Feature/Feature15.o Feature/Feature16.o Feature/Feature17.o Feature/Feature18.o Feature/Feature19.o Feature/Feature20.o Feature/Feature21.o Feature/Feature22.o Feature/Feature23.o Feature/Feature24.o Feature/Feature25.o Feature/Feature26.o Feature/Feature27.o Feature/Feature28.o Feature/Feature29.o Feature/Feature30.o Object/Object1.o Object/Object2.o Object/Object3.o Object/Object4.o Object/Object5.o Object/Object6.o Object/Object7.o Object/Object8.o
-	$(CXX) $(CXXFLAGS) -o main main.o Game.o Player.o Room/Room.o Room/Room1.o Room/Room2.o Room/Room3.o Room/Room4.o Room/Room5.o Room/Room6.o Room/Room7.o Room/Room8.o Room/Room9.o Room/Room10.o Room/Room11.o Room/Room12.o Room/Room13.o Room/Room14.o Room/Room15.o Feature/Feature.o Object/Object.o Feature/Feature1.o Feature/Feature2.o Feature/Feature3.o Feature/Feature4.o Feature/Feature5.o Feature/Feature6.o Feature/Feature7.o Feature/Feature8.o Feature/Feature9.o Feature/Feature10.o Feature/Feature11.o Feature/Feature12.o Feature/Feature13.o Feature/Feature14.o Feature/Feature15.o Feature/Feature16.o Feature/Feature17.o Feature/Feature18.o Feature/Feature19.o Feature/Feature20.o Feature/Feature21.o Feature/Feature22.o Feature/Feature23.o Feature/Feature24.o Feature/Feature25.o Feature/Feature26.o Feature/Feature27.o Feature/Feature28.o Feature/Feature29.o Feature/Feature30.o Object/Object1.o Object/Object2.o Object/Object3.o Object/Object4.o Object/Object5.o Object/Object6.o Object/Object7.o Object/Object8.o
+main: main.o Game.o parser.o Player.o Room/Room.o Room/Room1.o Room/Room2.o Room/Room3.o Room/Room4.o Room/Room5.o Room/Room6.o Room/Room7.o Room/Room8.o Room/Room9.o Room/Room10.o Room/Room11.o Room/Room12.o Room/Room13.o Room/Room14.o Room/Room15.o Feature/Feature.o Object/Object.o Feature/Feature1.o Feature/Feature2.o Feature/Feature3.o Feature/Feature4.o Feature/Feature5.o Feature/Feature6.o Feature/Feature7.o Feature/Feature8.o Feature/Feature9.o Feature/Feature10.o Feature/Feature11.o Feature/Feature12.o Feature/Feature13.o Feature/Feature14.o Feature/Feature15.o Feature/Feature16.o Feature/Feature17.o Feature/Feature18.o Feature/Feature19.o Feature/Feature20.o Feature/Feature21.o Feature/Feature22.o Feature/Feature23.o Feature/Feature24.o Feature/Feature25.o Feature/Feature26.o Feature/Feature27.o Feature/Feature28.o Feature/Feature29.o Feature/Feature30.o Object/Object1.o Object/Object2.o Object/Object3.o Object/Object4.o Object/Object5.o Object/Object6.o Object/Object7.o Object/Object8.o
+	$(CXX) $(CXXFLAGS) -o main main.o Game.o parser.o Player.o Room/Room.o Room/Room1.o Room/Room2.o Room/Room3.o Room/Room4.o Room/Room5.o Room/Room6.o Room/Room7.o Room/Room8.o Room/Room9.o Room/Room10.o Room/Room11.o Room/Room12.o Room/Room13.o Room/Room14.o Room/Room15.o Feature/Feature.o Object/Object.o Feature/Feature1.o Feature/Feature2.o Feature/Feature3.o Feature/Feature4.o Feature/Feature5.o Feature/Feature6.o Feature/Feature7.o Feature/Feature8.o Feature/Feature9.o Feature/Feature10.o Feature/Feature11.o Feature/Feature12.o Feature/Feature13.o Feature/Feature14.o Feature/Feature15.o Feature/Feature16.o Feature/Feature17.o Feature/Feature18.o Feature/Feature19.o Feature/Feature20.o Feature/Feature21.o Feature/Feature22.o Feature/Feature23.o Feature/Feature24.o Feature/Feature25.o Feature/Feature26.o Feature/Feature27.o Feature/Feature28.o Feature/Feature29.o Feature/Feature30.o Object/Object1.o Object/Object2.o Object/Object3.o Object/Object4.o Object/Object5.o Object/Object6.o Object/Object7.o Object/Object8.o
 
 # The main.o target can be written more simply
 
-main.o: main.cpp Game.h
+main.o: main.cpp Game.h parser.h
 	$(CXX) $(CXXFLAGS) -c main.cpp
 
 Game.o: Game.h Player.h Room/Room.h Room/Room1.h Room/Room2.h Room/Room3.h Room/Room4.h Room/Room5.h Room/Room6.h Room/Room7.h Room/Room8.h Room/Room9.h Room/Room10.h Room/Room11.h Room/Room12.h Room/Room13.h Room/Room14.h Room/Room15.h Object/Object.h globals.h 
 
 Player.o: Player.h globals.h
+
+parser.o: parser.h Game.h
 
 Room/Room.o: Room/Room.h Feature/Feature.h globals.h
 
@@ -138,3 +140,4 @@ clean:
 	rm Feature/*.o
 	rm Room/*.o
 	rm Object/*.o
+

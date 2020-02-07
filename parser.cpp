@@ -10,13 +10,15 @@
 #include "parser.h"
 
 using namespace std;
-
+/*
 int inputParsing(Game &game, string userInput);
 string cleanInput(string userInput); 
 int checkBasicCommands(Game &game, string cleanInput); 
 vector<string> splitCleanInput(string cleanInput);
 int checkMoveCommands(Game &game, vector<string> inputVector); 
 int checkActions(Game &game, vector<string> inputVector); 
+
+*/
 /*
 //independent main for testing functions
 int main() {
@@ -63,7 +65,7 @@ int inputParsing(Game &game, string userInput){
 	if (status == 1) return 0; 
 	status = checkActions(game, wordList); 
 	if (status == 1) return 0;
-	else //(give error statement);
+	else cout << "unknown command \n";
 	return 1;
 }
 
@@ -85,7 +87,7 @@ string cleanInput(string userInput){
 int checkBasicCommands(Game &game, string cleanInput){
 	int basicStatus =1;
 	if (cleanInput == "look"){
-		cout << "look called\n";
+		//cout << "look called\n";
 		game.look();
 	}
 	else if (cleanInput == "help"){
@@ -93,7 +95,7 @@ int checkBasicCommands(Game &game, string cleanInput){
 		//call help function
 	}
 	else if (cleanInput == "inventory"){
-		cout << "inventory called \n"; 
+		//cout << "inventory called \n"; 
 		game.inventory();
 	}
 	else if (cleanInput == "savegame"){
@@ -119,8 +121,8 @@ vector<string> splitCleanInput(string cleanInput){
 	istream_iterator<string> begin(stream);
 	istream_iterator<string> end;
 	vector<string> wordlist(begin, end);
-	copy(wordlist.begin(), wordlist.end(), ostream_iterator<string>(cout, "\t"));
-	cout << "\n";
+	//copy(wordlist.begin(), wordlist.end(), ostream_iterator<string>(cout, "\t"));
+	//cout << "\n";
 	return wordlist;
 }
 
@@ -135,29 +137,49 @@ int checkMoveCommands(Game &game, vector<string> inputVector){
 		inputVector.erase(inputVector.begin());
 	}
 	
+	//map to look up room ID
+
+	map<string, int> roomIDmap = {
+		{ "front", 0 },
+		{ "entranceway", 1 },
+		{ "upstairs", 2 },
+		{ "dining", 3},
+		{ "parlor", 4},
+		{ "nursery", 5},
+		{ "guest", 6},
+		{ "master", 7},
+		{ "bathroom", 8},
+		{ "attic", 9},
+		{ "library", 10},
+		{ "conservatory", 11},
+		{ "kitchen", 12},
+		{ "basement", 13},
+		{ "crypt", 14}
+	};
+
 	map<string, int>::iterator it;
 	it = roomIDmap.find(inputVector[0]);
 	
 	if (it != roomIDmap.end()) {
 		// room name matched
-		cout << "room name found \n"; 
+		//cout << "room name found \n"; 
 		int roomID = it->second;
-		// call move to room
+		game.exit_current_from_room_id(roomID);
 	}
 	else if (inputVector[0] == "north") {
-		cout << "called move north\n";
+		//cout << "called move north\n";
 		game.exit_room(0);
 	}
 	else if (inputVector[0] == "east") {
-		cout << "called move east\n";
+		//cout << "called move east\n";
 		game.exit_room(2);
 	}
 	else if (inputVector[0] == "south") {
-		cout << "called move south\n";
+		//cout << "called move south\n";
 		game.exit_room(1);
 	}
 	else if (inputVector[0] == "west") {
-		cout << "called move west\n";
+		//cout << "called move west\n";
 		game.exit_room(3);
 	}
 	else {
@@ -174,8 +196,12 @@ int checkActions(Game &game, vector<string> inputVector) {
 	int actionStatus = 1;
 
 	if (inputVector[0] == "take" && inputVector[1] == "dagger") {
-		cout << "call take dagger\n";
+		//cout << "call take dagger\n";
 		game.take(4);
+	}
+	else if (inputVector[0] == "drop" && inputVector[1] == "dagger") {
+		//cout << "call take dagger\n";
+		game.drop(4);
 	}
 	else if (inputVector[0] == "look" &&
 		(inputVector[1] == "gravestone"
