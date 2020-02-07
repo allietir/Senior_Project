@@ -9,10 +9,10 @@ class Feature4 : public Feature {
 public:
 	Feature4();
 	virtual ~Feature4();
-	void open();
-	void play();
-	void pull();
-	void push();
+	int open(int room_id, int feat_obj_id);
+	int play();
+	int use(int feat_obj_id);
+	int smell();
 	int special=666;
 };
 

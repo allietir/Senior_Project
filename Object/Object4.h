@@ -9,7 +9,7 @@ class Object4 : public Object{
 public:
 	Object4();
 	virtual ~Object4();
-	void read();
+	int read();
 	int special=666;
 };
 

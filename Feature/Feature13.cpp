@@ -5,15 +5,16 @@
 #include "Feature13.h"
 
 Feature13::Feature13() {
-	set_name("Feature13");
+	set_name("Mother");
 	set_desc("Feature13 description");
 	set_index_id(12);
 }
-void Feature13::read(){
+int Feature13::read(){
 	string read_response = "The " + get_name() + "'s first name is too faded to read, but the last name says 'Smith'.\n 'Hey', says" + FRIEND_NAME + ". 'Wasn't that your mom's maiden name?'. 'Yeah', you reply, ";
 	func_togg_count_x(0);
 	
 	printf("%s\n", read_response.c_str());
+	return 0;
 	
 	
 }

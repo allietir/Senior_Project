@@ -5,14 +5,21 @@
 #include "Object3.h"
 
 Object3::Object3() {
-	set_name("Object3");
-	set_desc("Object3 description");
+	set_name("Locket");
+	set_desc("The locket is silver and small; it looks surprisingly shiny and new for what appears to be an very old fashioend design. ");
 	set_index_id(2);
 }
-void Object3::read(){
-	string read_response = "The " + get_name() + "'s first name is too faded to read, but the last name says 'Smith'.\n 'Hey', says" + FRIEND_NAME + ". 'Wasn't that your mom's maiden name?'. 'Yeah', you reply, ";
+int Object3::read(){
+	string read_response = "The locket has a tiny inscription that says 'Open me below\n' ";
 	func_togg_count_x(0);
 	printf("%s\n", read_response.c_str());
+	return 0;
+}
+int Object3::open(int room_id, int feat_id){	
+	string open_response = "The ";
+	func_togg_count_x(0);
+	printf("%s\n", open_response.c_str());
+	return 0;
 }
 Object3::~Object3() {
 	

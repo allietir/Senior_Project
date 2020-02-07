@@ -13,6 +13,7 @@ Player::Player() {
 		has_objects[i]=0;
 	}
 	player_alive = 1;
+	can_take = 1;
 }
 string Player::get_name(){
 	return name;
@@ -46,7 +47,12 @@ int Player::get_player_alive(){
 void Player::set_player_alive(int val){
 	player_alive = val;
 } 
-
+int Player::get_can_take(){
+	return can_take;
+}
+void Player::set_can_take(int s_can_take){
+	can_take = s_can_take;
+}
 Player::~Player() {
 	
 }

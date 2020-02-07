@@ -302,15 +302,18 @@ void Room::set_num_events(int x){
 	num_events = x;
 }
 
-void Room::event_one(){
+int Room::event_one(){
 	printf("A description of event one and perhaps a game state change");
+	return 0;
 }
-void Room::event_two(){
+int Room::event_two(){
 	printf("A description of event two and perhaps a game state change");
+	return 0;
 }
-void Room::event_three(){{
+int Room::event_three(){
 	printf("A description of event three and perhaps a game state change");
-}}
+	return 0;
+}
 
 string Room::get_exit_desc(int dir){
 	return exit_desc[dir];

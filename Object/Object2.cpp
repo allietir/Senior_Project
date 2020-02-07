@@ -9,10 +9,11 @@ Object2::Object2() {
 	set_desc("The diary is some type of leather, dark and stained with something. Is it ink or is it blood? ");
 	set_index_id(0);
 }
-void Object2::read(){
+int Object2::read(){
 	string read_response = "The first page says 'Property of S--' but the rest of the name can't be seen, faded by water damage and time. ";
 	func_togg_count_x(0);
 	printf("%s\n", read_response.c_str());
+	return 0;
 	
 	
 }

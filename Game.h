@@ -37,12 +37,11 @@
 #include "Object/Object8.h"
 
 
-
-
 class Game {
 public:
 	Game();
 	virtual ~Game();
+	
 	void init_rooms();
 	void init_objects();
 	void init_player();
@@ -68,8 +67,6 @@ public:
 	Room* get_room_x(int x);
 	void set_room_x(Room r, int x);
 	
-	
-	
 	int exit_valid(int next_room);
 	
 	void event1();
@@ -77,20 +74,71 @@ public:
 	
 	//extra exits
 	void climb(int context_id);//
-	void jump(int context_id);//
 	int attack(int context_id, int obj_id);//
-	//HELPER FOR PARSER//
+	
+	
+	Player* get_player();
+	void set_player(Player* playerx);
+	
+	//------HELPERS FOR PARSER//
 	int get_context_id_from_string(string feat_name);//return context_id 
 	int get_obj_id_from_string(string obj_name);
+	
+	int kill_player();
+	
+
+	void gen_feat_list();
+	string get_feat_list(int x);
+	void output_feat_list();
+	
+	int run_func(string item, string obj_name, string verb);
+	int exit_current_from_room_id(int room_id);
+	
+	void set_times_rooms_visited(int room_id, int new_time);
+	int get_times_room_visited(int room_id);
+	
+	void set_game_events_triggered(int event_index, int val);
+	int get_game_events_triggered(int event_index);
+	
+	void set_room_events_triggered(int event_index, int val);
+	int get_room_events_triggered(int event_index);
+	
+	
+	//------HELPERS FOR LOADER----//
+	//wrappers
+	void set_all_times_rooms_visited(int bin_arr[NUM_ROOMS]);
+	string get_all_times_rooms_visited();
+	
+	void set_all_game_events_triggered(int bin_arr[NUM_GAME_EVENTS]);
+	string get_all_game_events_triggered();
+	
+	void set_all_player_objects(int bin_arr[NUM_OBJECTS]);
+	string get_all_player_objects();
+	
+	void set_all_room_objects(int bin_arr[NUM_OBJECTS]);
+	string get_all_room_objects();
+	
+	void set_all_room_events_triggered(int bin_arr[NUM_EVENTS]);
+	string get_all_room_events_triggered();
+	
+	
+	
+	
+
+
 //todo:
 	/*
 		get connect string to feat_id in room for climb/jump
 		start new game interface when player dies
 	*/
-//private:	
+	
+private:	
 	Object* o_array[NUM_OBJECTS];
 	Room* r_array[NUM_ROOMS];
 	string event1_text;	
+	
+	int game_events_triggered[NUM_GAME_EVENTS];
+	
 	Player player1;
 	string save_text;
 	string load_text;
@@ -98,6 +146,13 @@ public:
 	int current_obj_location[NUM_OBJECTS];
 	int room_obj_set[NUM_OBJECTS]={1, 3, 10, 6, 0, 11, 5, 9};
 	int room_needs_object1[NUM_OBJECTS]={2, 3, 4, 5, 6, 7, 8, 13};
+	
+	int room_events_triggered[NUM_EVENTS];
+	int times_rooms_visited[NUM_ROOMS];
+	string feat_list[TOTAL_FIXED];
+	
+		
+	
 	
 
 	

@@ -10,7 +10,7 @@ Feature7::Feature7() {
 	set_index_id(6);
 	set_attack_obj_id(4);//uses gilded knife to attack
 }
-void Feature7::speak(){
+int Feature7::speak(){
 	string speak_response="";
 	if (get_times_toggled(7)==0){
 		speak_response="Hello? Do you need help?";
@@ -24,29 +24,27 @@ void Feature7::speak(){
 		
 	}
 	printf("%s\n", speak_response.c_str());
-	
+	return 4;	
 }
-void Feature7::listen(){
-	string listen_response = "";
+int Feature7::give(int room_id, int obj_feat_id){
+	string give_response = "";
 	if (get_times_toggled(6)==1){
-		listen_response="You hear a voice, as if inside your head. 'I need my face. Find my face. Help me see' \n";
+		give_response="You hear a voice, as if inside your head. 'I need my face. Find my face. Help me see' \n";
 		func_togg_count_x(7);
 		
 	}
 	if (get_times_toggled(6)==2){
 		printf(" 'There's a ring on the table. Place the ring on my finger and I will be able to see.' \n");
 		func_togg_count_x(7);
-		Room4 r4;
-		r4.event_one();
 	}
-	//trigger event
-	//Room4 r4;
-	//r4.event_one();
-	printf("%s\n", listen_response.c_str());
-	
-}
+
+	printf("%s\n", give_response.c_str());
+	//in game, triggers event_one
+	return 4;
+}	
 int Feature7::attack(string obj_name){
 	printf("You attack the %s with the %s. The creature raises his hand and with a single motion, stills your hand. ' You shouldn't have done that ' the creatue says, sadly. You watch in horror as the %s turns towards yourself. This is the end.\n", get_name().c_str(), obj_name.c_str(), obj_name.c_str());
+	func_togg_count_x(9);
 	return -1;
 } 
 Feature7::~Feature7() {

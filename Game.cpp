@@ -10,10 +10,15 @@
 
 Game::Game() {
 		init_rooms();
+		//set all game events triggered to not triggered
+		for (int i = 0; i < NUM_EVENTS; i++){
+			set_room_events_triggered(i, 0);
+		}
 }
 void Game::event1()
 {
 	printf("The chandelair beings to flicker; the wind you've been sensing seems to pick up. Suddenly the room goes completely dark and %s only has time to gasp before you feel suddenly like you are being watched. The light turn back on. 'What the hell was that' you say, turning to look at %s. But %s is gone.\n You have to find %s. \n\n\n", FRIEND_NAME, FRIEND_NAME, FRIEND_NAME, FRIEND_NAME);
+	set_game_events_triggered(0, 1);
 }
 void Game::init_rooms() {
 	init_objects();
@@ -35,41 +40,23 @@ void Game::init_rooms() {
 	r_array[14]= new Room15;
 
 	//add objects to array
-	//int room_obj_set[]={1, 3, 10, 6, 0, 11, 5, 9};
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		int room_id = room_obj_set[i];
 		
 		r_array[room_id]->set_has_objects(i, 1);
-		//only add object text after object is LOOKED at
-		//r_array[room_id]->add_object_text(o_array[i]->get_name(), o_array[i]->get_desc());
-		if (r_array[room_id]->get_has_objects(i)==1){
-			//printf("%s now has %s\n", r_array[room_id]->get_name().c_str(), o_array[i]->get_name().c_str());
-		}
+		//init obj_location
+		set_obj_location(i, room_obj_set[i]);
 		
 	}
-	//int room_needs_object1[]={2, 3, 4, 5, 6, 7, 8, 13};
 	for (int i = 0; i < 8; i++){
 		int room_id = room_needs_object1[i];
-		//printf("setting %s to require %s\n", r_array[room_id]->get_name().c_str(), o_array[0]->get_name().c_str());
 		r_array[room_id]->set_needs_objects(0, 1);
-		/*if (r_array[room_id]->get_needs_objects(0)==1){
-			printf("%s now needs %s\n", r_array[room_id]->get_name().c_str(), o_array[0]->get_name().c_str());
-		}*/
+	}
+	//init times rooms visited to 0
+	for (int i = 0; i < NUM_ROOMS; i++){
+		set_times_rooms_visited(i,0);
 	}
 	
-	
-//	r_array[0]->set_has_objects(0, 1);//entrance has oilamp
-//	r_array[3]->set_has_objects(1, 1);//dining room has diary
-//	r_array[10]->set_has_objects(2, 1);//library has crystal ball 
-//	r_array[6]->set_has_objects(3, 1);//guest bedroom has sheet music
-//	r_array[7]->set_has_objects(4, 1);//master bedroom has gilded dagger'
-//	r_array[11]->set_has_objects(5, 1);//conservatory has doll
-//	r_array[5]->set_has_objects(6, 1);//nursuery has chest key
-//	r_array[9]->set_has_objects(7, 1);//attick has silver challice
-	//add description
-//	r_array[0]->add_object_text(o_array[0]->get_name(), o_array[0]->get_desc());
-//	//add description
-//	r_array[3]->add_object_text(o_array[2]->get_name(), o_array[2]->get_desc());	
 }
 void Game::init_objects()
 {
@@ -92,51 +79,49 @@ void Game::start(){
 	printf("Current location is %s\n", r_array[player1.get_current_room()]->get_name().c_str());
 	
 	r_array[player1.get_current_room()]->look();
+	//set room visited to 1; 
+	set_times_rooms_visited(0, 1);
 
 	printf("%s", "-----GET INPUT FUNCTION HERE------");
+
+	gen_feat_list();
 }
 //take implemented at game level, since objects are at game level
 void Game::take(int object_id){
 	//player 
-	int p_has_item = player1.get_has_objects(object_id);
-	int current_room = player1.get_current_room();
-	int r_has_item = r_array[current_room]->get_has_objects(object_id);
-	//if item is in the room and the player does not have the item
-	if ((p_has_item == 0)&&(r_has_item==1)){
-		player1.set_has_objects(object_id, 1);
-		r_array[current_room]->set_has_objects(object_id, 0);
-		set_obj_location(object_id, -1);
-		printf("%s no longer has %s\n", r_array[current_room]->get_name().c_str(), o_array[object_id]->get_name().c_str());	
-		printf("Updated player inventory...\n");
-		inventory();
-		printf("\n");
-		//update room description:
-		r_array[current_room]->remove_object_text();
-		//update feature description:
-		r_array[current_room]->get_feature_x(0)->remove_object_desc();
-		r_array[current_room]->get_feature_x(1)->remove_object_desc();
+	if (player1.get_can_take()==1){
+		int p_has_item = player1.get_has_objects(object_id);
+			int current_room = player1.get_current_room();
+			int r_has_item = r_array[current_room]->get_has_objects(object_id);
+			//if item is in the room and the player does not have the item
+			if ((p_has_item == 0)&&(r_has_item==1)){
+				player1.set_has_objects(object_id, 1);
+				r_array[current_room]->set_has_objects(object_id, 0);
+				set_obj_location(object_id, -1);
+				printf("%s no longer has %s\n", r_array[current_room]->get_name().c_str(), o_array[object_id]->get_name().c_str());	
+				printf("Updated player inventory...\n");
+				inventory();
+				printf("\n");
+				//update room description:
+				r_array[current_room]->remove_object_text();
+				//update feature description:
+				r_array[current_room]->get_feature_x(0)->remove_object_desc();
+				r_array[current_room]->get_feature_x(1)->remove_object_desc();
+			}
+			if (p_has_item == 1){
+				printf("You already have this item\n");
+			}
+			else if (r_has_item == 0){
+				printf("Item is not in this room\n");
+			}
 	}
-	if (p_has_item == 1){
-		printf("You already have this item\n");
+	else{
+		printf("You can't take %s right now.\n", o_array[object_id]->get_name().c_str());
 	}
-	else if (r_has_item == 0){
-		printf("Item is not in this room\n");
-	}
+	
 
 	
 }
-//trigger take event
-//void Game::check_take_event(int obj_id, int room_id){
-//	//check initail array;
-//	//if this is the room the object was taken in...
-//	if (room_obj_set[obj_id]==room_id){
-//		if (r_array[room_id]->get_event_triggered(0)==0){
-//			r_array[room_id]->event_one();
-//		}
-//		
-//	}
-//	
-//}
 void Game::drop(int object_id){
 	//player 
 	int p_has_item = player1.get_has_objects(object_id);
@@ -192,45 +177,47 @@ int Game::exit_valid(int next_room)
 		if (r_array[next_room]->get_needs_objects(i)==1){
 			int has_obj = player1.get_has_objects(i);
 			if (has_obj!=1){
-				printf("You need the %s to enter this room.", o_array[i]->get_name().c_str());
+				printf("You need the %s to enter %s.\n", o_array[i]->get_name().c_str(), r_array[next_room]->get_name().c_str());
 				return -1;
+			}
+			else{
+				printf("Success, you have the %s require to enter this room.\n", o_array[i]->get_name().c_str());
 			}
 		}
 	}
 	return 0;
 }
-//void Game::exit_r1_r8(){
-//	
-//	player1.set_current_room(7);
-//	printf("You are entering: %s\n", r_array[7]->get_name().c_str());
-//	r_array[7]->look();
-//}
 
 void Game::exit_room(int dir){
 	
 	
-	//update player move count
-	int mc = player1.get_move_count();
-	mc = mc + 1;
-	player1.set_move_count(mc);
-		
-	//update player
-	if (player1.get_move_count()==2){
-		
-		event1();
-	}
 	int current_room = player1.get_current_room();
-	printf("You are exiting: %s\n", r_array[current_room]->get_name().c_str());
+	printf("You are attempting to exit: %s\n", r_array[current_room]->get_name().c_str());
 	
 	int get_next_room = r_array[current_room]->get_exit_id(dir);
 	if (get_next_room == -1){
-		printf("%s has no exit to the %s\n", r_array[current_room]->get_name().c_str(),  r_array[current_room]->get_exit_dir(dir).c_str());
+		printf("Error: %s has no exit to the %s\n", r_array[current_room]->get_name().c_str(),  r_array[dir]->get_exit_dir(dir).c_str());
 	}
 	else
 	{
 		if (exit_valid(get_next_room)==0){
-			printf("Success, you have the object required to enter the next room.\n\n");
+		
+			printf("Success, there is an exit from the %s to the %s\n\n", r_array[current_room]->get_name().c_str(), r_array[dir]->get_exit_dir(dir).c_str());
 			player1.set_current_room(get_next_room);
+			//update player move count
+			int mc = player1.get_move_count();
+			mc = mc + 1;
+			//update player move count
+			player1.set_move_count(mc);
+			//update state of knowing how many times a room has been visited
+			set_times_rooms_visited(get_next_room, get_times_room_visited(get_next_room)+1);
+				
+			//update player
+			if (player1.get_move_count()==2){
+				
+				event1();
+			}
+
 			//intro room
 			current_room = player1.get_current_room();
 			printf("You are entering: %s\n", r_array[current_room]->get_name().c_str());
@@ -249,17 +236,6 @@ void Game::look(){
 void Game::climb(int feature_x){
 
 	int get_next_room = r_array[player1.get_current_room()]->get_feature_x(feature_x)->climb();
-	if (get_next_room != -1){
-		player1.set_current_room(get_next_room);
-		//intro room
-		int current_room = player1.get_current_room();
-		printf("You are entering: %s\n", r_array[current_room]->get_name().c_str());
-		r_array[current_room]->look();
-	}
-}
-void Game::jump(int feature_x){
-
-	int get_next_room = r_array[player1.get_current_room()]->get_feature_x(feature_x)->jump();
 	if (get_next_room != -1){
 		player1.set_current_room(get_next_room);
 		//intro room
@@ -321,7 +297,242 @@ int Game::get_obj_id_from_string(string obj_name){
 	}
 	return -1;
 }
+int Game::kill_player(){
+	player1.set_player_alive(0);
+	return 0;
+}
+void Game::gen_feat_list(){
+	int x = 0 ;
+	for (int i = 0; i < NUM_ROOMS; i++){
+		
+		feat_list[x]=r_array[i]->get_feature_x(0)->get_name();
+		//printf("%s", feat_list[x].c_str());
+		feat_list[x+1]=r_array[i]->get_feature_x(1)->get_name();
+		//printf("%s", feat_list[x+1].c_str());
+		x = x + 2;
+		
+	}
+	
+}
+Player* Game::get_player()
+{
+	return &player1;
+}
+void Game::set_player(Player* playerx){
+	player1 = *playerx;
+}
+string Game::get_feat_list(int x){
+	return feat_list[x];
+}
+void Game::output_feat_list(){
+	for (int i = 0; i < TOTAL_FIXED; i++){
+		printf("%i:%s\n",i, get_feat_list(i).c_str());
+	}
+}
+//climb can only refer to FEATURES validly so get context_id from string 
+int Game::run_func(string item, string obj_name, string verb){
+	int res = -666;
+	if (verb.compare(STR_VERB1)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB1(); }
+	else if (verb.compare(STR_VERB2)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB2(); }
+	else if (verb.compare(STR_VERB3)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB3(get_obj_id_from_string(obj_name)); }
+	else if (verb.compare(STR_VERB4)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB4(); }
+	else if (verb.compare(STR_VERB5)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB5(); }
+	else if (verb.compare(STR_VERB6)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB6(player1.get_current_room(), get_obj_id_from_string(obj_name)); }
+	else if (verb.compare(STR_VERB7)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB7(); }
+	else if (verb.compare(STR_VERB8)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB8(player1.get_current_room(), get_obj_id_from_string(obj_name)); }
+	else if (verb.compare(STR_VERB9)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB9(); }
+	else if (verb.compare(STR_VERB10)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB10(obj_name); }
+
+	printf("RES: %i\n", res);
+	if ((res==0)||(res==1)||(res==2)){
+		//rach player can have max 3 events, so get result (event 0->1, 1->2, 2->3), plus 3 times the current room you are in to set the value to EVENT TRIGGERED 
+		room_events_triggered[res+(3*player1.get_current_room())]=1;
+	}
+	//player is DEAD
+	else if (res==-1){
+		player1.set_player_alive(0);//set to FALSE
+	}
+	//player can't TAKE anything
+	if (res==-2){
+		player1.set_can_take(0);//set to FALSE
+	}
+	//if anything else happens, the lock on take is nullified
+	else
+	{
+		player1.set_can_take(1);//set to TRUE
+	}
+	if (res==4){
+		//nothing happens; four is the "nothing" value
+	}
+	if (res==5){
+		printf("----something unexpected has occured----\n");
+	}
+	return 0;
+	
+}
 //helper for parse
+int Game::exit_current_from_room_id(int room_id){
+	if ((room_id < 0)||(room_id > 14))
+	{
+		printf("Error: Invalid room id\n");
+	}
+	else{
+		//check each exit_index
+			int exit_room_id =-666;
+			for (int i = 0; i < MAX_EXITS; i++){
+				exit_room_id = r_array[player1.get_current_room()]->get_exit_id(i);
+				if (exit_room_id == room_id){
+					printf("Success, move from %s to %s\n", r_array[room_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+					exit_room(i);
+					return 0;
+				}
+			}
+			printf("Error: cannot exit to %s from %s\n", r_array[room_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+	}
+	
+	return -1;
+}
+//LOAD HELPER
+void Game::set_times_rooms_visited(int room_id, int new_time){
+	times_rooms_visited[room_id]=new_time;
+}
+int Game::get_times_room_visited(int room_id){
+	return times_rooms_visited[room_id];
+}
+
+void Game::set_all_times_rooms_visited(int bin_arr[NUM_ROOMS]){
+	for (int i = 0; i < NUM_ROOMS; i++){
+		set_times_rooms_visited(i, bin_arr[i]);
+	}
+}
+string Game::get_all_times_rooms_visited(){
+	string bin_str_arr="";
+	for (int i = 0; i < NUM_ROOMS; i++){
+		if (i<NUM_ROOMS-1){
+			bin_str_arr=bin_str_arr + to_string(get_times_room_visited(i))+", ";
+		}
+		else{
+			bin_str_arr=bin_str_arr + to_string(get_times_room_visited(i));
+		}
+		
+	}
+	return bin_str_arr;
+}
+void Game::set_game_events_triggered(int event_index, int val){
+	if ((event_index>-1)&&(event_index<NUM_GAME_EVENTS)){
+		game_events_triggered[event_index]=val;
+	}
+	
+}
+int Game::get_game_events_triggered(int event_index){
+	return game_events_triggered[event_index];
+}
+
+void Game::set_room_events_triggered(int event_index, int val){
+	if ((event_index>-1)&&(event_index<NUM_EVENTS)){
+		room_events_triggered[event_index]=val;
+	}
+	
+}
+int Game::get_room_events_triggered(int event_index){
+	return room_events_triggered[event_index];
+}
+void Game::set_all_game_events_triggered(int bin_arr[NUM_GAME_EVENTS]){
+	for (int i = 0; i < NUM_GAME_EVENTS; i++){
+			set_game_events_triggered(i, bin_arr[i]);
+		}
+}
+string Game::get_all_game_events_triggered(){
+	string bin_str_arr="";
+	for (int i = 0; i < NUM_GAME_EVENTS; i++){
+		if (i<NUM_GAME_EVENTS-1){
+			bin_str_arr=bin_str_arr + to_string(get_game_events_triggered(i))+", ";
+		}
+		else{
+			bin_str_arr=bin_str_arr + to_string(get_game_events_triggered(i));
+		}	
+	}
+	return bin_str_arr;
+}
+
+	
+void Game::set_all_player_objects(int bin_arr[NUM_OBJECTS]){
+	for (int i = 0; i < NUM_OBJECTS; i++){
+		player1.set_has_objects(i, bin_arr[i]);
+	}
+}
+string Game::get_all_player_objects(){
+	string bin_str_arr="";
+	for (int i = 0; i < NUM_OBJECTS; i++){
+		if (i<NUM_OBJECTS-1){
+			bin_str_arr=bin_str_arr + to_string(player1.get_has_objects(i))+", ";
+		}
+		else{
+			bin_str_arr=bin_str_arr + to_string(player1.get_has_objects(i));
+		}	
+	}
+	return bin_str_arr;
+}
+
+void Game::set_all_room_objects(int bin_arr[NUM_OBJECTS]){
+	for (int i = 0; i < NUM_OBJECTS; i++){
+			for (int j = 0; j < NUM_ROOMS; j++){
+				if (j==bin_arr[i]){
+					r_array[j]->set_has_objects(i, 1);
+					
+			}
+			else{
+				r_array[j]->set_has_objects(i, 0);
+			}
+			
+		}
+	}
+}
+string Game::get_all_room_objects(){
+	
+	string bin_str_arr="";
+	//for each objects
+	for (int i = 0; i < NUM_OBJECTS; i++){
+		//check if object is in room
+		for (int j = 0; j < NUM_ROOMS; j++){
+			//if i < num_objects -1...
+			if (i<NUM_OBJECTS-1){
+				//check if r_array[j] has object
+				if (r_array[j]->get_has_objects(i)==1){
+					//output "j" room
+					bin_str_arr=bin_str_arr + to_string(j)+", ";
+				}
+				
+			}
+			else{
+				if (r_array[j]->get_has_objects(i)==1){
+					//output "j" room
+					bin_str_arr=bin_str_arr + to_string(j);
+				}
+			}	
+		}
+		
+	}
+	return bin_str_arr;
+}
+
+void Game::set_all_room_events_triggered(int bin_arr[NUM_EVENTS]){
+	for (int i = 0; i < NUM_EVENTS; i++){
+		set_room_events_triggered(i, bin_arr[i]);
+	}
+}
+string Game::get_all_room_events_triggered(){
+	string bin_str_arr="";
+	for (int i = 0; i < NUM_EVENTS; i++){
+		if (i<NUM_EVENTS-1){
+			bin_str_arr=bin_str_arr + to_string(get_room_events_triggered(i))+", ";
+		}
+		else{
+			bin_str_arr=bin_str_arr + to_string(get_room_events_triggered(i));
+		}	
+	}
+	return bin_str_arr;
+}
 Game::~Game() {
 
 }

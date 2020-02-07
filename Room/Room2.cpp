@@ -33,6 +33,13 @@ Room2::Room2() {
 	//object set in Game, therefor description initialized in Game
 
 }
+int Room2::event_one(){
+	return 0;
+}
+int Room2::event_two(){
+
+	return 0;	
+}
 
 Room2::~Room2() {
 	

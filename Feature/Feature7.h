@@ -10,11 +10,10 @@ class Feature7 : public Feature {
 public:
 	Feature7();
 	virtual ~Feature7();
-	void speak();
-	void listen();
+	int speak();
+	int give(int room_id, int obj_feat_id);
 	int attack(string obj_name);
 	int special=666;
-	friend class Room4;
 };
 
 
