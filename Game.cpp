@@ -326,9 +326,28 @@ string Game::get_feat_list(int x){
 }
 void Game::output_feat_list(){
 	for (int i = 0; i < TOTAL_FIXED; i++){
-		printf("%i:%s\n",i, get_feat_list(i).c_str());
+		printf("#define FEAT%i %s\n",i+1, get_feat_list(i).c_str());
+	}
+	for (int i = 0; i < TOTAL_FIXED; i++){
+			printf("#define STR_FEAT%i \"%s\"\n",i+1, get_feat_list(i).c_str());
+		}
+	for (int i = 0; i < TOTAL_FIXED; i++){
+		printf("\"%s\", ", get_feat_list(i).c_str());
+	}
+
+}
+void Game::output_obj_list(){
+	for (int i = 0; i < NUM_OBJECTS; i++){
+			printf("\"%s\", ", o_array[i]->get_name().c_str());
+		}
+}
+void Game::output_verb_list(){
+	for (int i = 0; i < NUM_VERB_FUNCS; i++){
+		string x = "STR_VERB";
+		printf("%s%i, ", x.c_str(), i+1);
 	}
 }
+
 //climb can only refer to FEATURES validly so get context_id from string 
 int Game::run_func(string item, string obj_name, string verb){
 	int res = -666;
@@ -432,6 +451,23 @@ void Game::set_room_events_triggered(int event_index, int val){
 	if ((event_index>-1)&&(event_index<NUM_EVENTS)){
 		room_events_triggered[event_index]=val;
 	}
+	int room_id = 666;
+	if (event_index%3==0){
+		room_id = event_index/3;
+		room_id = room_id - 1;
+		r_array[room_id]->set_event_triggered(2, 1);
+	}
+	else {
+		room_id = event_index/3;
+		int which_event = event_index%3;
+		if (which_event == 2){
+			r_array[room_id]->set_event_triggered(1, 1);
+		}
+		else {
+			r_array[room_id]->set_event_triggered(0, 1);
+		}
+		
+	}
 	
 }
 int Game::get_room_events_triggered(int event_index){
@@ -519,6 +555,19 @@ string Game::get_all_room_objects(){
 void Game::set_all_room_events_triggered(int bin_arr[NUM_EVENTS]){
 	for (int i = 0; i < NUM_EVENTS; i++){
 		set_room_events_triggered(i, bin_arr[i]);
+		//set original room too
+		
+	}
+	int x = 0; 
+	for (int i = 0; i < NUM_ROOMS; i++){
+		
+		r_array[i]->set_event_triggered(0, bin_arr[i+x]);
+		x = x + 1;
+		r_array[i]->set_event_triggered(1, bin_arr[i+x]);
+		x = x + 1;
+		r_array[i]->set_event_triggered(2, bin_arr[i+x]);
+
+		
 	}
 }
 string Game::get_all_room_events_triggered(){
@@ -533,6 +582,7 @@ string Game::get_all_room_events_triggered(){
 	}
 	return bin_str_arr;
 }
+
 Game::~Game() {
 
 }

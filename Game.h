@@ -122,6 +122,8 @@ public:
 	string get_all_room_events_triggered();
 	
 	
+	void output_obj_list();
+	void output_verb_list();
 	
 	
 

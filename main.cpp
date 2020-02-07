@@ -104,9 +104,24 @@ for (int j = 0; j < NUM_ROOMS; j++){
 	int set[]={9, 8, 1, 5, 2, 4, 1, 2};
 	test_has_objs.set_all_room_objects(set);
 	printf("%s\n", test_has_objs.get_all_room_objects().c_str());
+ 
+/*FEATURE TESTS*/
+
+	Game test_feat_verbs;
+	string feat_list[] = {"Gravestone", "Tree", "Portrait", "Musicbox", "Mirror", "Carpet", "Faceless", "Table", "Piano", "Trapdoor", "Child", "Dollhouse", "Mother", "Dresser", "Vampire", "Blood", "Mirror", "Sink", "Chest", "Pirate", "Bookshelf", "Fireplace", "Fountain", "Guardian", "Stove", "Cupboard", "Pedestal", "Statue", "Alex", "Demon"};
+	string obj_list[]={"Lamp", "Diary", "Locket", "Music", "Dagger", "Doll", "Key", "Chalice"};
+	string verb_list[]={STR_VERB1, STR_VERB2, STR_VERB3, STR_VERB4, STR_VERB5, STR_VERB6, STR_VERB7, STR_VERB8, STR_VERB9, STR_VERB10};
+	//string verb_list[]={STR_VERB1, STR_VERB2, STR_VERB3, STR_VERB}
+	test_feat_verbs.start();
+	
+	
+	
+	//string obj_list[]=
+for (int i = 0; i < NUM_ROOMS; i++){
+		test_feat_verbs.run_func(
 	
 
-/*FEATURE TESTS*/
+		//printf("%s", g.c_str());
 /*OBJECT TESTS*/
 /*PLAYER TESTS*/
 /*GAME TESTS*/
