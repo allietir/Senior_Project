@@ -7,9 +7,9 @@ int main(int argc, char *argv[]) {
 Game new_game;
 /*BUG FIX 1 DEMO*/
 //---player cant' take if in tree now//
-new_game.run_func("Tree", "none", "climb");
+new_game.run_func(1, -1, 8);
 new_game.take(4);
-new_game.run_func("Tree", "none", "climb");
+new_game.run_func(1, -1, 8);
 new_game.take(4);
 
 /*BUG FIX 2 DEMO*/
@@ -113,12 +113,42 @@ for (int j = 0; j < NUM_ROOMS; j++){
 	string verb_list[]={STR_VERB1, STR_VERB2, STR_VERB3, STR_VERB4, STR_VERB5, STR_VERB6, STR_VERB7, STR_VERB8, STR_VERB9, STR_VERB10};
 	//string verb_list[]={STR_VERB1, STR_VERB2, STR_VERB3, STR_VERB}
 	test_feat_verbs.start();
+	//test feat_valid
+//	int xy = test_feat_verbs.feat_valid(0);
+//	printf("%i::", xy);
+//	xy = test_feat_verbs.feat_valid(1);
+//		printf("%i::", xy);
+//		xy = test_feat_verbs.feat_valid(2);
+//			printf("%i::", xy);
+	
 	
 	
 	
 	//string obj_list[]=
-for (int i = 0; i < NUM_ROOMS; i++){
-		test_feat_verbs.run_func(
+	//for each room
+	for (int i = 0; i < NUM_ROOMS; i++)
+	{
+		test_feat_verbs.get_player()->set_current_room(i);
+		//try to run it with the FEATURE
+		for (int j=0; j < TOTAL_FIXED; j++){
+			//try to run each FEATURE with each OBJECT
+			for (int k=0; k < NUM_OBJECTS; k++)
+			{
+				//try to run each VERB with each MIXTURE of FEATURE and OBJECT
+				for (int l=0; l < NUM_VERB_FUNCS; l++){
+					test_feat_verbs.run_func(j, k, l);
+				}
+			}
+		}
+		//try to run it with OBJECT
+		for (int x=0; x < NUM_OBJECTS; x++)
+		{
+			//try to run each VERB with OBJECT
+			for (int m=0; m < NUM_VERB_FUNCS; m++){
+				test_feat_verbs.run_func(-1, x, m);
+			}
+		}
+	}	
 	
 
 		//printf("%s", g.c_str());

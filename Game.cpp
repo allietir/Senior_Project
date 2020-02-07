@@ -347,46 +347,127 @@ void Game::output_verb_list(){
 		printf("%s%i, ", x.c_str(), i+1);
 	}
 }
-
-//climb can only refer to FEATURES validly so get context_id from string 
-int Game::run_func(string item, string obj_name, string verb){
-	int res = -666;
-	if (verb.compare(STR_VERB1)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB1(); }
-	else if (verb.compare(STR_VERB2)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB2(); }
-	else if (verb.compare(STR_VERB3)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB3(get_obj_id_from_string(obj_name)); }
-	else if (verb.compare(STR_VERB4)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB4(); }
-	else if (verb.compare(STR_VERB5)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB5(); }
-	else if (verb.compare(STR_VERB6)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB6(player1.get_current_room(), get_obj_id_from_string(obj_name)); }
-	else if (verb.compare(STR_VERB7)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB7(); }
-	else if (verb.compare(STR_VERB8)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB8(player1.get_current_room(), get_obj_id_from_string(obj_name)); }
-	else if (verb.compare(STR_VERB9)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB9(); }
-	else if (verb.compare(STR_VERB10)==0){ res = r_array[player1.get_current_room()]->get_feature_x(get_context_id_from_string(item))->VERB10(obj_name); }
-
-	printf("RES: %i\n", res);
-	if ((res==0)||(res==1)||(res==2)){
-		//rach player can have max 3 events, so get result (event 0->1, 1->2, 2->3), plus 3 times the current room you are in to set the value to EVENT TRIGGERED 
-		room_events_triggered[res+(3*player1.get_current_room())]=1;
+int Game::feat_valid(int feat_index_id){
+	if (r_array[player1.get_current_room()]->get_feature_x(0)->get_index_id()==feat_index_id){
+		return 0;
 	}
-	//player is DEAD
-	else if (res==-1){
-		player1.set_player_alive(0);//set to FALSE
+	else if (r_array[player1.get_current_room()]->get_feature_x(1)->get_index_id()==feat_index_id){
+			return 1;
 	}
-	//player can't TAKE anything
-	if (res==-2){
-		player1.set_can_take(0);//set to FALSE
-	}
-	//if anything else happens, the lock on take is nullified
-	else
+	else 
 	{
-		player1.set_can_take(1);//set to TRUE
+		return -1;
 	}
-	if (res==4){
-		//nothing happens; four is the "nothing" value
+	
+}
+int Game::verb_index_from_string(string verbx){
+	for (int i = 0; i < NUM_STR_VERBS; i++){
+		if (verbx==verb_list[i]){
+			return i;
+		}
 	}
-	if (res==5){
-		printf("----something unexpected has occured----\n");
+	return -1;
+}
+string Game::verb_string_from_index(int verbx){
+	return verb_list[verbx];
+}
+//climb can only refer to FEATURES validly so get context_id from string 
+int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
+	
+	int res = -666;
+	string verb="unset";
+	
+	//everyone has to use VERB
+	if ((verb_id>=0)&&(verb_id<=NUM_STR_VERBS-1)){
+		verb = verb_list[verb_id];
 	}
-	return 0;
+	else{
+		//if verb is invalid, just leave
+		printf("Verb Invalid\n");
+		return -1;
+	}
+	int item=feat_valid(feat_index_id);
+	string feat_string;
+	if (item!=-1){
+		feat_string=r_array[player1.get_current_room()]->get_feature_x(item)->get_name(); 
+	}
+	if ((feat_index_id!=-1)&&(obj_index_id==-1))
+	{
+		
+		
+		if ((item>=0)&&(item<=1)){
+			printf("Running %s on on FEAT %s that does NOT take OBJECT in room %s\n", verb.c_str(), feat_string.c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+			if (verb.compare(STR_VERB1)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB1(); }
+			else if (verb.compare(STR_VERB2)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB2(); }
+			else if (verb.compare(STR_VERB4)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB4(); }
+			else if (verb.compare(STR_VERB5)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB5(); }
+			else if (verb.compare(STR_VERB7)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB7(); }
+			else if (verb.compare(STR_VERB9)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB9(); }
+		}
+		
+
+
+		
+	}
+	else if ((feat_index_id!=-1)&&(obj_index_id!=-1)){
+		printf("Running %s on FEAT %s that DOES take OBJECT with object %s in room %s\n", verb.c_str(), feat_string.c_str(), o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+		if ((obj_index_id <= 7)&&(obj_index_id>=0)&&(item>=0)&&(item<=1))
+		{
+			if (verb.compare(STR_VERB3)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB3(obj_index_id); }
+			else if (verb.compare(STR_VERB6)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB6(player1.get_current_room(), obj_index_id); }
+			else if (verb.compare(STR_VERB8)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB8(player1.get_current_room(), obj_index_id); }
+			else if (verb.compare(STR_VERB10)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB10(o_array[obj_index_id]->get_name()); }
+		}
+	}
+	else if ((feat_index_id==-1)&&(obj_index_id!=-1)){
+		printf("Running %s on OBJECT %s in room %s\n", verb.c_str(), o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+		if ((obj_index_id <= 7)&&(obj_index_id>=0))
+		{
+			if (verb.compare(STR_VERB1)==0){ res = o_array[obj_index_id]->VERB1(); }
+			else if (verb.compare(STR_VERB2)==0){ res = o_array[obj_index_id]->VERB2(); }
+			else if (verb.compare(STR_VERB3)==0){ res = o_array[obj_index_id]->VERB3(-1); }
+			else if (verb.compare(STR_VERB4)==0){ res = o_array[obj_index_id]->VERB4(); }
+			else if (verb.compare(STR_VERB5)==0){ res = o_array[obj_index_id]->VERB5(); }
+			else if (verb.compare(STR_VERB6)==0){ res = o_array[obj_index_id]->VERB6(player1.get_current_room(), -1); }
+			else if (verb.compare(STR_VERB7)==0){ res = o_array[obj_index_id]->VERB7(); }
+			else if (verb.compare(STR_VERB8)==0){ res = o_array[obj_index_id]->VERB8(player1.get_current_room(), -1); }
+			else if (verb.compare(STR_VERB9)==0){ res = o_array[obj_index_id]->VERB9(); }
+			else if (verb.compare(STR_VERB10)==0){ res = o_array[obj_index_id]->VERB10(o_array[obj_index_id]->get_name()); }
+			
+		}	
+		
+
+	}
+	if (res!=-666){	
+			printf("RES: %i\n", res);
+			if ((res==0)||(res==1)||(res==2)){
+				//rach player can have max 3 events, so get result (event 0->1, 1->2, 2->3), plus 3 times the current room you are in to set the value to EVENT TRIGGERED 
+				room_events_triggered[res+(3*player1.get_current_room())]=1;
+			}
+			//player is DEAD
+			else if (res==-1){
+				player1.set_player_alive(0);//set to FALSE
+			}
+			//player can't TAKE anything
+			if (res==-2){
+				player1.set_can_take(0);//set to FALSE
+			}
+			//if anything else happens, the lock on take is nullified
+			else
+			{
+				player1.set_can_take(1);//set to TRUE
+			}
+			if (res==4){
+				//nothing happens; four is the "nothing" value
+			}
+			if (res==5){
+				printf("----something unexpected has occured----\n");
+			}
+			return 0;
+		
+	}
+	return -1;
+	
 	
 }
 //helper for parse
