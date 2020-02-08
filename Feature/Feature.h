@@ -69,6 +69,10 @@ public:
 	
 	int get_attack_obj_id();
 	void set_attack_obj_id(int obj_id);
+	
+	void set_func_togg_count(int bin_arr[NUM_VERB_FUNCS]);
+	string get_func_togg_count();
+	
 	//TO ADD:
 		// a list of functions that correspond to each verb within the game
 	

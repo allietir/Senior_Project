@@ -91,7 +91,7 @@ public:
 	string get_feat_list(int x);
 	void output_feat_list();
 	
-	int run_func(string item, string obj_name, string verb);
+	int run_func(int feat_index_id, int obj_index_id, int verb_id);
 	int exit_current_from_room_id(int room_id);
 	
 	void set_times_rooms_visited(int room_id, int new_time);
@@ -122,7 +122,12 @@ public:
 	string get_all_room_events_triggered();
 	
 	
+	void output_obj_list();
+	void output_verb_list();
 	
+	int feat_valid(int feat_index_id);
+	int verb_index_from_string(string verbx);
+	string verb_string_from_index(int verbx);
 	
 
 
@@ -146,6 +151,7 @@ private:
 	int current_obj_location[NUM_OBJECTS];
 	int room_obj_set[NUM_OBJECTS]={1, 3, 10, 6, 0, 11, 5, 9};
 	int room_needs_object1[NUM_OBJECTS]={2, 3, 4, 5, 6, 7, 8, 13};
+	string verb_list[NUM_STR_VERBS]={STR_VERB1, STR_VERB2, STR_VERB3, STR_VERB4, STR_VERB5, STR_VERB6, STR_VERB7, STR_VERB8, STR_VERB9, STR_VERB10};
 	
 	int room_events_triggered[NUM_EVENTS];
 	int times_rooms_visited[NUM_ROOMS];

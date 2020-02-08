@@ -158,7 +158,23 @@ int Feature::get_attack_obj_id(){
 void Feature::set_attack_obj_id(int obj_id){
 	attack_obj_id = obj_id;
 }
-
+void Feature::set_func_togg_count(int bin_arr[NUM_VERB_FUNCS]){
+	for (int i = 0; i < NUM_VERB_FUNCS; i++){
+		set_togg_count_x(i, bin_arr[i]);
+	}
+}
+string Feature::get_func_togg_count(){
+	string bin_str_arr="";
+	for (int i = 0; i < NUM_VERB_FUNCS; i++){
+		if (i<NUM_VERB_FUNCS-1){
+			bin_str_arr=bin_str_arr + to_string(get_times_toggled(i))+", ";
+		}
+		else{
+			bin_str_arr=bin_str_arr + to_string(get_times_toggled(i));
+		}	
+	}
+	return bin_str_arr;
+}
 Feature::~Feature() {
 	
 }
