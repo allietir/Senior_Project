@@ -81,8 +81,10 @@ void Game::start(){
 	r_array[player1.get_current_room()]->look();
 	//set room visited to 1; 
 	set_times_rooms_visited(0, 1);
+	//set game events to 0;
+	set_game_events_triggered(0, 0);
 
-	printf("%s", "-----GET INPUT FUNCTION HERE------");
+	printf("%s\n", "-----GET INPUT FUNCTION HERE------");
 
 	gen_feat_list();
 }
