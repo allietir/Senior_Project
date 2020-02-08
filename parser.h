@@ -52,6 +52,10 @@ const map<string, int> verbIDmap = {
 	{ "give", 7},
 	{ "climb", 8},
 	{ "attack", 9},
+	{ "look", 10},
+	{ "take", 11},
+	{ "drop", 12}
+	
 };
 
 //map to look up object ID

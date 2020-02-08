@@ -9,6 +9,9 @@
 #define FRIEND_NAME "ALEX"
 #define MAX_EVENTS 3
 #define NUM_EVENTS 45
+#define NUM_REQ_VERBS 8
+
+#define RUN_FUNC_VERBS 13
 
 #define ROOM1 Front Garden
 #define ROOM2 Entranceway//exit north->upstarishallway:3 south->front garden:1 east->dining room:4 west->parlour:5
@@ -139,4 +142,23 @@
 #define STR_FEAT29 "Alex"
 #define STR_FEAT30 "Demon"
 
+
 #define NUM_GAME_EVENTS 1
+
+#define RVERB1 look
+#define RVERB2 take
+#define RVERB3 drop
+#define RVERB4 exit_room
+#define RVERB5 help
+#define RVERB6 inventory
+#define RVERB7 save_game
+#define RVERB8 load_game
+
+#define STR_RVERB1 "look"
+#define STR_RVERB2 "take"
+#define STR_RVERB3 "drop"
+#define STR_RVERB4 "exit_room"
+#define STR_RVERB5 "help"
+#define STR_RVERB6 "inventory"
+#define STR_RVERB7 "save_game"
+#define STR_RVERB8 "load_game"

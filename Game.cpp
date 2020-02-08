@@ -155,7 +155,7 @@ void Game::inventory(){
 	printf("INVENTORY: \n");
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		if (player1.get_has_objects(i)==1){
-			printf("%s\n ", o_array[i]->get_name().c_str());
+			printf("%s\n", o_array[i]->get_name().c_str());
 			empty = 0;
 		}
 	}
@@ -378,66 +378,92 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 	string verb="unset";
 	
 	//everyone has to use VERB
-	if ((verb_id>=0)&&(verb_id<=NUM_STR_VERBS-1)){
+	if ((verb_id>=0)&&(verb_id<=RUN_FUNC_VERBS-1)){
 		verb = verb_list[verb_id];
 	}
 	else{
-		//if verb is invalid, just leave
+		//if verb is invalid, check whether it is one of the required verbs
+		
 		printf("Verb Invalid\n");
 		return -1;
 	}
+	
 	int item=feat_valid(feat_index_id);
 	string feat_string;
 	if (item!=-1){
 		feat_string=r_array[player1.get_current_room()]->get_feature_x(item)->get_name(); 
 	}
-	if ((feat_index_id!=-1)&&(obj_index_id==-1))
-	{
-		
-		
-		if ((item>=0)&&(item<=1)){
-			printf("Running %s on on FEAT %s that does NOT take OBJECT in room %s\n", verb.c_str(), feat_string.c_str(), r_array[player1.get_current_room()]->get_name().c_str());
-			if (verb.compare(STR_VERB1)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB1(); }
-			else if (verb.compare(STR_VERB2)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB2(); }
-			else if (verb.compare(STR_VERB4)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB4(); }
-			else if (verb.compare(STR_VERB5)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB5(); }
-			else if (verb.compare(STR_VERB7)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB7(); }
-			else if (verb.compare(STR_VERB9)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB9(); }
-		}
-		
-
-
-		
-	}
-	else if ((feat_index_id!=-1)&&(obj_index_id!=-1)){
-		printf("Running %s on FEAT %s that DOES take OBJECT with object %s in room %s\n", verb.c_str(), feat_string.c_str(), o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
-		if ((obj_index_id <= 7)&&(obj_index_id>=0)&&(item>=0)&&(item<=1))
+	if (verb_id>=NUM_VERB_FUNCS){
+		if ((feat_index_id!=-1)&&(obj_index_id==-1))
 		{
-			if (verb.compare(STR_VERB3)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB3(obj_index_id); }
-			else if (verb.compare(STR_VERB6)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB6(player1.get_current_room(), obj_index_id); }
-			else if (verb.compare(STR_VERB8)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB8(player1.get_current_room(), obj_index_id); }
-			else if (verb.compare(STR_VERB10)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB10(o_array[obj_index_id]->get_name()); }
+			if ((item>=0)&&(item<=1)){
+				printf("Running %s on on FEAT %s in room %s\n", verb.c_str(), feat_string.c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+				if (verb.compare(STR_RVERB1)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->RVERB1(); }
+				else if (verb.compare(STR_RVERB2)==0){ printf("You can't take that"); }
+				else if (verb.compare(STR_RVERB3)==0){ printf("You can't drop that"); }
+			}
 		}
-	}
-	else if ((feat_index_id==-1)&&(obj_index_id!=-1)){
-		printf("Running %s on OBJECT %s in room %s\n", verb.c_str(), o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
-		if ((obj_index_id <= 7)&&(obj_index_id>=0))
-		{
-			if (verb.compare(STR_VERB1)==0){ res = o_array[obj_index_id]->VERB1(); }
-			else if (verb.compare(STR_VERB2)==0){ res = o_array[obj_index_id]->VERB2(); }
-			else if (verb.compare(STR_VERB3)==0){ res = o_array[obj_index_id]->VERB3(-1); }
-			else if (verb.compare(STR_VERB4)==0){ res = o_array[obj_index_id]->VERB4(); }
-			else if (verb.compare(STR_VERB5)==0){ res = o_array[obj_index_id]->VERB5(); }
-			else if (verb.compare(STR_VERB6)==0){ res = o_array[obj_index_id]->VERB6(player1.get_current_room(), -1); }
-			else if (verb.compare(STR_VERB7)==0){ res = o_array[obj_index_id]->VERB7(); }
-			else if (verb.compare(STR_VERB8)==0){ res = o_array[obj_index_id]->VERB8(player1.get_current_room(), -1); }
-			else if (verb.compare(STR_VERB9)==0){ res = o_array[obj_index_id]->VERB9(); }
-			else if (verb.compare(STR_VERB10)==0){ res = o_array[obj_index_id]->VERB10(o_array[obj_index_id]->get_name()); }
+		else if ((feat_index_id==-1)&&(obj_index_id!=-1)){
 			
-		}	
-		
-
+			if ((obj_index_id <= 7)&&(obj_index_id>=0))
+			{	printf("Running %s on OBJECT %s in room %s\n", verb.c_str(), o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+				if (verb.compare(STR_RVERB1)==0){ res = o_array[obj_index_id]->RVERB1(); }//look
+				else if (verb.compare(STR_RVERB2)==0){ RVERB2(obj_index_id); }//take
+				else if (verb.compare(STR_RVERB3)==0){ RVERB3(obj_index_id); }//drop	
+			}	
+		}
 	}
+	if ((verb_id>=0)&&(verb_id<=NUM_VERB_FUNCS-1))
+	{
+		if ((feat_index_id!=-1)&&(obj_index_id==-1))
+			{
+				
+				
+				if ((item>=0)&&(item<=1)){
+					printf("Running %s on on FEAT %s that does NOT take OBJECT in room %s\n", verb.c_str(), feat_string.c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+					if (verb.compare(STR_VERB1)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB1(); }
+					else if (verb.compare(STR_VERB2)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB2(); }
+					else if (verb.compare(STR_VERB4)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB4(); }
+					else if (verb.compare(STR_VERB5)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB5(); }
+					else if (verb.compare(STR_VERB7)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB7(); }
+					else if (verb.compare(STR_VERB9)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB9(); }
+				}
+				
+
+
+				
+			}
+			else if ((feat_index_id!=-1)&&(obj_index_id!=-1)){
+				printf("Running %s on FEAT %s that DOES take OBJECT with object %s in room %s\n", verb.c_str(), feat_string.c_str(), o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+				if ((obj_index_id <= 7)&&(obj_index_id>=0)&&(item>=0)&&(item<=1))
+				{
+					if (verb.compare(STR_VERB3)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB3(obj_index_id); }
+					else if (verb.compare(STR_VERB6)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB6(player1.get_current_room(), obj_index_id); }
+					else if (verb.compare(STR_VERB8)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB8(player1.get_current_room(), obj_index_id); }
+					else if (verb.compare(STR_VERB10)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB10(o_array[obj_index_id]->get_name()); }
+				}
+			}
+			else if ((feat_index_id==-1)&&(obj_index_id!=-1)){
+				printf("Running %s on OBJECT %s in room %s\n", verb.c_str(), o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+				if ((obj_index_id <= 7)&&(obj_index_id>=0))
+				{
+					if (verb.compare(STR_VERB1)==0){ res = o_array[obj_index_id]->VERB1(); }
+					else if (verb.compare(STR_VERB2)==0){ res = o_array[obj_index_id]->VERB2(); }
+					else if (verb.compare(STR_VERB3)==0){ res = o_array[obj_index_id]->VERB3(-1); }
+					else if (verb.compare(STR_VERB4)==0){ res = o_array[obj_index_id]->VERB4(); }
+					else if (verb.compare(STR_VERB5)==0){ res = o_array[obj_index_id]->VERB5(); }
+					else if (verb.compare(STR_VERB6)==0){ res = o_array[obj_index_id]->VERB6(player1.get_current_room(), -1); }
+					else if (verb.compare(STR_VERB7)==0){ res = o_array[obj_index_id]->VERB7(); }
+					else if (verb.compare(STR_VERB8)==0){ res = o_array[obj_index_id]->VERB8(player1.get_current_room(), -1); }
+					else if (verb.compare(STR_VERB9)==0){ res = o_array[obj_index_id]->VERB9(); }
+					else if (verb.compare(STR_VERB10)==0){ res = o_array[obj_index_id]->VERB10(o_array[obj_index_id]->get_name()); }
+					
+				}	
+				
+
+			}
+	}
+	
 	if (res!=-666){	
 			printf("RES: %i\n", res);
 			if ((res==0)||(res==1)||(res==2)){

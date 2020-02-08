@@ -175,15 +175,15 @@ int checkMoveCommands(Game &game, vector<string> inputVector){
 int checkActions(Game &game, vector<string> inputVector) {
 	int actionStatus = 1;
 
-	if (inputVector[0] == "take" && inputVector[1] == "dagger") {
-		//cout << "call take dagger\n";
-		game.take(4);
-	}
-	else if (inputVector[0] == "drop" && inputVector[1] == "dagger") {
-		//cout << "call take dagger\n";
-		game.drop(4);
-	}
-	else if (inputVector[0] == "look" &&
+//	if (inputVector[0] == "take" && inputVector[1] == "dagger") {
+//		//cout << "call take dagger\n";
+//		game.take(4);
+//	}
+//	else if (inputVector[0] == "drop" && inputVector[1] == "dagger") {
+//		//cout << "call take dagger\n";
+//		game.drop(4);
+//	}
+	if (inputVector[0] == "look" &&
 		(inputVector[1] == "gravestone"
 			|| (inputVector[1] == "at" && inputVector[2] == "gravestone"))) {
 		cout << "call look at gravestone\n";

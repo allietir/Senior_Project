@@ -136,7 +136,7 @@ for (int j = 0; j < NUM_ROOMS; j++){
 			for (int k=0; k < NUM_OBJECTS; k++)
 			{
 				//try to run each VERB with each MIXTURE of FEATURE and OBJECT
-				for (int l=0; l < NUM_VERB_FUNCS; l++){
+				for (int l=0; l < RUN_FUNC_VERBS; l++){
 					test_feat_verbs.run_func(j, k, l);
 				}
 			}
@@ -145,11 +145,34 @@ for (int j = 0; j < NUM_ROOMS; j++){
 		for (int x=0; x < NUM_OBJECTS; x++)
 		{
 			//try to run each VERB with OBJECT
-			for (int m=0; m < NUM_VERB_FUNCS; m++){
+			for (int m=0; m < RUN_FUNC_VERBS; m++){
 				test_feat_verbs.run_func(-1, x, m);
 			}
 		}
 	}	
+	//run take through the func
+	for (int i = 0; i < NUM_ROOMS; i++)
+	{
+		test_feat_verbs.get_player()->set_current_room(i);
+		//try to run it with the FEATURE
+		for (int j=0; j < TOTAL_FIXED; j++){
+			//try to run each FEATURE with each OBJECT
+			for (int k=0; k < NUM_OBJECTS; k++)
+			{
+				//try to run each VERB with each MIXTURE of FEATURE and OBJECT
+				for (int l=0; l < RUN_FUNC_VERBS; l++){
+					test_feat_verbs.run_func(j, k, l);
+				}
+			}
+		}
+		//try to run it with OBJECT
+		for (int x=0; x < NUM_OBJECTS; x++)
+		{
+			test_feat_verbs.run_func(-1, x, 11);
+			test_feat_verbs.inventory();
+		}
+	
+	}
 	
 
 		//printf("%s", g.c_str());
