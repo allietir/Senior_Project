@@ -136,28 +136,8 @@ int checkMoveCommands(Game &game, vector<string> inputVector){
 	while (inputVector[0] == "go" || inputVector[0] == "to" || inputVector[0] == "the") {
 		inputVector.erase(inputVector.begin());
 	}
-	
-	//map to look up room ID
 
-	map<string, int> roomIDmap = {
-		{ "front", 0 },
-		{ "entranceway", 1 },
-		{ "upstairs", 2 },
-		{ "dining", 3},
-		{ "parlor", 4},
-		{ "nursery", 5},
-		{ "guest", 6},
-		{ "master", 7},
-		{ "bathroom", 8},
-		{ "attic", 9},
-		{ "library", 10},
-		{ "conservatory", 11},
-		{ "kitchen", 12},
-		{ "basement", 13},
-		{ "crypt", 14}
-	};
-
-	map<string, int>::iterator it;
+	map<string, int>::const_iterator it;
 	it = roomIDmap.find(inputVector[0]);
 	
 	if (it != roomIDmap.end()) {
@@ -210,6 +190,65 @@ int checkActions(Game &game, vector<string> inputVector) {
 		//game.r_array[game.player1.get_current_room()]->get_feature_X(0)->look();
 	}
 	else actionStatus = 0;
+
+	int verbID = -1;
+	int featID = -1;
+	int objID = -1;
+
+	map<string, int>::const_iterator verbIT;
+	map<string, int>::const_iterator objIT;
+	map<string, int>::const_iterator featIT;
+
+	for (int i = 0; i < inputVector.size(); i++) {
+
+		verbIT = verbIDmap.find(inputVector[i]);
+		featIT = featIDmap.find(inputVector[i]);
+		objIT = objIDmap.find(inputVector[i]);
+
+		if (verbIT != verbIDmap.end()) {
+			// verb name matched
+			cout << "\tverb: "; 
+			cout << inputVector[i]; 
+			if (verbID == -1) verbID = verbIT->second;
+			else {
+				actionStatus = -1;
+				cout << "\ntoo many verbs\n";
+				return actionStatus;
+			}
+		}
+		else if (featIT != featIDmap.end()) {
+			// feature name matched 
+			cout << "\tfeature: ";
+			cout << inputVector[i];
+			if (featID == -1) featID = featIT->second;
+			else {
+				actionStatus = -1;
+				cout << "\ntoo many features\n";
+				return actionStatus;
+			}
+		}
+		else if (objIT != objIDmap.end()) {
+			// object name matched 
+			cout << "\tobject: ";
+			cout << inputVector[i];
+			if (objID == -1) objID = objIT->second;
+			else {
+				actionStatus = -1;
+				cout << "\ntoo many objects\n";
+				return actionStatus;
+			}
+		}
+	}
+	cout << "\n";
+	if (verbID == -1 || (featID == -1 && objID == -1)) {
+		actionStatus = 0;
+		cout << "incorrect arguments found\n";
+	}
+	else {
+		game.run_func(featID, objID, verbID);
+		actionStatus = 1;
+	}
+
 	
 	return actionStatus;
 }

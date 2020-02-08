@@ -22,11 +22,40 @@ vector<string> splitCleanInput(string cleanInput);
 int checkMoveCommands(Game& game, vector<string> inputVector);
 int checkActions(Game& game, vector<string> inputVector);
 
+//map to look up room ID
+const map<string, int> roomIDmap = {
+	{ "front", 0 },
+	{ "entranceway", 1 },
+	{ "upstairs", 2 },
+	{ "dining", 3},
+	{ "parlor", 4},
+	{ "nursery", 5},
+	{ "guest", 6},
+	{ "master", 7},
+	{ "bathroom", 8},
+	{ "attic", 9},
+	{ "library", 10},
+	{ "conservatory", 11},
+	{ "kitchen", 12},
+	{ "basement", 13},
+	{ "crypt", 14}
+};
 
-
+const map<string, int> verbIDmap = {
+	{ "read", 0 },
+	{ "smell", 1 },
+	{ "use", 2 },
+	{ "eat", 3},
+	{ "play", 4},
+	{ "open", 5},
+	{ "speak", 6},
+	{ "give", 7},
+	{ "climb", 8},
+	{ "attack", 9},
+};
 
 //map to look up object ID
-static const map<string, int> objectIDmap = {
+const map<string, int> objIDmap = {
     { "lamp", 0 },
 	{ "diary", 1 },
     { "locket", 2 },
@@ -38,7 +67,7 @@ static const map<string, int> objectIDmap = {
 };
 
 //map to look up feature ID
-static const map<string, int> featureIDmap = {
+const map<string, int> featIDmap = {
     { "gravestone", 0},
 	{ "tree", 1 },
     { "portrait", 2 },
