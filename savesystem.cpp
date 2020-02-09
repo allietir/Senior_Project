@@ -83,6 +83,11 @@ void load_game(Game& game) {
 	string file_name = "";
 
 	/****These lines will only work on linux! Comment out or copy and change when testing on Windows.****/
+	//Create directory if it does not already exist.
+	const char command[32] = "mkdir -p SaveData";
+	system(command);
+
+	/****These lines will only work on linux! Comment out or copy and change when testing on Windows.****/
 	printf("Available save files:\n");
 	const char command[32] = "ls SaveData";
 	system(command);
@@ -167,7 +172,6 @@ void set_game_data(Game& game, ifstream& save_file) {
 
 	//All room events triggered
 	getline(save_file, next_line);
-	cout << next_line << endl;
 	convert_string_to_array(room_events, next_line);
 	game.set_all_room_events_triggered(room_events);
 
