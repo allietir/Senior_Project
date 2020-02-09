@@ -2,12 +2,14 @@
 #include "Game.h"
 //#include "globals.h"
 #include "parser.h"
+#include "savesystem.h"
 
 
 using namespace std;
 void convert_string_to_array(int* arr, string str);
 int main(int argc, char *argv[]) {
 Game new_game;
+
 /*BUG FIX 1 DEMO*/
 //---player cant' take if in tree now//
 new_game.run_func(1, -1, 8);
@@ -176,7 +178,6 @@ for (int j = 0; j < NUM_ROOMS; j++){
 	
 	}
 	
-
 		//printf("%s", g.c_str());
 ///*OBJECT TESTS*/
 ///*PLAYER TESTS*/
@@ -209,6 +210,7 @@ for (int j = 0; j < NUM_ROOMS; j++){
 		
 		
 	}
+<<<<<<< HEAD
 	/*TESTS FOR GETTER SETTERS*/
 	Game get_set;
 	get_set.start();
@@ -222,6 +224,16 @@ for (int j = 0; j < NUM_ROOMS; j++){
 	printf("%s\n", c.c_str());
 	printf("%s\n", d.c_str());
 	printf("%s\n", e.c_str());
+=======
+
+
+/*ALLIE SAVESYSTEM*/
+/*new_game.start();
+save_game(new_game);
+load_game(new_game);
+save_game(new_game);*/
+
+>>>>>>> allie_branch
 	
 	Game parse_test;
 	parse_test.start();

@@ -83,7 +83,9 @@ public:
 	virtual int event_two();
 	virtual int event_three();
 
+
 	int trigger_event(int event_number);	
+  
 private:
 	
 	string name;//name of room
@@ -120,9 +122,8 @@ private:
 	int num_events;
 	
 	int event_triggered[MAX_EVENTS];
-	Feature* fixed_list[MAX_FIXED]; 
-	
 
+	Feature* fixed_list[MAX_FIXED]; 
 	
 };
 

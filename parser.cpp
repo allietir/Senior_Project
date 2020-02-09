@@ -8,6 +8,7 @@
 
 #include "Game.h"
 #include "parser.h"
+#include "savesystem.h"
 
 using namespace std;
 /*
@@ -100,11 +101,11 @@ int checkBasicCommands(Game &game, string cleanInput){
 		game.inventory();
 	}
 	else if (cleanInput == "savegame"){
-		cout << "savegame called \n";
+		save_game(game);
 		//call savegame
 	}
 	else if (cleanInput == "loadgame"){
-		cout << "loadgame called \n"; 
+		load_game(game);
 		//call load game
 	}
 	else {
