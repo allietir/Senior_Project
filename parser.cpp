@@ -8,6 +8,7 @@
 
 #include "Game.h"
 #include "parser.h"
+#include "savesystem.h"
 
 using namespace std;
 /*
