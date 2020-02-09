@@ -49,6 +49,11 @@ void save_game(Game& game) {
 	time_t raw_time;
 	raw_time = time(NULL);
 
+	/****These lines will only work on linux! Comment out or copy and change when testing on Windows.****/
+	//Create directory if it does not already exist.
+	const char command[32] = "mkdir -p SaveData";
+	system(command);
+
 	/****The path name will have to be modified depending on testing environment.****/
 	string filename_path = "SaveData/" + game.get_player()->get_name() + to_string(raw_time);
 
@@ -180,5 +185,4 @@ void set_game_data(Game& game, ifstream& save_file) {
 	getline(save_file, next_line);
 	convert_string_to_array(player_objects, next_line);
 	game.set_all_player_objects(player_objects);
-
 }
