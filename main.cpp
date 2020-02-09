@@ -210,7 +210,7 @@ for (int j = 0; j < NUM_ROOMS; j++){
 		
 		
 	}
-<<<<<<< HEAD
+
 	/*TESTS FOR GETTER SETTERS*/
 	Game get_set;
 	get_set.start();
@@ -224,16 +224,12 @@ for (int j = 0; j < NUM_ROOMS; j++){
 	printf("%s\n", c.c_str());
 	printf("%s\n", d.c_str());
 	printf("%s\n", e.c_str());
-=======
+
 
 
 /*ALLIE SAVESYSTEM*/
-/*new_game.start();
-save_game(new_game);
-load_game(new_game);
-save_game(new_game);*/
 
->>>>>>> allie_branch
+
 	
 	Game parse_test;
 	parse_test.start();
@@ -243,6 +239,11 @@ save_game(new_game);*/
 			getline(cin, userInput);
 			inputParsing(parse_test, userInput);
 		}
+		new_game.start();
+		save_game(new_game);
+		load_game(new_game);
+		save_game(new_game);	
 
 }
+	
 	
