@@ -92,8 +92,8 @@ void load_game(Game& game) {
 
 	/****The path name will have to be modified depending on testing environment.****/
 	//The final game is intended to be run on the school Linux servers, make sure
-	//it is changed to this: file_name = "SaveData" + file_name;
-	file_name = "SaveData" + file_name;
+	//it is changed to this: file_name = "SaveData/" + file_name;
+	file_name = "SaveData/" + file_name;
 
 	//user yes/no input buffer
 	string prompt = "";
