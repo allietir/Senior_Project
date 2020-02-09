@@ -142,4 +142,4 @@ clean:
 	rm Feature/*.o
 	rm Room/*.o
 	rm Object/*.o
-
+	rm SaveData/*
