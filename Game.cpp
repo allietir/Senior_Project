@@ -81,9 +81,8 @@ void Game::start(){
 	r_array[player1.get_current_room()]->look();
 	//set room visited to 1; 
 	set_times_rooms_visited(0, 1);
-//
-	printf("%s", "-----GET INPUT FUNCTION HERE------");
-//
+
+	printf("%s\n", "-----GET INPUT FUNCTION HERE------");
 
 }
 //take implemented at game level, since objects are at game level
