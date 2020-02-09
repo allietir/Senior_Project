@@ -55,7 +55,7 @@ public:
 	virtual int speak();//6
 	virtual int give(int room_id, int obj_feat_id);//7
 	virtual int climb();//8
-	virtual int attack(string obj_name);//9
+	virtual int attack(int obj_feat_id);//9
 	
 
 	

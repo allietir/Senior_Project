@@ -70,8 +70,8 @@ int Feature1::climb(){
 	printf("%s\n", climb_response.c_str());
 	return 4;
 }
-int Feature1::attack(string obj_name){
-	printf("Attacking with a %s is not effective. Luckily, the gravestone does not attack back.", obj_name.c_str());
+int Feature1::attack(int obj_id){
+	printf("Attacking with a %s is not effective. Luckily, the gravestone does not attack back.", get_obj_name(obj_id).c_str());
 	func_togg_count_x(ATTACK);
 	return 4;
 }

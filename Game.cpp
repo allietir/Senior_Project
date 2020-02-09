@@ -252,7 +252,7 @@ int Game::attack(int feature_x, int obj_id){
 	if (player1.get_has_objects(obj_id)){
 		if (obj_id==needed_object)
 			{
-				int get_attack_result=r_array[player1.get_current_room()]->get_feature_x(feature_x)->attack(o_array[obj_id]->get_name());
+				int get_attack_result=r_array[player1.get_current_room()]->get_feature_x(feature_x)->attack(obj_id);
 				if (get_attack_result == -1){
 					//player dead, game over, exit game totally. 
 					player1.set_player_alive(0);
@@ -305,9 +305,9 @@ void Game::gen_feat_list(){
 	int x = 0 ;
 	for (int i = 0; i < NUM_ROOMS; i++){
 		feat_list[x]=r_array[i]->get_feature_x(0)->get_name();
-		printf("%s", feat_list[x].c_str());
+		//printf("%s", feat_list[x].c_str());
 		feat_list[x+1]=r_array[i]->get_feature_x(1)->get_name();
-		printf("%s", feat_list[x+1].c_str());
+		//printf("%s", feat_list[x+1].c_str());
 		x = x + 2;
 		
 	}
@@ -447,7 +447,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 					if (verb.compare(STR_VERB3)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB3(obj_index_id); }
 					else if (verb.compare(STR_VERB6)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB6(player1.get_current_room(), obj_index_id); }
 					else if (verb.compare(STR_VERB8)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB8(player1.get_current_room(), obj_index_id); }
-					else if (verb.compare(STR_VERB10)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB10(o_array[obj_index_id]->get_name()); }
+					else if (verb.compare(STR_VERB10)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB10(obj_index_id); }
 				}
 			}
 			else if ((feat_index_id==-1)&&(obj_index_id!=-1)){
@@ -463,7 +463,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 					else if (verb.compare(STR_VERB7)==0){ res = o_array[obj_index_id]->VERB7(); }
 					else if (verb.compare(STR_VERB8)==0){ res = o_array[obj_index_id]->VERB8(player1.get_current_room(), -1); }
 					else if (verb.compare(STR_VERB9)==0){ res = o_array[obj_index_id]->VERB9(); }
-					else if (verb.compare(STR_VERB10)==0){ res = o_array[obj_index_id]->VERB10(o_array[obj_index_id]->get_name()); }
+					else if (verb.compare(STR_VERB10)==0){ res = o_array[obj_index_id]->VERB10(obj_index_id); }
 					
 				}	
 				

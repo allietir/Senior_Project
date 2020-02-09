@@ -12,7 +12,7 @@ public:
 	virtual ~Feature7();
 	int speak();
 	int give(int room_id, int obj_feat_id);
-	int attack(string obj_name);
+	int attack(int obj_feat_id);
 	int special=666;
 };
 

@@ -140,8 +140,8 @@ int Feature::climb(){
 	printf("%s\n", response.c_str());
 	return 4;
 }//use to interact with some features to exit between rooms
-int Feature::attack(string object_name){
-	string response = get_name() + " cannot be attacked with " + object_name + "\n";
+int Feature::attack(int obj_id){
+	string response = get_name() + " cannot be attacked with with this object\n";
 	printf("%s\n", response.c_str());
 	return 4;
 }

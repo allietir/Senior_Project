@@ -18,7 +18,7 @@ public:
 	int speak();
 	int give(int room_id, int obj_feat_id);
 	int climb();
-	int attack(string obj_name);
+	int attack(int obj_feat_id);
 	void remove_object_desc();
 	string get_desc1();
 	void set_desc1(string x);

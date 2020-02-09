@@ -42,8 +42,8 @@ int Feature7::give(int room_id, int obj_feat_id){
 	//in game, triggers event_one
 	return 4;
 }	
-int Feature7::attack(string obj_name){
-	printf("You attack the %s with the %s. The creature raises his hand and with a single motion, stills your hand. ' You shouldn't have done that ' the creatue says, sadly. You watch in horror as the %s turns towards yourself. This is the end.\n", get_name().c_str(), obj_name.c_str(), obj_name.c_str());
+int Feature7::attack(int obj_id){
+	printf("You attack the %s with the %s. The creature raises his hand and with a single motion, stills your hand. ' You shouldn't have done that ' the creatue says, sadly. You watch in horror as the %s turns towards yourself. This is the end.\n", get_name().c_str(), get_obj_name(obj_id).c_str(), get_obj_name(obj_id).c_str());
 	func_togg_count_x(9);
 	return -1;
 } 
