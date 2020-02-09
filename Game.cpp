@@ -702,6 +702,14 @@ string Game::get_all_room_events_triggered(){
 	}
 	return bin_str_arr;
 }
+void Game::help(){
+	for (int i = 0; i < NUM_VERB_FUNCS; i++){
+		printf("%s, ", verb_list[i].c_str());
+	}
+	for (int i = 0; i < NUM_REQ_VERBS; i++){
+		printf("%s, ", req_verb_list[i].c_str());
+	}
+}
 
 Game::~Game() {
 

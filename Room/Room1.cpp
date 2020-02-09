@@ -36,7 +36,7 @@ int Room1::event_two(){
 }
 //if you eat() knife
 int Room1::event_three(){
-	printf("The floor opens up and swallows you whole\n");
+	printf("The ground opens up and swallows you whole\n");
 	set_event_triggered(2, 1);
 	return -1;
 }

@@ -93,6 +93,7 @@ int checkBasicCommands(Game &game, string cleanInput){
 	else if (cleanInput == "help"){
 		cout << "help called \n";
 		//call help function
+		game.help();
 	}
 	else if (cleanInput == "inventory"){
 		//cout << "inventory called \n"; 

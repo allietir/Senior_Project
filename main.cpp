@@ -1,9 +1,11 @@
 #include <iostream>
 #include "Game.h"
+//#include "globals.h"
 #include "parser.h"
 
 
 using namespace std;
+void convert_string_to_array(int* arr, string str);
 int main(int argc, char *argv[]) {
 Game new_game;
 /*BUG FIX 1 DEMO*/
@@ -183,12 +185,7 @@ for (int j = 0; j < NUM_ROOMS; j++){
 //
 ///*PARSER TESTS*/
 //
-//	string userInput = ""; 
-//	while (1) {
-//		cout << "what would you like to do: \n";
-//		getline(cin, userInput);
-//		inputParsing(new_game, userInput);
-//	}
+
 	
 	
 	Game explore_rooms;
@@ -212,5 +209,28 @@ for (int j = 0; j < NUM_ROOMS; j++){
 		
 		
 	}
+	/*TESTS FOR GETTER SETTERS*/
+	Game get_set;
+	get_set.start();
+	string a = get_set.get_all_room_objects();
+	string b = get_set.get_all_player_objects();
+	string c = get_set.get_all_times_rooms_visited();
+	string d = get_set.get_all_game_events_triggered();
+	string e = get_set.get_all_room_events_triggered();
+	printf("%s\n", a.c_str());
+	printf("%s\n", b.c_str());
+	printf("%s\n", c.c_str());
+	printf("%s\n", d.c_str());
+	printf("%s\n", e.c_str());
 	
+	Game parse_test;
+	parse_test.start();
+	string userInput = ""; 
+		while (1) {
+			cout << "what would you like to do: \n";
+			getline(cin, userInput);
+			inputParsing(parse_test, userInput);
+		}
+
 }
+	
