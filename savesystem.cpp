@@ -49,7 +49,8 @@ void save_game(Game& game) {
 	time_t raw_time;
 	raw_time = time(NULL);
 
-	string filename_path = "../SaveData/" + game.get_player()->get_name() + to_string(raw_time);
+	/****The path name will have to be modified depending on testing environment.****/
+	string filename_path = "SaveData/" + game.get_player()->get_name() + to_string(raw_time);
 
 	ofstream save_file(filename_path);
 	if (save_file.is_open())
@@ -69,17 +70,18 @@ void load_game(Game& game) {
 
 	string file_name = "";
 
-	/****These lines will only work on linux! Comment out when testing on Windows.****/
-	//printf("Available save files:\n");
-	//const char command[32] = "ls SaveData";
-	//system(command);
+	/****These lines will only work on linux! Comment out or copy and change when testing on Windows.****/
+	printf("Available save files:\n");
+	const char command[32] = "ls SaveData";
+	system(command);
 
 	printf("Please type the name of the saved file you wish to load.\n");
 	getline(cin, file_name);
 
-	//The path name will have to be modified depending on testing environment.
-	//The final game is intended to be run on the school Linux servers.
-	file_name = "../SaveData/" + file_name;
+	/****The path name will have to be modified depending on testing environment.****/
+	//The final game is intended to be run on the school Linux servers, make sure
+	//it is changed to this: file_name = "SaveData" + file_name;
+	file_name = "SaveData" + file_name;
 
 	string prompt = "";
 
@@ -158,41 +160,23 @@ void set_game_data(Game& game, ifstream& save_file) {
 	getline(save_file, next_line);
 	game.get_player()->set_current_room(stoi(next_line));
 
-	
 	getline(save_file, next_line);
-	cout << next_line << endl;
-	//next_line = "1,0,0,0,0,0,0,0,0,0,0,0,0,0,0";
 	convert_string_to_array(rooms_visited, next_line);
-	/*for (int i = 0; i < NUM_ROOMS; i++) {
-		cout << rooms_visited[i] << " ";
-	}
-	cout << "\n";*/
 	game.set_all_times_rooms_visited(rooms_visited);
 
 	getline(save_file, next_line);
-	cout << next_line << endl;
 	convert_string_to_array(game_events, next_line);
-	/*for (int i = 0; i < NUM_GAME_EVENTS; i++) {
-		cout << game_events[i] << " ";
-	}
-	cout << "\n";*/
 	game.set_all_game_events_triggered(game_events);
 
 	getline(save_file, next_line);
 	cout << next_line << endl;
 	convert_string_to_array(room_events, next_line);
-	/*for (int i = 0; i < NUM_EVENTS; i++) {
-		cout << room_events[i] << " ";
-	}
-	cout << "\n";*/
 	game.set_all_room_events_triggered(room_events);
 
-	next_line.clear();
 	getline(save_file, next_line);
 	convert_string_to_array(room_objects, next_line);
 	game.set_all_room_objects(room_objects);
 
-	next_line.clear();
 	getline(save_file, next_line);
 	convert_string_to_array(player_objects, next_line);
 	game.set_all_player_objects(player_objects);
