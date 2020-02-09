@@ -82,12 +82,8 @@ public:
 	virtual int event_one();
 	virtual int event_two();
 	virtual int event_three();
-
-	
-	
-	
-
-	
+		
+	int trigger_event(int event_number);	
 	
 private:
 	
@@ -127,8 +123,6 @@ private:
 	int event_triggered[MAX_EVENTS];
 
 	Feature* fixed_list[MAX_FIXED]; 
-	
-
 	
 };
 
