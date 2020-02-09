@@ -17,8 +17,8 @@ void save_game(Game& game) {
 
 	/****These lines will only work on linux! Comment out or copy and change when testing on Windows.****/
 	//Create directory if it does not already exist.
-	const char command[32] = "mkdir -p SaveData";
-	system(command);
+	const char mkdir_command[32] = "mkdir -p SaveData";
+	system(mkdir_command);
 
 	/****The path name will have to be modified depending on testing environment.****/
 	string filename_path = "SaveData/" + game.get_player()->get_name() + to_string(raw_time);
@@ -84,13 +84,13 @@ void load_game(Game& game) {
 
 	/****These lines will only work on linux! Comment out or copy and change when testing on Windows.****/
 	//Create directory if it does not already exist.
-	const char command[32] = "mkdir -p SaveData";
-	system(command);
+	const char mkdir_command[32] = "mkdir -p SaveData";
+	system(mkdir_command);
 
 	/****These lines will only work on linux! Comment out or copy and change when testing on Windows.****/
 	printf("Available save files:\n");
-	const char command[32] = "ls SaveData";
-	system(command);
+	const char ls_command[32] = "ls SaveData";
+	system(ls_command);
 
 	printf("Please type the name of the saved file you wish to load.\n");
 	getline(cin, file_name);
