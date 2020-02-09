@@ -239,10 +239,10 @@ for (int j = 0; j < NUM_ROOMS; j++){
 			getline(cin, userInput);
 			inputParsing(parse_test, userInput);
 		}
-		new_game.start();
-		save_game(new_game);
-		load_game(new_game);
-		save_game(new_game);	
+//		new_game.start();
+//		save_game(new_game);
+//		load_game(new_game);
+//		save_game(new_game);	
 
 }
 	
