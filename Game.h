@@ -124,6 +124,7 @@ public:
 	
 	void output_obj_list();
 	void output_verb_list();
+	void output_room_list();
 	
 	int feat_valid(int feat_index_id);
 	int verb_index_from_string(string verbx);
@@ -158,6 +159,7 @@ private:
 	int room_events_triggered[NUM_EVENTS];
 	int times_rooms_visited[NUM_ROOMS];
 	string feat_list[TOTAL_FIXED];
+	
 	
 		
 	

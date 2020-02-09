@@ -327,6 +327,27 @@ int Room::get_event_triggered(int x){
 void Room::set_event_triggered(int x, int val){
 	event_triggered[x]=val;
 }
+
+int Room::trigger_event(int event_number){
+	if (event_number==0){
+		event_one();
+		event_triggered[event_number]=1;
+		return 0;
+	}
+	if (event_number==1){
+		event_two();
+		event_triggered[event_number]=1;
+		return 1;
+	}
+	if (event_number==2){
+		event_three();
+		event_triggered[event_number]=1;
+		return 3;
+	}
+	
+	return 4;
+}
+
 Room::~Room() {
 	//printf("Destroying pure virtual base class 'Room'\n");
 	for (int i = 0; i < MAX_FIXED; i++){

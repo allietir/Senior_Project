@@ -10,6 +10,15 @@ public:
 	Feature1();
 	virtual ~Feature1();
 	int read();
+	int smell();
+	int use(int obj_id);
+	int eat();
+	int play();
+	int open(int room_id, int obj_feat_id);
+	int speak();
+	int give(int room_id, int obj_feat_id);
+	int climb();
+	int attack(int obj_feat_id);
 	void remove_object_desc();
 	string get_desc1();
 	void set_desc1(string x);

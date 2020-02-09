@@ -55,7 +55,7 @@ public:
 	virtual int speak();//6
 	virtual int give(int room_id, int obj_feat_id);//7
 	virtual int climb();//8
-	virtual int attack(string obj_name);//9
+	virtual int attack(int obj_feat_id);//9
 	
 
 	
@@ -73,6 +73,8 @@ public:
 	void set_func_togg_count(int bin_arr[NUM_VERB_FUNCS]);
 	string get_func_togg_count();
 	
+	string get_obj_name(int x);
+	string get_room_name(int x);
 	//TO ADD:
 		// a list of functions that correspond to each verb within the game
 	
@@ -97,7 +99,13 @@ private:
 	int look_count;//a measure of how many times "look" is toggled 
 	int verb_func_toggled[NUM_VERB_FUNCS];//keep track of how many times the function is toggled. 
 	
+	
+	
 	int attack_obj_id;
+	
+	//items so it knows about other things/rooms
+	string obj_list[8]={"Lamp", "Diary", "Locket", "Music", "Dagger", "Doll", "Key", "Chalice"};
+	string room_list[15]={"Front Garden", "Entranceway", "Upstairs Hallways", "Dining Room", "Parlor", "Nursury", "Guest Bedroom", "Master Bedroom", "Bathroom", "Attic", "Library", "Conservatory", "Kitchen", "Basement", "Crypt"};
 
 	
 

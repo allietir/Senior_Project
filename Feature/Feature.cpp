@@ -83,67 +83,67 @@ int Feature::look()//print description
 {
 	look_count = look_count + 1;
 	printf("%s\n", desc.c_str());
-	return 0;
+	return 4;
 }
 int Feature::read(){
 	string response = get_name() + " cannot be read\n";
 	printf("%s\n", response.c_str());
-	return 0;
+	return 4;
 
 }
 
 int Feature::smell(){
 	string response = get_name() + " cannot be smelled\n";
 	printf("%s\n", response.c_str());
-	return 0;
+	return 4;
 
 }
 int Feature::use(int obj_feat_id){
 	string response = get_name() + " cannot be useed\n";
 	printf("%s\n", response.c_str());
-	return 0;
+	return 4;
 
 }
 
 int Feature::eat(){
 	string response = get_name() + " cannot be eaten\n";
 	printf("%s\n", response.c_str());
-	return 0;
+	return 4;
 
 }
 int Feature::play(){
 	string response = get_name() + " cannot be played\n";
 	printf("%s\n", response.c_str());
-	return 0;
+	return 4;
 
 }
 int Feature::open(int room_id, int feat_obj_id){
 	string response = get_name() + " cannot be open\n";
 	printf("%s\n", response.c_str());
-	return 0;
+	return 4;
 
 }
 int Feature::speak(){
 	string response = get_name() + " cannot be spoken to\n";
 	printf("%s\n", response.c_str());
-	return 0;
+	return 4;
 }
 int Feature::give(int room_id, int feat_obj_id){
 	string response = get_name() + " cannot be given to\n";
 	printf("%s\n", response.c_str());
-	return 0;
+	return 4;
 
 }//user to interact with some features or objects potentially
 //will allow user to exit
 int Feature::climb(){
 	string response = get_name() + " cannot be climbed\n";
 	printf("%s\n", response.c_str());
-	return -1;
+	return 4;
 }//use to interact with some features to exit between rooms
-int Feature::attack(string object_name){
-	string response = get_name() + " cannot be attacked with " + object_name + "\n";
+int Feature::attack(int obj_id){
+	string response = get_name() + " cannot be attacked with with this object\n";
 	printf("%s\n", response.c_str());
-	return 0;
+	return 4;
 }
 
 int Feature::get_times_toggled(int function_id){
@@ -174,6 +174,13 @@ string Feature::get_func_togg_count(){
 		}	
 	}
 	return bin_str_arr;
+}
+string Feature::get_obj_name(int x){
+	return obj_list[x];
+}
+string Feature::get_room_name(int x)
+{
+	return room_list[x];
 }
 Feature::~Feature() {
 	

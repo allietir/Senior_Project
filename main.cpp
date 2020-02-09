@@ -177,18 +177,41 @@ for (int j = 0; j < NUM_ROOMS; j++){
 	}
 	
 		//printf("%s", g.c_str());
-/*OBJECT TESTS*/
-/*PLAYER TESTS*/
-/*GAME TESTS*/
-/*FLOW TESTS*/
+///*OBJECT TESTS*/
+///*PLAYER TESTS*/
+///*GAME TESTS*/
+///*FLOW TESTS*/
+//
+///*PARSER TESTS*/
+//
+//	string userInput = ""; 
+//	while (1) {
+//		cout << "what would you like to do: \n";
+//		getline(cin, userInput);
+//		inputParsing(new_game, userInput);
+//	}
+	
+	
+	Game explore_rooms;
+	
+	explore_rooms.start();
+	explore_rooms.get_room_x(0)->get_feature_x(0)->get_name();
 
-/*PARSER TESTS*/
-
-	string userInput = ""; 
-	while (1) {
-		cout << "what would you like to do: \n";
-		getline(cin, userInput);
-		inputParsing(new_game, userInput);
+	explore_rooms.output_room_list();
+	for (int i = 0; i < NUM_ROOMS; i++){
+		explore_rooms.get_player()->set_current_room(i);
+		printf("---------------ROOM %s-------------\n", explore_rooms.get_room_x(i)->get_name().c_str());
+		for (int j = 0; j < RUN_FUNC_VERBS; j++){
+			
+			//get room id
+			//run both features with all the verbs
+			int room_id_zero = explore_rooms.get_room_x(i)->get_feature_x(0)->get_index_id();
+			int room_id_one = explore_rooms.get_room_x(i)->get_feature_x(1)->get_index_id();
+			explore_rooms.run_func(room_id_zero, -1, j);
+			explore_rooms.run_func(room_id_one, -1, j);
+		}
+		
+		
 	}
 
 
