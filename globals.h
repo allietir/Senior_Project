@@ -9,7 +9,7 @@
 #define FRIEND_NAME "ALEX"
 #define MAX_EVENTS 3
 #define NUM_EVENTS 45
-#define NUM_REQ_VERBS 11
+#define NUM_REQ_VERBS 12
 
 #define RUN_FUNC_VERBS 13
 
@@ -146,6 +146,7 @@
 #define NUM_GAME_EVENTS 1
 
 #define RVERB1 look
+
 #define RVERB2 take
 #define RVERB3 drop
 #define RVERB4 go <exit_name>
@@ -156,6 +157,7 @@
 #define RVERB9 inventory
 #define RVERB10 savegame
 #define RVERB11 loadgame
+#define RVERB12 look_at
 
 #define STR_RVERB1 "look"
 #define STR_RVERB2 "take"
@@ -168,3 +170,4 @@
 #define STR_RVERB9 "inventory"
 #define STR_RVERB10 "savegame"
 #define STR_RVERB11 "loadgame"
+#define STR_RVERB12 "look at"
