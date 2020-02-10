@@ -6,17 +6,14 @@
 
 Feature6::Feature6() {
 	set_name("Carpet");
-	set_desc("Feature6 description");
+	set_desc("The carpet is long and dark, and there is an image of a house on a hill. There are words on the hill of the carpet.\n");
 	set_index_id(5);
 }
 int Feature6::read(){
-	string read_response = "The " + get_name() + "'s first name is too faded to read, but the last name says 'Smith'.\n 'Hey', says" + FRIEND_NAME + ". 'Wasn't that your mom's maiden name?'. 'Yeah', you reply, ";
-	func_togg_count_x(0);
-	
+	string read_response = "There once was a house on a hill\nGo inside with a friend, if you will\nThere a terrible loss will take place\nYou had better get out, do have haste\nBut to save the dear soul within\nYou will have to fight several monsters within\n";
+	func_togg_count_x(READ);
 	printf("%s\n", read_response.c_str());
-	return 0;
-	
-	
+	return 4;
 }
 Feature6::~Feature6() {
 	

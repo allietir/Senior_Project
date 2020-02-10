@@ -6,18 +6,10 @@
 
 Feature13::Feature13() {
 	set_name("Mother");
-	set_desc("Feature13 description");
+	set_desc("There is a women lying in a bed. She looks extremeely beautiful, and extremely pale. If you go up to her, she appears dead, but there is no smell of death, nor the appearance of being annything but asleep; excpet for the fact that she doesn't seem to be breathing.\n\n");
 	set_index_id(12);
 }
-int Feature13::read(){
-	string read_response = "The " + get_name() + "'s first name is too faded to read, but the last name says 'Smith'.\n 'Hey', says" + FRIEND_NAME + ". 'Wasn't that your mom's maiden name?'. 'Yeah', you reply, ";
-	func_togg_count_x(0);
-	
-	printf("%s\n", read_response.c_str());
-	return 0;
-	
-	
-}
+
 Feature13::~Feature13() {
 	
 }
