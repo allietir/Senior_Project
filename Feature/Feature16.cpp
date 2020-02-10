@@ -5,18 +5,16 @@
 #include "Feature16.h"
 
 Feature16::Feature16() {
-	set_name("Blood");
-	set_desc("A red light bathing the room in an otherworldy glow");
+	set_name("Branch");
+	set_desc("A branch attached to a tree leading out the window into the front garden");
 	set_index_id(15);
 }
-int Feature16::read(){
-	string read_response = "The " + get_name() + "'s first name is too faded to read, but the last name says 'Smith'.\n 'Hey', says" + FRIEND_NAME + ". 'Wasn't that your mom's maiden name?'. 'Yeah', you reply, ";
-	func_togg_count_x(0);
+int Feature16::climb(){
+	string climb_response = "You climb down the branch back down into the garden";
+	func_togg_count_x(CLIMB);
 	
-	printf("%s\n", read_response.c_str());
-	return 0;
-	
-	
+	printf("%s\n", climb_response.c_str());
+	return 11;
 }
 Feature16::~Feature16() {
 	

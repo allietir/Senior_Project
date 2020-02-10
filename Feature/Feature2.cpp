@@ -14,15 +14,15 @@ Feature2::Feature2() {
 }
 
 int Feature2::climb(){
-	if (get_times_toggled(8)==0){
-		printf("You climb up the tree and are able to see that a second story window is open. The room is so dark but it looks like a master bedroom.\n");
+	if (get_times_toggled(CLIMB)==0){
+		printf("You climb up the tree and the branch extends int the second story window is open. The room is so dark but it looks like a master bedroom. If you climb a little more you would be able to get into the room.\n");
 		func_togg_count_x(8);
 		return -2;//indicate to Game that you are not able to do other things.
 	}
-	else if (get_times_toggled(8)==1){
-		printf("You climb down the tree and you are back on the ground\n");
-		set_togg_count_x(8, 0);
-		return 4;
+	else if (get_times_toggled(CLIMB)==1){
+		printf("You climb accross the rest of the branch and get into the room.\n");
+		set_togg_count_x(CLIMB, 0);
+		return 17;
 	}
 	return 5;
 }

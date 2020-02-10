@@ -87,7 +87,7 @@ const map<string, int> featIDmap = {
 	{ "mother", 12}, 
 	{ "dresser", 13}, 
 	{ "vampire", 14}, 
-	{ "blood", 15},
+	{ "branch", 15},
 	//{ "mirror", 16}, can't have 2 of same name but different ID
 	{ "sink", 17 },
     { "chest", 18 },
