@@ -13,6 +13,7 @@ public:
 	Room4();
 	int event_one();
 	int event_two();
+	int event_three();
 	virtual ~Room4();	
 };
 

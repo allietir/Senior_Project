@@ -21,11 +21,16 @@ Room1::Room1() {
 
 	init_long_short_desc();
 	//object set in Game, therefor description initialized in Game
+	set_num_events(3);
+	set_event_triggered(0,0);
+	set_event_triggered(1,0);
+	set_event_triggered(2,0);
 	
 }
 int Room1::event_one(){
 	printf("The dagger resonates in your hand as you pick it up. The item has great power, and you can feel the power within your hand. The gilded handle reminds you of someting powerful and ancient.\n");
 	set_event_triggered(0, 1);
+
 	return 4;
 }
 //if you attack() tree

@@ -10,26 +10,23 @@ Feature8::Feature8() {
 	set_index_id(7);
 }
 int Feature8::read(){
-	printf("There is nothing to read on the table, not even the expression on the creatures face. Because he is faceless.\n");		
-	return 0;
+	printf("There is nothing to read on the table.\n");		
+	return 4;
 }
 int Feature8::smell(){
-	if (get_times_toggled(2)==0){
-		printf("You try to smell the food and almost faint from how delicious it smells. You clutch the talbe for support. It seems to upset some of the items on the table slightly, and you catch a glint of a ring on the center of the table. You consider taking the ring and giving it to the creauture, but that seems foolish. If you smell the table again, you may be able to get the ring to jostle to the the front of the monster.\n");	
-			func_togg_count_x(1);
-	}
-	else if (get_times_toggled(2)==1){
-		printf("You take another whiff again, and this seems to justle the ring towards the monster. The monster clutches at the ring. You wait in terror.\n");	
-	}
-	return 2;//return event # being triggered		
-}
-int Feature8::use(int feat_obj_id){
-	if (get_times_toggled(1)==1){
-		printf("The ring jostles back to its original position. Oops.\n");
-		set_togg_count_x(1, 0);
-		func_togg_count_x(2);
-	}
+	
+	printf("You try to smell the food and almost faint from how delicious it smells. You clutch the table for support.\n");	
+	func_togg_count_x(SMELL);
 	return 4;
+	
+}
+int Feature8::eat(){
+	
+	printf("You eat a cookie from the table. Hmm, that delicious. oh no. What's happening? You feel yourself being moved somewhere. Where are you going?\n");
+	func_togg_count_x(EAT);
+	
+	return 10;	
+
 }
 
 Feature8::~Feature8() {

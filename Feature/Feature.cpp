@@ -99,8 +99,15 @@ int Feature::smell(){
 
 }
 int Feature::use(int obj_feat_id){
-	string response = get_name() + " cannot be useed\n";
+	
+	if (obj_feat_id != -1){
+		string response = get_name() + " cannot be used with" + get_obj_name(obj_feat_id);
 	printf("%s\n", response.c_str());
+	}
+	if (obj_feat_id==-1){
+		string response = get_name() + " cannot be used without an object\n";
+		printf("%s\n", response.c_str());
+	}
 	return 4;
 
 }
@@ -118,8 +125,17 @@ int Feature::play(){
 
 }
 int Feature::open(int room_id, int feat_obj_id){
-	string response = get_name() + " cannot be open\n";
-	printf("%s\n", response.c_str());
+	
+	if (feat_obj_id == -1)
+	{
+		string response = get_name() + " cannot be opened without an object\n";
+		printf("%s\n", response.c_str());
+	}
+	if (feat_obj_id != -1){
+		string response = get_name() + " cannot be opened with " + get_obj_name(feat_obj_id);
+		printf("%s\n", response.c_str());
+
+	}
 	return 4;
 
 }
@@ -129,8 +145,15 @@ int Feature::speak(){
 	return 4;
 }
 int Feature::give(int room_id, int feat_obj_id){
-	string response = get_name() + " cannot be given to\n";
-	printf("%s\n", response.c_str());
+	if (feat_obj_id != -1){
+		string response = get_name() + " cannot be given to " + get_obj_name(feat_obj_id);
+		printf("%s\n", response.c_str());
+	}
+	if (feat_obj_id == -1){
+		string response = get_name() + "needs something to be given to.\n";
+		printf("%s\n", response.c_str());
+	}
+	
 	return 4;
 
 }//user to interact with some features or objects potentially

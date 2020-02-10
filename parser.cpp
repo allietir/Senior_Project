@@ -247,7 +247,12 @@ int checkActions(Game &game, vector<string> inputVector) {
 		cout << "incorrect arguments found\n";
 	}
 	else {
-		game.run_func(featID, objID, verbID);
+		int x = game.run_func(featID, objID, verbID);
+		if (x == -1){
+			save_game(game);
+			load_game(game);
+			save_game(game);
+		}
 		actionStatus = 1;
 	}
 

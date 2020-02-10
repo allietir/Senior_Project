@@ -31,15 +31,17 @@ Room2::Room2() {
 	
 	init_long_short_desc();
 	//object set in Game, therefor description initialized in Game
+	set_num_events(1);
+	set_event_triggered(0, 0);
 
 }
 int Room2::event_one(){
-	return 0;
-}
-int Room2::event_two(){
+	printf("The lamp turns on when it is in your hands. The light is soft and delightful. You feel somewhat safter already\n");
+	set_event_triggered(0, 1);
 
-	return 0;	
+	return 4;
 }
+
 
 Room2::~Room2() {
 	

@@ -329,23 +329,24 @@ void Room::set_event_triggered(int x, int val){
 }
 
 int Room::trigger_event(int event_number){
+	int ret_val=4;
 	if (event_number==0){
-		event_one();
+		ret_val = event_one();
 		event_triggered[event_number]=1;
-		return 0;
+		
 	}
 	if (event_number==1){
-		event_two();
+		ret_val = event_two();
 		event_triggered[event_number]=1;
-		return 1;
+	
 	}
 	if (event_number==2){
-		event_three();
+		ret_val = event_three();
 		event_triggered[event_number]=1;
-		return 3;
+		
 	}
 	
-	return 4;
+	return ret_val;
 }
 
 Room::~Room() {

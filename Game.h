@@ -103,6 +103,7 @@ public:
 	void set_room_events_triggered(int event_index, int val);
 	int get_room_events_triggered(int event_index);
 	
+	void trigger_take_event(int obj_id);
 	
 	//------HELPERS FOR LOADER----//
 	//wrappers

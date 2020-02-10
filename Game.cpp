@@ -58,6 +58,11 @@ void Game::init_rooms() {
 	}
 	gen_feat_list();
 }
+void Game::trigger_take_event(int obj_id){
+	int room_id = room_obj_set[obj_id];
+	printf("room_id: %i ", room_id);
+	r_array[room_id]->trigger_event(0);
+}
 void Game::init_objects()
 {
 	//place individual 
@@ -90,6 +95,7 @@ void Game::start(){
 //take implemented at game level, since objects are at game level
 void Game::take(int object_id){
 	//player 
+	printf("we are in take");
 	if (player1.get_can_take()==1){
 		int p_has_item = player1.get_has_objects(object_id);
 			int current_room = player1.get_current_room();
@@ -108,6 +114,11 @@ void Game::take(int object_id){
 				//update feature description:
 				r_array[current_room]->get_feature_x(0)->remove_object_desc();
 				r_array[current_room]->get_feature_x(1)->remove_object_desc();
+				printf("get_event_triggerd: %i\n", r_array[player1.get_current_room()]->get_event_triggered(0));
+				if (r_array[player1.get_current_room()]->get_event_triggered(0)==0){
+					printf("triggering event\n");
+					trigger_take_event(object_id);
+				}
 			}
 			if (p_has_item == 1){
 				printf("You already have this item\n");
@@ -423,34 +434,35 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 	}
 	if ((verb_id>=0)&&(verb_id<=NUM_VERB_FUNCS-1))
 	{
-		if ((feat_index_id!=-1)&&(obj_index_id==-1))
-			{
+		//if ((feat_index_id!=-1)&&(obj_index_id==-1))
+			//{
 				
 				
-				if ((item>=0)&&(item<=1)){
-					printf("Running %s on on FEAT %s that does NOT take OBJECT in room %s\n", verb.c_str(), feat_string.c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+				if ((item>=0)&&(item<=1))
+				{
+				//	printf("Running %s on on FEAT %s that does NOT take OBJECT in room %s\n", verb.c_str(), feat_string.c_str(), r_array[player1.get_current_room()]->get_name().c_str());
 					if (verb.compare(STR_VERB1)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB1(); }
 					else if (verb.compare(STR_VERB2)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB2(); }
 					else if (verb.compare(STR_VERB4)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB4(); }
 					else if (verb.compare(STR_VERB5)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB5(); }
 					else if (verb.compare(STR_VERB7)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB7(); }
 					else if (verb.compare(STR_VERB9)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB9(); }
-				}
+				//}
 				
 
 
 				
-			}
-			else if ((feat_index_id!=-1)&&(obj_index_id!=-1)){
-				printf("Running %s on FEAT %s that DOES take OBJECT with object %s in room %s\n", verb.c_str(), feat_string.c_str(), o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
-				if ((obj_index_id <= 7)&&(obj_index_id>=0)&&(item>=0)&&(item<=1))
-				{
+			//}
+			//else if ((feat_index_id!=-1)&&(obj_index_id!=-1)){
+				//printf("Running %s on FEAT %s that DOES take OBJECT with object %s in room %s\n", verb.c_str(), feat_string.c_str(), o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+				//if ((obj_index_id <= 7)&&(obj_index_id>=0)&&(item>=0)&&(item<=1))
+				//{
 					if (verb.compare(STR_VERB3)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB3(obj_index_id); }
 					else if (verb.compare(STR_VERB6)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB6(player1.get_current_room(), obj_index_id); }
 					else if (verb.compare(STR_VERB8)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB8(player1.get_current_room(), obj_index_id); }
 					else if (verb.compare(STR_VERB10)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB10(obj_index_id); }
 				}
-			}
+			//}
 			else if ((feat_index_id==-1)&&(obj_index_id!=-1)){
 				printf("Running %s on OBJECT %s in room %s\n", verb.c_str(), o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
 				if ((obj_index_id <= 7)&&(obj_index_id>=0))
@@ -475,19 +487,27 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 	if (res!=-666){	
 			printf("RES: %i\n", res);
 			if ((res==0)||(res==1)||(res==2)){
+				printf("about to trigger event\n");
 				//rach player can have max 3 events, so get result (event 0->1, 1->2, 2->3), plus 3 times the current room you are in to set the value to EVENT TRIGGERED 
 				
 				room_events_triggered[res+(3*player1.get_current_room())]=1;
+				
 				//trigger the events now
+				printf("rval: %i", r_array[player1.get_current_room()]->get_event_triggered(res));
 				if (r_array[player1.get_current_room()]->get_event_triggered(res)==0){
+					printf("event has been triggered\n");
 					res = r_array[player1.get_current_room()]->trigger_event(res);
+					printf("res:%i", res);
 				}
 				
 			}
 			//player is DEAD
 			if (res==-1){
+				printf("You have died\n");
 				player1.set_player_alive(0);//set to FALSE
-				printf("------TRIGGER MAIN SCREEN HERE------\n");
+				
+				return -1;
+				
 			}
 			//player can't TAKE anything
 			if (res==-2){
@@ -504,10 +524,14 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			if (res==5){
 				printf("----something unexpected has occured----\n");
 			}
+			if ((res >=10)&&(res <=10+NUM_ROOMS)){
+				player1.set_current_room(res-10);
+				look();
+			} 
 			return 0;
 		
 	}
-	return -1;
+	return 4;
 	
 	
 }
@@ -577,16 +601,16 @@ void Game::set_room_events_triggered(int event_index, int val){
 	if (event_index%3==0){
 		room_id = event_index/3;
 		room_id = room_id - 1;
-		r_array[room_id]->set_event_triggered(2, 1);
+		r_array[room_id]->set_event_triggered(2, val);
 	}
 	else {
 		room_id = event_index/3;
 		int which_event = event_index%3;
 		if (which_event == 2){
-			r_array[room_id]->set_event_triggered(1, 1);
+			r_array[room_id]->set_event_triggered(1, val);
 		}
 		else {
-			r_array[room_id]->set_event_triggered(0, 1);
+			r_array[room_id]->set_event_triggered(0, val);
 		}
 		
 	}

@@ -12,7 +12,8 @@ public:
 	virtual ~Feature8();
 	int read();
 	int smell();
-	int use(int feat_obj_id);
+	
+	int eat();
 	
 	int special=666;
 	friend class Room4;

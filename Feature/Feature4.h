@@ -11,8 +11,7 @@ public:
 	virtual ~Feature4();
 	int open(int room_id, int feat_obj_id);
 	int play();
-	int use(int feat_obj_id);
-	int smell();
+	int speak();
 	int special=666;
 };
 

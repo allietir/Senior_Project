@@ -12,39 +12,34 @@ Feature7::Feature7() {
 }
 int Feature7::speak(){
 	string speak_response="";
-	if (get_times_toggled(7)==0){
-		speak_response="Hello? Do you need help?";
-		func_togg_count_x(6);
+	if (get_times_toggled(SPEAK)==0){
+		speak_response="Hello? Do you need help?\nYou hear a voice, as if inside your head. 'I need my face. Find my face. Help me see' . Hmm, that was confusing. Maybe ask again.\n";
+		printf("%s\n", speak_response.c_str());
+		func_togg_count_x(SPEAK);
 		
 	}
-	if (get_times_toggled(7)==1)
+	else if (get_times_toggled(SPEAK)==1)
 	{
-		speak_response="Your face? Where can I help you find your face? How did you lose it? I have so many questions.\n";
-		func_togg_count_x(6);
+		speak_response="'Your face? Where can I help you find your face? How did you lose it? I have so many questions.'\n'Let me hold the lamp for a moment. It will help me see. And then, I can see myself.\n";
+		printf("%s\n", speak_response.c_str());
+		func_togg_count_x(SPEAK);
+		return 1;
 		
 	}
-	printf("%s\n", speak_response.c_str());
+
 	return 4;	
 }
 int Feature7::give(int room_id, int obj_feat_id){
-	string give_response = "";
-	if (get_times_toggled(6)==1){
-		give_response="You hear a voice, as if inside your head. 'I need my face. Find my face. Help me see' \n";
-		func_togg_count_x(7);
-		
+	if (obj_feat_id==0){
+		func_togg_count_x(GIVE);
+		return 2;
 	}
-	if (get_times_toggled(6)==2){
-		printf(" 'There's a ring on the table. Place the ring on my finger and I will be able to see.' \n");
-		func_togg_count_x(7);
-	}
-
-	printf("%s\n", give_response.c_str());
 	//in game, triggers event_one
 	return 4;
 }	
 int Feature7::attack(int obj_id){
 	printf("You attack the %s with the %s. The creature raises his hand and with a single motion, stills your hand. ' You shouldn't have done that ' the creatue says, sadly. You watch in horror as the %s turns towards yourself. This is the end.\n", get_name().c_str(), get_obj_name(obj_id).c_str(), get_obj_name(obj_id).c_str());
-	func_togg_count_x(9);
+	func_togg_count_x(ATTACK);
 	return -1;
 } 
 Feature7::~Feature7() {

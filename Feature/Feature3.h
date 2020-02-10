@@ -9,7 +9,7 @@ class Feature3 : public Feature {
 public:
 	Feature3();
 	virtual ~Feature3();
-	int smell();
+	int open(int x, int y);
 	int use(int feat_obj_id);
 	int special=666;
 private:
