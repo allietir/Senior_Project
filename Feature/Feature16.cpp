@@ -14,7 +14,7 @@ int Feature16::climb(){
 	func_togg_count_x(CLIMB);
 	
 	printf("%s\n", climb_response.c_str());
-	return 11;
+	return 10;
 }
 Feature16::~Feature16() {
 	

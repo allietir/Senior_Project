@@ -3,8 +3,6 @@
 //#include "globals.h"
 #include "parser.h"
 #include "savesystem.h"
-
-
 using namespace std;
 void convert_string_to_array(int* arr, string str);
 int main(int argc, char *argv[]) {
@@ -229,6 +227,10 @@ int main(int argc, char *argv[]) {
 
 /*ALLIE SAVESYSTEM*/
 
+//		new_game.start();
+//		save_game(new_game);
+//		load_game(new_game);
+//		save_game(new_game);	
 
 	
 	Game parse_test;
@@ -239,10 +241,6 @@ int main(int argc, char *argv[]) {
 			getline(cin, userInput);
 			inputParsing(parse_test, userInput);
 		}
-//		new_game.start();
-//		save_game(new_game);
-//		load_game(new_game);
-//		save_game(new_game);	
 
 }
 	
