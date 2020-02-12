@@ -10,6 +10,7 @@
 #define MAX_EVENTS 3
 #define NUM_EVENTS 45
 #define NUM_REQ_VERBS 12
+#define NUM_GAME_EVENTS 2
 
 #define RUN_FUNC_VERBS 13
 
@@ -111,6 +112,9 @@
 #define FEAT28 Statue
 #define FEAT29 Alex
 #define FEAT30 Demon
+
+
+
 #define STR_FEAT1 "Gravestone"
 #define STR_FEAT2 "Tree"
 #define STR_FEAT3 "Portrait"
@@ -143,7 +147,7 @@
 #define STR_FEAT30 "Demon"
 
 
-#define NUM_GAME_EVENTS 1
+
 
 #define RVERB1 look
 
@@ -207,3 +211,35 @@
 #define KITCHEN 12
 #define BASEMENT 13
 #define CRYPT 14
+
+
+#define GRAVESTONE 0
+#define TREE 1
+#define PORTRAIT 2
+#define MUSICBOX 3
+#define MIRROR 4
+#define CARPET 5
+#define FACELESS 6
+#define TABLE 7
+#define PIANO 8
+#define TRAPDOOR 9
+#define CHILD 10
+#define DOLLHOUSE 11
+#define MOTHER 12
+#define DRESSER 13
+#define VAMPIRE 14
+#define BLOOD 15
+#define MIRROR_2 16
+#define SINK 17
+#define CHEST 18
+#define PIRATE 19
+#define BOOKSHELF 20
+#define FIREPLACE 21
+#define FOUNTAIN 22
+#define GUARDIAN 23
+#define STOVE 24
+#define CUPBOARD 25
+#define PEDESTAL 26
+#define STATUE 27
+#define ALEX 28
+#define DEMON 29

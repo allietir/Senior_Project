@@ -24,7 +24,16 @@ Room6::Room6() {
 	init_long_short_desc();
 	//object set in Game, therefor description initialized in Game	
 }
-
+//when you take the locket
+int Room6::event_one(){
+	printf("The locket is hard and small and silver in your hand. There is something comforting and yet powerful about it.");
+	return 4;
+}
+//locket made avaibale to you
+int Room6::event_two(){
+	printf("The little girl places the locket before you. 'Here. You should take this. You will need it.\n'");
+	return 31;
+}
 Room6::~Room6() {
 	//printf("Destroying derived class Room6\n");
 }

@@ -20,6 +20,15 @@ void Game::event1()
 	printf("The chandelair beings to flicker; the wind you've been sensing seems to pick up. Suddenly the room goes completely dark and %s only has time to gasp before you feel suddenly like you are being watched. The light turn back on. 'What the hell was that' you say, turning to look at %s. But %s is gone.\n You have to find %s. \n\n\n", FRIEND_NAME, FRIEND_NAME, FRIEND_NAME, FRIEND_NAME);
 	set_game_events_triggered(0, 1);
 }
+void Game::event2(){
+	printf("You give the child the doll. She releases the locket\n");
+	set_game_events_triggered(1, 1);
+	//unlock locket 
+	set_is_locked(LOCKET, 0);
+	//lock doll
+	set_is_locked(DOLL, 1);
+
+}
 void Game::init_rooms() {
 	init_objects();
 	//place individual rooms in the array
@@ -96,44 +105,52 @@ void Game::start(){
 //take implemented at game level, since objects are at game level
 void Game::take(int object_id){
 	//player 
-
+	//
 	printf("we are in take");
-	if (player1.get_can_take()==1){
-		int p_has_item = player1.get_has_objects(object_id);
-			int current_room = player1.get_current_room();
-			int r_has_item = r_array[current_room]->get_has_objects(object_id);
-			//if item is in the room and the player does not have the item
-			if ((p_has_item == 0)&&(r_has_item==1)){
-				player1.set_has_objects(object_id, 1);
-				r_array[current_room]->set_has_objects(object_id, 0);
-				set_obj_location(object_id, -1);
-				printf("%s no longer has %s\n", r_array[current_room]->get_name().c_str(), o_array[object_id]->get_name().c_str());	
-				printf("Updated player inventory...\n");
-				inventory();
-				printf("\n");
-				//update room description:
-				
-				//update feature description:
-				r_array[current_room]->get_feature_x(0)->remove_object_desc();
-				r_array[current_room]->get_feature_x(1)->remove_object_desc();
-				//reinitialize room description
-				r_array[current_room]->init_long_short_desc();
-				printf("get_event_triggerd: %i\n", r_array[player1.get_current_room()]->get_event_triggered(0));
-				if (r_array[player1.get_current_room()]->get_event_triggered(0)==0){
-					printf("triggering event\n");
-					trigger_take_event(object_id);
+	if (is_locked[object_id]==0){
+		if (player1.get_can_take()==1){
+			int p_has_item = player1.get_has_objects(object_id);
+				int current_room = player1.get_current_room();
+				int r_has_item = r_array[current_room]->get_has_objects(object_id);
+				//if item is in the room and the player does not have the item
+				if ((p_has_item == 0)&&(r_has_item==1)){
+					player1.set_has_objects(object_id, 1);
+					r_array[current_room]->set_has_objects(object_id, 0);
+					set_obj_location(object_id, -1);
+					printf("%s no longer has %s\n", r_array[current_room]->get_name().c_str(), o_array[object_id]->get_name().c_str());	
+					printf("Updated player inventory...\n");
+					inventory();
+					printf("\n");
+					//update room description:
+					
+					//update feature description:
+					r_array[current_room]->get_feature_x(0)->remove_object_desc();
+					r_array[current_room]->get_feature_x(1)->remove_object_desc();
+					//reinitialize room description
+					r_array[current_room]->init_long_short_desc();
+					printf("get_event_triggerd: %i\n", r_array[player1.get_current_room()]->get_event_triggered(0));
+					if (r_array[player1.get_current_room()]->get_event_triggered(0)==0){
+						printf("triggering event\n");
+						trigger_take_event(object_id);
+					}
 				}
-			}
-			if (p_has_item == 1){
-				printf("You already have this item\n");
-			}
-			else if (r_has_item == 0){
-				printf("Item is not in this room\n");
-			}
+				if (p_has_item == 1){
+					printf("You already have this item\n");
+				}
+				else if (r_has_item == 0){
+					printf("Item is not in this room\n");
+				}
+		}
+		else{
+			printf("You can't take %s right now.\n", o_array[object_id]->get_name().c_str());
+		}
 	}
 	else{
 		printf("You can't take %s right now.\n", o_array[object_id]->get_name().c_str());
 	}
+		
+	
+	
 	
 
 	
@@ -532,6 +549,10 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 				player1.set_current_room(res-10);
 				look();
 			} 
+			if (res==31){
+				
+				event2();
+			}
 			return 0;
 		
 	}
@@ -740,7 +761,12 @@ void Game::help(){
 		printf("%s, ", req_verb_list[i].c_str());
 	}
 }
-
+int Game::get_is_locked(int obj_index){
+	return is_locked[obj_index];
+}
+void Game::set_is_locked(int obj_index, int val){
+	is_locked[obj_index] = val;
+}
 Game::~Game() {
 
 }

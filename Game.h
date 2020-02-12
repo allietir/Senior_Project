@@ -70,6 +70,7 @@ public:
 	int exit_valid(int next_room);
 	
 	void event1();
+	void event2();
 	void look();//trigger current room look
 	
 	//extra exits
@@ -133,8 +134,11 @@ public:
 	
 	void help();
 	
+	int get_is_locked(int obj_index);
+	void set_is_locked(int obj_index, int val);
 
-	
+	//int get_needs_event(int room_index);
+	//void set_is_locked(int obj_index, int val);
 
 
 //todo:
@@ -149,6 +153,8 @@ private:
 	string event1_text;	
 	
 	int game_events_triggered[NUM_GAME_EVENTS];
+	//on start, locket is locked
+	int is_locked[NUM_OBJECTS]={0, 0, 1, 0, 0, 0, 0, 0};
 	
 	Player player1;
 	string save_text;

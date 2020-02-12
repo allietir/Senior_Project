@@ -9,6 +9,12 @@ Object6::Object6() {
 	set_desc("A doll that seems simultaneously innocent and menacing. ");
 	set_index_id(5);
 }
+int Object6::give(int room_id, int feat_obj_id){
+	if (feat_obj_id == CHILD){
+		//
+	}
+	return 4;
+}
 Object6::~Object6() {
 	
 }
