@@ -247,8 +247,7 @@ void Room::init_long_short_desc(){
 	string short_descr = "This is " + get_name() + ". " + short_exit_text() + short_feature_text();
 	string long_descr = "This is " + get_name() + ". " + get_extra_description() + long_exit_text() + long_feature_text();
 	
-	no_obj_short_desc = short_descr;
-	no_obj_long_desc = long_descr;
+
 	
 	set_short_description(short_descr);
 	set_long_description(long_descr);

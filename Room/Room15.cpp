@@ -29,7 +29,10 @@ Room15::Room15() {
 	//object set in Game, therefor description initialized in Game
 	
 }
-
+int event_one(){
+	printf("You trap the demon in the locket\n");
+	return 0;
+}
 Room15::~Room15() {
 	//printf("Destroying derived class Room15\n");
 }

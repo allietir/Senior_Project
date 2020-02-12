@@ -11,6 +11,8 @@ Feature::Feature() {
 	
 	name = "no feature name";
 	desc = "no feature description";
+	desc_without_obj = desc;
+	desc_with_obj = desc;
 
 	error_message = "feature error";
 	index_id = -666;
@@ -41,7 +43,19 @@ string Feature::get_desc(){
 void Feature::set_desc(string s_desc){
 	desc = s_desc;
 }
+string Feature::get_desc_w_obj(){
+	return desc_with_obj;
+}
+void Feature::set_desc_w_obj(string s_desc){
+	desc_with_obj = s_desc;
+}
 	
+string Feature::get_desc_no_obj(){
+	return desc_without_obj;
+}
+void Feature::set_desc_no_obj(string s_desc){
+	desc_without_obj = s_desc;
+}
 int Feature::get_feature_examined(){
 	return feature_examined;
 }
@@ -173,7 +187,7 @@ int Feature::get_times_toggled(int function_id){
 	return verb_func_toggled[function_id];
 }
 void Feature::remove_object_desc(){
-	//nothing changes
+	 set_desc(get_desc_no_obj());
 }
 int Feature::get_attack_obj_id(){
 	return attack_obj_id;

@@ -52,6 +52,7 @@ void Game::init_rooms() {
 		int room_id = room_needs_object1[i];
 		r_array[room_id]->set_needs_objects(0, 1);
 	}
+	//TO DO: set "needs event" to open room
 	//init times rooms visited to 0
 	for (int i = 0; i < NUM_ROOMS; i++){
 		set_times_rooms_visited(i,0);
@@ -95,6 +96,7 @@ void Game::start(){
 //take implemented at game level, since objects are at game level
 void Game::take(int object_id){
 	//player 
+
 	printf("we are in take");
 	if (player1.get_can_take()==1){
 		int p_has_item = player1.get_has_objects(object_id);
@@ -110,10 +112,12 @@ void Game::take(int object_id){
 				inventory();
 				printf("\n");
 				//update room description:
-				r_array[current_room]->remove_object_text();
+				
 				//update feature description:
 				r_array[current_room]->get_feature_x(0)->remove_object_desc();
 				r_array[current_room]->get_feature_x(1)->remove_object_desc();
+				//reinitialize room description
+				r_array[current_room]->init_long_short_desc();
 				printf("get_event_triggerd: %i\n", r_array[player1.get_current_room()]->get_event_triggered(0));
 				if (r_array[player1.get_current_room()]->get_event_triggered(0)==0){
 					printf("triggering event\n");

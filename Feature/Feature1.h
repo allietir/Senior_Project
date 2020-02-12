@@ -19,11 +19,7 @@ public:
 	int give(int room_id, int obj_feat_id);
 	int climb();
 	int attack(int obj_feat_id);
-	void remove_object_desc();
-	string get_desc1();
-	void set_desc1(string x);
-	string get_desc1_no_obj();
-	void set_desc1_no_obj(string x);
+
 	int special=666;
 private:
 	string desc1;

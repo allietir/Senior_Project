@@ -27,8 +27,10 @@ Room14::Room14() {
 	
 	init_long_short_desc();
 	//object set in Game, therefor description initialized in Game	
-	
-	
+}
+int Room14::event_one(){
+	printf("The crypt door make the sound of a thousand gears opening and slides open.\n");
+	return 0;
 }
 
 Room14::~Room14() {

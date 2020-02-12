@@ -233,14 +233,25 @@ int main(int argc, char *argv[]) {
 //		save_game(new_game);	
 
 	
-	Game parse_test;
-	parse_test.start();
-	string userInput = ""; 
-		while (1) {
-			cout << "what would you like to do: \n";
-			getline(cin, userInput);
-			inputParsing(parse_test, userInput);
-		}
+//	Game parse_test;
+//	parse_test.start();
+//	string userInput = ""; 
+//		while (1) {
+//			cout << "what would you like to do: \n";
+//			getline(cin, userInput);
+//			inputParsing(parse_test, userInput);
+//		}
+		
+//		Game get_things;
+//		get_things.output_obj_list();
+		
+		Game test_desc_change;
+		test_desc_change.start();
+		test_desc_change.look();
+		test_desc_change.take(4);
+		test_desc_change.look();
+		test_desc_change.drop(4);
+		test_desc_change.look();
 
 }
 	

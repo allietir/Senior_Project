@@ -157,6 +157,11 @@ private:
 	int current_obj_location[NUM_OBJECTS];
 	int room_obj_set[NUM_OBJECTS]={1, 3, 10, 6, 0, 11, 5, 9};
 	int room_needs_object1[NUM_OBJECTS]={2, 3, 4, 5, 6, 7, 8, 13};
+	
+
+	//room i needs event at index to occur before you can enter. if -1, no event needed
+	int room_needs_event_x[NUM_ROOMS]={-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 39};
+	
 	string verb_list[NUM_STR_VERBS]={STR_VERB1, STR_VERB2, STR_VERB3, STR_VERB4, STR_VERB5, STR_VERB6, STR_VERB7, STR_VERB8, STR_VERB9, STR_VERB10};
 	string req_verb_list[NUM_REQ_VERBS]={STR_RVERB1, STR_RVERB2, STR_RVERB3, STR_RVERB4, STR_RVERB5, STR_RVERB6, STR_RVERB7, STR_RVERB8, STR_RVERB9, STR_RVERB10, STR_RVERB11, STR_RVERB12};
 	string total_verb_list[NUM_STR_VERBS+NUM_REQ_VERBS]={STR_VERB1, STR_VERB2, STR_VERB3, STR_VERB4, STR_VERB5, STR_VERB6, STR_VERB7, STR_VERB8, STR_VERB9, STR_VERB10, STR_RVERB1, STR_RVERB2, STR_RVERB3, STR_RVERB4, STR_RVERB5, STR_RVERB6, STR_RVERB7, STR_RVERB8, STR_RVERB9, STR_RVERB10, STR_RVERB11, STR_RVERB12};

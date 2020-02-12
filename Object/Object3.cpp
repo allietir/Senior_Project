@@ -10,16 +10,27 @@ Object3::Object3() {
 	set_index_id(2);
 }
 int Object3::read(){
-	string read_response = "The locket has a tiny inscription that says 'Open me below\n' ";
-	func_togg_count_x(0);
-	printf("%s\n", read_response.c_str());
-	return 0;
+	func_togg_count_x(READ);
+	printf("The locket has a tiny inscription that says 'Open me below'\n");
+	return 4;
 }
 int Object3::open(int room_id, int feat_id){	
-	string open_response = "The ";
-	func_togg_count_x(0);
-	printf("%s\n", open_response.c_str());
-	return 0;
+	
+	if (room_id == CRYPT)
+	{
+		printf("You open the locket. This is the room. This is what all the signs meant.\n");
+		func_togg_count_x(OPEN);
+		return 0;
+		
+	}
+	else{
+		printf("You struggle to open the locket, but it's no use.\n");
+		return 4;
+		//idea: if you try to open the locket too many times it breaks and there is no more locket. 
+	}
+	return 4;
+
+	
 }
 Object3::~Object3() {
 	

@@ -27,7 +27,12 @@ public:
 	string get_desc();
 	void set_desc(string s_desc);
 	
-
+	string get_desc_w_obj();
+	void set_desc_w_obj(string s_desc);
+	
+	string get_desc_no_obj();
+	void set_desc_no_obj(string s_desc);
+	
 	
 	int get_feature_examined();
 	void set_feature_examined(int s_feature_examined);

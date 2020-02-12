@@ -171,3 +171,39 @@
 #define STR_RVERB10 "savegame"
 #define STR_RVERB11 "loadgame"
 #define STR_RVERB12 "look at"
+
+
+#define STR_OBJ1 "lamp"
+#define STR_OBJ2 "diary"
+#define STR_OBJ3 "locket"
+#define STR_OBJ4 "music"
+#define STR_OBJ5 "dagger"
+#define STR_OBJ6 "doll"
+#define STR_OBJ7 "key"
+#define STR_OBJ8 "chalice"
+
+#define LAMP 0
+#define DIARY 1
+#define LOCKET 2
+#define MUSIC 3
+#define DAGGER 4
+#define DOLL 5
+#define KEY 6
+#define CHALICE 7
+
+
+#define FRONT 0
+#define ENTRANCEWAY 1
+#define UPSTAIRS 2
+#define DINING 3
+#define PARLOR 4
+#define NURSURY 5
+#define GUEST 6
+#define MASTER 7
+#define BATHROOM 8
+#define ATTIC 9
+#define LIBRARY 10
+#define CONSERVATORY 11
+#define KITCHEN 12
+#define BASEMENT 13
+#define CRYPT 14
