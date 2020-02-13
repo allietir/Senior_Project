@@ -245,13 +245,27 @@ int main(int argc, char *argv[]) {
 //		Game get_things;
 //		get_things.output_obj_list();
 		
-		Game test_desc_change;
-		test_desc_change.start();
-		test_desc_change.look();
-		test_desc_change.take(4);
-		test_desc_change.look();
-		test_desc_change.drop(4);
-		test_desc_change.look();
+//		Game test_desc_change;
+//		test_desc_change.start();
+//		test_desc_change.look();
+//		test_desc_change.take(4);
+//		test_desc_change.look();
+//		test_desc_change.drop(4);
+//		test_desc_change.look();
+		
+		Game test_event_trigger;
+		test_event_trigger.get_player()->set_current_room(BASEMENT);
+		//give player the chalice
+		test_event_trigger.get_player()->set_has_objects(CHALICE, 1);
+		
+		
+		test_event_trigger.inventory();
+		//try to exit before
+		test_event_trigger.exit_current_from_room_id(CRYPT);
+		
+		test_event_trigger.run_func(PEDESTAL, CHALICE, USE);
+		//try to exit after
+		test_event_trigger.exit_current_from_room_id(CRYPT);
 
 }
 	

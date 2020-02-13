@@ -9,11 +9,11 @@
 #include <fstream>
 
 Game::Game() {
-		init_rooms();
-		//set all game events triggered to not triggered
-		for (int i = 0; i < NUM_EVENTS; i++){
-			set_room_events_triggered(i, 0);
-		}
+	init_rooms();
+	//set all game events triggered to not triggered
+	for (int i = 0; i < NUM_EVENTS; i++){
+		set_room_events_triggered(i, 0);
+	}
 }
 void Game::event1()
 {
@@ -206,7 +206,9 @@ int Game::get_obj_location(int obj_id){
 }
 int Game::exit_valid(int next_room)
 {
+	//Check that user has objects needed
 	for (int i = 0; i < NUM_OBJECTS; i++){
+		
 		if (r_array[next_room]->get_needs_objects(i)==1){
 			int has_obj = player1.get_has_objects(i);
 			if (has_obj!=1){
@@ -215,10 +217,31 @@ int Game::exit_valid(int next_room)
 			}
 			else{
 				printf("Success, you have the %s require to enter this room.\n", o_array[i]->get_name().c_str());
+
 			}
 		}
 	}
-	return 0;
+	//check that certain events have been triggered
+	printf("needs event: %i", get_needs_event(next_room));
+	printf("value of needs event %i is %i:", get_needs_event(next_room), room_events_triggered[get_needs_event(next_room)]);
+	if (get_needs_event(next_room)!=-1){
+		
+		if (room_events_triggered[get_needs_event(next_room)]==1){
+				printf("The correct event has been triggered to allow you to enter this room.\n");
+				return 0;
+
+			}
+			else{
+				printf("You need to trigger the correct event to allow you to enter this room\n");
+				return -1;
+			}
+	}
+	else{
+		return 0;
+	}
+	
+	
+	return -1;
 }
 
 void Game::exit_room(int dir){
@@ -510,8 +533,10 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			if ((res==0)||(res==1)||(res==2)){
 				printf("about to trigger event\n");
 				//rach player can have max 3 events, so get result (event 0->1, 1->2, 2->3), plus 3 times the current room you are in to set the value to EVENT TRIGGERED 
-				
-				room_events_triggered[res+(3*player1.get_current_room())]=1;
+				int event_index = res+(3*player1.get_current_room());
+				printf("triggering  %i", event_index);
+				room_events_triggered[event_index]=1;
+				printf("get events triggered val now: %i", get_room_events_triggered(event_index));
 				
 				//trigger the events now
 				printf("rval: %i", r_array[player1.get_current_room()]->get_event_triggered(res));
@@ -766,6 +791,13 @@ int Game::get_is_locked(int obj_index){
 }
 void Game::set_is_locked(int obj_index, int val){
 	is_locked[obj_index] = val;
+}
+int Game::get_needs_event(int room_index){
+	return room_needs_event_x[room_index];
+}
+void Game::set_needs_event(int room_index, int event_number)
+{
+	room_needs_event_x[room_index]=event_number;
 }
 Game::~Game() {
 
