@@ -266,6 +266,15 @@ int main(int argc, char *argv[]) {
 		test_event_trigger.run_func(PEDESTAL, CHALICE, USE);
 		//try to exit after
 		test_event_trigger.exit_current_from_room_id(CRYPT);
+		
+		
+		Game locket_test;
+		locket_test.get_player()->set_current_room(NURSURY);
+		locket_test.get_player()->set_has_objects(DOLL, 1);
+		locket_test.run_func(CHILD, DOLL, GIVE);
+		locket_test.run_func(-1, LOCKET, 11);
+		
+		
 
 }
 	

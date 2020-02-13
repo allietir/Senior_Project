@@ -161,7 +161,7 @@ private:
 	string load_text;
 	int save_version;
 	int current_obj_location[NUM_OBJECTS];
-	int room_obj_set[NUM_OBJECTS]={1, 3, 10, 6, 0, 11, 5, 9};
+	int room_obj_set[NUM_OBJECTS]={ENTRANCEWAY, DINING, NURSURY, GUEST, FRONT, ATTIC, LIBRARY, CONSERVATORY};
 	int room_needs_object1[NUM_OBJECTS]={2, 3, 4, 5, 6, 7, 8, 13};
 	
 

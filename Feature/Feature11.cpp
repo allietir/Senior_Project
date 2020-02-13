@@ -6,17 +6,17 @@
 
 Feature11::Feature11() {
 	set_name("Child");
-	set_desc("Feature11 description");
+	set_desc("The child looks haunted and afraid. She wears a silver locket");
+	set_desc_no_obj("The child is holding her doll close. She seems happier than before.");
 	set_index_id(10);
 }
-int Feature11::read(){
-	string read_response = "The " + get_name() + "'s first name is too faded to read, but the last name says 'Smith'.\n 'Hey', says" + FRIEND_NAME + ". 'Wasn't that your mom's maiden name?'. 'Yeah', you reply, ";
-	func_togg_count_x(0);
-	
-	printf("%s\n", read_response.c_str());
-	return 0;
-	
-	
+int Feature11::give(int room_id, int feat_obj_id){
+	if ((feat_obj_id == DOLL)&&(room_id == NURSURY)){
+		printf("The child receives the doll and smiles gratefully.");
+		//triggers event one for Room6 which triggers in Game as the unlocking of locket and the locking of doll
+		return 1;
+	}
+	return 4;
 }
 Feature11::~Feature11() {
 	
