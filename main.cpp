@@ -274,7 +274,10 @@ int main(int argc, char *argv[]) {
 		locket_test.run_func(CHILD, DOLL, GIVE);
 		locket_test.run_func(-1, LOCKET, 11);
 		locket_test.run_func(-1, DOLL, 11);
-		
+		//now try to open the locket in a room other than the crypt.
+		locket_test.run_func(-1, LOCKET, OPEN);
+		locket_test.get_player()->set_current_room(CRYPT);
+		locket_test.run_func(-1, LOCKET, OPEN);
 		
 
 }
