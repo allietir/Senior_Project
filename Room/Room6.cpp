@@ -22,16 +22,19 @@ Room6::Room6() {
 	set_exit_id(8, 3);//exit at south goes to upstairs hallway
 	
 	init_long_short_desc();
+	set_num_events(2);
 	//object set in Game, therefor description initialized in Game	
 }
 //when you take the locket
 int Room6::event_one(){
 	printf("The locket is hard and small and silver in your hand. There is something comforting and yet powerful about it.");
+	//triggers nothing
 	return 4;
 }
 //locket made avaibale to you
 int Room6::event_two(){
 	printf("The little girl places the locket before you. 'Here. You should take this. You will need it.\n'");
+	//griggers unlcok
 	return 31;
 }
 Room6::~Room6() {

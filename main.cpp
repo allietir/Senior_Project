@@ -277,7 +277,26 @@ int main(int argc, char *argv[]) {
 		//now try to open the locket in a room other than the crypt.
 		locket_test.run_func(-1, LOCKET, OPEN);
 		locket_test.get_player()->set_current_room(CRYPT);
-		locket_test.run_func(-1, LOCKET, OPEN);
+		locket_test.run_func(-1, LOCKET, OPEN);//triggers capturing demon
+		
+		printf("\n========================================================================\\n");
+		Game chest_test;
+		//give player key
+		chest_test.get_player()->set_has_objects(KEY, 1);
+		//try look
+		chest_test.run_func(CHEST, -1, 10);
+		//put player in attic
+		printf("setting current room to be attic\n");
+		chest_test.get_player()->set_current_room(ATTIC);
+		//try look
+		chest_test.run_func(CHEST, -1, 10);
+		chest_test.run_func(CHEST, KEY, OPEN);
+		//try look
+		chest_test.run_func(CHEST, -1, 10);
+		chest_test.run_func(-1, DOLL, 11);
+		chest_test.run_func(CHEST, -1, 10);
+	
+	
 		
 
 }

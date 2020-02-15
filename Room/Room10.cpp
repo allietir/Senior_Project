@@ -22,10 +22,21 @@ Room10::Room10() {
 	set_exit_id(10, 1);//exit south
 	set_exit_id(7, 2);//exit east
 	init_long_short_desc();
+	set_num_events(2);
+	
 	//object set in Game, therefor description initialized in Game	
 	
 }
-
+int Room10::event_one(){
+	printf("There porcelin doll seems to whisper things but when you try to listen the whispers fade into nothing.\n");
+	set_event_triggered(0, 1);
+	return 4;
+}
+int Room10::event_two(){
+	printf("There's a porcelin doll in the chest.\n");
+	set_event_triggered(1, 1);
+	return 32;
+}
 Room10::~Room10() {
 	//printf("Destroying derived class Room10\n");
 }

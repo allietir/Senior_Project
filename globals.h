@@ -10,7 +10,7 @@
 #define MAX_EVENTS 3
 #define NUM_EVENTS 45
 #define NUM_REQ_VERBS 12
-#define NUM_GAME_EVENTS 2
+#define NUM_GAME_EVENTS 3
 
 #define RUN_FUNC_VERBS 13
 
@@ -80,6 +80,9 @@
 #define GIVE 7
 #define CLIMB 8
 #define ATTACK 9
+#define LOOK 10
+#define TAKE 11
+#define DROP 12
 
 
 #define FEAT1 Gravestone
@@ -175,6 +178,11 @@
 #define STR_RVERB10 "savegame"
 #define STR_RVERB11 "loadgame"
 #define STR_RVERB12 "look at"
+
+
+
+
+
 
 
 #define STR_OBJ1 "lamp"

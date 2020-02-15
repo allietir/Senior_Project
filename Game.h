@@ -67,10 +67,15 @@ public:
 	Room* get_room_x(int x);
 	void set_room_x(Room r, int x);
 	
+	int user_or_room_has_item(int item_id);
+	int user_has_item(int item_id);
+	int room_has_item(int item_id);
+	
 	int exit_valid(int next_room);
 	
 	void event1();
 	void event2();
+	void event3();
 	void look();//trigger current room look
 	
 	//extra exits
@@ -153,8 +158,8 @@ private:
 	string event1_text;	
 	
 	int game_events_triggered[NUM_GAME_EVENTS];
-	//on start, locket is locked
-	int is_locked[NUM_OBJECTS]={0, 0, 1, 0, 0, 0, 0, 0};
+	//on start, locket is locked, doll is locked
+	int is_locked[NUM_OBJECTS]={0, 0, 1, 0, 0, 1, 0, 0};
 	
 	Player player1;
 	string save_text;

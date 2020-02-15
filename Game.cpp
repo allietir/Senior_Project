@@ -29,6 +29,13 @@ void Game::event2(){
 	set_is_locked(DOLL, 1);
 
 }
+void Game::event3(){
+	printf("You can try to take the doll and maybe return it to the girl.\n");
+	set_game_events_triggered(2, 1);
+	//unlock doll
+	set_is_locked(DOLL, 0);
+	
+}
 void Game::init_rooms() {
 	init_objects();
 	//place individual rooms in the array
@@ -434,6 +441,18 @@ int Game::verb_index_from_string(string verbx){
 string Game::verb_string_from_index(int verbx){
 	return verb_list[verbx];
 }
+int Game::user_or_room_has_item(int obj_id){
+	if ((player1.get_has_objects(obj_id)==1)||(r_array[player1.get_current_room()]->get_has_objects(obj_id))==1){
+		return 1;
+	}
+	return 0;
+}
+int Game::user_has_item(int obj_id){
+	return player1.get_has_objects(obj_id);
+}
+int Game::room_has_item(int obj_id){
+	return r_array[player1.get_current_room()]->get_has_objects(obj_id);
+}
 //climb can only refer to FEATURES validly so get context_id from string 
 int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 	
@@ -456,12 +475,18 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 	if (item!=-1){
 		feat_string=r_array[player1.get_current_room()]->get_feature_x(item)->get_name(); 
 	}
+	else if (item==-1){
+		printf("You cannot access this feature within %s.\n", r_array[player1.get_current_room()]->get_name().c_str());
+	}
+	
 	if (verb_id>=NUM_VERB_FUNCS){
 		if ((feat_index_id!=-1)&&(obj_index_id==-1))
 		{
 			if ((item>=0)&&(item<=1)){
 				printf("Running %s on on FEAT %s in room %s\n", verb.c_str(), feat_string.c_str(), r_array[player1.get_current_room()]->get_name().c_str());
-				if (verb.compare(STR_RVERB1)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->RVERB1(); }
+				if (user_or_room_has_item(obj_index_id)==0){
+					if (verb.compare(STR_RVERB1)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->RVERB1(); }
+				}
 				else if (verb.compare(STR_RVERB2)==0){ printf("You can't take that\n"); }
 				else if (verb.compare(STR_RVERB3)==0){ printf("You can't drop that\n"); }
 			}
@@ -470,7 +495,9 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			
 			if ((obj_index_id <= 7)&&(obj_index_id>=0))
 			{	printf("Running %s on OBJECT %s in room %s\n", verb.c_str(), o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
-				if (verb.compare(STR_RVERB1)==0){ res = o_array[obj_index_id]->RVERB1(); }//look
+				if (user_or_room_has_item(obj_index_id)==0){
+					if (verb.compare(STR_RVERB1)==0){ res = o_array[obj_index_id]->RVERB1(); }//look
+				}
 				else if (verb.compare(STR_RVERB2)==0){ RVERB2(obj_index_id); }//take
 				else if (verb.compare(STR_RVERB3)==0){ RVERB3(obj_index_id); }//drop	
 			}	
@@ -570,13 +597,18 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			if (res==5){
 				printf("----something unexpected has occured----\n");
 			}
+			//for events that trigger exits
 			if ((res >=10)&&(res <=10+NUM_ROOMS)){
+				
 				player1.set_current_room(res-10);
 				look();
 			} 
 			if (res==31){
 				
 				event2();
+			}
+			if (res==32){
+				event3();
 			}
 			return 0;
 		

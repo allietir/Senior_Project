@@ -6,18 +6,28 @@
 
 Feature19::Feature19() {
 	set_name("Chest");
-	set_desc("Feature19 description");
+	set_desc("There is a large chest with a keyhole.\n");
+	set_desc_no_obj("There is nothing else in the chest.\n");
 	set_index_id(18);
 }
-int Feature19::read(){
-	string read_response = "The " + get_name() + "'s first name is too faded to read, but the last name says 'Smith'.\n 'Hey', says" + FRIEND_NAME + ". 'Wasn't that your mom's maiden name?'. 'Yeah', you reply, ";
-	func_togg_count_x(0);
-	
-	printf("%s\n", read_response.c_str());
-	return 0;
-	
-	
+int Feature19::open(int room_id, int object_id){
+	if (object_id==KEY){
+		if (get_times_toggled(OPEN)==0){
+			func_togg_count_x(OPEN);
+			set_desc("There is a doll in the chest, and nothing else.\n");
+			printf("You open the chest with the key\n");
+		}
+		//triggers first room event that trickes event3() in game
+		return 1;
+	}
+	else {
+		printf("You can't open the chest with that object.\n");
+		return 4;
+	}
+	return 4;
 }
+
+
 Feature19::~Feature19() {
 	
 }
