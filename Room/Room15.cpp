@@ -27,11 +27,13 @@ Room15::Room15() {
 	
 	init_long_short_desc();
 	//object set in Game, therefor description initialized in Game
+	set_num_events(1);
 	
 }
-int event_one(){
+int Room15::event_one(){
 	printf("You trap the demon in the locket\n");
-	return 0;
+	//trigger game event 4
+	return 33;
 }
 Room15::~Room15() {
 	//printf("Destroying derived class Room15\n");

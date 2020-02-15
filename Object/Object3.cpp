@@ -20,6 +20,7 @@ int Object3::open(int room_id, int feat_id){
 	{
 		printf("You open the locket. This is the room. This is what all the signs meant.\n");
 		func_togg_count_x(OPEN);
+		//triggers event 0;
 		return 0;
 		
 	}

@@ -36,6 +36,12 @@ void Game::event3(){
 	set_is_locked(DOLL, 0);
 	
 }
+
+void Game::event4(){
+	printf("----------You have freed your friend and won the game! Game over =)------.\n");
+	set_game_events_triggered(3, 1);
+	
+}
 void Game::init_rooms() {
 	init_objects();
 	//place individual rooms in the array
@@ -609,6 +615,9 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			}
 			if (res==32){
 				event3();
+			}
+			if (res==33){
+				event4();
 			}
 			return 0;
 		

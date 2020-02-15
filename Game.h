@@ -76,6 +76,7 @@ public:
 	void event1();
 	void event2();
 	void event3();
+	void event4();
 	void look();//trigger current room look
 	
 	//extra exits
