@@ -6,15 +6,20 @@
 
 Feature26::Feature26() {
 	set_name("Cupboard");
-	set_desc("Feature26 description");
+	set_desc("There is a cupboard in this kitchen with a handle on it.");
 	set_index_id(25);
 }
-int Feature26::read(){
-	string read_response = "The " + get_name() + "'s first name is too faded to read, but the last name says 'Smith'.\n 'Hey', says" + FRIEND_NAME + ". 'Wasn't that your mom's maiden name?'. 'Yeah', you reply, ";
-	func_togg_count_x(0);
-	
-	printf("%s\n", read_response.c_str());
-	return 0;
+int Feature26::open(int room_id, int obj_id){
+	if (get_times_toggled(OPEN)==0){
+		func_togg_count_x(OPEN);
+		printf("There doesn't appear to be anything of interest in this cupboard\n");
+		set_desc("The open cupboard has nothing of interest inside it\n");
+	}
+	else{
+		printf("The cupboard is already open.\n");
+		
+	}
+	return 4;
 	
 	
 }

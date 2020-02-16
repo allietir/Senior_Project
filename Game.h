@@ -78,6 +78,7 @@ public:
 	void event3();
 	void event4();
 	void event5();
+	void event6(int obj_id);
 	void look();//trigger current room look
 	
 	//extra exits

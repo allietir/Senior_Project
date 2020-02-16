@@ -302,6 +302,17 @@ int main(int argc, char *argv[]) {
 		test_piano.run_func(PIANO, -1, PLAY);
 		test_piano.run_func(PIANO, MUSIC, USE);
 		test_piano.run_func(PIANO, -1, PLAY);
+		
+		Game test_burn;
+		test_burn.get_player()->set_current_room(KITCHEN);
+		test_burn.get_player()->set_has_objects(DIARY, 1);
+		test_burn.drop(DIARY);
+		test_burn.take(DIARY);
+		test_burn.drop(DIARY);
+		test_burn.run_func(STOVE, DIARY, USE);
+		test_burn.take(DIARY);
+
+	
 	
 		
 

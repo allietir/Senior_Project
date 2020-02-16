@@ -44,6 +44,11 @@ void Game::event5(){
 	printf("----------You have re-united the ghost family! Side quest completed--------.\n");
 	set_game_events_triggered(4, 1);
 }
+void Game::event6(int obj_id){
+	printf("-------You have destroyed the %s-------\n", o_array[obj_id]->get_name().c_str());
+	set_game_events_triggered(5, 1);
+	set_is_locked(obj_id, 1);
+}
 void Game::init_rooms() {
 	init_objects();
 	//place individual rooms in the array
@@ -621,6 +626,13 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			if (res==33){
 				event4();
 			}
+			if (res==34){
+				event5();
+			}
+			if (res==45+obj_index_id){
+				event6(res-45);
+			}
+
 			return 0;
 		
 	}
