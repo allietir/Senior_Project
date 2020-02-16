@@ -10,6 +10,7 @@ public:
 	Feature11();
 	virtual ~Feature11();
 	int give(int room_id, int feat_obj_id);
+	int speak();
 	int special=666;
 };
 

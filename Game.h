@@ -77,6 +77,7 @@ public:
 	void event2();
 	void event3();
 	void event4();
+	void event5();
 	void look();//trigger current room look
 	
 	//extra exits
@@ -159,8 +160,8 @@ private:
 	string event1_text;	
 	
 	int game_events_triggered[NUM_GAME_EVENTS];
-	//on start, locket is locked, doll is locked
-	int is_locked[NUM_OBJECTS]={0, 0, 1, 0, 0, 1, 0, 0};
+	//on start, locket is locked, doll, chalice is locked
+	int is_locked[NUM_OBJECTS]={0, 0, 1, 0, 0, 1, 0, 1};
 	
 	Player player1;
 	string save_text;

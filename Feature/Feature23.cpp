@@ -6,17 +6,26 @@
 
 Feature23::Feature23() {
 	set_name("Fountain");
-	set_desc("Feature23 description");
+	set_desc("Water pours from the fountain, sparkling even though the room is as dark as the rest of the house.\n");
 	set_index_id(22);
 }
-int Feature23::read(){
-	string read_response = "The " + get_name() + "'s first name is too faded to read, but the last name says 'Smith'.\n 'Hey', says" + FRIEND_NAME + ". 'Wasn't that your mom's maiden name?'. 'Yeah', you reply, ";
-	func_togg_count_x(0);
-	
-	printf("%s\n", read_response.c_str());
-	return 0;
-	
-	
+int Feature23::use(int obj_id){
+	if (get_times_toggled(USE)==0){
+		printf("The chalice fills with water. Alright, now what?\n");
+		func_togg_count_x(USE);
+	}
+	else{
+		printf("The chalice is already filled with water.\n");
+	}
+	return 4;
+}
+int Feature23::eat(){
+	if (get_times_toggled(USE)>1){
+		func_togg_count_x(EAT);
+		printf("You are transported to the basement.\n");
+		return BASEMENT + 10;
+	}
+	return 4;
 }
 Feature23::~Feature23() {
 	

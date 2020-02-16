@@ -27,10 +27,14 @@ Room11::Room11() {
 	set_exit_id(11, 3);//exit east
 	init_long_short_desc();
 	//object set in Game, therefor description initialized in Game	
-	
+	set_num_events(1);
 	
 }
-
+int Room11::event_one()
+{
+	printf("The key swirls briefly in your hand as if by magic, and points up before stilling in your hand.\n");
+	return 4;
+}
 Room11::~Room11() {
 	//printf("Destroying derived class Room11\n");
 }

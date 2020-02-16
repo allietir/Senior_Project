@@ -36,11 +36,13 @@ void Game::event3(){
 	set_is_locked(DOLL, 0);
 	
 }
-
 void Game::event4(){
-	printf("----------You have freed your friend and won the game! Game over =)------.\n");
+	printf("----------You have freed your friend and won the game! Objective completed-----.\n");
 	set_game_events_triggered(3, 1);
-	
+}
+void Game::event5(){
+	printf("----------You have re-united the ghost family! Side quest completed--------.\n");
+	set_game_events_triggered(4, 1);
 }
 void Game::init_rooms() {
 	init_objects();

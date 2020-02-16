@@ -10,7 +10,7 @@
 #define MAX_EVENTS 3
 #define NUM_EVENTS 45
 #define NUM_REQ_VERBS 12
-#define NUM_GAME_EVENTS 4
+#define NUM_GAME_EVENTS 5
 
 #define RUN_FUNC_VERBS 13
 

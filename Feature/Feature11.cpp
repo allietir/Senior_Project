@@ -12,11 +12,30 @@ Feature11::Feature11() {
 }
 int Feature11::give(int room_id, int feat_obj_id){
 	if ((feat_obj_id == DOLL)&&(room_id == NURSURY)){
+		func_togg_count_x(GIVE);
 		printf("The child receives the doll and smiles gratefully.");
 		//triggers event one for Room6 which triggers in Game as the unlocking of locket and the locking of doll
 		return 1;
 	}
+	else {
+		printf("This is not what the child needs\n");
+	}
 	return 4;
+}
+int Feature11::speak()
+{
+	if (func_togg_count_x(GIVE)>=1){
+		printf("The child has nothing more to say");
+	}
+	else{
+		func_togg_count_x(SPEAK);
+		printf("The child points to the dollhouse. 'No one lives there anymore. My doll left home. Can you bring her back to me?\n'");
+		return 4;
+		
+	}
+	return 4;
+	
+	
 }
 Feature11::~Feature11() {
 	

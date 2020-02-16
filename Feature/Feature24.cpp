@@ -6,17 +6,21 @@
 
 Feature24::Feature24() {
 	set_name("Guardian");
-	set_desc("Feature24 description");
+	set_desc("There is a guardian by the fountain, and appears to be an old man with a beard full of vines and a staff that seems to be forever changing, flowers growing and dying before your eyes. He is holding a silver chalice");
+	set_desc_no_obj("There is a guardian by the fountain, and appears to be an old man with a beard full of vines and a staff that seems to be forever changing, flowers growing and dying before your eyes.");
 	set_index_id(23);
 }
-int Feature24::read(){
-	string read_response = "The " + get_name() + "'s first name is too faded to read, but the last name says 'Smith'.\n 'Hey', says" + FRIEND_NAME + ". 'Wasn't that your mom's maiden name?'. 'Yeah', you reply, ";
-	func_togg_count_x(0);
-	
-	printf("%s\n", read_response.c_str());
-	return 0;
-	
-	
+int Feature24::speak(){
+	if (func_togg_count_x(SPEAK)==0){
+		func_togg_count_x(SPEAK);
+		printf("'Some things are keys, even if they don't look like keys! Please, take this chalice. It has more than once use!\n'");
+		//trigger unlock chalice in GAME
+		return 35;
+	}
+	else{
+		printf("'I hope you can save your friend.\n'");
+	}
+	return 4;
 }
 Feature24::~Feature24() {
 	

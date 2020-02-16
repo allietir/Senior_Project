@@ -22,7 +22,12 @@ Room7::Room7() {
 	
 	init_long_short_desc();
 	//object set in Game, therefor description initialized in Game	
+	set_num_events(1);
 	
+}
+int Room7::event_one(){
+	printf("The notes on the paper light up on the page briefly before settingling back down on to the page.\n");
+	return 4;
 }
 
 Room7::~Room7() {

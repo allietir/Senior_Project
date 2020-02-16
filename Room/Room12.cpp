@@ -28,7 +28,12 @@ Room12::Room12() {
 	
 	init_long_short_desc();
 	//object set in Game, therefor description initialized in Game	
+	set_num_events(1);
 	
+}
+int Room12::event_one(){
+	printf("The chalice glows briefly and feels warm in your hands. This is important, you feel.\n");
+	return 4;
 }
 
 Room12::~Room12() {

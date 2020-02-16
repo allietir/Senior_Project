@@ -295,7 +295,13 @@ int main(int argc, char *argv[]) {
 		chest_test.run_func(CHEST, -1, 10);
 		chest_test.run_func(-1, DOLL, 11);
 		chest_test.run_func(CHEST, -1, 10);
-	
+		
+		Game test_piano;
+		test_piano.get_player()->set_current_room(PARLOR);
+		test_piano.get_player()->set_has_objects(MUSIC, 1);
+		test_piano.run_func(PIANO, -1, PLAY);
+		test_piano.run_func(PIANO, MUSIC, USE);
+		test_piano.run_func(PIANO, -1, PLAY);
 	
 		
 
