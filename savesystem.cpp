@@ -9,7 +9,14 @@
 using namespace std;
 
 //Saves the game to a file
-void save_game(Game& game) {
+void save_game(Game& game) { 
+
+/*
+Placeholder for defining different system filepath operations depending on OS.
+#ifdef _WIN64
+#elif __unix__
+#endif
+*/
 
 	//Use time since epoch to generate a unique ID for savefile name
 	time_t raw_time;
@@ -21,7 +28,7 @@ void save_game(Game& game) {
 	system(mkdir_command);
 
 	/****The path name will have to be modified depending on testing environment.****/
-	string filename_path = "SaveData/" + game.get_player()->get_name() + to_string(raw_time);
+	string filename_path = "SaveData/" + game.get_player()->get_name() + to_string(raw_time).substr(5);
 
 	ofstream save_file(filename_path);
 	if (save_file.is_open())
