@@ -1,3 +1,7 @@
+#ifdef _WIN64
+#include <dirent.h>
+#endif
+
 #include <string>
 #include <fstream>
 #include <ctime>
@@ -11,12 +15,26 @@ using namespace std;
 //Saves the game to a file
 void save_game(Game& game) { 
 
-/*
-Placeholder for defining different system filepath operations depending on OS.
+
+//Placeholder for defining different system filepath operations depending on OS.
 #ifdef _WIN64
-#elif __unix__
-#endif
+
+//fiename_path
+
+/*
+struct dirent file_iterator;
+DIR *dir = opendir(filename_path)
+
+while ((file_iterator = readdir(dir)) != NULL) {
+	cout << file_iterator->d_name << endl;
+}
+
+closedir(dir);
 */
+#elif __unix__
+
+#endif
+
 
 	//Use time since epoch to generate a unique ID for savefile name
 	time_t raw_time;
