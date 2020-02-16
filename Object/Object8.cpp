@@ -6,7 +6,7 @@
 
 Object8::Object8() {
 	set_name("Chalice");
-	set_desc("The cup shines brigher than anything in the home has shone, like it is new. ");
+	set_desc("The chalice shines bright. It looks newer than anything else in the house.");
 	set_index_id(7);
 }
 int Object8::read(){
