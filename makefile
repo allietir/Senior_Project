@@ -138,8 +138,8 @@ Object/Object7.o: Object/Object7.h Object/Object.h
 Object/Object8.o: Object/Object8.h Object/Object.h
 
 clean:
-	rm main *.o
-	rm Feature/*.o
-	rm Room/*.o
-	rm Object/*.o
-	rm SaveData/*
+	rm -f main *.o
+	rm -f Feature/*.o
+	rm -f Room/*.o
+	rm -f Object/*.o
+	rm -f SaveData/*
