@@ -1,3 +1,7 @@
+#ifdef _WIN64
+#include <dirent.h>
+#endif
+
 #include <string>
 #include <fstream>
 #include <ctime>
@@ -9,9 +13,25 @@
 using namespace std;
 
 //Saves the game to a file
-void save_game(Game& game) {
+void save_game(Game& game) { 
+
+/*Placeholder for defining different filepath operations depending on OS.
+This is an optional implementation so will be left out but can be considered
+to be an extra feature if time permits.*/
+/*#ifdef _WIN64
+struct dirent file_iterator;
+
+DIR *dir = opendir(filename_path)
+
+while ((file_iterator = readdir(dir)) != NULL) {
+	cout << file_iterator->d_name << endl;
+}
+closedir(dir);
+#elif __unix__
+#endif*/
 
 	//Use time since epoch to generate a unique ID for savefile name
+	//This is later shortened using the substr() method.
 	time_t raw_time;
 	raw_time = time(NULL);
 
@@ -21,7 +41,7 @@ void save_game(Game& game) {
 	system(mkdir_command);
 
 	/****The path name will have to be modified depending on testing environment.****/
-	string filename_path = "SaveData/" + game.get_player()->get_name() + to_string(raw_time);
+	string filename_path = "SaveData/" + game.get_player()->get_name() + to_string(raw_time).substr(5);
 
 	ofstream save_file(filename_path);
 	if (save_file.is_open())

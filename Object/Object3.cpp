@@ -6,12 +6,12 @@
 
 Object3::Object3() {
 	set_name("Locket");
-	set_desc("The locket is silver and small; it looks surprisingly shiny and new for what appears to be an very old fashioend design. ");
+	set_desc("The locket is silver and small. The design appears to be very old fashioned, but it is in good condition. ");
 	set_index_id(2);
 }
 int Object3::read(){
 	func_togg_count_x(READ);
-	printf("The locket has a tiny inscription that says 'Open me below'\n");
+	printf("The locket has a tiny inscription that says 'I will open when you need me most.'\n");
 	return 4;
 }
 int Object3::open(int room_id, int feat_id){	
