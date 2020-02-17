@@ -232,15 +232,15 @@ int main(int argc, char *argv[]) {
 //		load_game(new_game);
 //		save_game(new_game);	
 
-	
-	Game parse_test;
-	parse_test.start();
-	string userInput = ""; 
-		while (1) {
-			cout << "what would you like to do: \n";
-			getline(cin, userInput);
-			inputParsing(parse_test, userInput);
-		}
+//	
+//	Game parse_test;
+//	parse_test.start();
+//	string userInput = ""; 
+//		while (1) {
+//			cout << "what would you like to do: \n";
+//			getline(cin, userInput);
+//			inputParsing(parse_test, userInput);
+//		}
 		
 //		Game get_things;
 //		get_things.output_obj_list();
@@ -314,7 +314,15 @@ int main(int argc, char *argv[]) {
 		test_burn.take(DIARY);
 		*/
 	
-	
+		Game sink_test;
+		sink_test.get_player()->set_current_room(BATHROOM);
+		sink_test.run_func(SINK, -1, LOOK);
+		sink_test.run_func(SINK, -1, USE);
+		sink_test.run_func(SINK, -1, LOOK);
+		sink_test.run_func(SINK, -1, USE);
+		
+		sink_test.run_func(SINK, -1, SMELL);
+		sink_test.run_func(SINK, -1, EAT);
 		
 
 }

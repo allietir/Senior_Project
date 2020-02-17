@@ -6,17 +6,33 @@
 
 Feature18::Feature18() {
 	set_name("Sink");
-	set_desc("Feature18 description");
+	set_desc("There is a sink in the bathroom. It is on. There is a liquid pouring from the faucet. It is a deep, deep red and appears to have the viscocity and coppery smell of hot blood.\n");
 	set_index_id(17);
 }
-int Feature18::read(){
-	string read_response = "The " + get_name() + "'s first name is too faded to read, but the last name says 'Smith'.\n 'Hey', says" + FRIEND_NAME + ". 'Wasn't that your mom's maiden name?'. 'Yeah', you reply, ";
-	func_togg_count_x(0);
-	
-	printf("%s\n", read_response.c_str());
-	return 0;
-	
-	
+int Feature18::use(int obj_int){
+	if (get_times_toggled(USE)==0){
+		func_togg_count_x(USE);
+		printf("The sink turns off and the blood stops pouring.\n");
+		set_desc("There is a sink in the bathroom. It is off. The sink is still stained with the blood that comes out.\n");
+		
+	}
+	else if (get_times_toggled(USE)==1){
+		set_togg_count_x(USE, 0);
+		set_desc("There is a sink in the bathroom. It is on. There is a liquid pouring from the faucet. It is a deep, deep red and appears to have the viscocity and coppery smell of hot blood.\n");
+
+		printf("The sink turns back on and the blood continues to pour out.\n");
+	}
+	return 4;
+}
+int Feature18::smell(){
+	func_togg_count_x(SMELL);
+	printf("The smell of the blood makes you want to faint, it is so strong and coppery.\n");
+	return 4;
+}
+int Feature18::eat(){
+	func_togg_count_x(EAT);
+	printf("You are poisoned by the blood. You die.\n");
+	return -1;
 }
 Feature18::~Feature18() {
 	
