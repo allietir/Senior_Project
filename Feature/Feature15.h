@@ -11,6 +11,7 @@ public:
 	virtual ~Feature15();
 //	int speak();
 //	int attack(int obj_feat);
+	//int give(int obj_feat);
 	int special=666;
 };
 
