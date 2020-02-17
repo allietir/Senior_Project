@@ -147,7 +147,8 @@ public:
 
 	int get_needs_event(int room_index);
 	void set_needs_event(int roov_index, int event_numbers);
-
+	
+	void print_all_feature_desc();
 
 //todo:
 	/*

@@ -30,7 +30,10 @@ Room8::Room8() {
 	//object set in Game, therefor description initialized in Game	
 	
 }
-
+int Room8::event_one(){
+	printf("The vampire is free. 'Thank you for helping me regrain my strength. I will locate my family, and our house will be alive again.\n'");
+	return 4;
+}
 Room8::~Room8() {
 	//printf("Destroying derived class Room8\n");
 }

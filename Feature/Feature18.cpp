@@ -28,6 +28,7 @@ int Feature18::use(int obj_int){
 	}
 	else if (obj_int==CHALICE){
 		//return an event trigger event that makes the chalice an offering to the vampire that fortifies him and lets him unite with the woman. 
+		return 0;
 		
 	}
 	return 4;

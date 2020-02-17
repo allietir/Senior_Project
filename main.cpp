@@ -314,15 +314,26 @@ int main(int argc, char *argv[]) {
 		test_burn.take(DIARY);
 		*/
 	
-		Game sink_test;
-		sink_test.get_player()->set_current_room(BATHROOM);
-		sink_test.run_func(SINK, -1, LOOK);
-		sink_test.run_func(SINK, -1, USE);
-		sink_test.run_func(SINK, -1, LOOK);
-		sink_test.run_func(SINK, -1, USE);
-		
-		sink_test.run_func(SINK, -1, SMELL);
-		sink_test.run_func(SINK, -1, EAT);
+//		Game sink_test;
+//		sink_test.get_player()->set_current_room(BATHROOM);
+//		sink_test.run_func(SINK, -1, LOOK);
+//		sink_test.run_func(SINK, -1, USE);
+//		sink_test.run_func(SINK, -1, LOOK);
+//		sink_test.run_func(SINK, -1, USE);
+//		
+//		sink_test.run_func(SINK, -1, SMELL);
+//		sink_test.run_func(SINK, -1, EAT);
+//		Game test_desc;
+//		test_desc.print_all_feature_desc();
+
+		Game blood_test;
+		blood_test.get_player()->set_current_room(MASTER);
+		blood_test.run_func(VAMPIRE, CHALICE, GIVE);
+		blood_test.get_player()->set_current_room(BATHROOM);
+		blood_test.get_player()->set_has_objects(CHALICE, 1);
+		blood_test.run_func(SINK, CHALICE, USE);	
+		blood_test.get_player()->set_current_room(MASTER);
+		blood_test.run_func(VAMPIRE, CHALICE, GIVE);
 		
 
 }

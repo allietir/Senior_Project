@@ -11,6 +11,7 @@
 class Room8: public Room {
 public:
 	Room8();
+	int event_one();
 	virtual ~Room8();	
 };
 

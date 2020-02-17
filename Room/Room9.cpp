@@ -23,9 +23,12 @@ Room9::Room9() {
 	set_exit_id(5, 2);//exit east
 	init_long_short_desc();
 	//object set in Game, therefor description initialized in Game	
-	
+	set_num_events(1);
 }
-
+int Room9::event_one(){
+	printf("You fill the chalice with blood.\n");
+	return 4;
+}
 Room9::~Room9() {
 	//printf("Destroying derived class Room9\n");
 }

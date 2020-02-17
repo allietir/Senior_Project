@@ -543,7 +543,11 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 				//{
 					if (verb.compare(STR_VERB3)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB3(obj_index_id); }
 					else if (verb.compare(STR_VERB6)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB6(player1.get_current_room(), obj_index_id); }
-					else if (verb.compare(STR_VERB8)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB8(player1.get_current_room(), obj_index_id); }
+					else if (verb.compare(STR_VERB8)==0){ 
+						if ((feat_index_id==VAMPIRE)&&(obj_index_id==CHALICE)){
+							res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB8(get_room_events_triggered(24), obj_index_id); 
+						}
+					}
 					else if (verb.compare(STR_VERB10)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB10(obj_index_id); }
 				}
 			//}
@@ -853,6 +857,13 @@ int Game::get_needs_event(int room_index){
 void Game::set_needs_event(int room_index, int event_number)
 {
 	room_needs_event_x[room_index]=event_number;
+}
+void Game::print_all_feature_desc(){
+	for (int i = 0; i < NUM_ROOMS; i++)
+	{
+		printf("%i-0:%s\n", i+1, r_array[i]->get_feature_x(0)->get_desc().c_str());
+		printf("%i-1:%s\n", i+1, r_array[i]->get_feature_x(1)->get_desc().c_str());
+	}
 }
 Game::~Game() {
 

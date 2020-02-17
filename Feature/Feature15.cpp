@@ -10,13 +10,20 @@ Feature15::Feature15() {
 	set_index_id(14);
 	//let the 
 }
-//int Feature15::use(int obj_id){
-//	//only allow this to occur if a certain event has been triggered. 
-//	if (obj_id==CHALICE){
-//		//
-//	}
-//	return 4;
-//}
+int Feature15::give(int event_occured, int obj_id){
+	//only allow this to occur if a certain event has been triggered. 
+	if ((obj_id==CHALICE)&&(event_occured==1)){
+		return 0;
+	}
+	else if ((obj_id==CHALICE)&&(event_occured==0)){
+		printf("The chalice needs to be filled with something the vampire can be nourished with\n");
+		
+	}
+	else if (obj_id!=CHALICE){
+		printf("You can't give the vampire this object\n");
+	}
+	return 4;
+}
 Feature15::~Feature15() {
 	
 }
