@@ -20,8 +20,8 @@ Room::Room() {
 	}
 	exit_direction[0]="north";
 	exit_direction[1]="south";
-	exit_direction[2]="east";
-	exit_direction[3]="west";
+	exit_direction[2]="west";
+	exit_direction[3]="east";
 	
 	init_exits();
 	room_entered = 0;

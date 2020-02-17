@@ -154,7 +154,7 @@ int checkMoveCommands(Game &game, vector<string> inputVector){
 	}
 	else if (inputVector[0] == "east") {
 		//cout << "called move east\n";
-		game.exit_room(2);
+		game.exit_room(3);
 	}
 	else if (inputVector[0] == "south") {
 		//cout << "called move south\n";
@@ -162,7 +162,7 @@ int checkMoveCommands(Game &game, vector<string> inputVector){
 	}
 	else if (inputVector[0] == "west") {
 		//cout << "called move west\n";
-		game.exit_room(3);
+		game.exit_room(2);
 	}
 	else {
 		moveStatus = 0;
