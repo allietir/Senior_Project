@@ -262,6 +262,8 @@ int main(int argc, char *argv[]) {
 		test_event_trigger.exit_current_from_room_id(CRYPT);
 		
 		*/
+
+/*
 		Game locket_test;
 		locket_test.get_player()->set_current_room(NURSURY);
 		locket_test.get_player()->set_has_objects(DOLL, 1);
@@ -368,7 +370,7 @@ int main(int argc, char *argv[]) {
 		int x[8]={1, 0, 1, 1, 1, 0, 0, 1};
 		test_is_locked.set_all_is_locked(x);
 		printf("%s\n", test_is_locked.get_all_is_locked().c_str());
-
+		*/
 		
 		Game parse_test;
 		parse_test.start();
