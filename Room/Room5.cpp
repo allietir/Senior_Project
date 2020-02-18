@@ -25,8 +25,23 @@ Room5::Room5() {
 	set_exit_id(11, 3);//exit at east goes to Room11
 	init_long_short_desc();
 	//object set in Game, therefor description initialized in Game	
+	set_num_events(1);
+}
+int Room5::event_one()
+{
+	get_feature_x(1)->set_desc("The woman's in the painting. Her eyes open. She smiles.\n'");
+	return 4;
+		
+}
+int Room5::event_two(){
+	printf("You hope the woman finds her family.\n");
+	return 4;
 }
 
+int Room5::event_three(){
+	printf("You take the staircase up.\n");
+	return LIBRARY+10;
+}
 Room5::~Room5() {
 	//printf("Destroying derived class Room5\n");
 }

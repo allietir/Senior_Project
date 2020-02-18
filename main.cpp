@@ -323,18 +323,108 @@ int main(int argc, char *argv[]) {
 //		
 //		sink_test.run_func(SINK, -1, SMELL);
 //		sink_test.run_func(SINK, -1, EAT);
-//		Game test_desc;
-//		test_desc.print_all_feature_desc();
+		Game test_desc;
+		test_desc.print_all_feature_desc();
 
-		Game blood_test;
-		blood_test.get_player()->set_current_room(MASTER);
-		blood_test.run_func(VAMPIRE, CHALICE, GIVE);
-		blood_test.get_player()->set_current_room(BATHROOM);
-		blood_test.get_player()->set_has_objects(CHALICE, 1);
-		blood_test.run_func(SINK, CHALICE, USE);	
-		blood_test.get_player()->set_current_room(MASTER);
-		blood_test.run_func(VAMPIRE, CHALICE, GIVE);
+//		Game blood_test;
+//		blood_test.get_player()->set_current_room(MASTER);
+//		blood_test.run_func(VAMPIRE, CHALICE, GIVE);
+//		blood_test.get_player()->set_current_room(BATHROOM);
+//		blood_test.get_player()->set_has_objects(CHALICE, 1);
+//		blood_test.run_func(SINK, CHALICE, USE);	
+//		blood_test.get_player()->set_current_room(MASTER);
+//		blood_test.run_func(VAMPIRE, CHALICE, GIVE);
 		
+//		Game test_piano;
+//		test_piano.get_player()->set_current_room(PARLOR);
+//		test_piano.get_player()->set_has_objects(MUSIC, 1);
+//		test_piano.run_func(PAINTING, -1, LOOK);
+//		test_piano.run_func(PIANO, -1, PLAY);
+//		test_piano.run_func(PIANO, MUSIC, USE);
+//		test_piano.run_func(PIANO, -1, PLAY);
+//		test_piano.run_func(PAINTING, -1, LOOK);
+//		test_piano.run_func(PAINTING, -1, SPEAK);
+//		
+//		//21, 13, 15
+//		Game chest_test;
+//		//give player key
+//		chest_test.get_player()->set_has_objects(KEY, 1);
+//		//try look
+//		chest_test.run_func(CHEST, -1, 10);
+//		//put player in attic
+//		printf("setting current room to be attic\n");
+//		chest_test.get_player()->set_current_room(ATTIC);
+//		//try look
+//		chest_test.run_func(CHEST, -1, 10);
+//		chest_test.run_func(CHEST, KEY, OPEN);
+//		//try look
+//		chest_test.run_func(CHEST, -1, 10);
+//		chest_test.run_func(-1, DOLL, 11);
+//		chest_test.run_func(CHEST, -1, 10);
+//		
+//	
+//		chest_test.get_player()->set_current_room(NURSURY);
+//	
+//		printf("HERE");
+//		chest_test.run_func(CHILD, DOLL, GIVE);
+//		chest_test.run_func(-1, LOCKET, TAKE);
+//		printf("AFTER");
+		
+	
+		//now try to open the locket in a room other than the crypt.
+
+//		Game fam_test;
+//		fam_test.get_player()->set_current_room(PARLOR);
+//		fam_test.get_player()->set_has_objects(MUSIC, 1);
+//		fam_test.run_func(PAINTING, -1, LOOK);
+//		fam_test.run_func(PIANO, -1, PLAY);
+//		fam_test.run_func(PIANO, MUSIC, USE);
+//		fam_test.run_func(PIANO, -1, PLAY);
+//		fam_test.run_func(PAINTING, -1, LOOK);
+//		fam_test.run_func(PAINTING, -1, SPEAK);
+//		
+//		//21, 13, 15
+//
+//		//give player key
+//		fam_test.get_player()->set_has_objects(KEY, 1);
+//		//try look
+//		fam_test.run_func(CHEST, -1, 10);
+//		//put player in attic
+//		printf("setting current room to be attic\n");
+//		fam_test.get_player()->set_current_room(ATTIC);
+//		//try look
+//		fam_test.run_func(CHEST, -1, 10);
+//		fam_test.run_func(CHEST, KEY, OPEN);
+//		//try look
+//		fam_test.run_func(CHEST, -1, 10);
+//		fam_test.run_func(-1, DOLL, 11);
+//		fam_test.run_func(CHEST, -1, 10);
+//		
+//		
+//		fam_test.get_player()->set_current_room(NURSURY);
+//		
+//
+//		fam_test.run_func(CHILD, DOLL, GIVE);
+//		fam_test.run_func(-1, LOCKET, TAKE);
+//
+//		
+//		
+//		fam_test.get_player()->set_current_room(MASTER);
+//		fam_test.run_func(VAMPIRE, CHALICE, GIVE);
+//		fam_test.get_player()->set_current_room(BATHROOM);
+//		fam_test.get_player()->set_has_objects(CHALICE, 1);
+//		fam_test.run_func(SINK, CHALICE, USE);	
+//		fam_test.get_player()->set_current_room(MASTER);
+//		fam_test.run_func(VAMPIRE, CHALICE, GIVE);
+		
+		Game test_is_locked;
+		printf("%s\n", test_is_locked.get_all_is_locked().c_str());
+		int x[8]={1, 0, 1, 1, 1, 0, 0, 1};
+		test_is_locked.set_all_is_locked(x);
+		printf("%s\n", test_is_locked.get_all_is_locked().c_str());
+
+		
+
 
 }
 	

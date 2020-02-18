@@ -144,6 +144,9 @@ public:
 	
 	int get_is_locked(int obj_index);
 	void set_is_locked(int obj_index, int val);
+	
+	string get_all_is_locked();
+	void set_all_is_locked(int bin_arr[NUM_OBJECTS]);
 
 	int get_needs_event(int room_index);
 	void set_needs_event(int roov_index, int event_numbers);

@@ -94,7 +94,7 @@
 #define FEAT7 Faceless
 #define FEAT8 Table
 #define FEAT9 Piano
-#define FEAT10 Trapdoor
+#define FEAT10 Painting
 #define FEAT11 Child
 #define FEAT12 Dollhouse
 #define FEAT13 Mother
@@ -127,7 +127,7 @@
 #define STR_FEAT7 "Faceless"
 #define STR_FEAT8 "Table"
 #define STR_FEAT9 "Piano"
-#define STR_FEAT10 "Trapdoor"
+#define STR_FEAT10 "Painting"
 #define STR_FEAT11 "Child"
 #define STR_FEAT12 "Dollhouse"
 #define STR_FEAT13 "Mother"
@@ -230,7 +230,7 @@
 #define FACELESS 6
 #define TABLE 7
 #define PIANO 8
-#define TRAPDOOR 9
+#define PAINTING 9
 #define CHILD 10
 #define DOLLHOUSE 11
 #define MOTHER 12

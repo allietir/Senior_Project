@@ -27,13 +27,13 @@ Room6::Room6() {
 }
 //when you take the locket
 int Room6::event_one(){
-	printf("The locket is hard and small and silver in your hand. There is something comforting and yet powerful about it.");
+	printf("The locket is hard and small and silver in your hand. There is something comforting and yet powerful about it. The child smiles and speaks precociously. 'Thank you. I will go find my family.'\n");
 	//triggers nothing
 	return 4;
 }
 //locket made avaibale to you
 int Room6::event_two(){
-	printf("The little girl places the locket before you. 'Here. You should take this. You will need it.\n'");
+	printf("The little girl places the locket before you. 'Here. You should take this.'\n");
 	//griggers unlcok
 	return 31;
 }

@@ -9,8 +9,8 @@ class Feature15 : public Feature {
 public:
 	Feature15();
 	virtual ~Feature15();
-//	int speak();
-//	int attack(int obj_feat);
+	int speak();
+	int attack(int obj_feat);
 	int give(int event_id, int obj_feat);
 	int special=666;
 };

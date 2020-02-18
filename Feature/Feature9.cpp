@@ -25,7 +25,7 @@ int Feature9::use(int obj_id){
 	{
 		printf("Now you can use the music to play the piano!\n");
 		func_togg_count_x(USE);
-		return 4;
+		return 0;
 	}
 	else{
 		printf("You can't use this object with the piano.\n");
