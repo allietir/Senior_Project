@@ -24,6 +24,7 @@ Room4::Room4() {
 	set_exit_id(12, 2);//exit at east goes to Room13
 	set_exit_id(1, 3);//exit at east goes to Room13
 	init_long_short_desc();
+	set_num_events(3);
 	//object set in Game, therefor description initialized in Game	
 }
 int Room4::event_one(){

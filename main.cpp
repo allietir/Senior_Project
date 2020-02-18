@@ -312,10 +312,7 @@ int main(int argc, char *argv[]) {
 		sink_test.run_func(SINK, -1, EAT);
 
 
-		printf("=================START : ALL INITIAL FEATURE DESCRIPTIONS=========\n");
-		Game test_desc;
-		test_desc.print_all_feature_desc();		
-		printf("=================END : ALL INITIAL FEATURE DESCRIPTIONS=========\n");
+	
 	
 		//now try to open the locket in a room other than the crypt.
 
@@ -369,15 +366,31 @@ int main(int argc, char *argv[]) {
 		test_is_locked.set_all_is_locked(x);
 		printf("%s\n", test_is_locked.get_all_is_locked().c_str());
 
-		
-		Game parse_test;
-		parse_test.start();
-		string userInput = ""; 
-			while (1) {
-				cout << "what would you like to do: \n";
-				getline(cin, userInput);
-				inputParsing(parse_test, userInput);
+		/*TEST ALL EVENTS*/	
+		printf("=================START: ALL INITIAL FEATURE DESCRIPTIONS=========\n");
+		Game test_desc;
+		test_desc.print_all_feature_desc();		
+		printf("=================END : ALL INITIAL FEATURE DESCRIPTIONS=========\n");
+		/*TEST ALL EVENTS*/	
+		printf("======START: TEST ALL EVENTS========\n");
+		Game test_events;
+		for (int i = 0; i < NUM_ROOMS; i++){
+			for (int j = 0; j < test_events.get_room_x(i)->get_num_events(); j++){
+				printf("ROOM %i EVENT %i of %i:", i+1, j+1, test_events.get_room_x(i)->get_num_events());
+				test_events.get_room_x(i)->trigger_event(j);
 			}
+		}
+		printf("======END: TEST ALL EVENTS========\n");
+		
+		
+		//		Game parse_test;
+		//		parse_test.start();
+		//		string userInput = ""; 
+		//			while (1) {
+		//				cout << "what would you like to do: \n";
+		//				getline(cin, userInput);
+		//				inputParsing(parse_test, userInput);
+		//			}
 
 }
 	

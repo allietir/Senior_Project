@@ -100,7 +100,7 @@
 #define FEAT13 Mother
 #define FEAT14 Dresser
 #define FEAT15 Vampire
-#define FEAT16 Blood
+#define FEAT16 Branch
 #define FEAT17 Mirror
 #define FEAT18 Sink
 #define FEAT19 Chest
@@ -133,7 +133,7 @@
 #define STR_FEAT13 "Mother"
 #define STR_FEAT14 "Dresser"
 #define STR_FEAT15 "Vampire"
-#define STR_FEAT16 "Blood"
+#define STR_FEAT16 "Branch"
 #define STR_FEAT17 "Mirror"
 #define STR_FEAT18 "Sink"
 #define STR_FEAT19 "Chest"
@@ -236,7 +236,7 @@
 #define MOTHER 12
 #define DRESSER 13
 #define VAMPIRE 14
-#define BLOOD 15
+#define BRANCH 15
 #define MIRROR_2 16
 #define SINK 17
 #define CHEST 18

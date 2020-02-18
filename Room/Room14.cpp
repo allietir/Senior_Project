@@ -27,6 +27,7 @@ Room14::Room14() {
 	
 	init_long_short_desc();
 	//object set in Game, therefor description initialized in Game	
+	set_num_events(1);
 }
 int Room14::event_one(){
 	
