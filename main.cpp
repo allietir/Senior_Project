@@ -262,6 +262,8 @@ int main(int argc, char *argv[]) {
 		test_event_trigger.exit_current_from_room_id(CRYPT);
 		
 		*/
+
+/*
 		Game locket_test;
 		locket_test.get_player()->set_current_room(NURSURY);
 		locket_test.get_player()->set_has_objects(DOLL, 1);
@@ -366,6 +368,10 @@ int main(int argc, char *argv[]) {
 		test_is_locked.set_all_is_locked(x);
 		printf("%s\n", test_is_locked.get_all_is_locked().c_str());
 
+		*/
+		
+
+
 		/*TEST ALL EVENTS*/	
 		printf("=================START: ALL INITIAL FEATURE DESCRIPTIONS=========\n");
 		Game test_desc;
@@ -378,19 +384,20 @@ int main(int argc, char *argv[]) {
 			for (int j = 0; j < test_events.get_room_x(i)->get_num_events(); j++){
 				printf("ROOM %i EVENT %i of %i:", i+1, j+1, test_events.get_room_x(i)->get_num_events());
 				test_events.get_room_x(i)->trigger_event(j);
+
 			}
 		}
 		printf("======END: TEST ALL EVENTS========\n");
 		
 		
-		//		Game parse_test;
-		//		parse_test.start();
-		//		string userInput = ""; 
-		//			while (1) {
-		//				cout << "what would you like to do: \n";
-		//				getline(cin, userInput);
-		//				inputParsing(parse_test, userInput);
-		//			}
+				Game parse_test;
+				parse_test.start();
+				string userInput = ""; 
+					while (1) {
+						cout << "what would you like to do: \n";
+						getline(cin, userInput);
+						inputParsing(parse_test, userInput);
+					}
 
 }
 	

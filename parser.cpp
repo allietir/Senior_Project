@@ -74,9 +74,34 @@ int inputParsing(Game &game, string userInput){
 //Takes string as input
 //Removes punctuation, special characters, any extra spacing.
 //returns clean string back
-//NOT IMPLEMENTED
 
 string cleanInput(string userInput){
+	while (!userInput.empty() && isspace(*userInput.begin()))
+		userInput.erase(userInput.begin());
+
+	while (!userInput.empty() && isspace(*userInput.rbegin()))
+		userInput.erase(userInput.length() - 1);
+	
+	
+	for (int i = 0; i < userInput.size(); i++) {
+		if (userInput[i] == ' ') {
+			if (i == 0 ) {
+				userInput.erase(i, 1);
+				i--;
+			}
+			else if(userInput[i - 1] == ' ') {
+				userInput.erase(i, 1);
+				i--;
+			}
+		}
+		else if (userInput[i] < 'A' || userInput[i] > 'Z' &&
+			userInput[i] < 'a' || userInput[i] > 'z') {
+			userInput.erase(i, 1);
+			i--;
+		}
+	}
+	
+	transform(userInput.begin(), userInput.end(), userInput.begin(), ::tolower); 
 	return userInput;
 }
 
@@ -84,7 +109,7 @@ string cleanInput(string userInput){
 //recognizes look, inventory, savegame, loadgame, and help
 //calls the corresponding functions
 //Returns an int 0 if no basic command is found or 1 if command found and executed
-//needs commands for help, savegame, loadgame
+
 int checkBasicCommands(Game &game, string cleanInput){
 	int basicStatus =1;
 	if (cleanInput == "look"){
@@ -132,7 +157,7 @@ vector<string> splitCleanInput(string cleanInput){
 //recognizes: go <direction/room>, <direction/room>
 //calls the correct movement function
 //returns an int 0 if no movement command is found or 1 if command found and executed
-//call needed for room by ID
+
 int checkMoveCommands(Game &game, vector<string> inputVector){
 	int moveStatus = 1;
 	while (inputVector[0] == "go" || inputVector[0] == "to" || inputVector[0] == "the") {
@@ -185,14 +210,14 @@ int checkActions(Game &game, vector<string> inputVector) {
 //		//cout << "call take dagger\n";
 //		game.drop(4);
 //	}
-	if (inputVector[0] == "look" &&
+	/*if (inputVector[0] == "look" &&
 		(inputVector[1] == "gravestone"
 			|| (inputVector[1] == "at" && inputVector[2] == "gravestone"))) {
 		cout << "call look at gravestone\n";
 		//game.r_array[game.player1.get_current_room()]->get_feature_X(0)->look();
 	}
 	else actionStatus = 0;
-
+	*/
 	int verbID = -1;
 	int featID = -1;
 	int objID = -1;
