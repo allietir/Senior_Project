@@ -373,32 +373,41 @@ int main(int argc, char *argv[]) {
 
 
 		/*TEST ALL EVENTS*/	
-		printf("=================START: ALL INITIAL FEATURE DESCRIPTIONS=========\n");
-		Game test_desc;
-		test_desc.print_all_feature_desc();		
-		printf("=================END : ALL INITIAL FEATURE DESCRIPTIONS=========\n");
-		/*TEST ALL EVENTS*/	
-		printf("======START: TEST ALL EVENTS========\n");
-		Game test_events;
-		for (int i = 0; i < NUM_ROOMS; i++){
-			for (int j = 0; j < test_events.get_room_x(i)->get_num_events(); j++){
-				printf("ROOM %i EVENT %i of %i:", i+1, j+1, test_events.get_room_x(i)->get_num_events());
-				test_events.get_room_x(i)->trigger_event(j);
-
-			}
-		}
-		printf("======END: TEST ALL EVENTS========\n");
+//		printf("=================START: ALL INITIAL FEATURE DESCRIPTIONS=========\n");
+//		Game test_desc;
+//		test_desc.print_all_feature_desc();		
+//		printf("=================END : ALL INITIAL FEATURE DESCRIPTIONS=========\n");
+//		/*TEST ALL EVENTS*/	
+//		printf("======START: TEST ALL EVENTS========\n");
+//		Game test_events;
+//		for (int i = 0; i < NUM_ROOMS; i++){
+//			for (int j = 0; j < test_events.get_room_x(i)->get_num_events(); j++){
+//				printf("ROOM %i EVENT %i of %i:", i+1, j+1, test_events.get_room_x(i)->get_num_events());
+//				test_events.get_room_x(i)->trigger_event(j);
+//
+//			}
+//		}
+//		printf("======END: TEST ALL EVENTS========\n");
 		
-		
-				Game parse_test;
-				parse_test.start();
-				string userInput = ""; 
-					while (1) {
-						cout << "what would you like to do: \n";
-						getline(cin, userInput);
-						inputParsing(parse_test, userInput);
-					}
+//		
+//				Game parse_test;
+//				parse_test.start();
+//				string userInput = ""; 
+//					while (1) {
+//						cout << "what would you like to do: \n";
+//						getline(cin, userInput);
+//						inputParsing(parse_test, userInput);
+//					}
 
+
+		Game burn_test;
+		burn_test.get_player()->set_current_room(KITCHEN);
+		burn_test.get_player()->set_has_objects(0, 1);
+		burn_test.get_player()->set_has_objects(1, 1);
+		burn_test.get_player()->set_has_objects(2, 1);
+		burn_test.run_func(STOVE, 0, USE);
+		burn_test.run_func(STOVE, 1, USE);
+		burn_test.run_func(STOVE, 2, USE);
 }
 	
 	

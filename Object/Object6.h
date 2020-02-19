@@ -9,7 +9,6 @@ class Object6 : public Object{
 public:
 	Object6();
 	virtual ~Object6();
-	int give(int room_id, int feat_obj_id);
 	int special=666;
 };
 

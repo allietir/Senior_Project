@@ -47,6 +47,10 @@ void Game::event5(){
 void Game::event6(int obj_id){
 	printf("-------You have destroyed the %s-------\n", o_array[obj_id]->get_name().c_str());
 	set_game_events_triggered(5, 1);
+	int curr_room = player1.get_current_room();
+	player1.set_current_room(LIBRARY);
+	drop(obj_id);
+	player1.set_current_room(curr_room);
 	set_is_locked(obj_id, 1);
 }
 void Game::init_rooms() {

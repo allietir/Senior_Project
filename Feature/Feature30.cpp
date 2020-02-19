@@ -10,7 +10,6 @@ Feature30::Feature30() {
 	set_desc_no_obj(get_desc());
 	set_index_id(29);
 }
-
 Feature30::~Feature30() {
 	
 }
