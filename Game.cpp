@@ -472,7 +472,7 @@ int Game::room_has_item(int obj_id){
 }
 //climb can only refer to FEATURES validly so get context_id from string 
 int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
-	printf("=============Running Func==========\n%i %i %i\n", feat_index_id, obj_index_id, verb_id);
+	//printf("=============Running Func==========\n%i %i %i\n", feat_index_id, obj_index_id, verb_id);
 	int res = -666;
 	string verb="unset";
 	

@@ -32,7 +32,7 @@ Room14::Room14() {
 int Room14::event_one(){
 	
 	printf("The crypt door make the sound of a thousand gears opening and slides open.\n");
-	return 0;
+	return 4;
 }
 
 Room14::~Room14() {
