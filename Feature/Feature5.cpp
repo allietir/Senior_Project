@@ -5,8 +5,8 @@
 #include "Feature5.h"
 
 Feature5::Feature5() {
-	set_name("Mirror");
-	set_desc("There is a mirror at the end of the hallway, apparently attached to a door to somewhere. You can't see much in the mirror; it looks like your reflection is a little foggy.\n");
+	set_name("Clock");
+	set_desc("There is a clock at the end of the highway, a grandfather clock, large and imposing. What happens when the clock strikes midnight?\n");
 	set_index_id(4);
 }
 

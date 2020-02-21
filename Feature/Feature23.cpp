@@ -23,6 +23,8 @@ int Feature23::eat(){
 	if (get_times_toggled(USE)>1){
 		func_togg_count_x(EAT);
 		printf("You are transported to the basement.\n");
+		printf("There is no longer water in the chalice\n");
+		set_togg_count_x(USE, 0);
 		return BASEMENT + 10;
 	}
 	return 4;

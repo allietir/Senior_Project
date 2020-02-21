@@ -89,7 +89,7 @@
 #define FEAT2 Tree
 #define FEAT3 Portrait
 #define FEAT4 Musicbox
-#define FEAT5 Mirror
+#define FEAT5 Clock
 #define FEAT6 Carpet
 #define FEAT7 Faceless
 #define FEAT8 Table
@@ -122,7 +122,7 @@
 #define STR_FEAT2 "Tree"
 #define STR_FEAT3 "Portrait"
 #define STR_FEAT4 "Musicbox"
-#define STR_FEAT5 "Mirror"
+#define STR_FEAT5 "Clock"
 #define STR_FEAT6 "Carpet"
 #define STR_FEAT7 "Faceless"
 #define STR_FEAT8 "Table"
@@ -225,7 +225,7 @@
 #define TREE 1
 #define PORTRAIT 2
 #define MUSICBOX 3
-#define MIRROR 4
+#define CLOCK 4
 #define CARPET 5
 #define FACELESS 6
 #define TABLE 7

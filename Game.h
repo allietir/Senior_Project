@@ -79,6 +79,8 @@ public:
 	void event4();
 	void event5();
 	void event6(int obj_id);
+	void event7();
+	void event8();
 	void look();//trigger current room look
 	
 	//extra exits
@@ -189,6 +191,8 @@ private:
 	
 	
 	string feat_list[TOTAL_FIXED];
+	
+	int event8counter;
 	
 	
 		

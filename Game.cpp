@@ -14,6 +14,7 @@ Game::Game() {
 	for (int i = 0; i < NUM_EVENTS; i++){
 		set_room_events_triggered(i, 0);
 	}
+	event8counter = 0;
 }
 void Game::event1()
 {
@@ -52,6 +53,14 @@ void Game::event6(int obj_id){
 	drop(obj_id);
 	player1.set_current_room(curr_room);
 	set_is_locked(obj_id, 1);
+}
+
+void Game::event7(){
+	o_array[LOCKET]->open(CRYPT, -1);
+}
+
+void Game::event8(){
+	event8counter = 1;
 }
 void Game::init_rooms() {
 	init_objects();
@@ -539,21 +548,23 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 					else if (verb.compare(STR_VERB5)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB5(); }
 					else if (verb.compare(STR_VERB7)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB7(); }
 					else if (verb.compare(STR_VERB9)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB9(); }
-				//}
-				
 
-
-				
-			//}
-			//else if ((feat_index_id!=-1)&&(obj_index_id!=-1)){
 				printf("Running %s on FEAT %s that DOES take OBJECT with object %s in room %s\n", verb.c_str(), feat_string.c_str(), o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
-				//if ((obj_index_id <= 7)&&(obj_index_id>=0)&&(item>=0)&&(item<=1))
-				//{
+	
 					if (verb.compare(STR_VERB3)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB3(obj_index_id); }
 					else if (verb.compare(STR_VERB6)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB6(player1.get_current_room(), obj_index_id); }
 					else if (verb.compare(STR_VERB8)==0){ 
 						if ((feat_index_id==VAMPIRE)&&(obj_index_id==CHALICE)){
 							res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB8(get_room_events_triggered(24), obj_index_id); 
+						}
+						else if ((feat_index_id==DEMON)&&(r_array[player1.get_current_room()]->get_feature_x(item)->get_times_toggled(USE)==1)){
+							//if chalice has been "used" once i.e. "filled" and it has not been "emptied" by traveling to the library...
+							res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB8(player1.get_current_room(), obj_index_id); 
+						}
+						else if ((feat_index_id==DEMON)&&(r_array[player1.get_current_room()]->get_feature_x(item)->get_times_toggled(USE)!=1))
+						{
+							printf("There is nothing special in this cup to protect you. The demon notices you and you know you are done for\n");
+							res = -1;
 						}
 						else{
 							res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB8(player1.get_current_room(), obj_index_id); 
@@ -561,12 +572,25 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 					}
 					else if (verb.compare(STR_VERB10)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB10(obj_index_id); }
 				}
-			//}
-			else if ((feat_index_id==-1)&&(obj_index_id!=-1)){
+				else if ((feat_index_id==-1)&&(obj_index_id!=-1)){
 				printf("Running %s on OBJECT %s in room %s\n", verb.c_str(), o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
 				if ((obj_index_id <= 7)&&(obj_index_id>=0))
 				{
-					if (verb.compare(STR_VERB1)==0){ res = o_array[obj_index_id]->VERB1(); }
+					if (verb.compare(STR_VERB1)==0){ 
+						
+						 
+						if (event8counter>=1){
+							printf("You open the book to the correct spell and read:\n'As sure as the demon is evil'\n'We will trap the dark soul and his smallness reveal'\n");
+							res=35;
+							
+							
+						}
+						else{
+							res = o_array[obj_index_id]->VERB1();
+							event8counter = 0;
+						}
+						
+					}
 					else if (verb.compare(STR_VERB2)==0){ res = o_array[obj_index_id]->VERB2(); }
 					else if (verb.compare(STR_VERB3)==0){ res = o_array[obj_index_id]->VERB3(-1); }
 					else if (verb.compare(STR_VERB4)==0){ res = o_array[obj_index_id]->VERB4(); }
@@ -645,6 +669,12 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 //			if (res==34){
 //				event5();
 //			}
+			if (res==35){
+				event7();
+			}
+			if (res==36){
+				event8();
+			}
 			if (res==45+obj_index_id){
 				event6(res-45);
 			}

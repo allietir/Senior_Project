@@ -408,6 +408,35 @@ int main(int argc, char *argv[]) {
 		burn_test.run_func(STOVE, 0, USE);
 		burn_test.run_func(STOVE, 1, USE);
 		burn_test.run_func(STOVE, 2, USE);
+		
+//		printf("==================testing take / drop====================\n");
+//			Game test_take_drop;
+//			int ba[]={0,0,0,0,0,0,0,0};
+//			test_take_drop.set_all_is_locked(ba);
+//			for (int i = 0; i < NUM_ROOMS; i++){
+//				test_take_drop.get_player()->set_current_room(i);
+//				//try to take each object in each room
+//				for (int j = 0; j < NUM_OBJECTS; j++){
+//					test_take_drop.take(j);
+//					string x = test_take_drop.get_all_player_objects();
+//					printf("%s\n", x.c_str());
+//					
+//				}
+//			}
+//			//after you have all items in your inventory...
+//			for (int i = 0; i < NUM_ROOMS; i++){
+//				test_take_drop.get_player()->set_current_room(i);
+//				//...try to drop each item in each room and then take it again
+//				for (int j = 0; j < NUM_OBJECTS; j++){
+//					test_take_drop.drop(j);
+////					test_take_drop.take(j);
+//				}
+//			}
+//			printf("================FINISHED TESTING DROP/TAKE==========\n");
+			
+		Game crypt_test;
+		crypt_test.get_player()->set_current_room(CRYPT);
+		
 }
 	
 	
