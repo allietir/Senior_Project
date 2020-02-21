@@ -76,7 +76,7 @@ const map<string, int> featIDmap = {
 	{ "tree", 1 },
     { "portrait", 2 },
 	{ "musicbox", 3 },
-	{ "mirror", 4}, 
+	{ "clock", 4}, 
 	{ "carpet", 5}, 
 	{ "faceless", 6}, 
 	{ "table", 7}, 
@@ -88,7 +88,7 @@ const map<string, int> featIDmap = {
 	{ "dresser", 13}, 
 	{ "vampire", 14}, 
 	{ "branch", 15},
-	//{ "mirror", 16}, can't have 2 of same name but different ID
+	{ "mirror", 16}, can't have 2 of same name but different ID
 	{ "sink", 17 },
     { "chest", 18 },
 	{ "pirate", 19 },
