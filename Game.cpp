@@ -925,6 +925,11 @@ void Game::set_all_is_locked(int bin_arr[NUM_OBJECTS]){
 		set_is_locked(i, bin_arr[i]);
 	}
 }
+void Game::set_player_has_all_objects(int set[NUM_OBJECTS]){
+	for (int i = 0; i < NUM_OBJECTS; i++){
+		player1.set_has_objects(i, set[i]);
+	}
+}
 Game::~Game() {
 
 }

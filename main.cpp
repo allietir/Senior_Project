@@ -436,6 +436,8 @@ int main(int argc, char *argv[]) {
 			
 		Game crypt_test;
 		crypt_test.get_player()->set_current_room(CRYPT);
+		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
+		crypt_test.set_player_has_all_objects(has_objs);
 		
 }
 	

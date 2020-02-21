@@ -155,6 +155,7 @@ public:
 	
 	void print_all_feature_desc();
 
+	void set_player_has_all_objects(int set[NUM_OBJECTS]);
 //todo:
 	/*
 		get connect string to feat_id in room for climb/jump
