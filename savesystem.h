@@ -16,4 +16,6 @@ void set_game_data(Game& game, ifstream& save_file);
 
 void convert_string_to_array(int* arr, string str);
 
+bool save_load_test(Game& game);
+
 #endif

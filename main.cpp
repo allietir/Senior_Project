@@ -225,55 +225,92 @@ int main(int argc, char *argv[]) {
 
 
 
-/*ALLIE SAVESYSTEM*/
-/*
-	Game test_take_drop;
-	for (int i = 0; i < NUM_ROOMS; i++){
-		test_take_drop.get_player()->set_current_room(i);
-		//try to take each object in each room
-		for (int j = 0; j < NUM_OBJECTS; j++){
-			test_take_drop.take(j);
-			string x = test_take_drop.get_all_player_objects();
-			printf("%s\n", x.c_str());
-		}
-	}
-	//after you have all items in your inventory...
-	for (int i = 0; i < NUM_ROOMS; i++){
-		test_take_drop.get_player()->set_current_room(i);
-		//...try to drop each item in each room and then take it again
-		for (int j = 0; j < NUM_OBJECTS; j++){
-			test_take_drop.drop(j);
-			test_take_drop.take(j);
-		}
-	}*/
+/*START ALLIE SAVESYSTEM TESTS*/
+
+	int success = 0;
+	int total = 0;
 
 	Game test_take_drop;
+
 	int ba[]={0,0,0,0,0,0,0,0};
 	test_take_drop.set_all_is_locked(ba);
+
 	for (int i = 0; i < NUM_ROOMS; i++){
+
 		test_take_drop.get_player()->set_current_room(i);
+
 		//try to take each object in each room
 		for (int j = 0; j < NUM_OBJECTS; j++){
 			test_take_drop.take(j);
 			string x = test_take_drop.get_all_player_objects();
 			printf("%s\n", x.c_str());
+
+			//Run the save_load_test for each of these single actions
+			if (save_load_test(Game& game) == true) 
+			{
+				printf("save_load_test = SUCCESS\n");
+				success++;
+			}
+			else
+			{
+				printf("save_load_test = FAIL\n");
+			}
+			total++;
+
 		}
 	}
-	//after you have all items in your inventory...
+
+	//after you have all items in your inventory
+	//for each room
 	for (int i = 0; i < NUM_ROOMS; i++){
+
 		test_take_drop.get_player()->set_current_room(i);
-		//...try to drop each item in each room and then take it again
+
+		//try to drop each item in room 
 		for (int j = 0; j < NUM_OBJECTS; j++){
 			test_take_drop.drop(j);
-			//test_take_drop.take(j);
+
+			//Run the save_load_test for each of these single actions
+			if (save_load_test(Game& game) == true) 
+			{
+				printf("save_load_test = SUCCESS\n");
+				success++;
+			}
+			else
+			{
+				printf("save_load_test = FAIL\n");
+			}
+			total++;
+
+		}
+
+		//try to take each item in the room
+		for (int k = 0; k < NUM_OBJECTS; k++){
+			test_take_drop.take(k);
+
+			//Run the save_load_test for each of these single actions
+			if (save_load_test(Game& game) == true) 
+			{
+				printf("save_load_test = SUCCESS\n");
+				success++;
+			}
+			else
+			{
+				printf("save_load_test = FAIL\n");
+			}
+			total++;
+
 		}
 	}
+
+	//print overall results
+	printf("save_load_test report: %d out of %d tests passed", success, total);
 
 	//new_game.start();
 	//save_game(new_game);
 	//load_game(new_game);
 
-//		save_game(new_game);	
+/*END ALLIE SAVESYSTEM TESTS*/	
 
 //	
 
