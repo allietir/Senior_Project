@@ -235,6 +235,7 @@ void convert_string_to_array(int* arr, string str) {
 
 }
 
+/*****This will only work on Linux*****/
 //This is a testing function with modified code from the other save load functions.
 //It saves the game, loads it, saves it again, then compares the two save files.
 bool save_load_test(Game& game) {

@@ -232,8 +232,27 @@ int main(int argc, char *argv[]) {
 
 	Game test_take_drop;
 
+	test_take_drop.start();
+
 	int ba[]={0,0,0,0,0,0,0,0};
 	test_take_drop.set_all_is_locked(ba);
+
+	//Run the save_load_test for the player in each room and before any action is taken
+	for (int i = 0; i < NUM_ROOMS; i++) {
+
+		test_take_drop.get_player()->set_current_room(i);
+
+		if (save_load_test(test_room_save) == true) 
+		{
+			printf("save_load_test = SUCCESS\n");
+			success++;
+		}
+		else
+		{
+			printf("save_load_test = FAIL\n");
+		}
+		total++;
+	}
 
 	for (int i = 0; i < NUM_ROOMS; i++){
 
@@ -260,8 +279,8 @@ int main(int argc, char *argv[]) {
 		}
 	}
 
+	//Test dropping and picking up items in each room
 	//after you have all items in your inventory
-	//for each room
 	for (int i = 0; i < NUM_ROOMS; i++){
 
 		test_take_drop.get_player()->set_current_room(i);
