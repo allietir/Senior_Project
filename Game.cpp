@@ -93,7 +93,10 @@ void Game::event12(){
 	o_array[DIARY]->set_read_response(x);
 	set_game_events_triggered(11, 1);
 }
-
+void Game::event13(){
+	r_array[UPSTAIRS]->trigger_event(0);
+	get_player()->set_current_room(UPSTAIRS);
+}
 void Game::output_current_object_locations(){
 	string str = ret_curr_obj_loc();
 	printf("%s", str.c_str());
@@ -418,7 +421,10 @@ void Game::exit_room(int dir){
 				
 				event1();
 			}
-
+			if (player1.get_move_count()==15){
+				
+				event13();
+			}
 			//intro room
 			current_room = player1.get_current_room();
 			printf("You are entering: %s\n", r_array[current_room]->get_name().c_str());

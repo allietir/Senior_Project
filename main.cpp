@@ -486,23 +486,30 @@ int main(int argc, char *argv[]) {
 //		clock_test.run_func(CLOCK, -1, OPEN);
 //		clock_test.run_func(CLOCK, -1, CLIMB);
 		
-		Game book_test;
-		book_test.get_player()->set_current_room(LIBRARY);
-		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
+//		Game book_test;
+//		book_test.get_player()->set_current_room(LIBRARY);
+//		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
+//		
+//		book_test.set_player_has_all_objects(has_objs);
+//	//	book_test.run_func(-1, DIARY, READ);
+//		book_test.run_func(BOOKSHELF, DIARY, USE);
+//		book_test.run_func(BOOKSHELF, -1, SPEAK);
+//		book_test.run_func(BOOKSHELF, -1, READ);
+//		book_test.run_func(BOOKSHELF, -1, SPEAK);
+//		book_test.run_func(BOOKSHELF, -1, READ);		
+//		book_test.run_func(BOOKSHELF, -1, SPEAK);
+//		book_test.run_func(BOOKSHELF, -1, READ);
+//		book_test.run_func(-1, DIARY, READ);
+//		book_test.drop(DAGGER);
+//		book_test.run_func(-1, DIARY, READ);
 		
-		book_test.set_player_has_all_objects(has_objs);
-	//	book_test.run_func(-1, DIARY, READ);
-		book_test.run_func(BOOKSHELF, DIARY, USE);
-		book_test.run_func(BOOKSHELF, -1, SPEAK);
-		book_test.run_func(BOOKSHELF, -1, READ);
-		book_test.run_func(BOOKSHELF, -1, SPEAK);
-		book_test.run_func(BOOKSHELF, -1, READ);		
-		book_test.run_func(BOOKSHELF, -1, SPEAK);
-		book_test.run_func(BOOKSHELF, -1, READ);
-		book_test.run_func(-1, DIARY, READ);
-		book_test.drop(DAGGER);
-		book_test.run_func(-1, DIARY, READ);
-
+		
+		Game midnight_test;
+		midnight_test.get_player()->set_move_count(14);
+		midnight_test.get_player()->set_current_room(PARLOR);
+		midnight_test.exit_room(2);
+		
+		
 }
 	
 	
