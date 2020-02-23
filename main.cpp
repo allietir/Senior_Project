@@ -399,15 +399,15 @@ int main(int argc, char *argv[]) {
 //						inputParsing(parse_test, userInput);
 //					}
 
-
-		Game burn_test;
-		burn_test.get_player()->set_current_room(KITCHEN);
-		burn_test.get_player()->set_has_objects(0, 1);
-		burn_test.get_player()->set_has_objects(1, 1);
-		burn_test.get_player()->set_has_objects(2, 1);
-		burn_test.run_func(STOVE, 0, USE);
-		burn_test.run_func(STOVE, 1, USE);
-		burn_test.run_func(STOVE, 2, USE);
+//
+//		Game burn_test;
+//		burn_test.get_player()->set_current_room(KITCHEN);
+//		burn_test.get_player()->set_has_objects(0, 1);
+//		burn_test.get_player()->set_has_objects(1, 1);
+//		burn_test.get_player()->set_has_objects(2, 1);
+//		burn_test.run_func(STOVE, 0, USE);
+//		burn_test.run_func(STOVE, 1, USE);
+//		burn_test.run_func(STOVE, 2, USE);
 		
 //		printf("==================testing take / drop====================\n");
 //			Game test_take_drop;
@@ -434,10 +434,29 @@ int main(int argc, char *argv[]) {
 //			}
 //			printf("================FINISHED TESTING DROP/TAKE==========\n");
 			
-		Game crypt_test;
-		crypt_test.get_player()->set_current_room(CRYPT);
-		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
-		crypt_test.set_player_has_all_objects(has_objs);
+//		Game crypt_test;
+//		crypt_test.get_player()->set_current_room(CRYPT);
+//		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
+//		crypt_test.set_player_has_all_objects(has_objs);
+//		crypt_test.look();
+//		crypt_test.look();
+//		printf("-----------then------------\n");
+//		crypt_test.run_func(DEMON, -1, LOOK);
+//		crypt_test.run_func(ALEX, -1, LOOK);
+		//crypt_test.run_func(DEMON, -1, SPEAK);
+		
+		Game mother_test;
+		mother_test.get_player()->set_current_room(GUEST);
+		mother_test.run_func(DRESSER, DAGGER, ATTACK);
+		mother_test.run_func(-1, MUSIC, TAKE);
+		mother_test.get_player()->set_has_objects(DAGGER, 1);
+
+		mother_test.look();
+		printf("--------------ABOUT TO ATTACK WITH DAGGER------------");
+		mother_test.run_func(DRESSER, DAGGER, ATTACK);
+		printf("--------------AFTER ATTACK WITH DAGGER------------");
+		mother_test.run_func(MOTHER, -1, SPEAK);
+		mother_test.look();
 		
 }
 	

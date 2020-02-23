@@ -33,6 +33,7 @@ Room15::Room15() {
 int Room15::event_one(){
 	printf("You trap the demon in the locket\n");
 	//trigger game event 4
+	set_event_triggered(0, 1);
 	return 33;
 }
 Room15::~Room15() {

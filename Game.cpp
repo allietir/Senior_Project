@@ -514,9 +514,10 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 		{
 			if ((item>=0)&&(item<=1)){
 				printf("Running %s on on FEAT %s in room %s\n", verb.c_str(), feat_string.c_str(), r_array[player1.get_current_room()]->get_name().c_str());
-				if (user_or_room_has_item(obj_index_id)==0){
-					if (verb.compare(STR_RVERB1)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->RVERB1(); }
-				}
+//				if (user_or_room_has_item(obj_index_id)==0){
+				if (verb.compare(STR_RVERB1)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->RVERB1(); }
+//				}
+				
 				else if (verb.compare(STR_RVERB2)==0){ printf("You can't take that\n"); }
 				else if (verb.compare(STR_RVERB3)==0){ printf("You can't drop that\n"); }
 			}
@@ -678,7 +679,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			if (res==45+obj_index_id){
 				event6(res-45);
 			}
-			if((room_events_triggered[13]==1)&&(room_events_triggered[15]==1)&&(room_events_triggered[21]==1)) 
+			if(((room_events_triggered[13]==1)&&(room_events_triggered[15]==1)&&(room_events_triggered[21]==1))|| ((room_events_triggered[20]==1)&&(room_events_triggered[15]==1)&&(room_events_triggered[21]==1)))
 			{
 				event5();
 			}

@@ -33,6 +33,7 @@ Room11::Room11() {
 int Room11::event_one()
 {
 	printf("The key swirls briefly in your hand as if by magic, and points up before stilling in your hand.\n");
+	set_event_triggered(0, 1);
 	return 4;
 }
 Room11::~Room11() {

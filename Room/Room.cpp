@@ -299,6 +299,9 @@ int Room::get_num_events(){
 }
 void Room::set_num_events(int x){
 	num_events = x;
+	for (int i = 0; i < x; i++){
+		set_event_triggered(i, 0);
+	}
 }
 
 int Room::event_one(){
@@ -331,17 +334,17 @@ int Room::trigger_event(int event_number){
 	int ret_val=4;
 	if (event_number==0){
 		ret_val = event_one();
-		event_triggered[event_number]=1;
+		//event_triggered[event_number]=1;
 		
 	}
 	if (event_number==1){
 		ret_val = event_two();
-		event_triggered[event_number]=1;
+		//event_triggered[event_number]=1;
 	
 	}
 	if (event_number==2){
 		ret_val = event_three();
-		event_triggered[event_number]=1;
+		//event_triggered[event_number]=1;
 		
 	}
 	

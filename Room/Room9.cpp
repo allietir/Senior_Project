@@ -27,6 +27,7 @@ Room9::Room9() {
 }
 int Room9::event_one(){
 	printf("You fill the chalice with blood.\n");
+	set_event_triggered(0, 1);
 	return 4;
 }
 Room9::~Room9() {

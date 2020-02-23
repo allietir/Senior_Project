@@ -32,6 +32,7 @@ Room14::Room14() {
 int Room14::event_one(){
 	
 	printf("The crypt door make the sound of a thousand gears opening and slides open.\n");
+	set_event_triggered(0, 1);
 	return 4;
 }
 

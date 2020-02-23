@@ -12,9 +12,19 @@ Feature30::Feature30(){
 }
 int Feature30::speak(){
 
-	func_togg_count_x(SPEAK);
-	printf("The demon speaks in a thundering tone:\n'Your friend has a darkness inside them and so they will be mine.'\n You say to the demon: \n'We all have both dark and light within us.'\n'Instead of bringing them to the dark, why can't you step into the light?'\nThe demon shudders.'It is too late for me. The one I loved chose another. I cannot bear to see the light of day.'\n");
-	
+	if (get_times_toggled(SPEAK)==0){
+		func_togg_count_x(SPEAK);
+		printf("The demon speaks in a thundering tone:\n'Your friend has a darkness inside them and so they will be mine.'\n You say to the demon: \n'We all have both dark and light within us.'\n'Instead of bringing them to the dark, why can't you step into the light?'\nThe demon shudders.'It is too late for me. The one I loved chose another. I cannot bear to see the light of day.'\n");
+	}
+	else if (get_times_toggled(SPEAK)==1){
+		func_togg_count_x(SPEAK);
+		printf(" 'Whome did you love?' You ask. The demons eyes wander away from Alex, and seems to stop sucking the life force out of Alex.\n 'It doesn't matter. None of it matters anywmore'\n");
+
+	}
+	else{
+		printf("The demon has nothing else to say.\n");
+	}
+		
 
 	return 4;
 }

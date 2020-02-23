@@ -33,6 +33,7 @@ Room12::Room12() {
 }
 int Room12::event_one(){
 	printf("The chalice glows briefly and feels warm in your hands. This is important, you feel.\n");
+	set_event_triggered(0, 1);
 	return 4;
 }
 

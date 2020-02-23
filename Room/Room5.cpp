@@ -30,16 +30,19 @@ Room5::Room5() {
 int Room5::event_one()
 {
 	get_feature_x(1)->set_desc("The woman's in the painting. Her eyes open. She smiles.\n'");
+	set_event_triggered(0, 1);
 	return 4;
 		
 }
 int Room5::event_two(){
 	printf("You hope the woman finds her family.\n");
+	set_event_triggered(1, 1);
 	return 4;
 }
 
 int Room5::event_three(){
 	printf("You take the staircase up.\n");
+	set_event_triggered(2, 1);
 	return LIBRARY+10;
 }
 Room5::~Room5() {
