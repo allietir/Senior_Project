@@ -303,7 +303,7 @@ void Game::drop(int object_id){
 	if ((p_has_item == 1)&&(r_has_item==0)){
 		player1.set_has_objects(object_id, 0);
 		r_array[current_room]->set_has_objects(object_id, 1);
-		set_obj_location(object_id, -1);
+		set_obj_location(object_id, current_room);
 		printf("%s now has %s\n", r_array[current_room]->get_name().c_str(), o_array[object_id]->get_name().c_str());	
 		printf("Updated player inventory...\n");
 		inventory();

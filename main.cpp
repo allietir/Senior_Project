@@ -500,7 +500,8 @@ int main(int argc, char *argv[]) {
 		book_test.run_func(BOOKSHELF, -1, SPEAK);
 		book_test.run_func(BOOKSHELF, -1, READ);
 		book_test.run_func(-1, DIARY, READ);
-	
+		book_test.drop(DAGGER);
+		book_test.run_func(-1, DIARY, READ);
 
 }
 	
