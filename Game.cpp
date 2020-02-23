@@ -341,6 +341,9 @@ void Game::exit_room(int dir){
 			mc = mc + 1;
 			//update player move count
 			player1.set_move_count(mc);
+			//update clock in upstairs hallway
+			r_array[UPSTAIRS]->get_feature_x(0)->set_time(mc);
+		
 			//update state of knowing how many times a room has been visited
 			set_times_rooms_visited(get_next_room, get_times_room_visited(get_next_room)+1);
 				
