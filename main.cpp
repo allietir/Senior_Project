@@ -246,7 +246,7 @@ int main(int argc, char *argv[]) {
 			printf("%s\n", x.c_str());
 
 			//Run the save_load_test for each of these single actions
-			if (save_load_test(Game& game) == true) 
+			if (save_load_test(test_take_drop) == true) 
 			{
 				printf("save_load_test = SUCCESS\n");
 				success++;
@@ -271,7 +271,7 @@ int main(int argc, char *argv[]) {
 			test_take_drop.drop(j);
 
 			//Run the save_load_test for each of these single actions
-			if (save_load_test(Game& game) == true) 
+			if (save_load_test(test_take_drop) == true) 
 			{
 				printf("save_load_test = SUCCESS\n");
 				success++;
@@ -289,7 +289,7 @@ int main(int argc, char *argv[]) {
 			test_take_drop.take(k);
 
 			//Run the save_load_test for each of these single actions
-			if (save_load_test(Game& game) == true) 
+			if (save_load_test(test_take_drop) == true) 
 			{
 				printf("save_load_test = SUCCESS\n");
 				success++;
