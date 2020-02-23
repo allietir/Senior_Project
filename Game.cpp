@@ -88,37 +88,57 @@ void Game::event11(){
 	output_feature_list_locations();
 	set_game_events_triggered(10, 1);
 }
+void Game::event12(){
+	string x = o_array[DIARY]->get_read_response() + ret_curr_feat_list() + ret_curr_obj_loc();
+	o_array[DIARY]->set_read_response(x);
+	set_game_events_triggered(11, 1);
+}
 
 void Game::output_current_object_locations(){
+	string str = ret_curr_obj_loc();
+	printf("%s", str.c_str());
+}
+string Game::ret_curr_obj_loc(){
 	string str = "";
 	int curr_room;
 	string room_name;
 	string obj_name;
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		curr_room = current_obj_location[i];
-		room_name = r_array[curr_room]->get_name();
 		obj_name = o_array[i]->get_name();
-		str = str + "The " + obj_name + " is in the " + room_name + ".\n";
+		if (curr_room!=-1){
+			room_name = r_array[curr_room]->get_name();
+			
+			str = str + "The " + obj_name + " is in the " + room_name + ".\n";
+		}
+		else if (curr_room==-1){
+			str = str + "The " + obj_name + " is in your inventory\n";
+		}
+		
 	}
-	printf("%s", str.c_str());
+	return str;
 }
 void Game::output_feature_list_locations(){
 	
+	string str = ret_curr_feat_list();
+	printf("%s", str.c_str());
+}
+string Game::ret_curr_feat_list(){
 	string str = "";
-	int curr_room;
+
 	string room_name;
 	string feat_name0;
 	string feat_name1;
 	
 	for (int i = 0; i < NUM_ROOMS; i++){
-		curr_room = current_obj_location[i];
-		room_name = r_array[curr_room]->get_name();
-		feat_name0 = r_array[curr_room]->get_feature_x(0)->get_name();
-		feat_name1 = r_array[curr_room]->get_feature_x(1)->get_name();
+		
+		room_name = r_array[i]->get_name();
+		feat_name0 = r_array[i]->get_feature_x(0)->get_name();
+		feat_name1 = r_array[i]->get_feature_x(1)->get_name();
 		str = str + "The " + feat_name0 + " is in the " + room_name + ".\n";
 		str = str + "The " + feat_name1 + " is in the " + room_name + ".\n";
 	}
-	printf("%s", str.c_str());
+	return str;
 }
 string Game::concat_obj_descs(){
 	string x = "";
@@ -264,6 +284,9 @@ void Game::take(int object_id){
 		r_array[KITCHEN]->get_feature_x(0)->set_desc(r_array[KITCHEN]->get_feature_x(0)->get_desc_no_obj());
 		r_array[KITCHEN]->init_long_short_desc();
 	}
+	if (get_game_events_triggered(11)==1){
+		event12();
+	}
 
 	
 	
@@ -294,6 +317,9 @@ void Game::drop(int object_id){
 	}
 	else if (r_has_item == 1){
 		printf("Item is already in this room\n");
+	}
+	if (get_game_events_triggered(11)==1){
+		event12();
 	}
 
 	
@@ -624,7 +650,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 				
 				if ((item>=0)&&(item<=1))
 				{
-					printf("Running %s on on FEAT %s that does NOT take OBJECT in room %s\n", verb.c_str(), feat_string.c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+				//	printf("Running %s on on FEAT %s that does NOT take OBJECT in room %s\n", verb.c_str(), feat_string.c_str(), r_array[player1.get_current_room()]->get_name().c_str());
 					if (verb.compare(STR_VERB1)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB1(); }
 					else if (verb.compare(STR_VERB2)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB2(); }
 					else if (verb.compare(STR_VERB4)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB4(); }
@@ -632,7 +658,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 					else if (verb.compare(STR_VERB7)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB7(); }
 					else if (verb.compare(STR_VERB9)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB9(); }
 
-				printf("Running %s on FEAT %s that DOES take OBJECT with object %s in room %s\n", verb.c_str(), feat_string.c_str(), o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+				//printf("Running %s on FEAT %s that DOES take OBJECT with object %s in room %s\n", verb.c_str(), feat_string.c_str(), o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
 	
 					if (verb.compare(STR_VERB3)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB3(obj_index_id); }
 					else if (verb.compare(STR_VERB6)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB6(player1.get_current_room(), obj_index_id); }
@@ -767,6 +793,9 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			}
 			if (res==39){
 				event11();
+			}
+			if (res==40){
+				event12();
 			}
 			if (res==45+obj_index_id){
 				event6(res-45);
@@ -1022,6 +1051,18 @@ void Game::set_all_is_locked(int bin_arr[NUM_OBJECTS]){
 void Game::set_player_has_all_objects(int set[NUM_OBJECTS]){
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		player1.set_has_objects(i, set[i]);
+		
+		current_obj_location[i]=-1;
+		
+	}
+	for (int i = 0; i < NUM_ROOMS; i++){
+		for (int j=0; j<NUM_OBJECTS; j++){
+			if (set[j]==1){
+				r_array[i]->set_has_objects(j, 0);
+			}
+			
+		}
+		
 	}
 }
 Game::~Game() {

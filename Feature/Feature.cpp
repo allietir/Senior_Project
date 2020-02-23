@@ -24,6 +24,12 @@ Feature::Feature() {
 	}
 		
 }
+string Feature::get_read_response(){
+	return read_response;
+}
+void Feature::set_read_response(string rr){
+	read_response = rr;
+}
 string Feature::get_name(){
 	return name;
 }

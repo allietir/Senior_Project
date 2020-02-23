@@ -84,6 +84,7 @@ public:
 	void event9();
 	void event10();
 	void event11();
+		void event12();
 	void look();//trigger current room look
 	
 	//extra exits
@@ -163,6 +164,8 @@ public:
 	
 	void output_current_object_locations();
 	void output_feature_list_locations();
+	string ret_curr_feat_list();
+	string ret_curr_obj_loc();
 //todo:
 	/*
 		get connect string to feat_id in room for climb/jump
@@ -182,7 +185,7 @@ private:
 	string save_text;
 	string load_text;
 	int save_version;
-	int current_obj_location[NUM_OBJECTS];
+	int current_obj_location[NUM_OBJECTS]={ENTRANCEWAY, DINING, NURSURY, GUEST, FRONT, ATTIC, LIBRARY, CONSERVATORY};
 	int room_obj_set[NUM_OBJECTS]={ENTRANCEWAY, DINING, NURSURY, GUEST, FRONT, ATTIC, LIBRARY, CONSERVATORY};
 	int room_needs_object1[NUM_OBJECTS]={2, 3, 4, 5, 6, 7, 8, 13};
 	

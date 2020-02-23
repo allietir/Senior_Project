@@ -488,10 +488,19 @@ int main(int argc, char *argv[]) {
 		
 		Game book_test;
 		book_test.get_player()->set_current_room(LIBRARY);
-		book_test.run_func(BOOKSHELF, -1, READ);
-		book_test.run_func(BOOKSHELF, -1, READ);
+		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
 		
-		
+		book_test.set_player_has_all_objects(has_objs);
+	//	book_test.run_func(-1, DIARY, READ);
+		book_test.run_func(BOOKSHELF, DIARY, USE);
+		book_test.run_func(BOOKSHELF, -1, SPEAK);
+		book_test.run_func(BOOKSHELF, -1, READ);
+		book_test.run_func(BOOKSHELF, -1, SPEAK);
+		book_test.run_func(BOOKSHELF, -1, READ);		
+		book_test.run_func(BOOKSHELF, -1, SPEAK);
+		book_test.run_func(BOOKSHELF, -1, READ);
+		book_test.run_func(-1, DIARY, READ);
+	
 
 }
 	
