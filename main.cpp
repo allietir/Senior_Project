@@ -445,19 +445,26 @@ int main(int argc, char *argv[]) {
 //		crypt_test.run_func(ALEX, -1, LOOK);
 		//crypt_test.run_func(DEMON, -1, SPEAK);
 		
-		Game mother_test;
-		mother_test.get_player()->set_current_room(GUEST);
-		mother_test.run_func(DRESSER, DAGGER, ATTACK);
-		mother_test.run_func(-1, MUSIC, TAKE);
-		mother_test.get_player()->set_has_objects(DAGGER, 1);
-
-		mother_test.look();
-		printf("--------------ABOUT TO ATTACK WITH DAGGER------------");
-		mother_test.run_func(DRESSER, DAGGER, ATTACK);
-		printf("--------------AFTER ATTACK WITH DAGGER------------");
-		mother_test.run_func(MOTHER, -1, SPEAK);
-		mother_test.look();
+//		Game mother_test;
+//		mother_test.get_player()->set_current_room(GUEST);
+//		mother_test.run_func(DRESSER, DAGGER, ATTACK);
+//		mother_test.run_func(-1, MUSIC, TAKE);
+//		mother_test.get_player()->set_has_objects(DAGGER, 1);
+//
+//		mother_test.look();
+//		printf("--------------ABOUT TO ATTACK WITH DAGGER------------");
+//		mother_test.run_func(DRESSER, DAGGER, ATTACK);
+//		printf("--------------AFTER ATTACK WITH DAGGER------------");
+//		mother_test.run_func(MOTHER, -1, SPEAK);
+//		mother_test.look();
 		
+		Game cupboard_test;
+		cupboard_test.get_player()->set_current_room(KITCHEN);
+		cupboard_test.run_func(CUPBOARD, DIARY, USE);		
+		cupboard_test.run_func(CUPBOARD, -1, LOOK);
+		cupboard_test.take(LAMP);
+	    cupboard_test.look();
+
 }
 	
 	

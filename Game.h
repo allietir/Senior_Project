@@ -81,6 +81,7 @@ public:
 	void event6(int obj_id);
 	void event7();
 	void event8();
+	void event9();
 	void look();//trigger current room look
 	
 	//extra exits
@@ -156,6 +157,7 @@ public:
 	void print_all_feature_desc();
 
 	void set_player_has_all_objects(int set[NUM_OBJECTS]);
+	string concat_obj_descs();
 //todo:
 	/*
 		get connect string to feat_id in room for climb/jump
@@ -194,6 +196,7 @@ private:
 	string feat_list[TOTAL_FIXED];
 	
 	int event8counter;
+
 	
 	
 		

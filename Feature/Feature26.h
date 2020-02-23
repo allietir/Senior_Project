@@ -10,6 +10,7 @@ public:
 	Feature26();
 	virtual ~Feature26();
 	int open(int room_id, int object_id);
+	int use(int object_id);
 	int special=666;
 };
 

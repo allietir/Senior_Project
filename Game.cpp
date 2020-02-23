@@ -15,6 +15,7 @@ Game::Game() {
 		set_room_events_triggered(i, 0);
 	}
 	event8counter = 0;
+	
 }
 void Game::event1()
 {
@@ -56,11 +57,37 @@ void Game::event6(int obj_id){
 }
 
 void Game::event7(){
+	set_game_events_triggered(6, 1);
 	o_array[LOCKET]->open(CRYPT, -1);
 }
 
 void Game::event8(){
+	set_game_events_triggered(7, 1);
 	event8counter = 1;
+}
+void Game::event9(){
+	for (int i = 0; i < NUM_OBJECTS; i++){
+		
+		if (get_is_locked(i)==0){
+			current_obj_location[i]=KITCHEN;
+			r_array[KITCHEN]->set_has_objects(i, 1);
+		}
+	}
+	string x = concat_obj_descs();
+	string desc = "The cupboard now has the following items within it:" + x;
+	r_array[KITCHEN]->get_feature_x(1)->set_desc(desc);
+	look();
+	set_game_events_triggered(8, 1);
+	
+}
+string Game::concat_obj_descs(){
+	string x = "";
+	for (int i = 0; i < NUM_OBJECTS; i++){
+		if (current_obj_location[i]==player1.get_current_room()){
+			x = x + o_array[i]->get_name() + "\n";
+		}
+	}
+	return x;
 }
 void Game::init_rooms() {
 	init_objects();
@@ -185,7 +212,19 @@ void Game::take(int object_id){
 	else{
 		printf("You can't take %s right now.\n", o_array[object_id]->get_name().c_str());
 	}
-		
+	if (get_game_events_triggered(8)==1){
+		//if the cupboard is open, user can take one object; then the cupboard will close again and description will reset; AND all items except that which the user has grabbed will be set back to their original location
+		for (int i = 0; i < NUM_OBJECTS; i++){
+			if (i!=object_id){
+				current_obj_location[i]=room_obj_set[i];
+			}
+		}
+	
+		r_array[KITCHEN]->get_feature_x(1)->set_desc(r_array[KITCHEN]->get_feature_x(1)->get_desc_no_obj());
+		r_array[KITCHEN]->get_feature_x(0)->set_desc(r_array[KITCHEN]->get_feature_x(0)->get_desc_no_obj());
+		r_array[KITCHEN]->init_long_short_desc();
+	}
+
 	
 	
 	
@@ -676,6 +715,10 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			if (res==36){
 				event8();
 			}
+			if (res==37){
+				//transports all items to the Kitchen and changes the description to account for all objects. 
+				event9();
+			}
 			if (res==45+obj_index_id){
 				event6(res-45);
 			}
@@ -683,6 +726,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			{
 				event5();
 			}
+			
 			//21, 13, 15
 			printf("FINAL RES:%i\n", res);
 			return 0;
