@@ -245,15 +245,19 @@ bool save_load_test(Game& game) {
 	const char mkdir_command[32] = "mkdir -p SaveData";
 	system(mkdir_command);
 
+	//Remove old saves from to keep the directory clean
+	const char rm_old_saves[64] = "rm -f SaveData/Anonymous*";
+	system(rm_old_saves);
+
 	/****The path name will have to be modified depending on testing environment.****/
 	string filename_path_one = "SaveData/" + game.get_player()->get_name() + "1";
 
-	ofstream save_file(filename_path_one);
-	if (save_file.is_open())
+	ofstream first_save_file(filename_path_one);
+	if (first_save_file.is_open())
 	{
 		//write game data to save_file
-		save_file << get_game_data(game);
-		save_file.close();
+		first_save_file << get_game_data(game);
+		first_save_file.close();
 	}
 	else
 	{
@@ -262,25 +266,17 @@ bool save_load_test(Game& game) {
 
 	/**2. LOAD SAVED FILE**/
 
-	//Create directory if it does not already exist.
-	const char mkdir_command[32] = "mkdir -p SaveData";
-	system(mkdir_command);
-
-	//Remove old saves from to keep the directory clean
-	const char rm_old_saves[64] = "rm -f SaveData/Anonymous*";
-	system(rm_old_saves);
-
 	//prompt is yes for testing purposes, that way we do not have to modify the if branches
 	string prompt = "yes";
 
-	ifstream save_file(filename_path_one);
-	if (save_file.is_open())
+	ifstream load_file(filename_path_one);
+	if (load_file.is_open())
 	{
 		if (prompt == "yes" || prompt == "Yes")
 		{
 			//Load the game data
-			set_game_data(game, save_file);
-			save_file.close();
+			set_game_data(game, load_file);
+			load_file.close();
 		}
 		else
 		{
@@ -295,19 +291,15 @@ bool save_load_test(Game& game) {
 
 	/**3. SAVE THE GAME STATE AGAIN**/
 
-	//Create directory if it does not already exist.
-	const char mkdir_command[32] = "mkdir -p SaveData";
-	system(mkdir_command);
-
 	/****The path name will have to be modified depending on testing environment.****/
 	string filename_path_two = "SaveData/" + game.get_player()->get_name() + "2";
 
-	ofstream save_file(filename_path_two);
-	if (save_file.is_open())
+	ofstream second_save_file(filename_path_two);
+	if (second_save_file.is_open())
 	{
 		//write game data to save_file
-		save_file << get_game_data(game);
-		save_file.close();
+		second_save_file << get_game_data(game);
+		second_save_file.close();
 	}
 	else
 	{
@@ -316,7 +308,7 @@ bool save_load_test(Game& game) {
 
 
 	/**4. COMPARE BOTH SAVE FILES**/
-	const char diff_command[128] = "diff " + filename_path_one + " " + filename_path_two;
+	string diff_command = "diff " + filename_path_one + " " + filename_path_two;
 	int result = system(diff_command);
 
 	if (result != 0)
@@ -330,7 +322,8 @@ bool save_load_test(Game& game) {
 
 }
 
-
+/*This is the test oracle code used within main.cpp to keep a record of it.*/
+/*
 int success = 0;
 int total = 0;
 
@@ -346,3 +339,4 @@ else
 total++;
 
 printf("save_load_test report: %d out of %d tests passed", success, total);
+*/
