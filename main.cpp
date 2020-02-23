@@ -304,7 +304,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	//print overall results
-	printf("save_load_test report: %d out of %d tests passed", success, total);
+	printf("\nsave_load_test report: %d out of %d tests passed", success, total);
 
 	//new_game.start();
 	//save_game(new_game);
