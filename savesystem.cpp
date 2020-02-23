@@ -310,9 +310,9 @@ bool save_load_test(Game& game) {
 	/**4. COMPARE BOTH SAVE FILES**/
 	
 	string diff_string = "diff " + filename_path_one + " " + filename_path_two;
-	//must convert the string to const char for system()
-	const char diff_command = diff_string.c_str();
-	
+	//must convert the string to const char * for system()
+	const char *diff_command = diff_string.c_str();
+
 	int result = system(diff_command);
 
 	if (result != 0)
