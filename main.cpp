@@ -465,26 +465,31 @@ int main(int argc, char *argv[]) {
 //		cupboard_test.take(LAMP);
 //	    cupboard_test.look();
 		
-		Game clock_test;
-		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
-		clock_test.set_player_has_all_objects(has_objs);
-		clock_test.get_player()->set_current_room(UPSTAIRS);
-//		clock_test.get_room_x(UPSTAIRS)->get_feature_x(0)->set_time(2);
-		string x = clock_test.get_room_x(UPSTAIRS)->get_feature_x(0)->get_time_str();
-		printf("===========%s", x.c_str());
-		clock_test.run_func(CLOCK, -1, LOOK);
-		clock_test.exit_room(1);
-		clock_test.exit_room(0);
-		clock_test.run_func(CLOCK, -1, LOOK);
-		clock_test.run_func(CLOCK, -1, LOOK);
-		clock_test.exit_room(1);
-		clock_test.exit_room(0);
-		clock_test.run_func(CLOCK, -1, LOOK);
-		clock_test.run_func(CLOCK, -1, READ);
-		clock_test.run_func(CLOCK, -1, SPEAK);
-		clock_test.run_func(CLOCK, DAGGER, USE);
-		clock_test.run_func(CLOCK, -1, OPEN);
-		clock_test.run_func(CLOCK, -1, CLIMB);
+//		Game clock_test;
+//		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
+//		clock_test.set_player_has_all_objects(has_objs);
+//		clock_test.get_player()->set_current_room(UPSTAIRS);
+////		clock_test.get_room_x(UPSTAIRS)->get_feature_x(0)->set_time(2);
+//		string x = clock_test.get_room_x(UPSTAIRS)->get_feature_x(0)->get_time_str();
+//		printf("===========%s", x.c_str());
+//		clock_test.run_func(CLOCK, -1, LOOK);
+//		clock_test.exit_room(1);
+//		clock_test.exit_room(0);
+//		clock_test.run_func(CLOCK, -1, LOOK);
+//		clock_test.run_func(CLOCK, -1, LOOK);
+//		clock_test.exit_room(1);
+//		clock_test.exit_room(0);
+//		clock_test.run_func(CLOCK, -1, LOOK);
+//		clock_test.run_func(CLOCK, -1, READ);
+//		clock_test.run_func(CLOCK, -1, SPEAK);
+//		clock_test.run_func(CLOCK, DAGGER, USE);
+//		clock_test.run_func(CLOCK, -1, OPEN);
+//		clock_test.run_func(CLOCK, -1, CLIMB);
+		
+		Game book_test;
+		book_test.get_player()->set_current_room(LIBRARY);
+		book_test.run_func(BOOKSHELF, -1, READ);
+		book_test.run_func(BOOKSHELF, -1, READ);
 		
 		
 

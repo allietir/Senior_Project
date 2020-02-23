@@ -80,6 +80,46 @@ void Game::event9(){
 	set_game_events_triggered(8, 1);
 	
 }
+void Game::event10(){
+	output_current_object_locations();
+	set_game_events_triggered(9, 1);
+}
+void Game::event11(){
+	output_feature_list_locations();
+	set_game_events_triggered(10, 1);
+}
+
+void Game::output_current_object_locations(){
+	string str = "";
+	int curr_room;
+	string room_name;
+	string obj_name;
+	for (int i = 0; i < NUM_OBJECTS; i++){
+		curr_room = current_obj_location[i];
+		room_name = r_array[curr_room]->get_name();
+		obj_name = o_array[i]->get_name();
+		str = str + "The " + obj_name + " is in the " + room_name + ".\n";
+	}
+	printf("%s", str.c_str());
+}
+void Game::output_feature_list_locations(){
+	
+	string str = "";
+	int curr_room;
+	string room_name;
+	string feat_name0;
+	string feat_name1;
+	
+	for (int i = 0; i < NUM_ROOMS; i++){
+		curr_room = current_obj_location[i];
+		room_name = r_array[curr_room]->get_name();
+		feat_name0 = r_array[curr_room]->get_feature_x(0)->get_name();
+		feat_name1 = r_array[curr_room]->get_feature_x(1)->get_name();
+		str = str + "The " + feat_name0 + " is in the " + room_name + ".\n";
+		str = str + "The " + feat_name1 + " is in the " + room_name + ".\n";
+	}
+	printf("%s", str.c_str());
+}
 string Game::concat_obj_descs(){
 	string x = "";
 	for (int i = 0; i < NUM_OBJECTS; i++){
@@ -721,6 +761,12 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			if (res==37){
 				//transports all items to the Kitchen and changes the description to account for all objects. 
 				event9();
+			}
+			if (res==38){
+				event10();
+			}
+			if (res==39){
+				event11();
 			}
 			if (res==45+obj_index_id){
 				event6(res-45);

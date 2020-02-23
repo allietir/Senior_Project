@@ -10,15 +10,16 @@ Feature21::Feature21() {
 	set_index_id(20);
 }
 int Feature21::read(){
+	
 	if (get_times_toggled(READ)==0){
 		//
 		func_togg_count_x(READ);
-		printf("Here is some text from book one\n");
+		return 38;
 	}
 	else if (get_times_toggled(READ)==1){
 		//
 		func_togg_count_x(READ);
-		printf("Here is some text from book two\n");
+		return 39;
 	}
 	else if (get_times_toggled(READ)==2){
 		//
@@ -26,6 +27,7 @@ int Feature21::read(){
 		printf("Here is some text from book three\n");
 		
 	}	
+	
 	return 4;
 }
 Feature21::~Feature21() {
