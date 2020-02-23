@@ -269,9 +269,9 @@ int main(int argc, char *argv[]) {
 		}
 	}
 
-	new_game.start();
-	save_game(new_game);
-	load_game(new_game);
+	//new_game.start();
+	//save_game(new_game);
+	//load_game(new_game);
 
 //		save_game(new_game);	
 
