@@ -5,9 +5,11 @@
 #include "Feature5.h"
 
 Feature5::Feature5() {
+	
 	set_name("Clock");
 	string desc_a = "There is a clock at the end of the highway, a grandfather clock, large and imposing. What happens when the clock strikes midnight?\n" + get_time_str();
 	set_desc(desc_a);
+	set_desc_no_obj("There is a clock at the end of the highway, a grandfather clock, large and imposing. What happens when the clock strikes midnight?\n");
 	set_index_id(4);
 }
 
@@ -48,7 +50,9 @@ int Feature5::open(int room_id, int obj_feat_id){
 		func_togg_count_x(OPEN);
 		printf("You open the door and you see a staircase down. Looks like you'll need to climb quite a bit to get down there... but where does it go?");
 		string desc = "The grandfather clock is open and a staircase down is revealed.\n" + get_time_str();
+		
 		set_desc(desc);
+		set_desc_no_obj("The grandfather clock is open and a staircase down is revealed.\n");
 	}
 	return 4;
 }//5
@@ -84,6 +88,10 @@ int Feature5::get_time(){
 }
 void Feature5::set_time(int the_time){
 	current_time = the_time;
+
+	//printf("===========%s===========", get_time_str().c_str());
+	set_desc(get_desc_no_obj()+get_time_str());
+	//printf("=============%s==============", get_desc().c_str());
 }
 int Feature5::look(){
 	string desc_a = "There is a clock at the end of the highway, a grandfather clock, large and imposing. What happens when the clock strikes midnight?\n" + get_time_str();

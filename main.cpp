@@ -504,11 +504,22 @@ int main(int argc, char *argv[]) {
 //		book_test.run_func(-1, DIARY, READ);
 		
 		
-		Game midnight_test;
-		midnight_test.get_player()->set_move_count(14);
-		midnight_test.get_player()->set_current_room(PARLOR);
-		midnight_test.exit_room(2);
+//		Game midnight_test;
+//		midnight_test.get_player()->set_move_count(14);
+//		midnight_test.get_player()->set_current_room(PARLOR);
+//		midnight_test.exit_room(2);
+//		
 		
+		Game lamp_test;
+		lamp_test.get_player()->set_has_objects(LAMP, 1);
+		lamp_test.get_player()->set_current_room(ENTRANCEWAY);
+		lamp_test.exit_room(0);
+		printf("\n////////////////////////////////\n");
+		lamp_test.run_func(-1, LAMP, USE);
+		printf("\n////////////////////////////////\n");
+		lamp_test.exit_room(0);
+		lamp_test.exit_room(1);
+		lamp_test.exit_room(0);
 		
 }
 	

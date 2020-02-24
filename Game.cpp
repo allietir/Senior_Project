@@ -358,10 +358,21 @@ int Game::exit_valid(int next_room)
 			int has_obj = player1.get_has_objects(i);
 			if (has_obj!=1){
 				printf("You need the %s to enter %s.\n", o_array[i]->get_name().c_str(), r_array[next_room]->get_name().c_str());
+				
 				return -1;
 			}
 			else{
-				printf("Success, you have the %s require to enter this room.\n", o_array[i]->get_name().c_str());
+				if (i==LAMP){
+					//make sure player turned lamp on
+					if (o_array[LAMP]->get_times_toggled(USE)>=1){
+						printf("Success, you have the %s require to enter this room.\n", o_array[i]->get_name().c_str());
+					}
+					else{
+						printf("Perhaps turn on the lamp before venturing into the darkness.\n");
+						return -1;
+					}
+				}
+				
 
 			}
 		}
@@ -412,6 +423,7 @@ void Game::exit_room(int dir){
 			player1.set_move_count(mc);
 			//update clock in upstairs hallway
 			r_array[UPSTAIRS]->get_feature_x(0)->set_time(mc);
+			r_array[UPSTAIRS]->init_long_short_desc();
 		
 			//update state of knowing how many times a room has been visited
 			set_times_rooms_visited(get_next_room, get_times_room_visited(get_next_room)+1);
