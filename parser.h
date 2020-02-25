@@ -54,8 +54,17 @@ const map<string, int> verbIDmap = {
 	{ "attack", 9},
 	{ "look", 10},
 	{ "take", 11},
-	{ "drop", 12}
-	
+	{ "drop", 12},
+	{"drink", 3}, 
+	{"talk", 6}, 
+	{"fight", 9},
+	{"kill", 9}, 
+	{"hit", 9}, 
+	{"inspect", 10}, 
+	{"pickup", 11},
+	{"grab", 11}, 
+	{"place", 12},
+	{"turn", 2} //or substitute turn on in string for use?
 };
 
 //map to look up object ID
@@ -67,7 +76,10 @@ const map<string, int> objIDmap = {
 	{ "dagger", 4}, 
 	{ "doll", 5}, 
 	{ "key", 6}, 
-	{ "chalice", 7}, 
+	{ "chalice", 7},
+	{ "sheet", 3}, 
+	{ "knife", 4}, 
+	{ "weapon", 4}
 };
 
 //map to look up feature ID
@@ -88,7 +100,7 @@ const map<string, int> featIDmap = {
 	{ "dresser", 13}, 
 	{ "vampire", 14}, 
 	{ "branch", 15},
-	{ "mirror", 16}, //can't have 2 of same name but different ID
+	{ "mirror", 16},
 	{ "sink", 17 },
     { "chest", 18 },
 	{ "pirate", 19 },
@@ -102,6 +114,20 @@ const map<string, int> featIDmap = {
 	{ "statue", 27}, 
 	{ "alex", 28}, 
 	{ "demon", 29}, 
+	{ "tombstone", 0},
+	{ "picture", 2}, 
+	{ "rug", 5}, 
+	{ "floor", 5},
+	{ "painting", 9}, 
+	{ "kid", 10}, 
+	{ "girl", 10},
+	{ "mom", 12},
+	{ "drawer", 13},
+	{ "crate", 18},
+	{ "shelf", 20},
+	{ "fire", 21},
+	{ "stand", 26},
+	{ "friend", 28}
 };
 
 
