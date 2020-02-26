@@ -682,11 +682,17 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 					else if (verb.compare(STR_VERB6)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB6(player1.get_current_room(), obj_index_id); }
 					else if (verb.compare(STR_VERB8)==0){ 
 						if ((feat_index_id==VAMPIRE)&&(obj_index_id==CHALICE)){
+							//check if "you fill the chalice with blood" is triggered. 
 							res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB8(get_room_events_triggered(24), obj_index_id); 
+							//if it is triggered, and the result is going to be 0, which will trigger the room event 1 of the vampire being freed i.e event 21.
 						}
-						else if ((feat_index_id==DEMON)&&(r_array[player1.get_current_room()]->get_feature_x(item)->get_times_toggled(USE)==1)){
+						else if ((feat_index_id==DEMON)&&(get_room_events_triggered(34)==1)){
 							//if chalice has been "used" once i.e. "filled" and it has not been "emptied" by traveling to the library...
-							res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB8(player1.get_current_room(), obj_index_id); 
+							res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB8(get_room_events_triggered(34), obj_index_id); 
+							if (get_room_events_triggered(34)==1){
+								//now there is no more holy water since the demon drank it. 
+								set_room_events_triggered(34, 0);
+							}
 						}
 						else if ((feat_index_id==DEMON)&&(r_array[player1.get_current_room()]->get_feature_x(item)->get_times_toggled(USE)!=1))
 						{
@@ -743,6 +749,12 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 				int event_index = res+(3*player1.get_current_room());
 				printf("triggering %i", event_index);
 				room_events_triggered[event_index]=1;
+				if (event_index == 21){
+					//if the blood has been used, you can turn off the "event occured" indicator for the index, as now the chalice is back to normal and can be filled with blood or something else. 
+					//
+					printf("Blood used, chalice empty again. \n");
+					room_events_triggered[24]=0;
+				}
 				printf("get events triggered val now: %i", get_room_events_triggered(event_index));
 				
 				//trigger the events now

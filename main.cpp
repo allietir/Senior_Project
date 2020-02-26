@@ -443,8 +443,8 @@ int main(int argc, char *argv[]) {
 //		printf("-----------then------------\n");
 //		crypt_test.run_func(DEMON, -1, LOOK);
 //		crypt_test.run_func(ALEX, -1, LOOK);
-		//crypt_test.run_func(DEMON, -1, SPEAK);
-		
+//		crypt_test.run_func(DEMON, -1, SPEAK);
+//		
 //		Game mother_test;
 //		mother_test.get_player()->set_current_room(GUEST);
 //		mother_test.run_func(DRESSER, DAGGER, ATTACK);
@@ -457,14 +457,14 @@ int main(int argc, char *argv[]) {
 //		printf("--------------AFTER ATTACK WITH DAGGER------------");
 //		mother_test.run_func(MOTHER, -1, SPEAK);
 //		mother_test.look();
-		
+//		
 //		Game cupboard_test;
 //		cupboard_test.get_player()->set_current_room(KITCHEN);
 //		cupboard_test.run_func(CUPBOARD, DIARY, USE);		
 //		cupboard_test.run_func(CUPBOARD, -1, LOOK);
 //		cupboard_test.take(LAMP);
 //	    cupboard_test.look();
-		
+//		
 //		Game clock_test;
 //		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
 //		clock_test.set_player_has_all_objects(has_objs);
@@ -485,7 +485,7 @@ int main(int argc, char *argv[]) {
 //		clock_test.run_func(CLOCK, DAGGER, USE);
 //		clock_test.run_func(CLOCK, -1, OPEN);
 //		clock_test.run_func(CLOCK, -1, CLIMB);
-		
+//		
 //		Game book_test;
 //		book_test.get_player()->set_current_room(LIBRARY);
 //		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
@@ -502,25 +502,47 @@ int main(int argc, char *argv[]) {
 //		book_test.run_func(-1, DIARY, READ);
 //		book_test.drop(DAGGER);
 //		book_test.run_func(-1, DIARY, READ);
-		
-		
+//		
+//		
 //		Game midnight_test;
 //		midnight_test.get_player()->set_move_count(14);
 //		midnight_test.get_player()->set_current_room(PARLOR);
 //		midnight_test.exit_room(2);
 //		
+//		
+//		Game lamp_test;
+//		lamp_test.get_player()->set_has_objects(LAMP, 1);
+//		lamp_test.get_player()->set_current_room(ENTRANCEWAY);
+//		lamp_test.exit_room(0);
+//		printf("\n////////////////////////////////\n");
+//		lamp_test.run_func(-1, LAMP, USE);
+//		printf("\n////////////////////////////////\n");
+//		lamp_test.exit_room(0);
+//		lamp_test.exit_room(1);
+//		lamp_test.exit_room(0);
 		
-		Game lamp_test;
-		lamp_test.get_player()->set_has_objects(LAMP, 1);
-		lamp_test.get_player()->set_current_room(ENTRANCEWAY);
-		lamp_test.exit_room(0);
-		printf("\n////////////////////////////////\n");
-		lamp_test.run_func(-1, LAMP, USE);
-		printf("\n////////////////////////////////\n");
-		lamp_test.exit_room(0);
-		lamp_test.exit_room(1);
-		lamp_test.exit_room(0);
 		
-}
-	
+		Game blood_test;
+		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
+		blood_test.set_player_has_all_objects(has_objs);
+		blood_test.get_player()->set_current_room(BATHROOM);
+		blood_test.run_func(SINK, CHALICE, USE);
+		blood_test.get_player()->set_current_room(MASTER);
+		blood_test.run_func(VAMPIRE, CHALICE, GIVE);
+		blood_test.run_func(VAMPIRE, CHALICE, GIVE);
+		blood_test.get_player()->set_current_room(CONSERVATORY);
+		blood_test.run_func(FOUNTAIN, CHALICE, USE);
+		blood_test.run_func(FOUNTAIN, -1, EAT);
+		blood_test.run_func(FOUNTAIN, -1, EAT);
+		blood_test.get_player()->set_current_room(CONSERVATORY);
+		blood_test.run_func(FOUNTAIN, CHALICE, USE);
+		blood_test.get_player()->set_current_room(CRYPT);
+		blood_test.run_func(DEMON, CHALICE, GIVE);
+		blood_test.get_player()->set_current_room(CONSERVATORY);
+		blood_test.run_func(FOUNTAIN, CHALICE, USE);
+		blood_test.get_player()->set_current_room(CRYPT);
+		blood_test.run_func(DEMON, CHALICE, GIVE);
+
+
+}	
 	

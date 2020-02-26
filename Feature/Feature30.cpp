@@ -53,7 +53,7 @@ int Feature30::attack(int obj_feat){
 }
 int Feature30::give(int event_occured, int obj_feat_id){
 	//if this is called, this means that at this point the game was able to see that the chalice has something 
-	if (obj_feat_id==CHALICE)
+	if ((obj_feat_id==CHALICE)&&(event_occured==1))
 	{
 		printf("The demon looks at the holy water in the chalice.\n.'Maybe some things are worth the pain of transformation'\nThe demon drinks the water and lets out a horrible shriek.\nThere are flashes of light throughout the room and you are forced to look away.\nWhen you are no longer blinded by the light, you look for a remnent of the creature, but the demon is utterly gone.\n");	
 	}

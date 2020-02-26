@@ -11,8 +11,9 @@ Feature23::Feature23() {
 }
 int Feature23::use(int obj_id){
 	if (get_times_toggled(USE)==0){
-		printf("The chalice fills with water. Alright, now what?\n");
+		
 		func_togg_count_x(USE);
+		return 1;
 	}
 	else{
 		printf("The chalice is already filled with water.\n");
@@ -20,7 +21,7 @@ int Feature23::use(int obj_id){
 	return 4;
 }
 int Feature23::eat(){
-	if (get_times_toggled(USE)>1){
+	if (get_times_toggled(USE)>=1){
 		func_togg_count_x(EAT);
 		printf("You are transported to the basement.\n");
 		printf("There is no longer water in the chalice\n");
