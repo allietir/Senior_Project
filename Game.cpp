@@ -952,6 +952,15 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			if (res==44){
 				event17();
 			}
+			if (res==-45){
+				//lock whatever object was passed
+				set_is_locked(obj_index_id, 1);
+			}
+			if (res==-46){
+				//unlock whatever object was passed
+				set_is_locked(obj_index_id, 0);
+			}
+
 			if (res==45+obj_index_id){
 				event6(res-45);
 			}
