@@ -10,6 +10,7 @@ public:
 	Feature6();
 	virtual ~Feature6();
 	int read();
+	int use(int obj_id);
 	int special=666;
 };
 

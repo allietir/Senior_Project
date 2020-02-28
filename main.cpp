@@ -566,17 +566,31 @@ int main(int argc, char *argv[]) {
 //		doll_test.get_player()->set_current_room(UPSTAIRS);
 //		doll_test.look();
 
-		Game mirror_test;
+//		Game mirror_test;
+//		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
+//		mirror_test.set_player_has_all_objects(has_objs);
+//		mirror_test.get_player()->set_current_room(BATHROOM);
+//		mirror_test.run_func(SINK, CHALICE, USE);
+//		mirror_test.run_func(-1, MIRROR, SPEAK);
+//		mirror_test.run_func(SINK, CHALICE, USE);
+//		mirror_test.run_func(-1, MUSIC, PLAY);
+//		mirror_test.run_func(-1, MIRROR, SPEAK);
+//		mirror_test.run_func(-1, DAGGER, USE);
+//		mirror_test.run_func(-1, MIRROR, SPEAK);
+//		mirror_test.run_func(SINK, CHALICE, USE);
+		
+		Game chalice_fire_test;
 		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
-		mirror_test.set_player_has_all_objects(has_objs);
-		mirror_test.get_player()->set_current_room(BATHROOM);
-		mirror_test.run_func(SINK, CHALICE, USE);
-		mirror_test.run_func(-1, MIRROR, SPEAK);
-		mirror_test.run_func(SINK, CHALICE, USE);
-		mirror_test.run_func(-1, MUSIC, PLAY);
-		mirror_test.run_func(-1, MIRROR, SPEAK);
-		mirror_test.run_func(-1, DAGGER, USE);
-			mirror_test.run_func(-1, MIRROR, SPEAK);
-			mirror_test.run_func(SINK, CHALICE, USE);
+		chalice_fire_test.set_player_has_all_objects(has_objs);
+		chalice_fire_test.get_player()->set_current_room(LIBRARY);
+		chalice_fire_test.run_func(FIREPLACE, -1, USE);
+		chalice_fire_test.run_func(FIREPLACE, DIARY, USE);
+		chalice_fire_test.run_func(FIREPLACE, -1, SPEAK);
+		chalice_fire_test.run_func(FIREPLACE, CHALICE, USE);
+		chalice_fire_test.get_player()->set_current_room(UPSTAIRS);
+		chalice_fire_test.run_func(CARPET, -1, READ);
+		chalice_fire_test.run_func(CARPET, CHALICE, USE);
+		chalice_fire_test.run_func(CARPET, -1, READ);
+		
 }	
 	

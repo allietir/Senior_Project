@@ -137,6 +137,11 @@ void Game::event16(){
 	printf("You cut yourself and let the blood drip into the sink.\n");
 	r_array[BATHROOM]->get_feature_x(0)->set_togg_count_x(USE, 666);
 }
+void Game::event17(){
+	set_game_events_triggered(16, 1);
+	printf("The chalice fills with the strange purple fire but feels cool in your hand.\n");
+	o_array[CHALICE]->set_desc("The chalice is filled with a strange purple fire, but the metal is cool in your hand.\n");
+}
 void Game::output_current_object_locations(){
 	string str = ret_curr_obj_loc();
 	printf("%s", str.c_str());
@@ -721,12 +726,40 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 					if (verb.compare(STR_VERB3)==0){ 
 								
 								if ((obj_index_id==CHALICE)&&(player1.get_current_room()==BATHROOM)&&(item==1)){
-									if ((get_game_events_triggered(14)==1)&&(get_game_events_triggered(15)==1))
+									
+									if ((get_game_events_triggered(14)==1)&&(get_game_events_triggered(15)==1)&&(get_room_events_triggered(34)==0)&&(get_game_events_triggered(16)==0))
 									{
 										res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB3(obj_index_id); 
 									}
+									else if ((get_game_events_triggered(14)==1)&&(get_game_events_triggered(15)==1)&&(get_room_events_triggered(34)==1)){
+										printf("There is water in this cup; you can't fill it with blood");
+									}
+									else if ((get_game_events_triggered(14)==1)&&(get_game_events_triggered(15)==1)&&(get_room_events_triggered(34)==0)&&(get_game_events_triggered(16)==1)){
+										printf("There is fire in this cup; you can't fill it with blood");
+									}
+
+									
+
 									else{
 										printf("You can't take blood from the sink yet--but why? Some invisible force is preventing you. What does the mirror have to say?\n");
+										
+									}
+								}
+								else if ((obj_index_id==CHALICE)&&(player1.get_current_room()==LIBRARY)&&(item==1)){
+									if ((get_game_events_triggered(14)==0)&&(get_game_events_triggered(15)==0)&&(get_room_events_triggered(34)==0)&&(get_game_events_triggered(16)==0))
+									{
+										res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB3(obj_index_id); 
+									}
+									else if ((get_game_events_triggered(14)==1)&&(get_game_events_triggered(15)==1)&&(get_room_events_triggered(34)==0)&&(get_game_events_triggered(16)==0)){
+										printf("There is blood in this cup; you can't fill it with fire");
+									}
+									else if (get_room_events_triggered(34)==1){
+										printf("There is water in this cup; you can't fill it with fire");
+									}
+
+									else{
+										printf("You can't take fire from the fireplace yet.\n");
+										
 									}
 								}
 								else{
@@ -745,14 +778,14 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 						else if ((feat_index_id==DEMON)&&(get_room_events_triggered(34)==1)){
 							//if chalice has been "used" once i.e. "filled" and it has not been "emptied" by traveling to the library...
 							res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB8(get_room_events_triggered(34), obj_index_id); 
-							if (get_room_events_triggered(34)==1){
+							if ((get_room_events_triggered(34)==1)&&(get_game_events_triggered(15)==0)&&(get_game_events_triggered(14)==0)&&(get_game_events_triggered(16)==0)){
 								//now there is no more holy water since the demon drank it. 
 								set_room_events_triggered(34, 0);
 							}
 						}
 						else if ((feat_index_id==DEMON)&&(r_array[player1.get_current_room()]->get_feature_x(item)->get_times_toggled(USE)!=1))
 						{
-							printf("There is nothing special in this cup to protect you. The demon notices you and you know you are done for\n");
+							printf("There is nothing effective in this cup to protect you. The demon notices you and you know you are done for\n");
 							res = -1;
 						}
 						else{
@@ -916,6 +949,9 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			if (res==43){
 				event16();
 			}		
+			if (res==44){
+				event17();
+			}
 			if (res==45+obj_index_id){
 				event6(res-45);
 			}
