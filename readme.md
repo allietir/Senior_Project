@@ -28,6 +28,12 @@ There are 8 Objects
 
 There are 30 Features
 
+### Feature 12: Dollhouse
+#### run_func(DOLLHOUSE, DOLL, USE)
+- returns: 41
+- triggers: event14()  in Game.cpp
+
+
 > Feature DS Visualization here
 
 
@@ -44,6 +50,18 @@ The player has a `int move_count`. This is used by the Game class to trigger Gam
 
 > Game DS Visualization here
 > Explain how Game calls and interacts with Rooms, Verbs, Features, Objects, and the Player
+
+### Game Events
+
+#### event14()
+At midnight, the crypt opens. This event causes the clock to go back by one hour, giving you an extra move. 
+
+#### event15()
+If you play the music in the bathroom to the creature in the mirror, this is the first act to unlock the ability to take blood from the sink, to give to the vampire later, to reunite the ghost family. 
+
+#### event16()
+
+If you use the dagger in the bathroom to make a sacrifice of your blood, this is the seocn act to unlock the ability to take blood from the sink, to give to the vampire later, to reunite the ghost family. 
 
 ## Verb Functions
 

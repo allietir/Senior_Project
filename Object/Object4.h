@@ -10,6 +10,7 @@ public:
 	Object4();
 	virtual ~Object4();
 	int read();
+	int play();
 	int special=666;
 };
 

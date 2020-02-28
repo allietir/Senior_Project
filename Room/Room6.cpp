@@ -39,6 +39,8 @@ int Room6::event_two(){
 	//griggers unlcok
 	return 31;
 }
+
+
 Room6::~Room6() {
 	//printf("Destroying derived class Room6\n");
 }

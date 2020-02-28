@@ -522,27 +522,61 @@ int main(int argc, char *argv[]) {
 //		lamp_test.exit_room(0);
 		
 		
-		Game blood_test;
+//		Game blood_test;
+//		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
+//		blood_test.set_player_has_all_objects(has_objs);
+//		blood_test.get_player()->set_current_room(BATHROOM);
+//		blood_test.run_func(SINK, CHALICE, USE);
+//		blood_test.get_player()->set_current_room(MASTER);
+//		blood_test.run_func(VAMPIRE, CHALICE, GIVE);
+//		blood_test.run_func(VAMPIRE, CHALICE, GIVE);
+//		blood_test.get_player()->set_current_room(CONSERVATORY);
+//		blood_test.run_func(FOUNTAIN, CHALICE, USE);
+//		blood_test.run_func(FOUNTAIN, -1, EAT);
+//		blood_test.run_func(FOUNTAIN, -1, EAT);
+//		blood_test.get_player()->set_current_room(CONSERVATORY);
+//		blood_test.run_func(FOUNTAIN, CHALICE, USE);
+//		blood_test.get_player()->set_current_room(CRYPT);
+//		blood_test.run_func(DEMON, CHALICE, GIVE);
+//		blood_test.get_player()->set_current_room(CONSERVATORY);
+//		blood_test.run_func(FOUNTAIN, CHALICE, USE);
+//		blood_test.get_player()->set_current_room(CRYPT);
+//		blood_test.run_func(DEMON, CHALICE, GIVE);
+		
+		
+//		Game doll_test;
+//		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
+//		doll_test.set_player_has_all_objects(has_objs);
+//		doll_test.get_player()->set_current_room(UPSTAIRS);
+//		doll_test.look();
+//		doll_test.get_player()->set_current_room(NURSURY);
+//		doll_test.run_func(DOLLHOUSE, DOLL, USE);
+//		doll_test.run_func(DOLLHOUSE, DOLL, USE);
+//		doll_test.run_func(DOLLHOUSE, DOLL, USE);
+//		doll_test.run_func(DOLLHOUSE, DOLL, USE);
+//		doll_test.run_func(DOLLHOUSE, DOLL, USE);
+//		doll_test.run_func(DOLLHOUSE, DOLL, USE);
+//		doll_test.run_func(DOLLHOUSE, DOLL, USE);
+//		doll_test.run_func(DOLLHOUSE, DOLL, USE);
+//		doll_test.get_player()->set_current_room(UPSTAIRS);
+//		doll_test.look();
+//		doll_test.get_player()->set_current_room(NURSURY);
+//		doll_test.run_func(DOLLHOUSE, DOLL, USE);
+//		
+//		doll_test.get_player()->set_current_room(UPSTAIRS);
+//		doll_test.look();
+
+		Game mirror_test;
 		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
-		blood_test.set_player_has_all_objects(has_objs);
-		blood_test.get_player()->set_current_room(BATHROOM);
-		blood_test.run_func(SINK, CHALICE, USE);
-		blood_test.get_player()->set_current_room(MASTER);
-		blood_test.run_func(VAMPIRE, CHALICE, GIVE);
-		blood_test.run_func(VAMPIRE, CHALICE, GIVE);
-		blood_test.get_player()->set_current_room(CONSERVATORY);
-		blood_test.run_func(FOUNTAIN, CHALICE, USE);
-		blood_test.run_func(FOUNTAIN, -1, EAT);
-		blood_test.run_func(FOUNTAIN, -1, EAT);
-		blood_test.get_player()->set_current_room(CONSERVATORY);
-		blood_test.run_func(FOUNTAIN, CHALICE, USE);
-		blood_test.get_player()->set_current_room(CRYPT);
-		blood_test.run_func(DEMON, CHALICE, GIVE);
-		blood_test.get_player()->set_current_room(CONSERVATORY);
-		blood_test.run_func(FOUNTAIN, CHALICE, USE);
-		blood_test.get_player()->set_current_room(CRYPT);
-		blood_test.run_func(DEMON, CHALICE, GIVE);
-
-
+		mirror_test.set_player_has_all_objects(has_objs);
+		mirror_test.get_player()->set_current_room(BATHROOM);
+		mirror_test.run_func(SINK, CHALICE, USE);
+		mirror_test.run_func(-1, MIRROR, SPEAK);
+		mirror_test.run_func(SINK, CHALICE, USE);
+		mirror_test.run_func(-1, MUSIC, PLAY);
+		mirror_test.run_func(-1, MIRROR, SPEAK);
+		mirror_test.run_func(-1, DAGGER, USE);
+			mirror_test.run_func(-1, MIRROR, SPEAK);
+			mirror_test.run_func(SINK, CHALICE, USE);
 }	
 	

@@ -9,6 +9,7 @@ Object6::Object6() {
 	set_desc("A doll that seems simultaneously innocent and menacing. ");
 	set_index_id(5);
 }
+
 Object6::~Object6() {
 	
 }

@@ -96,6 +96,46 @@ void Game::event12(){
 void Game::event13(){
 	r_array[UPSTAIRS]->trigger_event(0);
 	get_player()->set_current_room(UPSTAIRS);
+	set_game_events_triggered(12, 1);
+}
+void Game::event14(){
+	set_game_events_triggered(13, 1);
+	int mc = get_player()->get_move_count();
+	if (mc-1!=0){
+		get_player()->set_move_count(mc-1);
+			printf("There are %i hours till midnight.\n", mc-1);
+			int ct = r_array[UPSTAIRS]->get_feature_x(0)->get_time();
+			//string s = r_array[UPSTAIRS]->get_feature_x(0)->get_time_str();
+			//printf("%s",s.c_str());
+			if (ct+9-1!=0){
+				r_array[UPSTAIRS]->get_feature_x(0)->set_time(ct-1);
+				//s = r_array[UPSTAIRS]->get_feature_x(0)->get_time_str();
+				//printf("%s",s.c_str());
+				r_array[UPSTAIRS]->init_long_short_desc();
+			}
+			else{
+				printf("You can only see midnight through going forward, not back\n");
+			}
+			
+
+	}
+	else{
+		printf("You can only see midnight through going forward, not back\n");
+	}
+	
+	
+	
+}
+void Game::event15(){
+	set_game_events_triggered(14, 1);
+	printf("You play the song to the creature of the mirror.\n");
+	r_array[BATHROOM]->get_feature_x(0)->set_togg_count_x(PLAY, 666);
+	
+}
+void Game::event16(){
+	set_game_events_triggered(15, 1);
+	printf("You cut yourself and let the blood drip into the sink.\n");
+	r_array[BATHROOM]->get_feature_x(0)->set_togg_count_x(USE, 666);
 }
 void Game::output_current_object_locations(){
 	string str = ret_curr_obj_loc();
@@ -678,7 +718,23 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 
 				//printf("Running %s on FEAT %s that DOES take OBJECT with object %s in room %s\n", verb.c_str(), feat_string.c_str(), o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
 	
-					if (verb.compare(STR_VERB3)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB3(obj_index_id); }
+					if (verb.compare(STR_VERB3)==0){ 
+								
+								if ((obj_index_id==CHALICE)&&(player1.get_current_room()==BATHROOM)&&(item==1)){
+									if ((get_game_events_triggered(14)==1)&&(get_game_events_triggered(15)==1))
+									{
+										res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB3(obj_index_id); 
+									}
+									else{
+										printf("You can't take blood from the sink yet--but why? Some invisible force is preventing you. What does the mirror have to say?\n");
+									}
+								}
+								else{
+									res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB3(obj_index_id); 
+								}
+								
+								
+					}
 					else if (verb.compare(STR_VERB6)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB6(player1.get_current_room(), obj_index_id); }
 					else if (verb.compare(STR_VERB8)==0){ 
 						if ((feat_index_id==VAMPIRE)&&(obj_index_id==CHALICE)){
@@ -724,10 +780,33 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 						}
 						
 					}
+				
 					else if (verb.compare(STR_VERB2)==0){ res = o_array[obj_index_id]->VERB2(); }
-					else if (verb.compare(STR_VERB3)==0){ res = o_array[obj_index_id]->VERB3(-1); }
+					else if (verb.compare(STR_VERB3)==0){ 
+						
+							if (player1.get_current_room()==BATHROOM){
+								if (obj_index_id==DAGGER){
+									res = o_array[obj_index_id]->VERB3(BATHROOM); 
+								}
+							}
+							else{
+								res = o_array[obj_index_id]->VERB3(-1);
+							}
+							 
+							
+						}
 					else if (verb.compare(STR_VERB4)==0){ res = o_array[obj_index_id]->VERB4(); }
-					else if (verb.compare(STR_VERB5)==0){ res = o_array[obj_index_id]->VERB5(); }
+					else if (verb.compare(STR_VERB5)==0){ 
+						if (player1.get_current_room()==BATHROOM){
+							if (obj_index_id==MUSIC){
+								res = o_array[obj_index_id]->VERB5(); 
+							}
+						}
+						else{
+							res = o_array[obj_index_id]->VERB5();
+						}
+						 
+						}
 					else if (verb.compare(STR_VERB6)==0){ res = o_array[obj_index_id]->VERB6(player1.get_current_room(), -1); }
 					else if (verb.compare(STR_VERB7)==0){ res = o_array[obj_index_id]->VERB7(); }
 					else if (verb.compare(STR_VERB8)==0){ res = o_array[obj_index_id]->VERB8(player1.get_current_room(), -1); }
@@ -827,6 +906,16 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			if (res==40){
 				event12();
 			}
+			if (res==41)
+			{
+				event14();
+			}
+			if (res==42){
+				event15();
+			}
+			if (res==43){
+				event16();
+			}		
 			if (res==45+obj_index_id){
 				event6(res-45);
 			}
@@ -846,6 +935,11 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 	
 }
 //helper for parse
+int Game::moves_left(){
+	int moves_left = 15-get_player()->get_move_count();
+	return moves_left;
+	
+}
 int Game::exit_current_from_room_id(int room_id){
 	if ((room_id < 0)||(room_id > 14))
 	{

@@ -11,6 +11,7 @@ Feature5::Feature5() {
 	set_desc(desc_a);
 	set_desc_no_obj("There is a clock at the end of the highway, a grandfather clock, large and imposing. What happens when the clock strikes midnight?\n");
 	set_index_id(4);
+	
 }
 
 int Feature5::read(){
@@ -91,6 +92,7 @@ void Feature5::set_time(int the_time){
 
 	//printf("===========%s===========", get_time_str().c_str());
 	set_desc(get_desc_no_obj()+get_time_str());
+	
 	//printf("=============%s==============", get_desc().c_str());
 }
 int Feature5::look(){

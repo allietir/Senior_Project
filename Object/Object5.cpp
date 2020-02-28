@@ -17,6 +17,15 @@ int Object5::read(){
 	
 	
 }
+int Object5::use(int current_room){
+	if (current_room==BATHROOM){
+		return 43;
+	}
+	else {
+		Object::use(current_room);
+	}
+	return 4;
+}
 Object5::~Object5() {
 	
 }

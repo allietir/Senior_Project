@@ -10,6 +10,7 @@ public:
 	Object5();
 	virtual ~Object5();
 	int read();
+	int use(int room);
 	int special=666;
 };
 

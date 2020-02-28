@@ -10,6 +10,7 @@ public:
 	Feature17();
 	virtual ~Feature17();
 	int read();
+	int speak();
 	int special=666;
 };
 

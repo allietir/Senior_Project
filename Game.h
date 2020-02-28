@@ -86,6 +86,10 @@ public:
 	void event11();
 		void event12();
 		void event13();
+		void event14();
+		
+		void event15();
+		void event16();
 	void look();//trigger current room look
 	
 	//extra exits
@@ -137,6 +141,8 @@ public:
 	
 	void set_all_room_events_triggered(int bin_arr[NUM_EVENTS]);
 	string get_all_room_events_triggered();
+	
+	int moves_left();
 	
 	
 	void output_obj_list();
