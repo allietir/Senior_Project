@@ -292,7 +292,7 @@ void Game::take(int object_id){
 					printf("%s no longer has %s\n", r_array[current_room]->get_name().c_str(), o_array[object_id]->get_name().c_str());	
 					printf("Updated player inventory...\n");
 					inventory();
-					printf("\n");
+					//printf("\n");
 					//update room description:
 					
 					//update feature description:
@@ -378,11 +378,11 @@ void Game::inventory(){
 	printf("INVENTORY: \n");
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		if (player1.get_has_objects(i)==1){
-			printf("%s\n", o_array[i]->get_name().c_str());
+			printf("%i %s\n", i,o_array[i]->get_name().c_str());
 			empty = 0;
 		}
 	}
-	if (empty)
+	if (empty==1)
 	{
 		printf("(empty)\n");
 	}
@@ -1122,28 +1122,59 @@ void Game::set_all_room_objects(int bin_arr[NUM_OBJECTS]){
 string Game::get_all_room_objects(){
 	
 	string bin_str_arr="";
+	int found_these[NUM_OBJECTS]={-1, -1, -1, -1, -1, -1, -1, -1};
 	//for each objects
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		//check if object is in room
+		printf("checking obj %i\n", i);
 		for (int j = 0; j < NUM_ROOMS; j++){
 			//if i < num_objects -1...
 			if (i<NUM_OBJECTS-1){
 				//check if r_array[j] has object
+				
 				if (r_array[j]->get_has_objects(i)==1){
 					//output "j" room
 					bin_str_arr=bin_str_arr + to_string(j)+", ";
+					printf("found %s in %s\n", o_array[i]->get_name().c_str(), r_array[j]->get_name().c_str());
+					printf("we have: %s\n", bin_str_arr.c_str());
+					found_these[i]=1;
 				}
+				
+				
 				
 			}
 			else{
 				if (r_array[j]->get_has_objects(i)==1){
 					//output "j" room
 					bin_str_arr=bin_str_arr + to_string(j);
+					printf("found %s in %s\n", o_array[i]->get_name().c_str(), r_array[j]->get_name().c_str());
+					printf("we have: %s\n", bin_str_arr.c_str());
+					bin_str_arr=bin_str_arr+'\0';
+					found_these[i]=1;
 				}
+				
+
 			}	
+		}
+		//after checking each room
+		
+		if (found_these[i]==-1){
+			printf("--------failed here------\n");
+			if (i < NUM_OBJECTS-1){
+				
+				printf("Could not find %s\n", o_array[i]->get_name().c_str());
+				bin_str_arr=bin_str_arr + to_string(-1) + ", ";
+			}
+			else {
+				printf("Could not find %s\n", o_array[i]->get_name().c_str());
+				bin_str_arr=bin_str_arr + to_string(-1) + "\0";
+			}
+			
 		}
 		
 	}
+	printf("we have: %s\n", bin_str_arr.c_str());
+	
 	return bin_str_arr;
 }
 

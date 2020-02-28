@@ -182,55 +182,215 @@ void set_game_data(Game& game, ifstream& save_file) {
 
 	//All times rooms visited
 	getline(save_file, next_line);
-	convert_string_to_array(rooms_visited, next_line);
+	printf("rooms_visited: %s\n", next_line.c_str());
+	convert_string_to_array(rooms_visited, next_line, NUM_ROOMS);
 	game.set_all_times_rooms_visited(rooms_visited);
 
 	//All game events triggered
 	getline(save_file, next_line);
-	convert_string_to_array(game_events, next_line);
+	printf("game_events: %s\n", next_line.c_str());
+	convert_string_to_array(game_events, next_line, NUM_GAME_EVENTS);
 	game.set_all_game_events_triggered(game_events);
 
 	//All room events triggered
 	getline(save_file, next_line);
-	convert_string_to_array(room_events, next_line);
+	printf("room_events: %s\n", next_line.c_str());
+	convert_string_to_array(room_events, next_line, NUM_EVENTS);
 	game.set_all_room_events_triggered(room_events);
 
 	//All room objects
 	getline(save_file, next_line);
-	convert_string_to_array(room_objects, next_line);
+	printf("room_objects: %s\n", next_line.c_str());
+	convert_string_to_array(room_objects, next_line, NUM_OBJECTS);
 	game.set_all_room_objects(room_objects);
 
 	//All player objects
 	getline(save_file, next_line);
-	convert_string_to_array(player_objects, next_line);
+	printf("player_objects: %s\n", next_line.c_str());
+	convert_string_to_array(player_objects, next_line, NUM_OBJECTS);
 	game.set_all_player_objects(player_objects);
 
 }
 
 //Converts a string to integers and fills them into the passed array.
-void convert_string_to_array(int* arr, string str) {
+void convert_string_to_array(int* arr, string str, int num_items) {
 
-	int i;
+	printf("num_items: %i\n", num_items);
 	int j = 0;
+	char new_num[100]={'\0'};
+	str = str + 'x';
+	//printf("str_arr %s\n", str_arr);
 	
-	string buffer = "";
-
-	for (i = 0; str[i] != '\0'; i++)
+	string new_num_str="";
+	
+	int num_index = 0;
+	
+	//string buffer = "";
+	printf("A: %s\n", str.c_str());
+	for (int i = 0; i <str.length(); i++)
 	{
-		if (str[i] == ',' || str[i] == ' ')
-		{
-			buffer.clear();
-		}
-		else 
-		{
-			buffer = buffer + str[i];
+		//printf("==========converting %c======\n", str[i]);
+//		if (str[i] == ',' || str[i] == ' ' )
+//		{
+//			buffer.clear();
+//		}
+//		else 
+//		{
+//			buffer = buffer + str[i];
+//			
+//			if (str[i + 1] == ',' || str[i + 1] == '\0')
+////			if (str[i + 1] == ',')
+//			{
+//				arr[j] = stoi(buffer);
+//				j++;
+//			}
+//		}
+		//if you encounter a number
+		if ((str[i]!=',')&&(str[i]!=' ')&&(str[i]!='x')){
+			new_num[num_index]=str[i];
 			
-			if (str[i + 1] == ',' || str[i + 1] == '\0')
-			{
-				arr[j] = stoi(buffer);
+			num_index++;
+		}
+		if (j<=num_items-1){
+			if ((str[i]==',')||(str[i]=='x')){
+				//new_num_str = new_num;
+				//printf("j is %i: ", j);
+				printf("new_num: %s\n", new_num);
+				
+				arr[j]=stoi(new_num);
+				//printf("arr[j]:: %i\n", arr[j]);
+				num_index = 0;
+				new_num[0]='\0';
+				new_num[1]='\0';
+				
 				j++;
 			}
 		}
+		
+		
+		
+	}
+	printf("B: ");
+	for (int i = 0; i < num_items; i++){
+		if (i!=num_items-1){
+			printf("%i, ", arr[i]);
+		}
+		else{
+			printf("%i\n", arr[i]);
+
+		}
+	}
+	//printf("\n------fini---------\n");
+
+}
+
+/*****This will only work on Linux*****/
+//This is a testing function with modified code from the other save load functions.
+//It saves the game, loads it, saves it again, then compares the two save files.
+bool save_load_test(Game& game) {
+
+	/**1. SAVE CURRENT GAME STATE**/
+	printf("=====testing this===\n");
+	//Create directory if it does not already exist.
+	const char mkdir_command[32] = "mkdir -p SaveData";
+	system(mkdir_command);
+
+	//Remove old saves from to keep the directory clean
+	const char rm_old_saves[64] = "rm -f SaveData/Anonymous*";
+	system(rm_old_saves);
+
+	/****The path name will have to be modified depending on testing environment.****/
+	string filename_path_one = "SaveData/" + game.get_player()->get_name() + "1";
+
+	ofstream first_save_file(filename_path_one);
+	if (first_save_file.is_open())
+	{
+		//write game data to save_file
+		first_save_file << get_game_data(game);
+		first_save_file.close();
+	}
+	else
+	{
+		return false;
+	}
+
+	/**2. LOAD SAVED FILE**/
+
+	//prompt is yes for testing purposes, that way we do not have to modify the if branches
+	string prompt = "yes";
+
+	ifstream load_file(filename_path_one);
+	if (load_file.is_open())
+	{
+		if (prompt == "yes" || prompt == "Yes")
+		{
+			//Load the game data
+			set_game_data(game, load_file);
+			load_file.close();
+		}
+		else
+		{
+			//should return to "What would you like to do?" prompt
+			return false;
+		}
+	}
+	else
+	{
+		//should return to "What would you like to do?" prompt
+	}
+
+	/**3. SAVE THE GAME STATE AGAIN**/
+
+	/****The path name will have to be modified depending on testing environment.****/
+	string filename_path_two = "SaveData/" + game.get_player()->get_name() + "2";
+
+	ofstream second_save_file(filename_path_two);
+	if (second_save_file.is_open())
+	{
+		//write game data to save_file
+		second_save_file << get_game_data(game);
+		second_save_file.close();
+	}
+	else
+	{
+		return false;
+	}
+
+
+	/**4. COMPARE BOTH SAVE FILES**/
+	
+	string diff_string = "diff " + filename_path_one + " " + filename_path_two;
+	//must convert the string to const char * for system()
+	const char *diff_command = diff_string.c_str();
+
+	int result = system(diff_command);
+
+	if (result != 0)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
 	}
 
 }
+
+/*This is the test oracle code used within main.cpp to keep a record of it.*/
+/*
+int success = 0;
+int total = 0;
+
+if (save_load_test(Game& game) == true) 
+{
+	printf("Savefiles match. save_load_test = SUCCESS\n");
+	success++;
+}
+else
+{
+	printf("Savefiles do not match. save_load_test = FAIL\n");
+}
+total++;
+
+printf("save_load_test report: %d out of %d tests passed", success, total);
+*/
