@@ -6,6 +6,10 @@
 using namespace std;
 void convert_string_to_array(int* arr, string str);
 int main(int argc, char *argv[]) {
+	
+	
+	
+
 //Game new_game;
 //
 ///*BUG FIX 1 DEMO*/
