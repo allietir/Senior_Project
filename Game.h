@@ -42,7 +42,7 @@ public:
 	Game();
 	virtual ~Game();
 	
-	//-------------- I N I T I A L I Z E R S ------------
+	//-------------- I N I T I A L I Z E R S ------------//
 	//FUNCTION ID: 1
 	//PRECONDITION:
 	//Room class object array
@@ -76,43 +76,53 @@ public:
 	
 	//-------------- V E R B  F U N C T I O N  --------------//
 	void take(int object_id);
-	void exit_room(int dir);//take room of exit as parameter and update variables so that player is in new room
 	void drop(int object_id);
-	void look();//trigger current room look
 	void inventory();
+	void exit_room(int dir);//take room of exit as parameter and update variables so that player is in new room
+	void look();//trigger current room look
 	void help();
+	
 	
 	
 	//-------------- V E R B  F U N C T I O N  H E L P E R S --------------//
 	void trigger_take_event(int obj_id);
-	int exit_valid(int next_room);
+	
 	int user_or_room_has_item(int item_id);
 	int user_has_item(int item_id);
 	int room_has_item(int item_id);
 	
+
+	
+
+		
+	//-------------- G E T  &  S E T --------------//	
+	//----used by save_system---
+	Player* get_player();
+	void set_player(Player* playerx);
+		
+	void set_times_rooms_visited(int room_id, int new_time);
+	int get_times_room_visited(int room_id);
+	void set_game_events_triggered(int event_index, int val);
+	int get_game_events_triggered(int event_index);	
+	void set_room_events_triggered(int event_index, int val);
+	int get_room_events_triggered(int event_index);
+	void set_is_locked(int obj_index, int val);
+	int get_is_locked(int obj_index);
+	void set_needs_event(int roov_index, int event_numbers);
+	int get_needs_event(int room_index);
 	//so game can know where objects currently are, updated in "take" and "drop" functions
 	void set_obj_location(int obj_id, int location);
 	int get_obj_location(int obj_id);
 	
-		
-		
-	//-------------- G E T  &  S E T --------------//	
-	
-	Object* get_object_x(int x);
-	void set_object_x(Object obj, int x);
-	Room* get_room_x(int x);
-	void set_room_x(Room r, int x);
-	Player* get_player();
-	void set_player(Player* playerx);
-	
-	void set_is_locked(int obj_index, int val);
-	int get_is_locked(int obj_index);
-	
+	//------------- S E T  O N L Y ----------------------
+	void set_player_has_all_objects(int set[NUM_OBJECTS]);
+
 	//------ H E L P E R S  F O R  P A R S E R -----------//
 	
-	int get_context_id_from_string(string feat_name);//return context_id 
-	int get_obj_id_from_string(string obj_name);
+
 	//calls the features objects verbs
+	//check whether an exit to the requested room is available within the room
+	int exit_current_from_room_id(int room_id);
 	int run_func(int feat_index_id, int obj_index_id, int verb_id);
 	
 	
@@ -135,13 +145,26 @@ public:
 	
 	void set_all_is_locked(int bin_arr[NUM_OBJECTS]);
 	string get_all_is_locked();
-		
 	
+	//----------- V A L I D I T Y  C H E C K E R S -------//
+	//if the feauture id is valid, it checks agains the features within the current room, and returns 0 if is the first feature, 1 if the second feature, or -1 if it is not valid
+	int feat_valid(int feat_index_id);
 	
+	int exit_valid(int next_room);
 	
-
-
+	//-------- O U T P U T / P R I N T  F U N C T I O N S ---//
 	
+	void output_current_object_locations();
+	void output_feature_list_locations();
+	//------------  O U T P U T  H E L P E R S ---------//
+	string ret_curr_feat_list();
+	string ret_curr_obj_loc();
+	string concat_obj_descs();
+	
+	//------- MISC ----//
+	int moves_left();
+	
+	//----------- C A L L  E V E N T S -------//	
 	void event1();
 	void event2();
 	void event3();
@@ -156,78 +179,12 @@ public:
 	void event12();
 	void event13();
 	void event14();
-	
 	void event15();
 	void event16();
 	void event17();
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-	
-	
-	
-
-	
-	string get_feat_list(int x);
-	void output_feat_list();
-	
-	
-	int exit_current_from_room_id(int room_id);
-	
-	void set_times_rooms_visited(int room_id, int new_time);
-	int get_times_room_visited(int room_id);
-	
-	void set_game_events_triggered(int event_index, int val);
-	int get_game_events_triggered(int event_index);
-	
-	void set_room_events_triggered(int event_index, int val);
-	int get_room_events_triggered(int event_index);
-	
-	
-	
-	//------HELPERS FOR LOADER----//
-	
-		
-	int moves_left();
-	
-	
-	void output_obj_list();
-	void output_verb_list();
-	void output_room_list();
-	
-	int feat_valid(int feat_index_id);
-	int verb_index_from_string(string verbx);
-	string verb_string_from_index(int verbx);
-	
-	
-	
-		
-	
-
-	int get_needs_event(int room_index);
-	void set_needs_event(int roov_index, int event_numbers);
-	
+	//-------- T E S T  / Q A ----------//
 	void print_all_feature_desc();
-
-	void set_player_has_all_objects(int set[NUM_OBJECTS]);
-	string concat_obj_descs();
-	
-	void output_current_object_locations();
-	void output_feature_list_locations();
-	string ret_curr_feat_list();
-	string ret_curr_obj_loc();
-//todo:
-	/*
-		
-		start new game interface when player dies
-	*/
 	
 private:	
 	//implicitly initialized
