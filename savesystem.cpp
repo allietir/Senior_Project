@@ -255,7 +255,7 @@ void convert_string_to_array(int* arr, string str, int num_items) {
 			if ((str[i]==',')||(str[i]=='x')){
 				//new_num_str = new_num;
 				//printf("j is %i: ", j);
-				printf("new_num: %s\n", new_num);
+				//printf("new_num: %s\n", new_num);
 				
 				arr[j]=stoi(new_num);
 				//printf("arr[j]:: %i\n", arr[j]);
@@ -280,7 +280,7 @@ void convert_string_to_array(int* arr, string str, int num_items) {
 
 		}
 	}
-	//printf("\n------fini---------\n");
+
 
 }
 

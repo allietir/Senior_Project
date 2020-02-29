@@ -10,9 +10,14 @@
 
 Game::Game() {
 	init_rooms();
-	//set all game events triggered to not triggered
+	//set all ROOM events triggered to not triggered
 	for (int i = 0; i < NUM_EVENTS; i++){
 		set_room_events_triggered(i, 0);
+	}
+	//set all GAME events triggered to not triggered
+
+	for (int i = 0; i < NUM_GAME_EVENTS; i++){
+			set_game_events_triggered(i, 0);
 	}
 	event8counter = 0;
 	
