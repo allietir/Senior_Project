@@ -7,7 +7,7 @@
 #include <cstdio>
 
 Player::Player() {
-	name = "Anonymous";
+	name = "Skyler";
 	current_room = 0;
 	for (int i=0; i < NUM_OBJECTS; i++){
 		has_objects[i]=0;

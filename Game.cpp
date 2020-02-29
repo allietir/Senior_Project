@@ -15,12 +15,107 @@ Game::Game() {
 		set_room_events_triggered(i, 0);
 	}
 	//set all GAME events triggered to not triggered
-
 	for (int i = 0; i < NUM_GAME_EVENTS; i++){
 			set_game_events_triggered(i, 0);
 	}
 	event8counter = 0;
 	
+}
+//FUNCTION ID: 1
+//PRECONDITION:
+//Room class object array
+//Array of initial object locations 
+//Functions set_has_objects, set_obj_location
+
+//POSTCONDIDION
+//sets each room to the array for reference
+//sets objects within the correct rooms 
+//sets whether a room needs a specific object to enter it
+
+void Game::init_rooms() {
+	init_objects();
+	//place individual rooms in the array
+	r_array[0]= new Room1;
+	r_array[1]= new Room2;
+	r_array[2]= new Room3;
+	r_array[3]= new Room4;
+	r_array[4]= new Room5;
+	r_array[5]= new Room6;
+	r_array[6]= new Room7;
+	r_array[7]= new Room8;
+	r_array[8]= new Room9;
+	r_array[9]= new Room10;
+	r_array[10]= new Room11;
+	r_array[11]= new Room12;
+	r_array[12]= new Room13;
+	r_array[13]= new Room14;
+	r_array[14]= new Room15;
+
+	//add objects to array
+	for (int i = 0; i < NUM_OBJECTS; i++){
+		int room_id = room_obj_set[i];
+		
+		r_array[room_id]->set_has_objects(i, 1);
+		//init obj_location
+		set_obj_location(i, room_obj_set[i]);
+		
+	}
+	for (int i = 0; i < 8; i++){
+		int room_id = room_needs_object1[i];
+		r_array[room_id]->set_needs_objects(0, 1);
+	}
+	//TO DO: set "needs event" to open room
+	//init times rooms visited to 0
+	for (int i = 0; i < NUM_ROOMS; i++){
+		set_times_rooms_visited(i,0);
+	}
+	gen_feat_list();
+}
+//FUNCTION ID: 2
+//PRECONDITIONS:
+//Object class array exits
+//POSTCONDITIONS:
+//object class array set to object
+void Game::init_objects()
+{
+	//place individual 
+	o_array[0]= new Object1;
+	o_array[1]= new Object2;
+	o_array[2]= new Object3;
+	o_array[3]= new Object4;
+	o_array[4]= new Object5;
+	o_array[5]= new Object6;
+	o_array[6]= new Object7;
+	o_array[7]= new Object8;
+
+}
+//FUNCTION ID: 3
+//PRECONDITIONS:
+//Room array intialized to specific rooms
+//POSTCONDITIONS:
+//Feature list set to names of features. 
+void Game::gen_feat_list(){
+	int x = 0 ;
+	for (int i = 0; i < NUM_ROOMS; i++){
+		feat_list[x]=r_array[i]->get_feature_x(0)->get_name();
+	
+		feat_list[x+1]=r_array[i]->get_feature_x(1)->get_name();
+		
+		x = x + 2;
+	}
+}
+//FUNCTION ID: 4
+//PRECONDITIONS:
+//Room array and object array initialized
+//POSTCONDITIONS:
+//first room visited and looked at 
+void Game::start(){
+
+	printf("Welcome %s\n", player1.get_name().c_str());
+	printf("You are currently in the %s\n", r_array[player1.get_current_room()]->get_name().c_str());
+	r_array[player1.get_current_room()]->look();
+	//set room visited to 1; 
+	set_times_rooms_visited(0, 1);
 }
 void Game::event1()
 {
@@ -202,45 +297,7 @@ string Game::concat_obj_descs(){
 	}
 	return x;
 }
-void Game::init_rooms() {
-	init_objects();
-	//place individual rooms in the array
-	r_array[0]= new Room1;
-	r_array[1]= new Room2;
-	r_array[2]= new Room3;
-	r_array[3]= new Room4;
-	r_array[4]= new Room5;
-	r_array[5]= new Room6;
-	r_array[6]= new Room7;
-	r_array[7]= new Room8;
-	r_array[8]= new Room9;
-	r_array[9]= new Room10;
-	r_array[10]= new Room11;
-	r_array[11]= new Room12;
-	r_array[12]= new Room13;
-	r_array[13]= new Room14;
-	r_array[14]= new Room15;
 
-	//add objects to array
-	for (int i = 0; i < NUM_OBJECTS; i++){
-		int room_id = room_obj_set[i];
-		
-		r_array[room_id]->set_has_objects(i, 1);
-		//init obj_location
-		set_obj_location(i, room_obj_set[i]);
-		
-	}
-	for (int i = 0; i < 8; i++){
-		int room_id = room_needs_object1[i];
-		r_array[room_id]->set_needs_objects(0, 1);
-	}
-	//TO DO: set "needs event" to open room
-	//init times rooms visited to 0
-	for (int i = 0; i < NUM_ROOMS; i++){
-		set_times_rooms_visited(i,0);
-	}
-	gen_feat_list();
-}
 void Game::trigger_take_event(int obj_id){
 	int room_id = room_obj_set[obj_id];
 	printf("=========room_id: %i========\n", room_id);
@@ -250,35 +307,9 @@ void Game::trigger_take_event(int obj_id){
 	printf("=====triggering %i=====", event_index);
 	room_events_triggered[event_index]=1;
 }
-void Game::init_objects()
-{
-	//place individual 
-	o_array[0]= new Object1;
-	o_array[1]= new Object2;
-	o_array[2]= new Object3;
-	o_array[3]= new Object4;
-	o_array[4]= new Object5;
-	o_array[5]= new Object6;
-	o_array[6]= new Object7;
-	o_array[7]= new Object8;
 
-}
 
-void Game::start(){
-	
 
-	printf("Welcome %s\n", player1.get_name().c_str());
-	printf("Current location is %s\n", r_array[player1.get_current_room()]->get_name().c_str());
-	
-	r_array[player1.get_current_room()]->look();
-	//set room visited to 1; 
-	set_times_rooms_visited(0, 1);
-	//set game events to 0;
-	set_game_events_triggered(0, 0);
-
-	printf("%s\n", "-----GET INPUT FUNCTION HERE------");
-
-}
 //take implemented at game level, since objects are at game level
 void Game::take(int object_id){
 	//player 
@@ -502,53 +533,6 @@ void Game::exit_room(int dir){
 void Game::look(){
 	r_array[player1.get_current_room()]->look();
 }
-void Game::climb(int feature_x){
-
-	int get_next_room = r_array[player1.get_current_room()]->get_feature_x(feature_x)->climb();
-	if (get_next_room != -1){
-		player1.set_current_room(get_next_room);
-		//intro room
-		int current_room = player1.get_current_room();
-		printf("You are entering: %s\n", r_array[current_room]->get_name().c_str());
-		r_array[current_room]->look();
-	}
-}
-int Game::attack(int feature_x, int obj_id){
-	
-	//get attack item
-	//if you attack with the correct object..
-	int needed_object = r_array[player1.get_current_room()]->get_feature_x(feature_x)->get_attack_obj_id();
-	if (player1.get_has_objects(obj_id)){
-		if (obj_id==needed_object)
-			{
-				int get_attack_result=r_array[player1.get_current_room()]->get_feature_x(feature_x)->attack(obj_id);
-				if (get_attack_result == -1){
-					//player dead, game over, exit game totally. 
-					player1.set_player_alive(0);
-					printf("------GAME OVER; YOU HAVE DIED------\n");
-					return -1;
-					
-					
-				}
-				else if (get_attack_result == 0){
-					//
-					//nothin
-				}
-				else if (get_attack_result == 1)
-				{
-					printf("You won!");
-				}
-			}
-			else{
-				printf("You can't attack with %s", o_array[obj_id]->get_name().c_str());
-			}
-	
-	}
-	else{
-		printf("you don't have the %s", o_array[needed_object]->get_name().c_str());
-	}
-	return 0;
-}
 int Game::get_context_id_from_string(string feat_name){
 	for (int i = 0; i < MAX_FIXED; i++){
 		if (r_array[player1.get_current_room()]->get_feature_x(i)->get_name().compare(feat_name)==0){
@@ -566,22 +550,7 @@ int Game::get_obj_id_from_string(string obj_name){
 	}
 	return -1;
 }
-int Game::kill_player(){
-	player1.set_player_alive(0);
-	return 0;
-}
-void Game::gen_feat_list(){
-	int x = 0 ;
-	for (int i = 0; i < NUM_ROOMS; i++){
-		feat_list[x]=r_array[i]->get_feature_x(0)->get_name();
-		//printf("%s", feat_list[x].c_str());
-		feat_list[x+1]=r_array[i]->get_feature_x(1)->get_name();
-		//printf("%s", feat_list[x+1].c_str());
-		x = x + 2;
-		
-	}
-	
-}
+
 Player* Game::get_player()
 {
 	return &player1;
@@ -1244,7 +1213,13 @@ void Game::print_all_feature_desc(){
 string Game::get_all_is_locked(){
 	string bin_str_arr="";
 	for (int i = 0; i < NUM_OBJECTS; i++){
-		bin_str_arr=bin_str_arr + to_string(get_is_locked(i));	
+		if (i< NUM_OBJECTS-1){
+			bin_str_arr=bin_str_arr + to_string(get_is_locked(i)) + ", ";	
+		}
+		else{
+			bin_str_arr=bin_str_arr + to_string(get_is_locked(i)) + "\0";
+		}
+		
 	}
 	return bin_str_arr;
 }

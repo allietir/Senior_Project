@@ -63,13 +63,14 @@ closedir(dir);
 string get_game_data(Game& game) {
 
 	string game_data = "";
-
 	string player_name = "";
 	string rooms_visited = "";
 	string game_events = "";
 	string room_events = "";
 	string room_objects = "";
 	string player_objects = "";
+	string is_locked = "";
+	
 
 	int current_room = -1;
 
@@ -81,6 +82,7 @@ string get_game_data(Game& game) {
 	room_events =		game.get_all_room_events_triggered();
 	room_objects =		game.get_all_room_objects();
 	player_objects =	game.get_all_player_objects();
+	is_locked = 		game.get_all_is_locked();
 
 	//concatenate strings into one large string
 	game_data = player_name + "\n"
@@ -89,7 +91,9 @@ string get_game_data(Game& game) {
 				+ game_events + "\n"
 				+ room_events + "\n"
 				+ room_objects + "\n"
-				+ player_objects + "\n";
+				+ player_objects + "\n"
+				+ is_locked + "\n";
+			
 
 	return game_data;
 
@@ -171,7 +175,7 @@ void set_game_data(Game& game, ifstream& save_file) {
 	int room_events[NUM_EVENTS] = { 0 };
 	int room_objects[NUM_OBJECTS] = { 0 };
 	int player_objects[NUM_OBJECTS] = { 0 };
-
+	int is_locked[NUM_OBJECTS] = { 0 };
 	//Player name
 	getline(save_file, next_line);
 	game.get_player()->set_name(next_line);
@@ -209,6 +213,12 @@ void set_game_data(Game& game, ifstream& save_file) {
 	printf("player_objects: %s\n", next_line.c_str());
 	convert_string_to_array(player_objects, next_line, NUM_OBJECTS);
 	game.set_all_player_objects(player_objects);
+	
+	//All is locked
+	getline(save_file, next_line);
+	printf("is_locked: %s\n", next_line.c_str());
+	convert_string_to_array(is_locked, next_line, NUM_OBJECTS);
+	game.set_all_is_locked(is_locked);
 
 }
 

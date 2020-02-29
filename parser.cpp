@@ -201,23 +201,6 @@ int checkMoveCommands(Game &game, vector<string> inputVector){
 //NOT IMPLEMENTED
 int checkActions(Game &game, vector<string> inputVector) {
 	int actionStatus = 1;
-
-//	if (inputVector[0] == "take" && inputVector[1] == "dagger") {
-//		//cout << "call take dagger\n";
-//		game.take(4);
-//	}
-//	else if (inputVector[0] == "drop" && inputVector[1] == "dagger") {
-//		//cout << "call take dagger\n";
-//		game.drop(4);
-//	}
-	/*if (inputVector[0] == "look" &&
-		(inputVector[1] == "gravestone"
-			|| (inputVector[1] == "at" && inputVector[2] == "gravestone"))) {
-		cout << "call look at gravestone\n";
-		//game.r_array[game.player1.get_current_room()]->get_feature_X(0)->look();
-	}
-	else actionStatus = 0;
-	*/
 	int verbID = -1;
 	int featID = -1;
 	int objID = -1;
