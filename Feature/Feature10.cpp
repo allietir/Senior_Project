@@ -14,7 +14,7 @@ int Feature10::speak(){
 	if (get_times_toggled(SPEAK)==0){
 		if (get_desc().compare("There is a painting of a beautiful women sleeping with her eyes closed.\n")!=0){
 				func_togg_count_x(SPEAK);
-				printf("I am going to go look for my family. Thank you for belieivng in me.\n");
+				printf("I am going to go look for my family. Thank you for believing in me.\n");
 				return 1;
 			}
 	}

@@ -10,7 +10,7 @@ Room13::Room13() {
 	set_room_id(12);
 
 	set_feature_x(new Feature25, 0);//stovetop
-	set_feature_x(new Feature26, 1);//crow with clue to basement
+	set_feature_x(new Feature26, 1);//cupboard
 	
 	
 	set_exit_name("Trapdoor to basement", 0);//SOUTH

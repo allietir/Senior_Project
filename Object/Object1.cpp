@@ -11,9 +11,22 @@ Object1::Object1() {
 }
 int Object1::read(){
 	string read_response = "Vos postulo mihi tenebris";
-	func_togg_count_x(0);
+	func_togg_count_x(READ);
 	printf("%s\n", read_response.c_str());
 	return 4;
+}
+int Object1::use(int obj_feat_obj){
+	printf("----------------here------------------\n");
+	if (get_times_toggled(USE)==0){
+		func_togg_count_x(USE);
+		printf("The lamp turns on and you can see more clearly than before.\n");
+	}
+	else if (get_times_toggled(USE)==1){
+		
+		printf("The lamp is already on and you can see more clearly in the room\n");
+	}
+	return 4;
+	
 }
 
 Object1::~Object1() {

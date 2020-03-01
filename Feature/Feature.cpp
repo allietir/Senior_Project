@@ -24,6 +24,12 @@ Feature::Feature() {
 	}
 		
 }
+string Feature::get_read_response(){
+	return read_response;
+}
+void Feature::set_read_response(string rr){
+	read_response = rr;
+}
 string Feature::get_name(){
 	return name;
 }
@@ -219,6 +225,18 @@ string Feature::get_room_name(int x)
 {
 	return room_list[x];
 }
+
+int  Feature::get_time(){
+	printf("used in clock");
+	return 0;
+}//return desc
+void  Feature::set_time(int time){
+	printf("used in clock");
+}//return desc
+string  Feature::get_time_str(){
+	printf("used in clock");
+	return "null";
+}//
 Feature::~Feature() {
 	
 }

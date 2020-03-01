@@ -31,7 +31,20 @@ Room3::Room3() {
 	set_exit_desc(exit_desc_3, 3);
 	
 	init_long_short_desc();
+	set_num_events(1);
 
+}
+int Room3::event_one(){
+	printf("The clock strikes midnight:\n ");
+	printf("You find yourself upstairs. \n");
+	get_feature_x(0)->func_togg_count_x(OPEN);
+	printf("You open the grandfather clock door and you see a staircase down. Looks like you'll need to climb quite a bit to get down there... but where does it go?");
+	string desc = "The grandfather clock is open and a staircase down is revealed.\n" + get_feature_x(0)->get_time_str();
+	get_feature_x(0)->set_desc(desc);
+	set_event_triggered(0, 1);
+	return 4;
+	
+	
 }
 
 Room3::~Room3() {

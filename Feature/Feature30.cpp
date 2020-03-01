@@ -12,9 +12,19 @@ Feature30::Feature30(){
 }
 int Feature30::speak(){
 
-	func_togg_count_x(SPEAK);
-	printf("The demon speaks in a thundering tone:\n'Your friend has a darkness inside them and so they will be mine.'\n You say to the demon: \n'We all have both dark and light within us.'\n'Instead of bringing them to the dark, why can't you step into the light?'\nThe demon shudders.'It is too late for me. The one I loved chose another. I cannot bear to see the light of day.'\n");
-	
+	if (get_times_toggled(SPEAK)==0){
+		func_togg_count_x(SPEAK);
+		printf("The demon speaks in a thundering tone:\n'Your friend has a darkness inside them and so they will be mine.'\n You say to the demon: \n'We all have both dark and light within us.'\n'Instead of bringing them to the dark, why can't you step into the light?'\nThe demon shudders.'It is too late for me. The one I loved chose another. I cannot bear to see the light of day.'\n");
+	}
+	else if (get_times_toggled(SPEAK)==1){
+		func_togg_count_x(SPEAK);
+		printf(" 'Whome did you love?' You ask. The demons eyes wander away from Alex, and seems to stop sucking the life force out of Alex.\n 'It doesn't matter. None of it matters anywmore'\n");
+
+	}
+	else{
+		printf("The demon has nothing else to say.\n");
+	}
+		
 
 	return 4;
 }
@@ -43,7 +53,7 @@ int Feature30::attack(int obj_feat){
 }
 int Feature30::give(int event_occured, int obj_feat_id){
 	//if this is called, this means that at this point the game was able to see that the chalice has something 
-	if (obj_feat_id==CHALICE)
+	if ((obj_feat_id==CHALICE)&&(event_occured==1))
 	{
 		printf("The demon looks at the holy water in the chalice.\n.'Maybe some things are worth the pain of transformation'\nThe demon drinks the water and lets out a horrible shriek.\nThere are flashes of light throughout the room and you are forced to look away.\nWhen you are no longer blinded by the light, you look for a remnent of the creature, but the demon is utterly gone.\n");	
 	}

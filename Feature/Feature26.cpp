@@ -6,7 +6,8 @@
 
 Feature26::Feature26() {
 	set_name("Cupboard");
-	set_desc("There is a cupboard in this kitchen with a handle on it.");
+	set_desc("There is a cupboard in this kitchen with a handle on it.\n");
+	set_desc_no_obj("There is a cupboard in this kitchen with a handle on it.\n");
 	set_index_id(25);
 }
 int Feature26::open(int room_id, int obj_id){
@@ -20,9 +21,15 @@ int Feature26::open(int room_id, int obj_id){
 		
 	}
 	return 4;
-	
-	
 }
+int Feature26::use(int feat_obj){
+	if (feat_obj==DIARY){
+		printf("You chant the following spell:'Ego tetigit hoc omnium sententia mea ut reveletur'\n");
+		return 37;
+	}
+	return 4;
+}
+
 Feature26::~Feature26() {
 	
 }

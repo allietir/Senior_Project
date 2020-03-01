@@ -7,6 +7,7 @@
 Feature25::Feature25() {
 	set_name("Stove");
 	set_desc("There is a stove in this kitchen. It looks like it hasn't been used for years.");
+	set_desc_no_obj("There is a stove in this kitchen. It looks like it hasn't been used for years.");
 	set_index_id(24);
 }
 int Feature25::use(int obj_id){

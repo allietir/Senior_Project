@@ -15,6 +15,11 @@ int Object4::read(){
 	printf("%s\n", read_response.c_str());
 	return 0;
 }
+int Object4::play(){
+	
+	return 42;
+	
+}
 Object4::~Object4() {
 	
 }

@@ -28,10 +28,12 @@ Room8::Room8() {
 	
 	init_long_short_desc();
 	//object set in Game, therefor description initialized in Game	
+	set_num_events(1);
 	
 }
 int Room8::event_one(){
 	printf("The vampire is free. 'Thank you for helping me regrain my strength. I will locate my family, and our house will be alive again.\n'");
+	set_event_triggered(0, 1);
 	return 4;
 }
 Room8::~Room8() {

@@ -11,7 +11,7 @@ public:
 	Object1();
 	virtual ~Object1();
 	int read();
-	
+	int use(int obj_id);
 	int special=666;
 	
 };

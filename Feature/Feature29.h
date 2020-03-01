@@ -9,6 +9,7 @@ class Feature29 : public Feature {
 public:
 	Feature29();
 	virtual ~Feature29();
+	int give(int room_id, int obj_id);
 	int special=666;
 };
 

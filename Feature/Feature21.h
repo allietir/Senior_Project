@@ -10,6 +10,8 @@ public:
 	Feature21();
 	virtual ~Feature21();
 	int read();
+	int use(int obj_feat_obj);
+	int speak();
 	int special=666;
 };
 

@@ -2,15 +2,15 @@
 // Room9.cpp
 // Created by Claudia Rodriguez-Schroeder on 1/3/20.
 
-#include "Room9.h"
+#include "Room9.h" 
 //#define ROOM9 "Bathroom"//exit south->master bedroom:8 east->child room:6 exit 
 Room9::Room9() {
 	set_name("Bathroom");
 	set_extra_description("The sound of water and weeping, and a sense of anxiety and horror permeates your very bones.");
 	set_room_id(8);
 
-	set_feature_x(new Feature17, 0);
-	set_feature_x(new Feature18, 1);
+	set_feature_x(new Feature17, 0);//mirror
+	set_feature_x(new Feature18, 1);//sink
 	
 	set_exit_name("Door to master bedroom", 1);//south
 	set_exit_name("Door to nursury", 2);//east
@@ -27,6 +27,7 @@ Room9::Room9() {
 }
 int Room9::event_one(){
 	printf("You fill the chalice with blood.\n");
+	set_event_triggered(0, 1);
 	return 4;
 }
 Room9::~Room9() {

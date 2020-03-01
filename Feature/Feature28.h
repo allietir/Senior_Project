@@ -9,6 +9,8 @@ class Feature28 : public Feature {
 public:
 	Feature28();
 	virtual ~Feature28();
+	int use(int obj_feat_id);
+	int speak();
 	int special=666;
 };
 

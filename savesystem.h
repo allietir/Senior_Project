@@ -14,7 +14,9 @@ void load_game(Game& game);
 string get_game_data(Game& game);
 void set_game_data(Game& game, ifstream& save_file);
 
-void convert_string_to_array(int* arr, string str);
+void convert_string_to_array(int* arr, string str, int num_items);
+
+bool save_load_test(Game& game);
 
 bool save_load_test(Game& game);
 

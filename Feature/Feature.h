@@ -46,7 +46,15 @@ public:
 	int get_look_count();
 	void set_look_count(int x);
 	
+	
+	virtual int get_time();//return desc
+	virtual void set_time(int time);//return desc
+	virtual string get_time_str();//
+	
 	virtual int look();//return desc
+	
+	
+	
 	
 	/*Your game must support an action vocabulary space (verbs) of at least ten primary actions (hit, pull, go, eat, etc.). These verbs must allow interaction with each feature in each room (a generic "you can't eat that" type of message is OK to use with some verbs).
 	Some verbs must cause the player to move between rooms.*/
@@ -80,6 +88,9 @@ public:
 	
 	string get_obj_name(int x);
 	string get_room_name(int x);
+	
+	string get_read_response();
+	void set_read_response(string x);
 	//TO ADD:
 		// a list of functions that correspond to each verb within the game
 	
@@ -111,7 +122,9 @@ private:
 	//items so it knows about other things/rooms
 	string obj_list[8]={"Lamp", "Diary", "Locket", "Music", "Dagger", "Doll", "Key", "Chalice"};
 	string room_list[15]={"Front Garden", "Entranceway", "Upstairs Hallways", "Dining Room", "Parlor", "Nursury", "Guest Bedroom", "Master Bedroom", "Bathroom", "Attic", "Library", "Conservatory", "Kitchen", "Basement", "Crypt"};
-
+	//int current_time=0;
+	
+	string read_response;
 	
 
 };

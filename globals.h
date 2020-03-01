@@ -10,7 +10,7 @@
 #define MAX_EVENTS 3
 #define NUM_EVENTS 45
 #define NUM_REQ_VERBS 12
-#define NUM_GAME_EVENTS 5
+#define NUM_GAME_EVENTS 17
 
 #define RUN_FUNC_VERBS 13
 
@@ -237,7 +237,7 @@
 #define DRESSER 13
 #define VAMPIRE 14
 #define BRANCH 15
-#define MIRROR_2 16
+#define MIRROR 16
 #define SINK 17
 #define CHEST 18
 #define PIRATE 19
