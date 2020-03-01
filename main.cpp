@@ -724,27 +724,32 @@ int main(int argc, char *argv[]) {
 		
 		Game parse_test;
 		parse_test.start();
-		char userInput[10] = {'\0'}; 
+		char userInput[100] = {'\0'}; 
 		int x=0;
 		int y_flag = 0;
 		while (x==0) {
 			
 			if (y_flag == 0){
-				cout << "what would you like to do: \n";
+				printf("What would you like to do?\n");
 			}
 			
 
 		
-			cin.getline(userInput, 10);
+			cin.getline(userInput, 100);
 			//cin.ignore(2, '\n');
 			
-			
+			//printf("got %s", userInput);
 			if (userInput[0]=='\0'){
 				//cout << "Nothing was entered\n";
 				y_flag = 1;
 				cin.clear();
 				cin.ignore(1000000000000, '\n');
+				memset(userInput, '\0', 100);
 			
+			}
+			else if (strcmp("go", userInput)==0){
+				printf("Where do you want to go?\n");
+				y_flag = 1;
 			}
 			else{
 				y_flag = 0;
