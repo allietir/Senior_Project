@@ -8,4 +8,6 @@
 
 #include "Game.h"
 
+string word_wrap (string wrapString, int maxLength);
+
 #endif
