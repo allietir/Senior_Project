@@ -94,8 +94,8 @@ string cleanInput(string userInput){
 				i--;
 			}
 		}
-		else if ((userInput[i] < 'A' || userInput[i] > 'Z') &&
-			(userInput[i] < 'a' || userInput[i] > 'z')) {
+		else if (userInput[i] < 'A' || userInput[i] > 'Z' &&
+			userInput[i] < 'a' || userInput[i] > 'z') {
 			userInput.erase(i, 1);
 			i--;
 		}

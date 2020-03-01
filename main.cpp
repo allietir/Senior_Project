@@ -615,111 +615,151 @@ int main(int argc, char *argv[]) {
 //		statue_test.run_func(STATUE, -1, SPEAK);
 //		statue_test.run_func(STATUE, -1, SPEAK);
 		
-		/*START ALLIE SAVESYSTEM TESTS*/
+//		/*START ALLIE SAVESYSTEM TESTS*/
+//
+//			int success = 0;
+//			int total = 0;
+//
+//			Game test_take_drop;
+//
+//			test_take_drop.start();
+//
+//			int ba[]={0,0,0,0,0,0,0,0};
+//			test_take_drop.set_all_is_locked(ba);
+//
+//			//Run the save_load_test for the player in each room and before any action is taken
+//			for (int i = 0; i < NUM_ROOMS; i++) {
+//				
+//				test_take_drop.get_player()->set_current_room(i);
+//
+//				if (save_load_test(test_take_drop) == true) 
+//				{
+//					printf("save_load_test = SUCCESS\n");
+//					success++;
+//				}
+//				else
+//				{
+//					printf("save_load_test = FAIL\n");
+//				}
+//				total++;
+//			}
+//
+//			for (int i = 0; i < NUM_ROOMS; i++){
+//
+//				test_take_drop.get_player()->set_current_room(i);
+//
+//				//try to take each object in each room
+//				for (int j = 0; j < NUM_OBJECTS; j++){
+//					test_take_drop.take(j);
+//					string x = test_take_drop.get_all_player_objects();
+//					printf("all player object: %s\n", x.c_str());
+//
+//					//Run the save_load_test for each of these single actions
+//					if (save_load_test(test_take_drop) == true) 
+//					{
+//						printf("save_load_test = SUCCESS\n");
+//						success++;
+//					}
+//					else
+//					{
+//						printf("save_load_test = FAIL\n");
+//					}
+//					total++;
+//
+//				}
+//			}
+//
+//			//Test dropping and picking up items in each room
+//			//after you have all items in your inventory
+//			for (int i = 0; i < NUM_ROOMS; i++){
+//
+//				test_take_drop.get_player()->set_current_room(i);
+//
+//				//try to drop each item in room 
+//				for (int j = 0; j < NUM_OBJECTS; j++){
+//					test_take_drop.drop(j);
+//
+//					//Run the save_load_test for each of these single actions
+//					if (save_load_test(test_take_drop) == true) 
+//					{
+//						printf("save_load_test = SUCCESS\n");
+//						success++;
+//					}
+//					else
+//					{
+//						printf("save_load_test = FAIL\n");
+//					}
+//					total++;
+//
+//				}
+//
+//				//try to take each item in the room
+//				for (int k = 0; k < NUM_OBJECTS; k++){
+//					test_take_drop.take(k);
+//
+//					//Run the save_load_test for each of these single actions
+//					if (save_load_test(test_take_drop) == true) 
+//					{
+//						printf("save_load_test = SUCCESS\n");
+//						success++;
+//					}
+//					else
+//					{
+//						printf("save_load_test = FAIL\n");
+//					}
+//					total++;
+//
+//				}
+//			}
+//
+//			//print overall results
+//			printf("\nsave_load_test report: %d out of %d tests passed", success, total);
+//
+//			//new_game.start();
+//			//save_game(new_game);
+//			//load_game(new_game);
+//
+//		/*END ALLIE SAVESYSTEM TESTS*/	
+		
+		
+		Game parse_test;
+		parse_test.start();
+		char userInput[10] = {'\0'}; 
+		int x=0;
+		int y_flag = 0;
+		while (x==0) {
+			
+			if (y_flag == 0){
+				cout << "what would you like to do: \n";
+			}
+			
 
-			int success = 0;
-			int total = 0;
-
-			Game test_take_drop;
-
-			test_take_drop.start();
-
-			int ba[]={0,0,0,0,0,0,0,0};
-			test_take_drop.set_all_is_locked(ba);
-
-			//Run the save_load_test for the player in each room and before any action is taken
-			for (int i = 0; i < NUM_ROOMS; i++) {
+		
+			cin.getline(userInput, 10);
+			//cin.ignore(2, '\n');
+			
+			
+			if (userInput[0]=='\0'){
+				//cout << "Nothing was entered\n";
+				y_flag = 1;
+				cin.clear();
+				cin.ignore(1000000000000, '\n');
+			
+			}
+			else{
+				y_flag = 0;
+				inputParsing(parse_test, userInput);
+								
 				
-				test_take_drop.get_player()->set_current_room(i);
-
-				if (save_load_test(test_take_drop) == true) 
-				{
-					printf("save_load_test = SUCCESS\n");
-					success++;
-				}
-				else
-				{
-					printf("save_load_test = FAIL\n");
-				}
-				total++;
 			}
+			
+		
 
-			for (int i = 0; i < NUM_ROOMS; i++){
-
-				test_take_drop.get_player()->set_current_room(i);
-
-				//try to take each object in each room
-				for (int j = 0; j < NUM_OBJECTS; j++){
-					test_take_drop.take(j);
-					string x = test_take_drop.get_all_player_objects();
-					printf("all player object: %s\n", x.c_str());
-
-					//Run the save_load_test for each of these single actions
-					if (save_load_test(test_take_drop) == true) 
-					{
-						printf("save_load_test = SUCCESS\n");
-						success++;
-					}
-					else
-					{
-						printf("save_load_test = FAIL\n");
-					}
-					total++;
-
-				}
-			}
-
-			//Test dropping and picking up items in each room
-			//after you have all items in your inventory
-			for (int i = 0; i < NUM_ROOMS; i++){
-
-				test_take_drop.get_player()->set_current_room(i);
-
-				//try to drop each item in room 
-				for (int j = 0; j < NUM_OBJECTS; j++){
-					test_take_drop.drop(j);
-
-					//Run the save_load_test for each of these single actions
-					if (save_load_test(test_take_drop) == true) 
-					{
-						printf("save_load_test = SUCCESS\n");
-						success++;
-					}
-					else
-					{
-						printf("save_load_test = FAIL\n");
-					}
-					total++;
-
-				}
-
-				//try to take each item in the room
-				for (int k = 0; k < NUM_OBJECTS; k++){
-					test_take_drop.take(k);
-
-					//Run the save_load_test for each of these single actions
-					if (save_load_test(test_take_drop) == true) 
-					{
-						printf("save_load_test = SUCCESS\n");
-						success++;
-					}
-					else
-					{
-						printf("save_load_test = FAIL\n");
-					}
-					total++;
-
-				}
-			}
-
-			//print overall results
-			printf("\nsave_load_test report: %d out of %d tests passed", success, total);
-
-			//new_game.start();
-			//save_game(new_game);
-			//load_game(new_game);
-
-		/*END ALLIE SAVESYSTEM TESTS*/	
+			
+			
+			
+			 
+		}
 		
 	
 }	

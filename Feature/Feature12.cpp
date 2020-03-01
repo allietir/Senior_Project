@@ -20,6 +20,7 @@ int Feature12::use(int int_feat_obj){
 		printf("Again, you can see the doll shrink within the house and become real\nThrough the window you see the little girl walk through a replica of the hallway outside, and you see her turn back the clock.\n");
 		return 41;
 	}
+	return 4;
 	
 }
 Feature12::~Feature12() {
