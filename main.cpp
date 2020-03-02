@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
 
 	string wrap_two = 	"The smell of apple pie wafts pleasently under your nose, but you don't see any pie. However, as your eyes adjust from the dark, you smell an undertone of rot and decay. "
 						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
-						"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n"
+						"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n";
 
 	printf(word_wrap(wrap_one.c_str(), 80).c_str());
 
