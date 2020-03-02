@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
 						"You see a face more old and ancient and angry than any human could ever be, and in that moment you realize you have made an enormous error. "
 						"That's the last thought you have before the tree swallows you whole.";
 
-	printf(word_wrap(wrap_this.c_str(), 80));
+	printf(word_wrap(wrap_this, 80));
 	
 	
 	
