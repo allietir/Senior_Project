@@ -10,12 +10,12 @@ using namespace std;
 
 //In this case maxLength should be a global variable from globals.h
 string word_wrap (string wrapString, int maxLength) {
-	int line_begin = 0;
+	int line_start = 0;
 
 	while (i < wrapString.size())
 	{
-		int ideal_end = line_begin + maxLength;
-		unsigned line_end = ideal_end <= text.size() ? ideal_end : wrapString.size()-1;
+		int ideal_end = line_start + maxLength;
+		unsigned line_end = ideal_end <= wrapString.size() ? ideal_end : wrapString.size()-1;
 
 		//if we are at the end
 		if (line_end == wrapString.size() - 1)
@@ -31,19 +31,20 @@ string word_wrap (string wrapString, int maxLength) {
 		//avoid inserting newline in middle of word
 		else
 		{
-			unsigned end = line_end
+			//create new tracker variable to backtrace
+			unsigned end = line_end;
 
-			//backtrack to a space character
-			while (end > line_begin && !isspace(text[end]))
+			//backtrace to a space character
+			while (end > line_start && !isspace(text[end]))
 			{
 				end--;
 			}
 
-			//reset start of line to current end of line
-			if (end != line_begin)
+			//reset end of line to current tracker position
+			if (end != line_start)
 			{
 				line_end = end;
-				text[line_end++] = '\n';
+				wrapString[line_end++] = '\n';
 			}
 			//
 			else
@@ -52,7 +53,8 @@ string word_wrap (string wrapString, int maxLength) {
 			}
 		}
 
-		line_begin = line_end;
+		//start again from current point
+		line_start = line_end;
 	}
 
 	return wrapString;
