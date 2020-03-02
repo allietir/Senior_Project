@@ -9,7 +9,7 @@
 using namespace std;
 
 //In this case maxLength should be a global variable from globals.h
-string word_wrap(const char* wrapString, int maxLength) {
+char* word_wrap(const char* wrapString, int maxLength) {
 	int line_start = 0;
 
 	while (line_start < wrapString.size())
