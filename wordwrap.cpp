@@ -12,7 +12,7 @@ using namespace std;
 string word_wrap (string wrapString, int maxLength) {
 	int line_start = 0;
 
-	while (i < wrapString.size())
+	while (line_start < wrapString.size())
 	{
 		int ideal_end = line_start + maxLength;
 		unsigned line_end = ideal_end <= wrapString.size() ? ideal_end : wrapString.size()-1;
@@ -35,7 +35,7 @@ string word_wrap (string wrapString, int maxLength) {
 			unsigned end = line_end;
 
 			//backtrace to a space character
-			while (end > line_start && !isspace(text[end]))
+			while (end > line_start && !isspace(wrapString[end]))
 			{
 				end--;
 			}
