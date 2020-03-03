@@ -38,7 +38,7 @@ int Room12::event_one(){
 }
 int Room12::event_two(){
 	printf("The chalice is filled with holy water\n");
-	set_event_triggered(0, 1);
+	set_event_triggered(1, 1);
 	return 4;
 
 }

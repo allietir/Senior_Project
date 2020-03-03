@@ -5,8 +5,9 @@
 #include "Feature7.h"
 
 Feature7::Feature7() {
+
 	set_name("\033[1;31mFaceless\033[0m");
-	set_desc("There is a still, mummified looking man at the end of the table. The create is absolutly still and appears to have no features at all; no eyes, no mouth, not an orafice in sight. The create's hands are laid on the table, enormous and clawed.");
+	set_desc("There is a still, mummified looking man at the end of the table. The creature has no face; you believe it can be called \033[1;31mFaceless\033[0m. The creature is absolutly still and appears to have no features at all; no eyes, no mouth, not an orafice in sight. The creature's hands are laid on the table, enormous and clawed.");
 	set_index_id(6);
 	set_attack_obj_id(4);//uses gilded knife to attack
 }

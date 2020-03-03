@@ -11,9 +11,9 @@ Object8::Object8() {
 }
 int Object8::read(){
 	string read_response = "Sanguis seu spiritus";
-	func_togg_count_x(0);
+	func_togg_count_x(READ);
 	printf("%s\n", read_response.c_str());
-	return 0;	
+	return 4;	
 }
 Object8::~Object8() {
 	

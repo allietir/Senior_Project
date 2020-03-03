@@ -13,7 +13,9 @@ Feature1::Feature1() {
 }
 
 int Feature1::read(){
-	string read_response = "The \033[1;31mgravestone's\033[0m first name is too faded to read, but the last name says 'Smith'.\n 'Hey', says Alex. 'Wasn't that your mom's maiden name?'. 'Yeah', you reply.\n";
+
+	string read_response = "The \033[1;31mgravestone's\033[0m first name is too faded to read, but the last name says 'Smith'. \nThat was your mothers maiden name.\n";
+
 	func_togg_count_x(0);
 	
 	printf("%s\n", read_response.c_str());
@@ -34,7 +36,9 @@ int Feature1::use(int x){
 	return 4;
 } 
 int Feature1::eat(){
+
 	string eat_response = "You can't eat the \033[1;31mgravestone\033[0m right now, unless you gain the power to digest stones \n";
+
 	func_togg_count_x(EAT);
 	
 	printf("%s\n", eat_response.c_str());
@@ -71,8 +75,19 @@ int Feature1::climb(){
 	return 4;
 }
 int Feature1::attack(int obj_id){
-	printf("Attacking with a %s is not effective. Luckily, the \033[1;31mgravestone\033[0m does not attack back.", get_obj_name(obj_id).c_str());
-	func_togg_count_x(ATTACK);
+
+	if (obj_id!=-1){
+		printf("Attacking with a %s is not effective. Luckily, the \033[1;31mgravestone\033[0m does not attack back.", get_obj_name(obj_id).c_str());
+		func_togg_count_x(ATTACK);
+		return 4;
+
+	}
+	if (obj_id==-1){
+		printf("Attckign with no object is not effective.\n");
+		func_togg_count_x(ATTACK);
+		return 4;
+	}
+
 	return 4;
 }
 Feature1::~Feature1() {
