@@ -5,13 +5,13 @@
 #include "Feature27.h"
 
 Feature27::Feature27() {
-	set_name("Pedestal");
-	set_desc("There's a pedestal by the statue, made with a similar greek aesthetic in mind. It looks like a pillar that could have held up a temple to Zeus or Athena. \n");
+	set_name("\033[1;31mPedestal\033[0m");
+	set_desc("There's a \033[1;31mpedestal\033[0m by the \033[1;31mstatue\033[0m, made with a similar greek aesthetic in mind. It looks like a pillar that could have held up a temple to Zeus or Athena. \n");
 	set_index_id(26);
 }
 int Feature27::use(int obj_id){
 	if (obj_id == CHALICE){
-		printf("You place the silver chalice onto the pedestal.\n");
+		printf("You place the silver \033[1;35mchalice\033[0m onto the \033[1;31mpedestal\033[0m.\n");
 		func_togg_count_x(USE);
 		//triggers event one.
 		return 0;

@@ -224,7 +224,7 @@
 #define GRAVESTONE 0
 #define TREE 1
 #define PORTRAIT 2
-#define MUSICBOX 3
+#define Musicbox 3
 #define CLOCK 4
 #define CARPET 5
 #define FACELESS 6

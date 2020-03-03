@@ -79,7 +79,8 @@ const map<string, int> objIDmap = {
 	{ "chalice", 7},
 	{ "sheet", 3}, 
 	{ "knife", 4}, 
-	{ "weapon", 4}
+	{ "weapon", 4},
+	{ "spell", 1}
 };
 
 //map to look up feature ID
@@ -122,6 +123,7 @@ const map<string, int> featIDmap = {
 	{ "kid", 10}, 
 	{ "girl", 10},
 	{ "mom", 12},
+	{ "woman", 12},
 	{ "drawer", 13},
 	{ "crate", 18},
 	{ "shelf", 20},

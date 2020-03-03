@@ -5,8 +5,8 @@
 #include "Feature21.h"
 
 Feature21::Feature21() {
-	set_name("Bookshelf");
-	set_desc("There is a single bookshelf in the library\nThere are a few books on there, but there is a peculiar quality to them. What makes this bookshelf so strange?\n");
+	set_name("\033[1;31mBookshelf\033[0m");
+	set_desc("There is a single \033[1;31mbookshelf\033[0m in the library\nThere are a few books on there, but there is a peculiar quality to them. What makes this \033[1;31mbookshelf\033[0m so strange?\n");
 	set_index_id(20);
 }
 int Feature21::read(){

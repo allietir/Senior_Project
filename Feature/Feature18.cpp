@@ -5,8 +5,8 @@
 #include "Feature18.h"
 
 Feature18::Feature18() {
-	set_name("Sink");
-	set_desc("There is a sink in the bathroom. It is on. There is a liquid pouring from the faucet. It is a deep, deep red and appears to have the viscocity and coppery smell of hot blood.\n");
+	set_name("\033[1;31mSink\033[0m");
+	set_desc("There is a \033[1;31msink\033[0m in the bathroom. It is on. There is a liquid pouring from the faucet. It is a deep, deep red and appears to have the viscocity and coppery smell of hot blood.\n");
 	set_index_id(17);
 }
 int Feature18::use(int obj_int){
@@ -14,15 +14,15 @@ int Feature18::use(int obj_int){
 	if (obj_int==-1){
 		if (get_times_toggled(USE)==0){
 				func_togg_count_x(USE);
-				printf("The sink turns off and the blood stops pouring.\n");
-				set_desc("There is a sink in the bathroom. It is off. The sink is still stained with the blood that comes out.\n");
+				printf("The \033[1;31msink\033[0m turns off and the blood stops pouring.\n");
+				set_desc("There is a \033[1;31msink\033[0m in the bathroom. It is off. The \033[1;31msink\033[0m is still stained with the blood that comes out.\n");
 				
 			}
 			else if (get_times_toggled(USE)==1){
 				set_togg_count_x(USE, 0);
-				set_desc("There is a sink in the bathroom. It is on. There is a liquid pouring from the faucet. It is a deep, deep red and appears to have the viscocity and coppery smell of hot blood.\n");
+				set_desc("There is a \033[1;31msink\033[0m in the bathroom. It is on. There is a liquid pouring from the faucet. It is a deep, deep red and appears to have the viscocity and coppery smell of hot blood.\n");
 
-				printf("The sink turns back on and the blood continues to pour out.\n");
+				printf("The \033[1;31msink\033[0m turns back on and the blood continues to pour out.\n");
 			}
 
 	}

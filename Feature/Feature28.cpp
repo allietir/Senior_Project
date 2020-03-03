@@ -5,16 +5,16 @@
 #include "Feature28.h"
 
 Feature28::Feature28() {
-	set_name("Statue");
-	set_desc("The statue is marbled, white, and beautiful, the most beautiful statue you have ever seen; it looks like if you blinked, it would come alive. The clothes chisled look like silk; the eyes seem to see somwhere more incredible than you could eve dream of. \n");
+	set_name("\033[1;31mStatue\033[0m");
+	set_desc("The \033[1;31mstatue\033[0m is marbled, white, and beautiful, the most beautiful statue you have ever seen; it looks like if you blinked, it would come alive. The clothes chisled look like silk; the eyes seem to see somwhere more incredible than you could ever dream of. \n");
 	set_index_id(27);
 }
 
 int Feature28::use(int obj_feat_id){
 	if ((obj_feat_id==DIARY)&&(get_times_toggled(USE)==0)){
 		func_togg_count_x(USE);
-		printf("You open the diary and locate a spell to make stone come to life\n'When the human speaks spells\nWill stone become flesh\n'");
-		set_desc("The statue squirms in place, alive and yet trapped.\n");
+		printf("You open the \033[1;35mdiary\033[0m and locate a spell to make stone come to life\n'When the human speaks spells\nWill stone become flesh\n'");
+		set_desc("The \033[1;31mstatue\033[0m squirms in place, alive and yet trapped.\n");
 
 	}
 	else if ((obj_feat_id==DIARY)&&(get_times_toggled(USE)>=1)){
@@ -39,7 +39,7 @@ int Feature28::speak(){
 			}
 			else if (get_times_toggled(SPEAK)>=2){
 					func_togg_count_x(SPEAK);
-					printf("The creature roll it's eyes. 'Fine, I'll spell it out for you. It's the lamp first, then the diary, then your locket, then your music, then your dagger, then your doll, then the key, and finally the chalice. I can't possibly make it clearer than that.'\n");
+					printf("The creature roll it's eyes. 'Fine, I'll spell it out for you. It's the \033[1;35mlamp\033[0m first, then the \033[1;35mdiary\033[0m, then your \033[1;35mlocket\033[0m, then your \033[1;35mmusic\033[0m, then your \033[1;35mdagger\033[0m, then your \033[1;35mdoll\033[0m, then the \033[1;35mkey\033[0m, and finally the \033[1;35mchalice\033[0m. I can't possibly make it clearer than that.'\n");
 				}
 	}
 	

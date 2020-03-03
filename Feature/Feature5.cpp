@@ -6,17 +6,17 @@
 
 Feature5::Feature5() {
 	
-	set_name("Clock");
-	string desc_a = "There is a clock at the end of the highway, a grandfather clock, large and imposing. What happens when the clock strikes midnight?\n" + get_time_str();
+	set_name("\033[1;31mClock\033[0m");
+	string desc_a = "There is a clock at the end of the highway, a grandfather \033[1;31mclock\033[0m, large and imposing. What happens when the clock strikes midnight?\n" + get_time_str();
 	set_desc(desc_a);
-	set_desc_no_obj("There is a clock at the end of the highway, a grandfather clock, large and imposing. What happens when the clock strikes midnight?\n");
+	set_desc_no_obj("There is a \033[1;31mclock\033[0m at the end of the highway, a grandfather \033[1;31mclock\033[0m, large and imposing. What happens when the \033[1;31mclock\033[0m strikes midnight?\n");
 	set_index_id(4);
 	
 }
 
 int Feature5::read(){
 	func_togg_count_x(READ);
-	printf("The clock's inscription says, 'I slow as you hasten'. Well, that certainly doesn't feel true.\n");
+	printf("The \033[1;31clock's\033[0m inscription says, 'I slow as you hasten'. Well, that certainly doesn't feel true.\n");
 	return 4;
 }
 int Feature5::speak(){
@@ -25,7 +25,7 @@ int Feature5::speak(){
 			printf("You say the inscription outloud, 'I slow as you hasten.' . The latch on the door creaks open, and reveals a strange looking keyhole that doesn't look like it would fit a normal key; it looks more like a daggers hilt.\n");
 	}
 	else{
-		printf("The door is already open on the grandfather clock.\n");
+		printf("The door is already open on the grandfather \033[1;31mclock\033[0m.\n");
 	}
 	return 4;
 	
@@ -40,7 +40,7 @@ int Feature5::use(int obj_feat_id){
 			}
 	}
 	else{
-		printf("It's hard to interact with the clock as it is still closed. ");
+		printf("It's hard to interact with the \033[1;31mclock\033[0m as it is still closed. ");
 	}
 	return 4;
 	
@@ -50,10 +50,10 @@ int Feature5::open(int room_id, int obj_feat_id){
 	if (get_times_toggled(USE)>=1){
 		func_togg_count_x(OPEN);
 		printf("You open the door and you see a staircase down. Looks like you'll need to climb quite a bit to get down there... but where does it go?");
-		string desc = "The grandfather clock is open and a staircase down is revealed.\n" + get_time_str();
+		string desc = "The grandfather \033[1;31mclock\033[0m is open and a staircase down is revealed.\n" + get_time_str();
 		
 		set_desc(desc);
-		set_desc_no_obj("The grandfather clock is open and a staircase down is revealed.\n");
+		set_desc_no_obj("The grandfather \033[1;31mclock\033[0m is open and a staircase down is revealed.\n");
 	}
 	return 4;
 }//5
@@ -96,7 +96,7 @@ void Feature5::set_time(int the_time){
 	//printf("=============%s==============", get_desc().c_str());
 }
 int Feature5::look(){
-	string desc_a = "There is a clock at the end of the highway, a grandfather clock, large and imposing. What happens when the clock strikes midnight?\n" + get_time_str();
+	string desc_a = "There is a \033[1;31mclock\033[0m at the end of the highway, a grandfather \033[1;31mclock\033[0m, large and imposing. What happens when the \033[1;31mclock\033[0m strikes midnight?\n" + get_time_str();
 	set_desc(desc_a);
 	Feature::look();
 	return 4;
