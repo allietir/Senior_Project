@@ -13,7 +13,7 @@ int Object7::read(){
 	string read_response = "caeli desuper";
 	func_togg_count_x(0);
 	printf("%s\n", read_response.c_str());
-	return 0;
+	return 4;
 	
 	
 }

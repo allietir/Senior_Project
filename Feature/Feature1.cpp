@@ -71,8 +71,17 @@ int Feature1::climb(){
 	return 4;
 }
 int Feature1::attack(int obj_id){
-	printf("Attacking with a %s is not effective. Luckily, the gravestone does not attack back.", get_obj_name(obj_id).c_str());
-	func_togg_count_x(ATTACK);
+	if (obj_id!=-1){
+		printf("Attacking with a %s is not effective. Luckily, the gravestone does not attack back.", get_obj_name(obj_id).c_str());
+		func_togg_count_x(ATTACK);
+		return 4;
+
+	}
+	if (obj_id==-1){
+		printf("Attckign with no object is not effective.\n");
+		func_togg_count_x(ATTACK);
+		return 4;
+	}
 	return 4;
 }
 Feature1::~Feature1() {

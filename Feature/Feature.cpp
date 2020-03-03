@@ -226,9 +226,9 @@ string Feature::get_room_name(int x)
 	return room_list[x];
 }
 
-int  Feature::get_time(){
+int Feature::get_time(){
 	printf("used in clock");
-	return 0;
+	return 4;
 }//return desc
 void  Feature::set_time(int time){
 	printf("used in clock");

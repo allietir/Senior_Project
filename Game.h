@@ -185,6 +185,20 @@ public:
 
 	//-------- T E S T  / Q A ----------//
 	void print_all_feature_desc();
+	//get/sets only used for testing 
+	Object* get_object_x(int x);
+	Room* get_room_x(int x);
+	int get_obj_starts_in(int obj_id);
+	//PRECONDITIONS:
+	//Have features and objects set up
+	//POSTCONDITIONS:
+	//times_toggled for each verb for each feature and object set to x times. 
+	void set_all_verb_toggles_to_x(int x);
+	//Have features and objects set up
+	//POSTCONDITIONS:
+	//times_toggled for verb y  for each feature and object set to x times. 
+	void set_all_y_verb_toggles_to_x(int y, int x);
+
 	
 private:	
 	//implicitly initialized

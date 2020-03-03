@@ -40,6 +40,8 @@ int Feature2::read(){
 		func_togg_count_x(READ);
 		return 4;
 	} 
+	return 4;
+	
 }
 int Feature2::smell(){
 	
@@ -62,11 +64,7 @@ int Feature2::attack(int obj_feat_id){
 	return 4;
 	
 }
-int eat();
-int play();
-int open(int room_id, int obj_feat_id);
-int speak();
-int give(int room_id, int obj_feat_id);
+
 Feature2::~Feature2() {
 	
 }
