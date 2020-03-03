@@ -3,9 +3,25 @@
 //#include "globals.h"
 #include "parser.h"
 #include "savesystem.h"
+#include "wordwrap.h"
+
 using namespace std;
 void convert_string_to_array(int* arr, string str);
 int main(int argc, char *argv[]) {
+
+	string wrap_one = 	"The tree shakes and suddenly the face of the tree comes alive. "
+						"You see a face more old and ancient and angry than any human could ever be, and in that moment you realize you have made an enormous error. "
+						"That's the last thought you have before the tree swallows you whole. "
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+						"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n";
+
+	string wrap_two = 	"The smell of apple pie wafts pleasently under your nose, but you don't see any pie. However, as your eyes adjust from the dark, you smell an undertone of rot and decay. "
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+						"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n";
+
+	printf(word_wrap(wrap_one.c_str(), 80).c_str());
+
+	printf(word_wrap(wrap_two.c_str(), 80).c_str());
 	
 	
 	

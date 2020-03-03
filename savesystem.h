@@ -18,4 +18,6 @@ void convert_string_to_array(int* arr, string str, int num_items);
 
 bool save_load_test(Game& game);
 
+bool save_load_test(Game& game);
+
 #endif
