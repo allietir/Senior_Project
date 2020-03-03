@@ -13,7 +13,7 @@ Feature1::Feature1() {
 }
 
 int Feature1::read(){
-	string read_response = "The gravestone's first name is too faded to read, but the last name says 'Smith'.\n 'Hey', says Alex. 'Wasn't that your mom's maiden name?'. 'Yeah', you reply.\n";
+	string read_response = "The gravestone's first name is too faded to read, but the last name says 'Smith'.\nThat was your mothers maiden name.";
 	func_togg_count_x(0);
 	
 	printf("%s\n", read_response.c_str());
@@ -34,7 +34,7 @@ int Feature1::use(int x){
 	return 4;
 } 
 int Feature1::eat(){
-	string eat_response = "You can't eat the gravestone right now, unless you gain the power to digest stones \n";
+	string eat_response = "You can't eat the gravestone right now, unless you gain the power to digest stones. \n";
 	func_togg_count_x(EAT);
 	
 	printf("%s\n", eat_response.c_str());

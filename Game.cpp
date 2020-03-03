@@ -483,9 +483,10 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			{	printf("Running -- %s on OBJECT %s in room %s\n", verb.c_str(), o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
 				if (user_or_room_has_item(obj_index_id)==1){
 					if (verb.compare(STR_RVERB1)==0){ res = o_array[obj_index_id]->RVERB1(); }//look
+					else if (verb.compare(STR_RVERB2)==0){ RVERB2(obj_index_id); }//take
+					else if (verb.compare(STR_RVERB3)==0){ RVERB3(obj_index_id); }//drop	
 				}
-				else if (verb.compare(STR_RVERB2)==0){ RVERB2(obj_index_id); }//take
-				else if (verb.compare(STR_RVERB3)==0){ RVERB3(obj_index_id); }//drop	
+				
 			}	
 		}
 	}
@@ -1076,6 +1077,7 @@ int Game::moves_left(){
 void Game::event1()
 {
 	printf("The chandelair beings to flicker; the wind you've been sensing seems to pick up. Suddenly the room goes completely dark and %s only has time to gasp before you feel suddenly like you are being watched. The light turn back on. 'What the hell was that' you say, turning to look at %s. But %s is gone.\n You have to find %s. \n\n\n", FRIEND_NAME, FRIEND_NAME, FRIEND_NAME, FRIEND_NAME);
+	
 	set_game_events_triggered(0, 1);
 }
 void Game::event2(){

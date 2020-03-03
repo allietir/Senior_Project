@@ -783,93 +783,85 @@ int main(int argc, char *argv[]) {
 //		}
 	
 	/*TEST EVERY VERB WITH EVERY FEATURE AND EVERY OBJECT IN EVERY ROOM*/
-//	Game rf_test;
-//	
+	Game rf_test;
+	int num_fails=0;
+	int num_passes=0;
+	
+	for (int i = 0; i < NUM_ROOMS; i++)
+	{	printf("TESTING IN ROOM %s\n", rf_test.get_room_x(rf_test.get_player()->get_current_room())->get_name().c_str());
+		int x[8]={0, 0, 0, 0, 0, 0, 0, 0};
+		rf_test.set_all_is_locked(x);
+		rf_test.get_player()->set_current_room(i);
+		for (int k = -1; k < TOTAL_FIXED; k++)
+		{
+			for (int j= -1; j < NUM_OBJECTS; j++)
+			{
+				for (int x=0; x < RUN_FUNC_VERBS; x++)
+				{
+					printf("TEST: %i, %i, %i, %i\n", i, k, j, x);
+					if (x==TAKE){
+						printf("------------RUNNING TAKE---------\n");
+					}
+					rf_test.run_func(k, j, x);
+				}
+			}
+		}
+		
+	}	
+	/*check that all take events triggered*/
+	int obj_first_take_test=0; 
+	for (int i = 0; i < NUM_OBJECTS; i++){
+		
+		int check_room = rf_test.get_obj_starts_in(i);
+		if (rf_test.get_room_x(check_room)->get_event_triggered(0)==1)
+		{
+			printf("%s was taken\n", rf_test.get_object_x(i)->get_name().c_str()); 
+			obj_first_take_test++;
+		}
+		if (rf_test.get_room_x(check_room)->get_event_triggered(0)==0)
+		{
+			printf("%s was not taken\n", rf_test.get_object_x(i)->get_name().c_str()); 
+			
+		}
+	}
+	//all objects but doll, locked and chalice should be taken. 
+	if (obj_first_take_test==8){
+		printf("-----PASS-----\n");
+		num_passes++;
+	}
+	else{
+		printf("-----FAIL----\n");
+		printf("took %i", obj_first_take_test);
+		num_fails++;
+	}
+	
+//	Game rf1_test;
+//	//only test locking take
 //	for (int i = 0; i < NUM_ROOMS; i++)
-//	{	printf("TESTING IN ROOM %s", rf_test.get_room_x(rf_test.get_player()->get_current_room())->get_name().c_str());
-//		int x[8]={0, 0, 0, 0, 0, 0, 0, 0};
-//		rf_test.set_all_is_locked(x);
-//		rf_test.get_player()->set_current_room(i);
+//	{	
+//		printf("TESTING IN ROOM %s", rf1_test.get_room_x(rf1_test.get_player()->get_current_room())->get_name().c_str());
+//		int y[8]={1, 1, 1, 1, 1, 1, 1, 1};
+//		rf1_test.set_all_is_locked(y);
+//		
 //		for (int k = -1; k < TOTAL_FIXED; k++)
 //		{
 //			for (int j= -1; j < NUM_OBJECTS; j++)
 //			{
 //				for (int x=0; x < RUN_FUNC_VERBS; x++)
 //				{
+//					
+//					
 //					printf("%i, %i, %i, %i\n", i, k, j, x);
 //					rf_test.run_func(k, j, x);
-//				}
-//			}
-//		}
-//		
-//	}	
-//	/*check that all take events triggered*/
-//	int obj_first_take_test=0; 
-//	for (int i = 0; i < NUM_OBJECTS; i++){
-//		
-//		int check_room = rf_test.get_obj_starts_in(i);
-//		if (rf_test.get_room_x(check_room)->get_event_triggered(0)==1)
-//		{
-//			printf("%s was taken\n", rf_test.get_object_x(i)->get_name().c_str()); 
-//			obj_first_take_test++;
-//		}
-//		if (rf_test.get_room_x(check_room)->get_event_triggered(0)==0)
-//		{
-//			printf("%s was not taken\n", rf_test.get_object_x(i)->get_name().c_str()); 
-//			//obj_first_take_test++;
-//		}
-//	}
-//	//all objects but doll, locked and chalice should be taken. 
-//	if (obj_first_take_test==8){
-//		printf("-----PASS-----\n");
-//	}
-//	else{
-//		printf("-----FAIL----\n");
-//		printf("took %i", obj_first_take_test);
-//	}
-	
-//	Game rf1_test;
-//	//only test locking take
-//	//for (int i = 0; i <=CONSERVATORY; i++)
-//	//{	printf("TESTING IN ROOM %s", rf1_test.get_room_x(rf1_test.get_player()->get_current_room())->get_name().c_str());
-//		rf1_test.get_player()->set_current_room(CONSERVATORY);
-//		int y[8]={1, 1, 1, 1, 1, 1, 1, 1};
-//		rf1_test.set_all_is_locked(y);
-//		
-//		for (int k = -1; k < TOTAL_FIXED; k++)
-//		{
-////			for (int j= -1; j < NUM_OBJECTS; j++)
-////			{
-//				for (int x=0; x < RUN_FUNC_VERBS; x++)
-//				{
-//					
-//					printf("%i, %i, %i, %i\n", i, k, j, x);
-//					printf("%i, %i, %i, %i\n", i, k, j, 0);
-//					rf1_test.run_func(k, j, 3);
-					//printf("%i, %i, %i, %i\n", i, k, j, TAKE);
-//					rf1_test.run_func(k, 0, x);
-//					rf1_test.run_func(k, 1, x);
-//					rf1_test.run_func(k, 2, x);
-//					rf1_test.run_func(6, 3, PLAY);
-//					rf1_test.run_func(7, 3, PLAY);
-					//rf1_test.run_func(CONSERVATORY, 3, PLAY);
-					//if ()
-//					
-//					rf1_test.run_func(k, 3, x);
-//					//rf1_test.set_all_is_locked(y);
-//					//rf1_test.run_func(-1, CHALICE, TAKE);
-//					
-//					//rf1_test.set_all_verb_toggles_to_x(1);
-//					
 //
 //				}
 //				
 //				
 //			}
-		//}
-		
-	//}	
-	/*check that all take events triggered*/
+//		}
+//		
+//	}	
+//	/*check that all take events triggered*/
 //	int not_taken = 0; 
 //	for (int i = 0; i < NUM_OBJECTS; i++){
 //		
@@ -885,16 +877,19 @@ int main(int argc, char *argv[]) {
 //			//not taken 
 //			not_taken++;
 //		}
-//	}
-//	//all objects but doll, locked and chalice should be taken. 
+//	} 
 //	if (not_taken==8){
 //		printf("-----PASS-----\n");
+//		num_passes++;
 //	}
 //	else{
 //		printf("-----FAIL----\n");
-////		printf("took %i", obj_first_take_test);
+//		num_fails++;
+//
 //	}
-	Game test_look;
-	test_look.run_func(-1, DAGGER, LOOK);	
+//	
+//	//check toggled
+//	printf("%i of %i tests passed", num_passes, num_passes+num_fails);
+	
 }	
 	
