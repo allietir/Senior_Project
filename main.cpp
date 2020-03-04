@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 #include "Game.h"
 //#include "globals.h"
 #include "parser.h"
@@ -599,37 +600,37 @@ int main(int argc, char *argv[]) {
 //		mirror_test.run_func(-1, MIRROR, SPEAK);
 //		mirror_test.run_func(SINK, CHALICE, USE);
 		
-		Game chalice_fire_test;
-		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
-		chalice_fire_test.set_player_has_all_objects(has_objs);
-		chalice_fire_test.get_player()->set_current_room(LIBRARY);
-		chalice_fire_test.run_func(FIREPLACE, -1, USE);
-		chalice_fire_test.run_func(FIREPLACE, DIARY, USE);
-		chalice_fire_test.run_func(FIREPLACE, -1, SPEAK);
-		chalice_fire_test.run_func(FIREPLACE, CHALICE, USE);
-		chalice_fire_test.get_player()->set_current_room(UPSTAIRS);
-		chalice_fire_test.run_func(CARPET, -1, READ);
-		chalice_fire_test.run_func(CARPET, CHALICE, USE);
-		chalice_fire_test.run_func(CARPET, -1, READ);
+//		Game chalice_fire_test;
+//		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
+//		chalice_fire_test.set_player_has_all_objects(has_objs);
+//		chalice_fire_test.get_player()->set_current_room(LIBRARY);
+//		chalice_fire_test.run_func(FIREPLACE, -1, USE);
+//		chalice_fire_test.run_func(FIREPLACE, DIARY, USE);
+//		chalice_fire_test.run_func(FIREPLACE, -1, SPEAK);
+//		chalice_fire_test.run_func(FIREPLACE, CHALICE, USE);
+//		chalice_fire_test.get_player()->set_current_room(UPSTAIRS);
+//		chalice_fire_test.run_func(CARPET, -1, READ);
+//		chalice_fire_test.run_func(CARPET, CHALICE, USE);
+//		chalice_fire_test.run_func(CARPET, -1, READ);
 		
-		Game alex_test;
-		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
-		alex_test.set_player_has_all_objects(has_objs);
-		alex_test.get_player()->set_current_room(CRYPT);
-		for (int i = 0; i < NUM_OBJECTS; i++){
-			alex_test.run_func(ALEX, i, GIVE);
-			alex_test.run_func(ALEX, 3, GIVE);
-		}
+//		Game alex_test;
+//		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
+//		alex_test.set_player_has_all_objects(has_objs);
+//		alex_test.get_player()->set_current_room(CRYPT);
+//		for (int i = 0; i < NUM_OBJECTS; i++){
+//			alex_test.run_func(ALEX, i, GIVE);
+//			alex_test.run_func(ALEX, 3, GIVE);
+//		}
 		
-		Game statue_test;
-		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
-		statue_test.set_player_has_all_objects(has_objs);
-		statue_test.get_player()->set_current_room(BASEMENT);
-		statue_test.run_func(STATUE, DIARY, USE);
-		statue_test.run_func(STATUE, -1, SPEAK);
-		statue_test.run_func(STATUE, -1, SPEAK);
-		statue_test.run_func(STATUE, -1, SPEAK);
-		statue_test.run_func(STATUE, -1, SPEAK);
+//		Game statue_test;
+//		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
+//		statue_test.set_player_has_all_objects(has_objs);
+//		statue_test.get_player()->set_current_room(BASEMENT);
+//		statue_test.run_func(STATUE, DIARY, USE);
+//		statue_test.run_func(STATUE, -1, SPEAK);
+//		statue_test.run_func(STATUE, -1, SPEAK);
+//		statue_test.run_func(STATUE, -1, SPEAK);
+//		statue_test.run_func(STATUE, -1, SPEAK);
 		
 //		/*START ALLIE SAVESYSTEM TESTS*/
 //
@@ -770,17 +771,10 @@ int main(int argc, char *argv[]) {
 			else{
 				y_flag = 0;
 				inputParsing(parse_test, userInput);
-								
 				
 			}
-//			
-//		
-//
-//			
-//			
-//			
-//			 
-//		}
+ 
+		}
 	
 	/*TEST EVERY VERB WITH EVERY FEATURE AND EVERY OBJECT IN EVERY ROOM*/
 	Game rf_test;
