@@ -5,8 +5,8 @@
 #include "Feature17.h"
 
 Feature17::Feature17() {
-	set_name("Mirror");
-	set_desc("There is a mirror in the bathroom and there is writing on the mirror.\n");
+	set_name("\033[1;31mMirror\033[0m");
+	set_desc("There is a \033[1;31mmirror\033[0m in the bathroom and there is writing on the \033[1;31mmirror\033[0m.\n");
 	set_index_id(16);
 }
 int Feature17::read(){
@@ -19,7 +19,7 @@ int Feature17::read(){
 int Feature17::speak(){
 	if (get_times_toggled(SPEAK)==0){
 		func_togg_count_x(SPEAK);
-		printf("I'm in the master bedroom, but I am too weak to speak to anyone except through magic, and this mirror.\nCan I trust you?\nI believe in dreams\nI dreamt I could trust the human with the beuatiful song. Do you have a song for me?\n");
+		printf("I'm in the master bedroom, but I am too weak to speak to anyone except through magic, and this \033[1;31mmirror\033[0m.\nCan I trust you?\nI believe in dreams\nI dreamt I could trust the human with the beautiful song. Do you have a song for me?\n");
 	}
 	else if (get_times_toggled(PLAY)==666){
 		printf("That song meant a lot to me, thank you.\nTo really know I can trust you, I need you to give me your blood.\nI can tell a person's spirit through their blood.\n");

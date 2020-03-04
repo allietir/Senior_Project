@@ -237,7 +237,7 @@ void convert_string_to_array(int* arr, string str, int num_items) {
 	
 	//string buffer = "";
 	printf("A: %s\n", str.c_str());
-	for (int i = 0; i <str.length(); i++)
+	for (unsigned int i = 0; i <str.length(); i++)
 	{
 		//printf("==========converting %c======\n", str[i]);
 //		if (str[i] == ',' || str[i] == ' ' )

@@ -83,7 +83,7 @@ string cleanInput(string userInput){
 		userInput.erase(userInput.length() - 1);
 	
 	
-	for (int i = 0; i < userInput.size(); i++) {
+	for (unsigned int i = 0; i < userInput.size(); i++) {
 		if (userInput[i] == ' ') {
 			if (i == 0 ) {
 				userInput.erase(i, 1);
@@ -94,8 +94,8 @@ string cleanInput(string userInput){
 				i--;
 			}
 		}
-		else if (userInput[i] < 'A' || userInput[i] > 'Z' &&
-			userInput[i] < 'a' || userInput[i] > 'z') {
+		else if ((userInput[i] < 'A' || userInput[i] > 'Z') &&
+			(userInput[i] < 'a' || userInput[i] > 'z')) {
 			userInput.erase(i, 1);
 			i--;
 		}
@@ -209,7 +209,7 @@ int checkActions(Game &game, vector<string> inputVector) {
 	map<string, int>::const_iterator objIT;
 	map<string, int>::const_iterator featIT;
 
-	for (int i = 0; i < inputVector.size(); i++) {
+	for (unsigned int i = 0; i < inputVector.size(); i++) {
 
 		verbIT = verbIDmap.find(inputVector[i]);
 		featIT = featIDmap.find(inputVector[i]);
