@@ -599,37 +599,37 @@ int main(int argc, char *argv[]) {
 //		mirror_test.run_func(-1, MIRROR, SPEAK);
 //		mirror_test.run_func(SINK, CHALICE, USE);
 		
-//		Game chalice_fire_test;
-//		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
-//		chalice_fire_test.set_player_has_all_objects(has_objs);
-//		chalice_fire_test.get_player()->set_current_room(LIBRARY);
-//		chalice_fire_test.run_func(FIREPLACE, -1, USE);
-//		chalice_fire_test.run_func(FIREPLACE, DIARY, USE);
-//		chalice_fire_test.run_func(FIREPLACE, -1, SPEAK);
-//		chalice_fire_test.run_func(FIREPLACE, CHALICE, USE);
-//		chalice_fire_test.get_player()->set_current_room(UPSTAIRS);
-//		chalice_fire_test.run_func(CARPET, -1, READ);
-//		chalice_fire_test.run_func(CARPET, CHALICE, USE);
-//		chalice_fire_test.run_func(CARPET, -1, READ);
+		Game chalice_fire_test;
+		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
+		chalice_fire_test.set_player_has_all_objects(has_objs);
+		chalice_fire_test.get_player()->set_current_room(LIBRARY);
+		chalice_fire_test.run_func(FIREPLACE, -1, USE);
+		chalice_fire_test.run_func(FIREPLACE, DIARY, USE);
+		chalice_fire_test.run_func(FIREPLACE, -1, SPEAK);
+		chalice_fire_test.run_func(FIREPLACE, CHALICE, USE);
+		chalice_fire_test.get_player()->set_current_room(UPSTAIRS);
+		chalice_fire_test.run_func(CARPET, -1, READ);
+		chalice_fire_test.run_func(CARPET, CHALICE, USE);
+		chalice_fire_test.run_func(CARPET, -1, READ);
 		
-//		Game alex_test;
-//		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
-//		alex_test.set_player_has_all_objects(has_objs);
-//		alex_test.get_player()->set_current_room(CRYPT);
-//		for (int i = 0; i < NUM_OBJECTS; i++){
-//			alex_test.run_func(ALEX, i, GIVE);
-//			alex_test.run_func(ALEX, 3, GIVE);
-//		}
+		Game alex_test;
+		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
+		alex_test.set_player_has_all_objects(has_objs);
+		alex_test.get_player()->set_current_room(CRYPT);
+		for (int i = 0; i < NUM_OBJECTS; i++){
+			alex_test.run_func(ALEX, i, GIVE);
+			alex_test.run_func(ALEX, 3, GIVE);
+		}
 		
-//		Game statue_test;
-//		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
-//		statue_test.set_player_has_all_objects(has_objs);
-//		statue_test.get_player()->set_current_room(BASEMENT);
-//		statue_test.run_func(STATUE, DIARY, USE);
-//		statue_test.run_func(STATUE, -1, SPEAK);
-//		statue_test.run_func(STATUE, -1, SPEAK);
-//		statue_test.run_func(STATUE, -1, SPEAK);
-//		statue_test.run_func(STATUE, -1, SPEAK);
+		Game statue_test;
+		int has_objs[]={1, 1, 1, 1, 1, 1, 1, 1};
+		statue_test.set_player_has_all_objects(has_objs);
+		statue_test.get_player()->set_current_room(BASEMENT);
+		statue_test.run_func(STATUE, DIARY, USE);
+		statue_test.run_func(STATUE, -1, SPEAK);
+		statue_test.run_func(STATUE, -1, SPEAK);
+		statue_test.run_func(STATUE, -1, SPEAK);
+		statue_test.run_func(STATUE, -1, SPEAK);
 		
 //		/*START ALLIE SAVESYSTEM TESTS*/
 //
@@ -738,41 +738,41 @@ int main(int argc, char *argv[]) {
 //		/*END ALLIE SAVESYSTEM TESTS*/	
 		
 		
-//		Game parse_test;
-//		parse_test.start();
-//		char userInput[100] = {'\0'}; 
-//		int x=0;
-//		int y_flag = 0;
-//		while (x==0) {
-//			
-//			if (y_flag == 0){
-//				printf("What would you like to do?\n");
-//			}
-//			
-//
-//		
-//			cin.getline(userInput, 100);
-//			//cin.ignore(2, '\n');
-//			
-//			//printf("got %s", userInput);
-//			if (userInput[0]=='\0'){
-//				//cout << "Nothing was entered\n";
-//				y_flag = 1;
-//				cin.clear();
-//				cin.ignore(1000000000000, '\n');
-//				memset(userInput, '\0', 100);
-//			
-//			}
-//			else if (strcmp("go", userInput)==0){
-//				printf("Where do you want to go?\n");
-//				y_flag = 1;
-//			}
-//			else{
-//				y_flag = 0;
-//				inputParsing(parse_test, userInput);
-//								
-//				
-//			}
+		Game parse_test;
+		parse_test.start();
+		char userInput[100] = {'\0'}; 
+		int x=0;
+		int y_flag = 0;
+		while (x==0) {
+			
+			if (y_flag == 0){
+				printf("What would you like to do?\n");
+			}
+			
+
+		
+			cin.getline(userInput, 100);
+			//cin.ignore(2, '\n');
+			
+			//printf("got %s", userInput);
+			if (userInput[0]=='\0'){
+				//cout << "Nothing was entered\n";
+				y_flag = 1;
+				cin.clear();
+				cin.ignore(1000000000000, '\n');
+				memset(userInput, '\0', 100);
+			
+			}
+			else if (strcmp("go", userInput)==0){
+				printf("Where do you want to go?\n");
+				y_flag = 1;
+			}
+			else{
+				y_flag = 0;
+				inputParsing(parse_test, userInput);
+								
+				
+			}
 //			
 //		
 //
