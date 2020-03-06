@@ -198,6 +198,7 @@ public:
 	//POSTCONDITIONS:
 	//times_toggled for verb y  for each feature and object set to x times. 
 	void set_all_y_verb_toggles_to_x(int y, int x);
+	int trigger_game_event_x(int x, int y);
 
 	
 private:	

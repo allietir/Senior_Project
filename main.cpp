@@ -20,9 +20,9 @@ int main(int argc, char *argv[]) {
 						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
 						"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n";
 
-	printf(word_wrap(wrap_one.c_str(), 80).c_str());
+	printf("%s", word_wrap(wrap_one.c_str(), 80).c_str());
 
-	printf(word_wrap(wrap_two.c_str(), 80).c_str());
+	printf("%s",word_wrap(wrap_two.c_str(), 80).c_str());
 	
 	
 	
@@ -740,7 +740,22 @@ int main(int argc, char *argv[]) {
 		
 		
 		Game parse_test;
+		//using https://stackoverflow.com/questions/19485536/redirect-output-of-an-function-printing-to-console-to-string/19499003
+		char buffer[1024];
+		auto fp = fmemopen(buffer, 1024, "w");
+		if ( !fp ) { std::printf("error"); return 0; }
+
+		auto old = stdout;
+		stdout = fp;
+
 		parse_test.start();
+		
+		fclose(fp);
+		stdout = old; //reset
+		
+		string strbuff = buffer; 
+		
+		printf("%s",word_wrap(buffer, MAX_WIDTH).c_str());
 		char userInput[100] = {'\0'}; 
 		int x=0;
 		int y_flag = 0;
@@ -750,7 +765,11 @@ int main(int argc, char *argv[]) {
 				printf("What would you like to do?\n");
 			}
 			
+				
 
+				
+
+				
 		
 			cin.getline(userInput, 100);
 			//cin.ignore(2, '\n');
@@ -770,66 +789,83 @@ int main(int argc, char *argv[]) {
 			}
 			else{
 				y_flag = 0;
+				
+				//using https://stackoverflow.com/questions/19485536/redirect-output-of-an-function-printing-to-console-to-string/19499003
+				char buffer[1024];
+				auto fp = fmemopen(buffer, 1024, "w");
+				if ( !fp ) { std::printf("error"); return 0; }
+
+				auto old = stdout;
+				stdout = fp;
+				
 				inputParsing(parse_test, userInput);
+				
+				fclose(fp);
+				stdout = old; //reset
+				
+				string strbuff = buffer; 
+				
+				printf("%s",word_wrap(buffer, MAX_WIDTH).c_str());
+				//printf(word_wrap(strbuff, 80));
 				
 			}
  
 		}
 	
 	/*TEST EVERY VERB WITH EVERY FEATURE AND EVERY OBJECT IN EVERY ROOM*/
-	Game rf_test;
-	int num_fails=0;
-	int num_passes=0;
-	
-	for (int i = 0; i < NUM_ROOMS; i++)
-	{	printf("TESTING IN ROOM %s\n", rf_test.get_room_x(rf_test.get_player()->get_current_room())->get_name().c_str());
-		int x[8]={0, 0, 0, 0, 0, 0, 0, 0};
-		rf_test.set_all_is_locked(x);
-		rf_test.get_player()->set_current_room(i);
-		for (int k = -1; k < TOTAL_FIXED; k++)
-		{
-			for (int j= -1; j < NUM_OBJECTS; j++)
-			{
-				for (int x=0; x < RUN_FUNC_VERBS; x++)
-				{
-					printf("TEST: %i, %i, %i, %i\n", i, k, j, x);
-					if (x==TAKE){
-						printf("------------RUNNING TAKE---------\n");
-					}
-					rf_test.run_func(k, j, x);
-				}
-			}
-		}
-		
-	}	
-	/*check that all take events triggered*/
-	int obj_first_take_test=0; 
-	for (int i = 0; i < NUM_OBJECTS; i++){
-		
-		int check_room = rf_test.get_obj_starts_in(i);
-		if (rf_test.get_room_x(check_room)->get_event_triggered(0)==1)
-		{
-			printf("%s was taken\n", rf_test.get_object_x(i)->get_name().c_str()); 
-			obj_first_take_test++;
-		}
-		if (rf_test.get_room_x(check_room)->get_event_triggered(0)==0)
-		{
-			printf("%s was not taken\n", rf_test.get_object_x(i)->get_name().c_str()); 
-			
-		}
-	}
-	//all objects but doll, locked and chalice should be taken. 
-	if (obj_first_take_test==8){
-		printf("-----PASS-----\n");
-		num_passes++;
-	}
-	else{
-		printf("-----FAIL----\n");
-		printf("took %i", obj_first_take_test);
-		num_fails++;
-	}
-	
-	
+//	Game rf_test;
+//	int num_fails=0;
+//	int num_passes=0;
+//	
+//	for (int i = 0; i < NUM_ROOMS; i++)
+//	{	printf("TESTING IN ROOM %s\n", rf_test.get_room_x(rf_test.get_player()->get_current_room())->get_name().c_str());
+//		int x[8]={0, 0, 0, 0, 0, 0, 0, 0};
+//		rf_test.set_all_is_locked(x);
+//		rf_test.get_player()->set_current_room(i);
+//		for (int k = -1; k < TOTAL_FIXED; k++)
+//		{
+//			for (int j= -1; j < NUM_OBJECTS; j++)
+//			{
+//				for (int x=0; x < RUN_FUNC_VERBS; x++)
+//				{
+//					printf("TEST: %i, %i, %i, %i\n", i, k, j, x);
+//					if (x==TAKE){
+//						printf("------------RUNNING TAKE---------\n");
+//					}
+//					rf_test.run_func(k, j, x);
+//				}
+//			}
+//		}
+//		
+//	}	
+//	/*check that all take events triggered*/
+//	int obj_first_take_test=0; 
+//	for (int i = 0; i < NUM_OBJECTS; i++){
+//		
+//		int check_room = rf_test.get_obj_starts_in(i);
+//		if (rf_test.get_room_x(check_room)->get_event_triggered(0)==1)
+//		{
+//			printf("%s was taken\n", rf_test.get_object_x(i)->get_name().c_str()); 
+//			obj_first_take_test++;
+//		}
+//		if (rf_test.get_room_x(check_room)->get_event_triggered(0)==0)
+//		{
+//			printf("%s was not taken\n", rf_test.get_object_x(i)->get_name().c_str()); 
+//			
+//		}
+//	}
+//	//all objects but doll, locked and chalice should be taken. 
+//	if (obj_first_take_test==8){
+//		printf("-----PASS-----\n");
+//		num_passes++;
+//	}
+//	else{
+//		printf("-----FAIL----\n");
+//		printf("took %i", obj_first_take_test);
+//		num_fails++;
+//	}
+//	
+//	
 //	Game rf1_test;
 //	//only test locking take
 //	for (int i = 0; i < NUM_ROOMS; i++)
@@ -883,8 +919,71 @@ int main(int argc, char *argv[]) {
 //
 //	}
 //	
-//	//check toggled
-//	printf("%i of %i tests passed", num_passes, num_passes+num_fails);
+//	for (int i = 0; i < NUM_ROOMS; i++)
+//	{	printf("TESTING IN ROOM %s\n", rf_test.get_room_x(rf_test.get_player()->get_current_room())->get_name().c_str());
+//		int x[8]={0, 0, 0, 0, 0, 0, 0, 0};
+//		rf_test.set_all_is_locked(x);
+//		rf_test.get_player()->set_current_room(i);
+//		for (int k = -1; k < TOTAL_FIXED; k++)
+//		{
+//			for (int j= -1; j < NUM_OBJECTS; j++)
+//			{
+////					for (int x=0; x < RUN_FUNC_VERBS; x++)
+////					{
+////						printf("TEST: %i, %i, %i, %i\n", i, k, j, x);
+////						if (x==TAKE){
+////							printf("------------RUNNING TAKE---------\n");
+////						}
+//					printf("------------RUNNING LOOK---------\n");
+//					rf_test.run_func(k, j, LOOK);
+//					
+////					}
+//			}
+//		}
+//		
+//	}	
+//	
+//	int look_count = 0;
+//	for (int i = 0; i < NUM_ROOMS; i++)
+//	{	printf("TESTING IN ROOM %s\n", rf_test.get_room_x(rf_test.get_player()->get_current_room())->get_name().c_str());
+//		int x[8]={0, 0, 0, 0, 0, 0, 0, 0};
+//		rf_test.set_all_is_locked(x);
+//		int y[8]={1, 1, 1, 1, 1, 1, 1, 1};
+//		rf_test.set_all_player_objects(y);
+//		rf_test.get_player()->set_current_room(i);
+//		for (int k = -1; k < TOTAL_FIXED; k++)
+//		{
+//			for (int j= -1; j < NUM_OBJECTS; j++)
+//			{
+////					for (int x=0; x < RUN_FUNC_VERBS; x++)
+////					{
+////						printf("TEST: %i, %i, %i, %i\n", i, k, j, x);
+////						if (x==TAKE){
+////							printf("------------RUNNING TAKE---------\n");
+////						}
+//					printf("------------RUNNING LOOK---------\n");
+//					int x = rf_test.run_func(k, j, LOOK);
+//					printf("x: %i", x);
+//					if (x==4){
+//						look_count++;
+//					}
+//					
+////					}
+//			}
+//			printf("look count: %i", look_count);
+//			look_count = 0;
+//
+//		}
+//		
+//	}	
+
 	
+	
+	//check toggled
+	//printf("%i of %i tests passed", num_passes, num_passes+num_fails);
+	
+	
+	
+
 }	
 	

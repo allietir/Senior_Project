@@ -432,7 +432,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 	
 	if ((user_or_room_has_item(obj_index_id)==0)&&(obj_index_id!=-1)){
 		printf("You cannot access %s object within %s.\n",   o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
-		return -666;
+		return -777;
 	}
 	if ((obj_index_id==-1)&&(feat_index_id==-1)){
 		return 4;
@@ -458,16 +458,29 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 	if (feat_index_id==-1){
 		printf("FEATURE: None");
 	}
+
 	int item=feat_valid(feat_index_id);
+	printf("----item %i----", item);
+	fflush(stdout);
 	string feat_string;
-	if (item!=-1){
+	if (item==-2){
+			printf("--------Ret val of accesing %s at %i is %i-------", feat_list[feat_index_id].c_str(), feat_index_id, item);
+			//printf("You cannot access this feature within %s.\n",   r_array[player1.get_current_room()]->get_name().c_str());
+			return -777;
+		}
+	else if (item!=-1){
+		printf("--------Ret val of accesing %s at %i is %i-------", feat_list[feat_index_id].c_str(), feat_index_id, item);
+
 		feat_string=r_array[player1.get_current_room()]->get_feature_x(item)->get_name(); 
-		printf("FEATURE: %s", feat_string.c_str());
+		printf("FEATURE: %s\n", feat_string.c_str());
+		
 	}
+	
 	else if (item==-1){
-		printf("You cannot access this feature within %s.\n",   r_array[player1.get_current_room()]->get_name().c_str());
-		//return -666;
+		printf("--------Ret val of accessing %i is %i-------", feat_index_id, item);
+		
 	}
+
 	
 
 	
@@ -766,13 +779,13 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			
 			//21, 13, 15
 			printf("FINAL RES:%i\n", res);
-			return 0;
+			return 4;
 		
 	}
 	
 	//----TESTING: DELETE AFTER TEST----//
 	printf("FINAL RES:%i\n", res);
-	return 4;
+	return res;
 	
 	
 }
@@ -1007,18 +1020,30 @@ int Game::exit_valid(int next_room)
 	return -1;
 }
 int Game::feat_valid(int feat_index_id){
+	printf("in feat_valid %i", feat_index_id);
+	fflush(stdout);
 	if (feat_index_id==-1){
+			printf("case one");
+		fflush(stdout);
 		return -1;
 	}
-	if (r_array[player1.get_current_room()]->get_feature_x(0)->get_index_id()==feat_index_id){
+	else if (r_array[player1.get_current_room()]->get_feature_x(0)->get_index_id()==feat_index_id){
+		printf("case two");
+	fflush(stdout);
+
 		return 0;
 	}
 	else if (r_array[player1.get_current_room()]->get_feature_x(1)->get_index_id()==feat_index_id){
-			return 1;
+		printf("case three");
+	fflush(stdout);
+
+		return 1;
 	}
 	else 
 	{
-		return -1;
+		printf("case four");
+	fflush(stdout);
+		return -2;
 	}
 	return -1;
 }
@@ -1255,7 +1280,65 @@ void Game::set_all_y_verb_toggles_to_x(int y, int x){
 	}
 	
 }
+int Game::trigger_game_event_x(int x, int obj){
+	if (x==1){
+		event1();
+	}
+	if (x==2){
+		event2();
+	}
+	if (x==3){
+		event3();
+	}
+	if (x==4){
+		event4();
+	}
+	if (x==5){
+		event5();
+	}
+	if (x==6){
+		event6(obj);
+	}
+	if (x==7){
+		event7();
+	}
+	if (x==8){
+		event8();
+	}
+	if (x==9){
+		event9();
+	}
+	if (x==10){
+		event10();
+	}
+	if (x==11){
+		event11();
+	}
+	if (x==12){
+		event12();
+	}
+	if (x==13){
+		event13();
+	}
+	if (x==14){
+		event14();
+	}
+	if (x==15){
+		event15();
+	}
+	if (x==16){
+		event16();
+	}
+	if (x==17){
+		event17();
+	}
+	else{
+		return 1;
+	}
+	return 2;
 
+
+}
 
 Game::~Game() {
 

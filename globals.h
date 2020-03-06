@@ -251,3 +251,5 @@
 #define STATUE 27
 #define ALEX 28
 #define DEMON 29
+
+#define MAX_WIDTH 80
