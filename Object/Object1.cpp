@@ -6,7 +6,7 @@
 
 Object1::Object1() {
 	set_name("Lamp");
-	set_desc("A dusty old oil lamp, glass chipped and handle rusted. It looks like there is an enscription on the metal");
+	set_desc("A dusty old oil \033[1;35mlamp\033[0m, glass chipped and handle rusted. It looks like there is an enscription on the metal");
 	set_index_id(0);
 }
 int Object1::read(){
@@ -19,11 +19,11 @@ int Object1::use(int obj_feat_obj){
 	printf("----------------here------------------\n");
 	if (get_times_toggled(USE)==0){
 		func_togg_count_x(USE);
-		printf("The lamp turns on and you can see more clearly than before.\n");
+		printf("The \033[1;35mlamp\033[0m turns on and you can see more clearly than before.\n");
 	}
 	else if (get_times_toggled(USE)==1){
 		
-		printf("The lamp is already on and you can see more clearly in the room\n");
+		printf("The \033[1;35mlamp\033[0m is already on and you can see more clearly in the room\n");
 	}
 	return 4;
 	

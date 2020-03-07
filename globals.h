@@ -20,7 +20,7 @@
 #define ROOM4 Dining Room //exit east->kitchen:13 west->entranceway:2
 #define ROOM5 Parlor//exit east->entranceway:1 west->library11 //piano uses sheet music
 //features: dollhouse: requires doll
-#define ROOM6 Nursury//exit south->upstrais hallway:3  west->bathroom:9
+#define ROOM6 Nursery//exit south->upstrais hallway:3  west->bathroom:9
 #define ROOM7 Guest Bedroom//exit west->upstairs hallway:3 
 #define ROOM8 Master Bedroom//exit east->upstairs hallway:3 north->bathroom:9 west->attic:10
 #define ROOM9 Bathroom//exit south->master bedroom:8 east->child room:6 exit 
@@ -37,7 +37,7 @@
 #define STR_ROOM4 "Dining Room" //exit east->kitchen:13 west->entranceway:2
 #define STR_ROOM5 "Parlor"//exit east->entranceway:1 west->library11 //piano uses sheet music
 //features: dollhouse: requires doll
-#define STR_ROOM6 "Nursury"//exit south->upstrais hallway:3  west->bathroom:9
+#define STR_ROOM6 "Nursery"//exit south->upstrais hallway:3  west->bathroom:9
 #define STR_ROOM7 "Guest Bedroom"//exit west->upstairs hallway:3 
 #define STR_ROOM8 "Master Bedroom"//exit east->upstairs hallway:3 north->bathroom:9 west->attic:10
 #define STR_ROOM9 "Bathroom"//exit south->master bedroom:8 east->child room:6 exit 
@@ -209,7 +209,7 @@
 #define UPSTAIRS 2
 #define DINING 3
 #define PARLOR 4
-#define NURSURY 5
+#define NURSERY 5
 #define GUEST 6
 #define MASTER 7
 #define BATHROOM 8

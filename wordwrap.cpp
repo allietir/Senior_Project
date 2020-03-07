@@ -10,11 +10,11 @@ using namespace std;
 
 //In this case maxLength should be a global variable from globals.h
 string word_wrap(string wrapString, int maxLength) {
-	int line_start = 0;
+	unsigned int line_start = 0;
 
 	while (line_start < wrapString.size())
 	{
-		int ideal_end = line_start + maxLength;
+		unsigned int ideal_end = line_start + maxLength;
 		unsigned line_end = ideal_end <= wrapString.size() ? ideal_end : wrapString.size()-1;
 
 		//if we are at the end

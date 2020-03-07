@@ -286,7 +286,7 @@ int main(int argc, char *argv[]) {
 
 /*
 		Game locket_test;
-		locket_test.get_player()->set_current_room(NURSURY);
+		locket_test.get_player()->set_current_room(NURSERY);
 		locket_test.get_player()->set_has_objects(DOLL, 1);
 		locket_test.run_func(CHILD, DOLL, GIVE);
 		locket_test.run_func(-1, LOCKET, 11);
@@ -367,7 +367,7 @@ int main(int argc, char *argv[]) {
 		fam_test.run_func(CHEST, -1, 10);
 		
 		
-		fam_test.get_player()->set_current_room(NURSURY);
+		fam_test.get_player()->set_current_room(NURSERY);
 		
 
 		fam_test.run_func(CHILD, DOLL, GIVE);
@@ -570,7 +570,7 @@ int main(int argc, char *argv[]) {
 //		doll_test.set_player_has_all_objects(has_objs);
 //		doll_test.get_player()->set_current_room(UPSTAIRS);
 //		doll_test.look();
-//		doll_test.get_player()->set_current_room(NURSURY);
+//		doll_test.get_player()->set_current_room(NURSERY);
 //		doll_test.run_func(DOLLHOUSE, DOLL, USE);
 //		doll_test.run_func(DOLLHOUSE, DOLL, USE);
 //		doll_test.run_func(DOLLHOUSE, DOLL, USE);
@@ -581,7 +581,7 @@ int main(int argc, char *argv[]) {
 //		doll_test.run_func(DOLLHOUSE, DOLL, USE);
 //		doll_test.get_player()->set_current_room(UPSTAIRS);
 //		doll_test.look();
-//		doll_test.get_player()->set_current_room(NURSURY);
+//		doll_test.get_player()->set_current_room(NURSERY);
 //		doll_test.run_func(DOLLHOUSE, DOLL, USE);
 //		
 //		doll_test.get_player()->set_current_room(UPSTAIRS);

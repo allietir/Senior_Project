@@ -6,7 +6,7 @@
 
 Object2::Object2() {
 	set_name("Diary");
-	set_desc("The diary is some type of leather, dark and stained with something. Is it ink or is it blood? ");
+	set_desc("The \033[1;35mdiary\033[0m is some type of leather, dark and stained with something. Is it ink or is it blood? ");
 	set_index_id(1);
 	string read_response = "The first page says 'Property of S--' but the rest of the name cannot be seen, faded by water "
 			"damage and time.\n You open it to a worn page and read the following...\n\n\"If you are reading this, "

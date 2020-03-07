@@ -38,7 +38,8 @@ const map<string, int> roomIDmap = {
 	{ "conservatory", 11},
 	{ "kitchen", 12},
 	{ "basement", 13},
-	{ "crypt", 14}
+	{ "crypt", 14},
+	{ "garden", 0}
 };
 
 const map<string, int> verbIDmap = {
@@ -80,7 +81,8 @@ const map<string, int> objIDmap = {
 	{ "sheet", 3}, 
 	{ "knife", 4}, 
 	{ "weapon", 4},
-	{ "spell", 1}
+	{ "spell", 1}, 
+	{ "paper", 3}
 };
 
 //map to look up feature ID
