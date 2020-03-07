@@ -15,7 +15,7 @@ Room1::Room1() {
 	init_long_short_desc();
 	//set exits; name, direction
 	set_exit_name("Door", 0);
-	string exit_desc = "A large, imposing front door to in the \033[0;32mnorth\033[0m, dark and heavy looking. It appears to be slightly adjar. You can see what looks like some sort of \033[0;36mentranceway\033[0m to the house.\n";
+	string exit_desc = "A large, imposing front door to the \033[0;32mnorth\033[0m, dark and heavy looking. It appears to be slightly adjar. You can see what looks like some sort of \033[0;36mentranceway\033[0m to the house.\n";
 	set_exit_desc(exit_desc, 0);
 	set_exit_id(1, 0);//exit at north goes to Room2
 

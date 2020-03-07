@@ -6,7 +6,7 @@
 
 Object7::Object7() {
 	set_name("Key");
-	set_desc("The key is large and jewel encrusted. It must be able to open something...");
+	set_desc("The \033[1;35mkey\033[0m is large and jewel encrusted. It must be able to open something...");
 	set_index_id(6);
 }
 int Object7::read(){

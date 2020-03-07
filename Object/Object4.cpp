@@ -6,7 +6,7 @@
 
 Object4::Object4() {
 	set_name("Music");
-	set_desc("Several sheets of paper with strange inscriptions on them--musical notes.");
+	set_desc("Several sheets of \033[1;35mpaper\033[0m with strange inscriptions on them -- musical notes.");
 	set_index_id(3);
 }
 int Object4::read(){

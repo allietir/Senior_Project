@@ -5,19 +5,19 @@
 #include "Room6.h"
 //exit south->upstrais hallway:3  west->bathroom:9
 Room6::Room6() {
-	set_name("Nursury");
+	set_name("\033[0;36mNursery\033[0;36m");
 	set_extra_description("The room is painted in colors that were once bright, are cracked and faded by time.");
 	set_room_id(5);
 
 	set_feature_x(new Feature11, 0);
 	set_feature_x(new Feature12, 1);
 	
-	set_exit_name("Door to hallway", 1);
-	set_exit_name("Doorway to bathroom", 3);
-	string exit_desc1 = "There's a mirrored door back to the hallway, strange and fogged. ";
-	string exit_dex3 = "There's a dooway to what looks like a bathroom. You can hear water running";
+	set_exit_name("Door to \033[0;36mhallway\033[0m", 1);
+	set_exit_name("Doorway to \033[0;36mbathroom\033[0m", 3);
+	string exit_desc1 = "There's a mirrored door on the \033[0;32msouth\033[0m to the \033[0;36mhallway\033[0m, strange and fogged. ";
+	string exit_desc3 = "There's a dooway to what looks like a \033[0;36mbathroom\033[0m towards the \033[0;32meast\033[0m. You can hear water running";
 	set_exit_desc(exit_desc1, 1);
-	set_exit_desc(exit_desc1, 3);
+	set_exit_desc(exit_desc3, 3);
 	set_exit_id(2, 1);//exit at south goes to upstairs hallway
 	set_exit_id(8, 3);//exit at south goes to upstairs hallway
 	
@@ -27,14 +27,14 @@ Room6::Room6() {
 }
 //when you take the locket
 int Room6::event_one(){
-	printf("The locket is hard and small and silver in your hand. There is something comforting and yet powerful about it. The child smiles and speaks precociously. 'Thank you. I will go find my family.'\n");
+	printf("The \033[1;35mlocket\033[0m is hard and small and silver in your hand. There is something comforting and yet powerful about it. The \033[1;31mchild\033[0m smiles and speaks precociously. 'Thank you. I will go find my family.'\n");
 	set_event_triggered(0, 1);
 	//triggers nothing
 	return 4;
 }
 //locket made avaibale to you
 int Room6::event_two(){
-	printf("The little girl places the locket before you. 'Here. You should take this.'\n");
+	printf("The little \033[1;31mgirl\033[0m places the \033[1;35mlocket\033[0m before you. 'Here. You should take this.'\n");
 	set_event_triggered(1, 1);
 	//griggers unlcok
 	return 31;

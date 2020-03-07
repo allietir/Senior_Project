@@ -5,19 +5,19 @@
 #include "Room14.h"
 //#define ROOM14 "Basement"//exit north->crypt:15 south->kicthe:13
 Room14::Room14() {
-	set_name("Basement");
+	set_name("\033[0;36mBasement\033[0m");
 	set_extra_description("The weight of the house and its secrets seems to be crushing your spirit and your resolve. ");
 	set_room_id(13);
 
 	set_feature_x(new Feature27, 0);//lucifer statue
 	set_feature_x(new Feature28, 1);//black hole in corner
 	
-	set_exit_name("Door to crypt", 0);//north
-	set_exit_name("Ladder up to kitchen", 1);//south
+	set_exit_name("Door to \033[0;36mcrypt\033[0m", 0);//north
+	set_exit_name("Ladder up to \033[0;36mkitchen\033[0m", 1);//south
 
 	
-	string exit_desc0 = "A door to the crypt is in the north";
-	string exit_desc1 = "A ladder up to the kitchen is to the south";
+	string exit_desc0 = "A door to the \033[0;36mcrypt\033[0m is in the \033[0;32mnorth\033[0m";
+	string exit_desc1 = "A ladder up to the \033[0;36mkitchen\033[0m is to the \033[0;32msouth\033[0m";
 
 	set_exit_desc(exit_desc0, 0);
 	set_exit_desc(exit_desc1, 1);
@@ -31,7 +31,7 @@ Room14::Room14() {
 }
 int Room14::event_one(){
 	
-	printf("The crypt door make the sound of a thousand gears opening and slides open.\n");
+	printf("The \033[0;36mcrypt\033[0m door make the sound of a thousand gears opening and slides open.\n");
 	set_event_triggered(0, 1);
 	return 4;
 }
