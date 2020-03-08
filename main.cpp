@@ -742,8 +742,12 @@ int main(int argc, char *argv[]) {
 		Game parse_test;
 		//using https://stackoverflow.com/questions/19485536/redirect-output-of-an-function-printing-to-console-to-string/19499003
 		char buffer[1024];
-		auto fp = fmemopen(buffer, 1024, "w");
-		if ( !fp ) { std::printf("error"); return 0; }
+		memset(buffer, '\0', 1024);
+		FILE *fp;
+		fp = fmemopen(buffer, 1024, "w");
+		if ( !fp ) { std::printf("error"); 
+		
+		return 0; }
 
 		auto old = stdout;
 		stdout = fp;
@@ -791,12 +795,13 @@ int main(int argc, char *argv[]) {
 				y_flag = 0;
 				
 				//using https://stackoverflow.com/questions/19485536/redirect-output-of-an-function-printing-to-console-to-string/19499003
-				char buffer[1024];
-				FILE *fp = fmemopen(buffer, 1024, "w");
-				if ( !fp ) { std::printf("error"); return 0; }
-
+				char buffer[1024]={'\0'};
+				FILE *fp = fmemopen(buffer, 1023, "w");
+				if ( !fp ) { std::printf("the error"); return 0; }
+				printf("STDOUT: %i", stdout);
 				FILE *old = stdout;
 				stdout = fp;
+				fflush(stdout);
 				
 				inputParsing(parse_test, userInput);
 				
@@ -805,7 +810,7 @@ int main(int argc, char *argv[]) {
 				
 				string strbuff = buffer; 
 				
-				printf("%s",word_wrap(strbuff.c_str(), 80).c_str());
+				printf("HERE:::%s",word_wrap(strbuff.c_str(), 80).c_str());
 				//printf(word_wrap(strbuff, 80));
 				
 			}
