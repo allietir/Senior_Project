@@ -28,12 +28,12 @@ Room10::Room10() {
 	
 }
 int Room10::event_one(){
-	printf("The porcelin \033[1;35mdoll\033[0m seems to whisper things but when you try to listen the whispers fade into nothing.\n");
+	printf("The porcelin \033[1;35mdoll\033[0m seems to whisper things but when you try to listen the whispers fade into nothing.");
 	set_event_triggered(0, 1);
 	return 4;
 }
 int Room10::event_two(){
-	printf("There is a porcelin \033[1;35mdoll\033[0m in the \033[1;31mchest\033[0m.\n");
+	printf("There is a porcelin \033[1;35mdoll\033[0m in the \033[1;31mchest\033[0m.");
 	set_event_triggered(1, 1);
 	return 32;
 }

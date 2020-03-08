@@ -10,7 +10,7 @@ using namespace std;
 void convert_string_to_array(int* arr, string str);
 int main(int argc, char *argv[]) {
 
-	string wrap_one = 	"The tree shakes and suddenly the face of the tree comes alive. "
+	string wrap_one = 	"The tree shakes and suddenly\n the face of the tree comes alive. "
 						"You see a face more old and ancient and angry than any human could ever be, and in that moment you realize you have made an enormous error. "
 						"That's the last thought you have before the tree swallows you whole. "
 						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "

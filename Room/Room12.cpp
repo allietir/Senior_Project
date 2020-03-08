@@ -32,12 +32,12 @@ Room12::Room12() {
 	
 }
 int Room12::event_one(){
-	printf("The \033[1;35mchalice\033[0m glows briefly and feels warm in your hands. This is important, you feel.\n");
+	printf("The \033[1;35mchalice\033[0m glows briefly and feels warm in your hands. This is important, you feel.");
 	set_event_triggered(0, 1);
 	return 4;
 }
 int Room12::event_two(){
-	printf("The \033[1;35mchalice\033[0m is filled with holy water\n");
+	printf("The \033[1;35mchalice\033[0m is filled with holy water");
 	set_event_triggered(1, 1);
 	return 4;
 

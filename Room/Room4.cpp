@@ -40,7 +40,7 @@ int Room4::event_two(){
 	return 4;
 }
 int Room4::event_three(){
-	printf("The \033[1;31mfaceless\033[0m creature holds the \033[1;35mlamp\033[0m up to his face and his skin begins to melt off, leaving a disgusting puddle on the floor. However, in his place is a small, elf like creature. ' Thank you for freeing me' says the small creature. 'I will keep my promise. Your friend is below ground. I can sense them.'\n The creature then scurries out before you can say anything else.\n What does it mean, that your friend is below ground? Are they alive? \n\n");
+	printf("The \033[1;31mfaceless\033[0m creature holds the \033[1;35mlamp\033[0m up to his face and his skin begins to melt off, leaving a disgusting puddle on the floor. However, in his place is a small, elf like creature. ' Thank you for freeing me' says the small creature. 'I will keep my promise. Your friend is below ground. I can sense them.'\n The creature then scurries out before you can say anything else.\n What does it mean, that your friend is below ground? Are they alive? ");
 	set_event_triggered(2, 1);
 	return 4;
 }

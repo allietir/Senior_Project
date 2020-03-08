@@ -36,7 +36,7 @@ Room2::Room2() {
 
 }
 int Room2::event_one(){
-	printf("The \033[1;35mlamp\033[0m turns on when it is in your hands. The light is soft and delightful. You feel somewhat safter already\n");
+	printf("The \033[1;35mlamp\033[0m turns on when it is in your hands. The light is soft and delightful. You feel somewhat safter already");
 	set_event_triggered(0, 1);
 
 	return 4;

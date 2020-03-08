@@ -31,7 +31,7 @@ Room15::Room15() {
 	
 }
 int Room15::event_one(){
-	printf("You trap the \033[1;31mdemon\033[0m in the \033[1;35mlocket\033[0m\n");
+	printf("You trap the \033[1;31mdemon\033[0m in the \033[1;35mlocket\033[0m");
 	//trigger game event 4
 	set_event_triggered(0, 1);
 	return 33;

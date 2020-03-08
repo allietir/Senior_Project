@@ -6,7 +6,7 @@
 //#define ROOM14 "Basement"//exit north->crypt:15 south->kicthe:13
 Room14::Room14() {
 	set_name("\033[0;36mBasement\033[0m");
-	set_extra_description("The weight of the house and its secrets seems to be crushing your spirit and your resolve. ");
+	set_extra_description("The weight of the house and its secrets seems to be crushing your spirit and your resolve.");
 	set_room_id(13);
 
 	set_feature_x(new Feature27, 0);//lucifer statue
@@ -31,7 +31,7 @@ Room14::Room14() {
 }
 int Room14::event_one(){
 	
-	printf("The \033[0;36mcrypt\033[0m door make the sound of a thousand gears opening and slides open.\n");
+	printf("The \033[0;36mcrypt\033[0m door make the sound of a thousand gears opening and slides open.");
 	set_event_triggered(0, 1);
 	return 4;
 }

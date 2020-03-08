@@ -39,7 +39,7 @@ int Room3::event_one(){
 	printf("You find yourself upstairs. \n");
 	get_feature_x(0)->func_togg_count_x(OPEN);
 	printf("You open the grandfather \033[1;31mclock\033[0m door and you see a staircase down. Looks like you'll need to climb quite a bit to get down there... but where does it go?");
-	string desc = "The grandfather \033[1;31mclock\033[0m is open and a staircase down is revealed.\n" + get_feature_x(0)->get_time_str();
+	string desc = "The grandfather \033[1;31mclock\033[0m is open and a staircase down is revealed." + get_feature_x(0)->get_time_str();
 	get_feature_x(0)->set_desc(desc);
 	set_event_triggered(0, 1);
 	return 4;

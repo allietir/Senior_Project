@@ -26,7 +26,7 @@ Room9::Room9() {
 	set_num_events(1);
 }
 int Room9::event_one(){
-	printf("You fill the \033[1;35mchalice\033[0m with blood.\n");
+	printf("You fill the \033[1;35mchalice\033[0m with blood.");
 	set_event_triggered(0, 1);
 	return 4;
 }

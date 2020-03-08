@@ -32,7 +32,7 @@ Room11::Room11() {
 }
 int Room11::event_one()
 {
-	printf("The \033[1;35mkey\033[0m swirls briefly in your hand as if by magic, and points up before stilling in your hand.\n");
+	printf("The \033[1;35mkey\033[0m swirls briefly in your hand as if by magic, and points up before stilling in your hand.");
 	set_event_triggered(0, 1);
 	return 4;
 }

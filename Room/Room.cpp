@@ -275,14 +275,14 @@ void Room::look(){
 	
 	if (room_entered == 1)
 	{
-		printf("%s\n", short_description.c_str());
+		printf("%s", short_description.c_str());
 		
 	}
 	else 
 	{
 		room_entered = 1;
 
-		printf("%s\n", long_description.c_str());
+		printf("%s", long_description.c_str());
 
 	}
 

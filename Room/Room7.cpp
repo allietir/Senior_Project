@@ -27,7 +27,7 @@ Room7::Room7() {
 	
 }
 int Room7::event_one(){
-	printf("The notes on the paper light up on the page briefly before settingling back down on to the page.\n");
+	printf("The notes on the paper light up on the page briefly before settingling back down on to the page.");
 	set_event_triggered(0, 1);
 	printf(" =======new event triggered val: %i======", get_event_triggered(0));
 	return 4;
@@ -46,7 +46,7 @@ int Room7::event_two(){
 
 	}
 	else{
-		printf("You have another task to complete before this event can occur.\n");
+		printf("You have another task to complete before this event can occur.");
 	}
 	init_long_short_desc();
 	return 4;
@@ -56,15 +56,15 @@ int Room7::event_three(){
 	//this vent can only be triggered after you take the music
 	if (get_event_triggered(1)==1){
 		set_event_triggered(2, 1);
-		printf("The \033[1;31mwomans\033[0m eyes open and she sighs happily. 'Thank you. I was trapped by sleep and the mirror for so very long. I will go find my family now.'\nWith that, she slips out of bed and glides as though a ghost throug the bedroom walls.\n");
-		get_feature_x(0)->set_desc("The \033[1;31mwoman\033[0m left the bed, so she is now gone from this room.\n");
+		printf("The \033[1;31mwomans\033[0m eyes open and she sighs happily. 'Thank you. I was trapped by sleep and the mirror for so very long. I will go find my family now.'\nWith that, she slips out of bed and glides as though a ghost throug the bedroom walls.");
+		get_feature_x(0)->set_desc("The \033[1;31mwoman\033[0m left the bed, so she is now gone from this room.");
 	}
 	else{
-		printf("You have another task to complete before this event can occur.\n");
+		printf("You have another task to complete before this event can occur.");
 	}
 	init_long_short_desc();
 	return 4;
 }
 Room7::~Room7() {
-	//printf("Destroying derived class Room7\n");
+	//printf("Destroying derived class Room7");
 }

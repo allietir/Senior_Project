@@ -27,14 +27,14 @@ Room6::Room6() {
 }
 //when you take the locket
 int Room6::event_one(){
-	printf("The \033[1;35mlocket\033[0m is hard and small and silver in your hand. There is something comforting and yet powerful about it. The \033[1;31mchild\033[0m smiles and speaks precociously. 'Thank you. I will go find my family.'\n");
+	printf("The \033[1;35mlocket\033[0m is hard and small and silver in your hand. There is something comforting and yet powerful about it. The \033[1;31mchild\033[0m smiles and speaks precociously. 'Thank you. I will go find my family.'");
 	set_event_triggered(0, 1);
 	//triggers nothing
 	return 4;
 }
 //locket made avaibale to you
 int Room6::event_two(){
-	printf("The little \033[1;31mgirl\033[0m places the \033[1;35mlocket\033[0m before you. 'Here. You should take this.'\n");
+	printf("The little \033[1;31mgirl\033[0m places the \033[1;35mlocket\033[0m before you. 'Here. You should take this.'");
 	set_event_triggered(1, 1);
 	//griggers unlcok
 	return 31;
@@ -42,5 +42,5 @@ int Room6::event_two(){
 
 
 Room6::~Room6() {
-	//printf("Destroying derived class Room6\n");
+	//printf("Destroying derived class Room6");
 }
