@@ -10,19 +10,19 @@ Feature8::Feature8() {
 	set_index_id(7);
 }
 int Feature8::read(){
-	printf("There is nothing to read on the \033[1;31mtable\033[0m.\n");		
+	printf("There is nothing to read on the \033[1;31mtable\033[0m.");		
 	return 4;
 }
 int Feature8::smell(){
 	
-	printf("You try to smell the food and almost faint from how delicious it smells. You clutch the \033[1;31mtable\033[0m for support.\n");	
+	printf("You try to smell the food and almost faint from how delicious it smells. You clutch the \033[1;31mtable\033[0m for support.");	
 	func_togg_count_x(SMELL);
 	return 4;
 	
 }
 int Feature8::eat(){
 	
-	printf("You eat a cookie from the \033[1;31mtable\033[0m. Hmm, that delicious. oh no. What's happening? You feel yourself being moved somewhere. Where are you going?\n");
+	printf("You eat a cookie from the \033[1;31mtable\033[0m. Hmm, that delicious. oh no. What's happening? You feel yourself being moved somewhere. Where are you going?");
 	func_togg_count_x(EAT);
 	
 	return 10;	

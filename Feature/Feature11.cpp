@@ -13,12 +13,12 @@ Feature11::Feature11() {
 int Feature11::give(int room_id, int feat_obj_id){
 	if ((feat_obj_id==DOLL)&&(room_id==NURSERY)){
 		func_togg_count_x(GIVE);
-		//printf("The \033[1;31mchild\033[0m receives the doll and smiles gratefully.\n");
+		//printf("The \033[1;31mchild\033[0m receives the doll and smiles gratefully.");
 		//triggers event one for Room6 which triggers in Game as the unlocking of locket and the locking of doll
 		return 1;
 	}
 	else {
-		printf("This is not what the \033[1;31mchild\033[0m needs\n");
+		printf("This is not what the \033[1;31mchild\033[0m needs");
 	}
 	return 4;
 }

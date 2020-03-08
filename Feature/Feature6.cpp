@@ -6,7 +6,7 @@
 
 Feature6::Feature6() {
 	set_name("\033[1;31mCarpet\033[0m");
-	set_desc("The \033[1;31mcarpet\033[0m is long and dark, and there is an image of a house on a hill and a strange purple fire surrounding the hill. There are words on the hill of the \033[1;31mcarpet\033[0m.\n");
+	set_desc("The \033[1;31mcarpet\033[0m is long and dark, and there is an image of a house on a hill and a strange purple fire surrounding the hill. There are words on the hill of the \033[1;31mcarpet\033[0m.");
 	set_index_id(5);
 }
 int Feature6::read(){
@@ -25,7 +25,7 @@ int Feature6::read(){
 }
 int Feature6::use(int obj_id){
 	if (obj_id==CHALICE){
-		printf("The \033[1;31mcarpet\033[0m alights with the purple fire and then burns out, revealing new, translated text.\n");
+		printf("The \033[1;31mcarpet\033[0m alights with the purple fire and then burns out, revealing new, translated text.");
 		set_togg_count_x(READ, -666);
 	}
 	return 4;

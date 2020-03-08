@@ -787,10 +787,11 @@ int main(int argc, char *argv[]) {
 				memset(userInput, '\0', 100);
 			
 			}
-			else if (strcmp("go", userInput)==0){
+			
+			/*else if ((strcmp("go ", userInput)==0)||(strcmp("go", userInput)==0)||(strcmp("go"))){
 				printf("Where do you want to go?\n");
 				y_flag = 1;
-			}
+			}*/
 			else{
 				y_flag = 0;
 				
@@ -798,7 +799,7 @@ int main(int argc, char *argv[]) {
 				char buffer[1024]={'\0'};
 				FILE *fp = fmemopen(buffer, 1023, "w");
 				if ( !fp ) { std::printf("the error"); return 0; }
-				printf("STDOUT: %i", stdout);
+				//printf("STDOUT: %i", stdout);
 				FILE *old = stdout;
 				stdout = fp;
 				fflush(stdout);

@@ -6,7 +6,7 @@
 
 Feature30::Feature30(){
 	set_name("\033[1;31mDemon\033[0m");
-	set_desc("There is a terrifying \033[1;31mdemon\033[0m standing before you; the creatures eyes are huge, too big for a human face, and so red. Huge horns spiral out of the creatures head. The creatures seems both impossibly terrifying shadow and hot, horrible fire.\n");
+	set_desc("There is a terrifying \033[1;31mdemon\033[0m standing before you; the creatures eyes are huge, too big for a human face, and so red. Huge horns spiral out of the creatures head. The creatures seems both impossibly terrifying shadow and hot, horrible fire.");
 	set_desc_no_obj(get_desc());
 	set_index_id(29);
 }
@@ -14,15 +14,15 @@ int Feature30::speak(){
 
 	if (get_times_toggled(SPEAK)==0){
 		func_togg_count_x(SPEAK);
-		printf("The \033[1;31mdemon\033[0m speaks in a thundering tone:\n'Your friend has a darkness inside them and so they will be mine.'\n You say to the \033[1;31mdemon\033[0m: \n'We all have both dark and light within us.'\n'Instead of bringing them to the dark, why can't you step into the light?'\nThe \033[1;31mdemon\033[0m shudders.'It is too late for me. The one I loved chose another. I cannot bear to see the light of day.'\n");
+		printf("The \033[1;31mdemon\033[0m speaks in a thundering tone:\n'Your friend has a darkness inside them and so they will be mine.'\n You say to the \033[1;31mdemon\033[0m: \n'We all have both dark and light within us.'\n'Instead of bringing them to the dark, why can't you step into the light?'\nThe \033[1;31mdemon\033[0m shudders.'It is too late for me. The one I loved chose another. I cannot bear to see the light of day.'");
 	}
 	else if (get_times_toggled(SPEAK)==1){
 		func_togg_count_x(SPEAK);
-		printf(" 'Whome did you love?' You ask. The \033[1;31mdemons\033[0m eyes wander away from \033[1;31mAlex\033[0m, and seems to stop sucking the life force out of \033[1;31mAlex\033[0m.\n 'It doesn't matter. None of it matters anywmore'\n");
+		printf(" 'Whome did you love?' You ask. The \033[1;31mdemons\033[0m eyes wander away from \033[1;31mAlex\033[0m, and seems to stop sucking the life force out of \033[1;31mAlex\033[0m.\n 'It doesn't matter. None of it matters anywmore'");
 
 	}
 	else{
-		printf("The \033[1;31mdemon\033[0m has nothing else to say.\n");
+		printf("The \033[1;31mdemon\033[0m has nothing else to say.");
 	}
 		
 
@@ -31,12 +31,12 @@ int Feature30::speak(){
 int Feature30::attack(int obj_feat){
 	//triggers open_locket
 	if (obj_feat==DIARY){
-		printf("You panic and open the \033[1;35mdiary\033[0m, and seeing strange words written, begin to chant a spell:\naperire vas\naperire vas\naperire vas\nut daemonium in captionem\naperire vas\n");
+		printf("You panic and open the \033[1;35mdiary\033[0m, and seeing strange words written, begin to chant a spell:\naperire vas\naperire vas\naperire vas\nut daemonium in captionem\naperire vas");
 		//triggers opening the lock
 		return 35;
 	}
 	if (obj_feat==CHALICE){
-		printf("You hold out the \033[1;35mchalice\033[0m and suddenly it yanks out of your hands without your control, like it is waiting for a cue. What are the right words to say next?\n");
+		printf("You hold out the \033[1;35mchalice\033[0m and suddenly it yanks out of your hands without your control, like it is waiting for a cue. What are the right words to say next?");
 		//requires that you read a different spell from the diary before it locks the demon in the locket
 		return 36;
 	}
@@ -45,7 +45,7 @@ int Feature30::attack(int obj_feat){
 		return 35;
 	}
 	if (obj_feat==DAGGER){
-		printf("The \033[1;31mdemon\033[0m snarles and claws the \033[1;35mdagger\033[0m out of your hand with his mighty hooved arm.\nYou're losing blood fast.\nYou aren't going to make it.\n");
+		printf("The \033[1;31mdemon\033[0m snarles and claws the \033[1;35mdagger\033[0m out of your hand with his mighty hooved arm.\nYou're losing blood fast.\nYou aren't going to make it.");
 		return -1;
 	}
 	return 4;
@@ -55,7 +55,7 @@ int Feature30::give(int event_occured, int obj_feat_id){
 	//if this is called, this means that at this point the game was able to see that the chalice has something 
 	if ((obj_feat_id==CHALICE)&&(event_occured==1))
 	{
-		printf("The \033[1;31mdemon\033[0m looks at the holy water in the chalice.\n.'Maybe some things are worth the pain of transformation'\nThe \033[1;31mdemon\033[0m drinks the water and lets out a horrible shriek.\nThere are flashes of light throughout the room and you are forced to look away.\nWhen you are no longer blinded by the light, you look for a remnent of the creature, but the demon is utterly gone.\n");	
+		printf("The \033[1;31mdemon\033[0m looks at the holy water in the chalice.\n.'Maybe some things are worth the pain of transformation'\nThe \033[1;31mdemon\033[0m drinks the water and lets out a horrible shriek.\nThere are flashes of light throughout the room and you are forced to look away.\nWhen you are no longer blinded by the light, you look for a remnent of the creature, but the demon is utterly gone.");	
 	}
 	return 0;
 

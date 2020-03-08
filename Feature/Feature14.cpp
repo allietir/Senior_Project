@@ -17,7 +17,7 @@ int Feature14::attack(int obj_id){
 		return 1;
 	}
 	else{
-		printf("You cannot attack with this object. Perhaps a sharper one?\n");
+		printf("You cannot attack with this object. Perhaps a sharper one?");
 	}
 	return 4;
 	

@@ -16,14 +16,13 @@ int Object1::read(){
 	return 4;
 }
 int Object1::use(int obj_feat_obj){
-	printf("----------------here------------------\n");
 	if (get_times_toggled(USE)==0){
 		func_togg_count_x(USE);
-		printf("The \033[1;35mlamp\033[0m turns on and you can see more clearly than before.\n");
+		printf("The \033[1;35mlamp\033[0m turns on and you can see more clearly than before.");
 	}
 	else if (get_times_toggled(USE)==1){
 		
-		printf("The \033[1;35mlamp\033[0m is already on and you can see more clearly in the room\n");
+		printf("The \033[1;35mlamp\033[0m is already on and you can see more clearly in the room.");
 	}
 	return 4;
 	

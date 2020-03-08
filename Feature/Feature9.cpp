@@ -6,7 +6,7 @@
 
 Feature9::Feature9() {
 	set_name("\033[1;31mPiano\033[0m");
-	set_desc("The \033[1;31mpiano\033[0m is large and ornate; it is a grand \033[1;31mpiano\033[0m.\n");
+	set_desc("The \033[1;31mpiano\033[0m is large and ornate; it is a grand \033[1;31mpiano\033[0m.");
 	set_index_id(8);
 }
 int Feature9::play(){
@@ -15,7 +15,7 @@ int Feature9::play(){
 		return 4;
 	}
 	else{
-		printf("You can't play the \033[1;31mpiano\033[0m without sheet music.\n");
+		printf("You can't play the \033[1;31mpiano\033[0m without sheet music.");
 		return 4;
 	}
 	
@@ -23,12 +23,12 @@ int Feature9::play(){
 int Feature9::use(int obj_id){
 	if (obj_id == MUSIC)
 	{
-		printf("Now you can use the music to play the \033[1;31mpiano\033[0m!\n");
+		printf("Now you can use the music to play the \033[1;31mpiano\033[0m!");
 		func_togg_count_x(USE);
 		return 0;
 	}
 	else{
-		printf("You can't use this object with the \033[1;31mpiano\033[0m.\n");
+		printf("You can't use this object with the \033[1;31mpiano\033[0m.");
 		return 4;
 	}
 }
