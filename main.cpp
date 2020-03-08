@@ -805,7 +805,7 @@ int main(int argc, char *argv[]) {
 				
 				string strbuff = buffer; 
 				
-				printf("%s",word_wrap(buffer, MAX_WIDTH).c_str());
+				printf("%s",word_wrap(strbuff.c_str(), 80).c_str());
 				//printf(word_wrap(strbuff, 80));
 				
 			}
