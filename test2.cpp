@@ -1,12 +1,12 @@
 #include <iostream>
 #include <cstdio>
-
+using namespace std;
 void print_to_console() {
-		std::printf( "Hello from print_to_console()\n" );
+		printf( "Hello from print_to_console()\n" );
 }
 
 void foo(){
-	std::printf("hello world\n");
+	printf("hello world\n");
 	print_to_console(); // this could be printed from anything
 }
 
@@ -14,15 +14,15 @@ int main()
 {
 		char buffer[1024];
 		FILE *fp = fmemopen(buffer, 1024, "w");
-		if ( !fp ) { std::printf("error"); return 0; }
+		if ( !fp ) { printf("error"); return 0; }
 
-		auto old = stdout;
+		FILE *old = stdout;
 		stdout = fp;
 
-		foo(); //all the std::printf goes to buffer (using fp);
+		foo(); //all the printf goes to buffer (using fp);
 
-		std::fclose(fp);
+		fclose(fp);
 		stdout = old; //reset
 
-		std::printf("<redirected-output>\n%s</redirected-output>", buffer);
+		printf("<redirected-output>\n%s</redirected-output>", buffer);
 }
