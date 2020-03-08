@@ -13,7 +13,7 @@ void foo(){
 int main()
 {
 		char buffer[1024];
-		auto fp = fmemopen(buffer, 1024, "w");
+		FILE *fp = fmemopen(buffer, 1024, "w");
 		if ( !fp ) { std::printf("error"); return 0; }
 
 		auto old = stdout;
