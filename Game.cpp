@@ -997,8 +997,8 @@ int Game::exit_valid(int next_room)
 		}
 	}
 	//check that certain events have been triggered
-	printf("needs event: %i", get_needs_event(next_room));
-	printf("value of needs event %i is %i:", get_needs_event(next_room), room_events_triggered[get_needs_event(next_room)]);
+	//printf("needs event: %i", get_needs_event(next_room));
+	//printf("value of needs event %i is %i:", get_needs_event(next_room), room_events_triggered[get_needs_event(next_room)]);
 	if (get_needs_event(next_room)!=-1){
 		
 		if (room_events_triggered[get_needs_event(next_room)]==1){
