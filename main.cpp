@@ -792,10 +792,10 @@ int main(int argc, char *argv[]) {
 				
 				//using https://stackoverflow.com/questions/19485536/redirect-output-of-an-function-printing-to-console-to-string/19499003
 				char buffer[1024];
-				auto fp = fmemopen(buffer, 1024, "w");
+				FILE *fp = fmemopen(buffer, 1024, "w");
 				if ( !fp ) { std::printf("error"); return 0; }
 
-				auto old = stdout;
+				FILE *old = stdout;
 				stdout = fp;
 				
 				inputParsing(parse_test, userInput);
