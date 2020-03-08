@@ -217,7 +217,7 @@ int checkActions(Game &game, vector<string> inputVector) {
 
 		if (verbIT != verbIDmap.end()) {
 			// verb name matched
-			cout << "\tverb: "; 
+			//cout << "\tverb: "; 
 			cout << inputVector[i]; 
 			if (verbID == -1) verbID = verbIT->second;
 			else {
@@ -228,7 +228,7 @@ int checkActions(Game &game, vector<string> inputVector) {
 		}
 		else if (featIT != featIDmap.end()) {
 			// feature name matched 
-			cout << "\tfeature: ";
+			//cout << "\tfeature: ";
 			cout << inputVector[i];
 			if (featID == -1) featID = featIT->second;
 			else {
@@ -239,7 +239,7 @@ int checkActions(Game &game, vector<string> inputVector) {
 		}
 		else if (objIT != objIDmap.end()) {
 			// object name matched 
-			cout << "\tobject: ";
+			//cout << "\tobject: ";
 			cout << inputVector[i];
 			if (objID == -1) objID = objIT->second;
 			else {
