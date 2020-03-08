@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdio>
+#include <stdio.h>
 using namespace std;
 void print_to_console() {
 		printf( "Hello from print_to_console()\n" );
