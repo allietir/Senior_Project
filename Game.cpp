@@ -437,7 +437,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 	if ((obj_index_id==-1)&&(feat_index_id==-1)){
 		return 4;
 	}
-	if (user_has_item(obj_index_id)==0 && room_has_item(obj_index_id)==1){
+	if (user_has_item(obj_index_id)==0 && room_has_item(obj_index_id)==1 && (verb_id!=TAKE)){
 		printf("This room has that object, but you must take it first before using it.\n");
 		return 4;
 	}
