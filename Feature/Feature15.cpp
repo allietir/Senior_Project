@@ -35,7 +35,7 @@ int Feature15::speak(){
 int Feature15::attack(int object_id){
 	func_togg_count_x(ATTACK);
 	if (object_id==DAGGER){
-		printf("You pierce the \033[1;36mdagger\033[0m into the \033[1;31vampire's\033[0m heart. His eyes open.\n I will not hurt an innocent, but one who attacks is not innocent. Goodbye.");
+		printf("You pierce the \033[1;36mdagger\033[0m into the \033[1;31vampire's\033[0m heart. His eyes open.\n \"I will not hurt an innocent, but one who attacks is not innocent. Goodbye.\"");
 	}
 	else{
 		printf("This object is not effective in attacking the \033[1;31mvampire\033[0m.\nHe continues to sleep.");
