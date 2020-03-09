@@ -264,7 +264,7 @@ int checkActions(Game &game, vector<string> inputVector) {
 	cout << "\n";
 	if (verbID == -1 || (featID == -1 && objID == -1)) {
 		actionStatus = 0;
-		//cout << "incorrect arguments found\n";
+		cout << "incorrect arguments found\n";
 	}
 	else {
 		int x = game.run_func(featID, objID, verbID);
