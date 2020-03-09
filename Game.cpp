@@ -125,9 +125,9 @@ void Game::start(){
 void Game::take(int object_id){
 	//player 
 	//
-	printf("----we are in take----");
+	//printf("----we are in take----");
 	
-	printf("value of is_locked:%i", is_locked[object_id]);
+	//printf("value of is_locked:%i", is_locked[object_id]);
 	if (is_locked[object_id]==1){
 		printf("You can't take this item because it is locked\n");
 		
@@ -153,25 +153,25 @@ void Game::take(int object_id){
 					r_array[current_room]->get_feature_x(1)->remove_object_desc();
 					//reinitialize room description
 					r_array[current_room]->init_long_short_desc();
-					printf("get_event_triggerd: %i\n", r_array[player1.get_current_room()]->get_event_triggered(0));
+					//printf("get_event_triggerd: %i\n", r_array[player1.get_current_room()]->get_event_triggered(0));
 					if (r_array[player1.get_current_room()]->get_event_triggered(0)==0){
-						printf("triggering event");
+						//printf("triggering event");
 						trigger_take_event(object_id);
 					}
 				}
 				if (p_has_item == 1){
-					printf("You already have this item\n");
+					printf("You already have this item. ");
 				}
 				else if (r_has_item == 0){
-					printf("Item is not in this room\n");
+					printf("Item is not in this room. ");
 				}
 		}
 		else{
-			printf("You can't take %s right now.\n", o_array[object_id]->get_name().c_str());
+			printf("You can't take %s right now. ", o_array[object_id]->get_name().c_str());
 		}
 	}
 	else{
-		printf("You can't take %s right now.\n", o_array[object_id]->get_name().c_str());
+		printf("You can't take %s right now. ", o_array[object_id]->get_name().c_str());
 	}
 	if (get_game_events_triggered(8)==1){
 		//if the cupboard is open, user can take one object; then the cupboard will close again and description will reset; AND all items except that which the user has grabbed will be set back to their original location
@@ -200,8 +200,8 @@ void Game::drop(int object_id){
 		player1.set_has_objects(object_id, 0);
 		r_array[current_room]->set_has_objects(object_id, 1);
 		set_obj_location(object_id, current_room);
-		printf("%s now has %s\n", r_array[current_room]->get_name().c_str(), o_array[object_id]->get_name().c_str());	
-		printf("Updated player inventory...\n");
+		printf("%s now has %s. ", r_array[current_room]->get_name().c_str(), o_array[object_id]->get_name().c_str());	
+		printf("Updated player inventory...");
 		inventory();
 		//add object text
 		r_array[current_room]->add_object_text(o_array[object_id]->get_name(), o_array[object_id]->get_desc());
@@ -209,10 +209,10 @@ void Game::drop(int object_id){
 		
 	}
 	if (p_has_item == 0){
-		printf("You do not have this item\n");
+		printf("You do not have this item. ");
 	}
 	else if (r_has_item == 1){
-		printf("Item is already in this room\n");
+		printf("Item is already in this room. ");
 	}
 	if (get_game_events_triggered(11)==1){
 		event12();
@@ -223,33 +223,34 @@ void Game::drop(int object_id){
 
 void Game::inventory(){
 	int empty = 1;
-	printf("INVENTORY: \n");
+	printf("INVENTORY: ");
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		if (player1.get_has_objects(i)==1){
-			printf("%i %s\n", i,o_array[i]->get_name().c_str());
+			printf("%s ", o_array[i]->get_name().c_str());
 			empty = 0;
 		}
 	}
 	if (empty==1)
 	{
-		printf("(empty)\n");
+		printf("(empty)\n ");
 	}
+	printf("\n ");
 }
 void Game::exit_room(int dir){
 	
 	
 	int current_room = player1.get_current_room();
-	printf("You are attempting to exit: %s\n", r_array[current_room]->get_name().c_str());
+	printf("You are attempting to exit: %s.", r_array[current_room]->get_name().c_str());
 	
 	int get_next_room = r_array[current_room]->get_exit_id(dir);
 	if (get_next_room == -1){
-		printf("Error: %s has no exit to the %s\n", r_array[current_room]->get_name().c_str(),  r_array[dir]->get_exit_dir(dir).c_str());
+		printf("Error: %s has no exit to the %s.", r_array[current_room]->get_name().c_str(),  r_array[dir]->get_exit_dir(dir).c_str());
 	}
 	else
 	{
 		if (exit_valid(get_next_room)==0){
 		
-			printf("Success, there is an exit from the %s to the %s\n\n", r_array[current_room]->get_name().c_str(), r_array[dir]->get_exit_dir(dir).c_str());
+			printf("Success, there is an exit from the %s to the %s.", r_array[current_room]->get_name().c_str(), r_array[dir]->get_exit_dir(dir).c_str());
 			player1.set_current_room(get_next_room);
 			//update player move count
 			int mc = player1.get_move_count();
@@ -274,7 +275,7 @@ void Game::exit_room(int dir){
 			}
 			//intro room
 			current_room = player1.get_current_room();
-			printf("You are entering: %s", r_array[current_room]->get_name().c_str());
+			printf("You are entering: %s. ", r_array[current_room]->get_name().c_str());
 			r_array[current_room]->look();
 		}
 		else{
@@ -459,7 +460,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 	}
 
 	int item=feat_valid(feat_index_id);
-	printf("----item %i----", item);
+	//printf("----item %i----", item);
 	fflush(stdout);
 	string feat_string;
 	if (item==-2){
@@ -1019,7 +1020,7 @@ int Game::exit_valid(int next_room)
 	return -1;
 }
 int Game::feat_valid(int feat_index_id){
-	printf("in feat_valid %i", feat_index_id);
+	//printf("in feat_valid %i", feat_index_id);
 	fflush(stdout);
 	if (feat_index_id==-1){
 		//	printf("case one");
@@ -1115,7 +1116,7 @@ void Game::event1()
 	set_game_events_triggered(0, 1);
 }
 void Game::event2(){
-	printf("You give the child the doll. She releases the locket\n");
+	printf("You give the child the doll. She releases the locket. ");
 	set_game_events_triggered(1, 1);
 	//unlock locket 
 	set_is_locked(LOCKET, 0);
@@ -1124,7 +1125,7 @@ void Game::event2(){
 
 }
 void Game::event3(){
-	printf("You can try to take the doll and maybe return it to the girl.\n");
+	printf("You can try to take the doll and maybe return it to the girl. ");
 	set_game_events_triggered(2, 1);
 	//unlock doll
 	set_is_locked(DOLL, 0);
@@ -1139,7 +1140,7 @@ void Game::event5(){
 	set_game_events_triggered(4, 1);
 }
 void Game::event6(int obj_id){
-	printf("-------You have destroyed the %s-------\n", o_array[obj_id]->get_name().c_str());
+	printf("-------You have destroyed the %s-------", o_array[obj_id]->get_name().c_str());
 	set_game_events_triggered(5, 1);
 	int curr_room = player1.get_current_room();
 	player1.set_current_room(LIBRARY);

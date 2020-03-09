@@ -57,6 +57,7 @@ int main() {
 //returns 0 if command recognized and executed
 //prints error and returns 1 if invalid command
 int inputParsing(Game &game, string userInput){
+	
 	string clean = cleanInput(userInput); 
 	int status = 0; 
 	status = checkBasicCommands(game, clean);
@@ -218,7 +219,7 @@ int checkActions(Game &game, vector<string> inputVector) {
 		if (verbIT != verbIDmap.end()) {
 			// verb name matched
 			//cout << "\tverb: "; 
-			cout << inputVector[i]; 
+			//cout << inputVector[i]; 
 			if (verbID == -1) verbID = verbIT->second;
 			else {
 				actionStatus = -1;
@@ -229,7 +230,7 @@ int checkActions(Game &game, vector<string> inputVector) {
 		else if (featIT != featIDmap.end()) {
 			// feature name matched 
 			//cout << "\tfeature: ";
-			cout << inputVector[i];
+			//cout << inputVector[i];
 			if (featID == -1) featID = featIT->second;
 			else {
 				actionStatus = -1;
@@ -240,7 +241,7 @@ int checkActions(Game &game, vector<string> inputVector) {
 		else if (objIT != objIDmap.end()) {
 			// object name matched 
 			//cout << "\tobject: ";
-			cout << inputVector[i];
+			//cout << inputVector[i];
 			if (objID == -1) objID = objIT->second;
 			else {
 				actionStatus = -1;

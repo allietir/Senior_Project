@@ -23,7 +23,7 @@ Room2::Room2() {
 	string exit_desc_0 = "There is a staircase before you to the \033[0;32mnorth\033[0m, winding up to an eternal unknown. Strangely, a fog seems to be drifting down from the top of the stairs";
 	string exit_desc_1 = "Behind you to the \033[0;32msouth\033[0m the front door to the \033[0;36mgarden\033[0m shows the path leading out. There is still time to go back. You have the sense that you could leave and the house would forgive you. ";
 	string exit_desc_2 = "There is a dark hallway to the \033[0;32mwest\033[0m. You can't see a thing. You can smell something however. Perhaps it is a \033[0;36mdining room\033[0m?";
-	string exit_desc_3 = "There is another dark hallway toward the \033[0;32meast\033[0;36m. You hear faint music that seems to be coming from there.";
+	string exit_desc_3 = "There is another dark hallway toward the \033[0;32meast\033[0m. You hear faint music that seems to be coming from there.";
 	set_exit_desc(exit_desc_0, 0);
 	set_exit_desc(exit_desc_1, 1);
 	set_exit_desc(exit_desc_2, 2);

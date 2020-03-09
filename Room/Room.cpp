@@ -173,9 +173,9 @@ string Room::long_exit_text(){
 	if (exit_exist == 0){
 		exit_text = "";
 	}
-	else{
-			exit_text = exit_text + ".  " ;
-		}
+//	else{
+//			exit_text = exit_text;
+//		}
 	
 	return exit_text;
 }
@@ -186,7 +186,7 @@ string Room::short_exit_text(){
 		string exit_x = get_exit_name(i);
 		if (exit_x!="no_exit"){
 			exit_exist = 1;
-			exit_text = exit_text + exit_x + " in the " + get_exit_dir(i) + ". ";
+			exit_text = exit_text + exit_x + " in the " + get_exit_dir(i) + ". \n";
 		}
 		
 	}
@@ -194,9 +194,9 @@ string Room::short_exit_text(){
 	if (exit_exist == 0){
 			exit_text = "";
 	}
-	else{
-		exit_text = exit_text + ".  " ;
-	}
+//	else{
+//		exit_text = exit_text + ".  " ;
+//	}
 		
 	return exit_text;
 }
@@ -205,10 +205,10 @@ string Room::long_feature_text(){
 	string feature_text = "You see: ";
 	for (int i = 0; i < MAX_FIXED; i ++){
 		if ((fixed_list[i]->get_name()!="no feature name")&&(i<MAX_FIXED-1)){
-			feature_text = feature_text + fixed_list[i]->get_desc() + "and ";
+			feature_text = feature_text + fixed_list[i]->get_desc() + "You see: ";
 		}
 		if ((fixed_list[i]->get_name()!="no feature name")&&(i==MAX_FIXED-1)){
-			feature_text = feature_text + fixed_list[i]->get_desc() + ".\n";
+			feature_text = feature_text + fixed_list[i]->get_desc();
 		}
 
 	}
@@ -223,7 +223,7 @@ string Room::short_feature_text(){
 			feature_text = feature_text + fixed_list[i]->get_desc() + ". You see: ";
 		}
 		if ((fixed_list[i]->get_name()!="no feature name")&&(i==MAX_FIXED-1)){
-			feature_text = feature_text + fixed_list[i]->get_desc() + ".";
+			feature_text = feature_text + fixed_list[i]->get_desc();
 		}
 
 	}
@@ -231,10 +231,10 @@ string Room::short_feature_text(){
 	
 }
 void Room::add_object_text(string name, string desc){
-	string new_short_descs = get_short_description() + "You see: a " + name +  ". ";
+	string new_short_descs = get_short_description() + "You see: a " + name;
 	set_short_description(new_short_descs);
 	
-	string new_long_descs = get_long_description() + "You see: " + desc + ".";
+	string new_long_descs = get_long_description() + "You see: " + desc;
 	set_long_description(new_long_descs);
 }
 void Room::remove_object_text(){
@@ -244,8 +244,8 @@ void Room::remove_object_text(){
 	set_long_description(no_obj_short_desc);
 }
 void Room::init_long_short_desc(){
-	string short_descr = "This is " + get_name() + ". " + short_exit_text() + short_feature_text();
-	string long_descr = "This is " + get_name() + ". " + get_extra_description() + long_exit_text() + long_feature_text();
+	string short_descr = "This is " + get_name() + ".\n" + short_exit_text() + short_feature_text();
+	string long_descr = "This is " + get_name() + ".\n" + get_extra_description() + long_exit_text() + long_feature_text();
 	
 
 	

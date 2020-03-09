@@ -22,7 +22,7 @@ Room3::Room3() {
 	set_exit_id(6, 2);//
 	set_exit_id(7, 3);//
 	string exit_desc_0 = "At the end of the hallway to the \033[0;32mnorth\033[0m, you see a mirrored door.";
-	string exit_desc_1 = "Behind you to the \033[0;32msouth\033[0m is the staircase back to the \033[0;36mentranceway\033[0m";
+	string exit_desc_1 = "Behind you to the \033[0;32msouth\033[0m is the staircase back to the \033[0;36mentranceway\033[0m ";
 	string exit_desc_2 = "At the \033[0;32mwest\033[0m side of the hallway, you see a door";
 	string exit_desc_3 = "At the \033[0;32meast\033[0m side of the hallway, you see a second door";
 	set_exit_desc(exit_desc_0, 0);
