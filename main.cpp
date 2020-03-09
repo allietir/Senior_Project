@@ -77,6 +77,10 @@ int main(int argc, char *argv[]) {
 					load_game(run_game);
 					save_game(run_game);
 				}
+				else if (run_game.get_player()->get_player_alive()==2){
+					printf("Exiting game\n");
+					return 0;
+				}
 
 				//printf(word_wrap(strbuff, 80));
 				
