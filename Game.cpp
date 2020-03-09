@@ -437,6 +437,10 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 	if ((obj_index_id==-1)&&(feat_index_id==-1)){
 		return 4;
 	}
+	if (user_has_item(obj_index_id)==0 && room_has_item(obj_index_id)==1){
+		printf("This room has that object, but you must take it first before using it.\n");
+		return 4;
+	}
 	//printf("=============Running Func==========\n%i %i %i\n", feat_index_id, obj_index_id, verb_id);
 	int res = -666;
 	string verb="unset";
@@ -688,10 +692,10 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			}
 			//player is DEAD
 			if (res==-1){
-				printf("You have died.");
+				printf("----You have died.---");
 				player1.set_player_alive(0);//set to FALSE
 				
-				return -1;
+				//return -1;
 				
 			}
 			//player can't TAKE anything
@@ -1055,6 +1059,25 @@ void Game::output_current_object_locations(){
 void Game::output_feature_list_locations(){
 	string str = ret_curr_feat_list();
 	printf("%s", str.c_str());
+}
+void Game::output_all_rooms(){
+	for (int i = 0; i < NUM_ROOMS; i++){
+		printf("Room %i: %s\n", i+1, r_array[i]->get_name().c_str());
+	}
+}
+void Game::output_all_rooms_and_features(){
+	for (int i = 0; i < NUM_ROOMS; i++){
+			printf("Room %i: %s\n", i+1, r_array[i]->get_name().c_str());
+			printf("Feature 1: %s\n", r_array[i]->get_feature_x(0)->get_name().c_str());
+			printf("Feature 2: %s\n", r_array[i]->get_feature_x(1)->get_name().c_str());
+			printf("Number of events: %d\n", r_array[i]->get_num_events());
+			for (int j = 0; j < NUM_OBJECTS; j++){
+				if (r_array[i]->get_has_objects(j)==1){
+					printf("INITAL OBJECT: %s\n", o_array[j]->get_name().c_str());
+				}
+			}
+			
+		}
 }
 //------------  O U T P U T  H E L P E R S ---------//
 string Game::ret_curr_obj_loc(){

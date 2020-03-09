@@ -57,8 +57,11 @@ int Feature2::attack(int obj_feat_id){
 		printf("You have attacked with the %s.", get_obj_name(obj_feat_id).c_str());
 		return 1;
 	}
+	else if (obj_feat_id==-1){
+		printf("Attacking without a weapon does nothing.");
+	}
 	else{
-		printf("Attcking with the %s does nothing. ", get_obj_name(obj_feat_id).c_str());
+		printf("Attacking with the %s does nothing.", get_obj_name(obj_feat_id).c_str());
 		return 4;
 	}
 	return 4;

@@ -156,6 +156,8 @@ public:
 	
 	void output_current_object_locations();
 	void output_feature_list_locations();
+	void output_all_rooms();
+	void output_all_rooms_and_features();
 	//------------  O U T P U T  H E L P E R S ---------//
 	string ret_curr_feat_list();
 	string ret_curr_obj_loc();

@@ -37,6 +37,7 @@ int Room1::event_one(){
 int Room1::event_two(){
 	printf("The \033[1;31mtree\033[0m shakes and suddenly the face of the tree comes alive. You see a face more old and ancient and angry than any human could ever be, and in that moment you realize you have made an enormous error. That's the last thought you have before the tree swallows you whole.");
 	set_event_triggered(1, 1);
+	//return 4;
 	return -1;
 }
 //if you eat() knife

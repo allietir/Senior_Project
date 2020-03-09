@@ -5,7 +5,7 @@
 #include "Room6.h"
 //exit south->upstrais hallway:3  west->bathroom:9
 Room6::Room6() {
-	set_name("\033[0;36mNursery\033[0;36m");
+	set_name("\033[0;36mNursery\033[0m");
 	set_extra_description("The room is painted in colors that were once bright, are cracked and faded by time.");
 	set_room_id(5);
 
