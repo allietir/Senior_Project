@@ -64,7 +64,7 @@ int main(int argc, char *argv[]) {
 				fflush(stdout);
 				
 				inputParsing(run_game, userInput);
-				
+				fflush(stdout);
 				fclose(fp);
 				stdout = old; //reset
 				

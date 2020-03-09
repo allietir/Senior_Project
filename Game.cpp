@@ -732,6 +732,13 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 //			if (res==34){
 //				event5();
 //			}
+			if (res==45+obj_index_id){
+				
+				event6(res-45);
+				//return 4;
+				
+				
+			}	
 			if (res==35){
 				event7();
 			}
@@ -760,7 +767,8 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			}
 			if (res==43){
 				event16();
-			}		
+			}	
+			
 			if (res==44){
 				event17();
 			}
@@ -773,9 +781,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 				set_is_locked(obj_index_id, 0);
 			}
 
-			if (res==45+obj_index_id){
-				event6(res-45);
-			}
+			
 			if(((room_events_triggered[13]==1)&&(room_events_triggered[15]==1)&&(room_events_triggered[21]==1))|| ((room_events_triggered[20]==1)&&(room_events_triggered[15]==1)&&(room_events_triggered[21]==1)))
 			{
 				event5();
@@ -1163,7 +1169,7 @@ void Game::event5(){
 	set_game_events_triggered(4, 1);
 }
 void Game::event6(int obj_id){
-	printf("-------You have destroyed the %s-------", o_array[obj_id]->get_name().c_str());
+	printf("-------You have transported the %s-------\n", o_array[obj_id]->get_name().c_str());
 	set_game_events_triggered(5, 1);
 	int curr_room = player1.get_current_room();
 	player1.set_current_room(LIBRARY);

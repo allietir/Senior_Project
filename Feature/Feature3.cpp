@@ -6,8 +6,11 @@
 
 Feature3::Feature3() {
 	set_name("\033[1;31mPortrait\033[0m");
-	desc1 = "There is a \033[1;31mportrait\033[0m of a stern looking family on the wall. Their features are blurred but they are dressed in old fashioned clothing and are unsmiling. There's a tall, darkly hansome man with what you swear is a bloodthirsty look in his eye. There's a meek looking \033[1;31mwoman\033[0m who seems to be staring, not at the artist but at her hands. And there is a little \033[1;31mgirl\033[0m clutching what looks like a \033[1;35mdoll\033[0m, but you can't see much more. It looks like a corner of the \033[1;31mportrait\033[0m is peeling. What could be underneath? Can you try to open it?";
+	desc1 = "There is a \033[1;31mportrait\033[0m of a stern looking family on the wall. A \033[1;35mlamp\033[0m appears below it. Their features are blurred but they are dressed in old fashioned clothing and are unsmiling. There's a tall, darkly hansome man with what you swear is a bloodthirsty look in his eye. There's a meek looking \033[1;31mwoman\033[0m who seems to be staring, not at the artist but at her hands. And there is a little \033[1;31mgirl\033[0m clutching what looks like a \033[1;35mdoll\033[0m, but you can't see much more. It looks like a corner of the \033[1;31mportrait\033[0m is peeling. What could be underneath? Can you try to open it?";
+	string desc2 = "There is a \033[1;31mportrait\033[0m of a stern looking family on the wall. Their features are blurred but they are dressed in old fashioned clothing and are unsmiling. There's a tall, darkly hansome man with what you swear is a bloodthirsty look in his eye. There's a meek looking \033[1;31mwoman\033[0m who seems to be staring, not at the artist but at her hands. And there is a little \033[1;31mgirl\033[0m clutching what looks like a \033[1;35mdoll\033[0m, but you can't see much more. It looks like a corner of the \033[1;31mportrait\033[0m is peeling. What could be underneath? Can you try to open it?";
 	set_desc(desc1);
+	set_desc_no_obj(desc2);
+	
 	set_index_id(2);
 }
 int Feature3::open(int room_id, int obj_feat_id){

@@ -7,6 +7,7 @@
 Feature23::Feature23() {
 	set_name("\033[1;31mFountain\033[0m");
 	set_desc("Water pours from the \033[1;31mfountain\033[0m, sparkling even though the room is as dark as the rest of the house.");
+	set_desc_no_obj(get_desc());
 	set_index_id(22);
 }
 int Feature23::use(int obj_id){

@@ -7,6 +7,7 @@
 Feature17::Feature17() {
 	set_name("\033[1;31mMirror\033[0m");
 	set_desc("There is a \033[1;31mmirror\033[0m in the bathroom and there is writing on the \033[1;31mmirror\033[0m.");
+	set_desc_no_obj(get_desc());
 	set_index_id(16);
 }
 int Feature17::read(){

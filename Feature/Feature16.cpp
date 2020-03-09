@@ -7,6 +7,7 @@
 Feature16::Feature16() {
 	set_name("\033[1;31mBranch\033[0m");
 	set_desc("A \033[1;31mBranch\033[0m attached to a tree leading out the window into the front garden");
+	set_desc_no_obj(get_desc());
 	set_index_id(15);
 }
 int Feature16::climb(){
