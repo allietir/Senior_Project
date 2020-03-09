@@ -186,37 +186,37 @@ void set_game_data(Game& game, ifstream& save_file) {
 
 	//All times rooms visited
 	getline(save_file, next_line);
-	printf("rooms_visited: %s\n", next_line.c_str());
+	//printf("rooms_visited: %s\n", next_line.c_str());
 	convert_string_to_array(rooms_visited, next_line, NUM_ROOMS);
 	game.set_all_times_rooms_visited(rooms_visited);
 
 	//All game events triggered
 	getline(save_file, next_line);
-	printf("game_events: %s\n", next_line.c_str());
+	//printf("game_events: %s\n", next_line.c_str());
 	convert_string_to_array(game_events, next_line, NUM_GAME_EVENTS);
 	game.set_all_game_events_triggered(game_events);
 
 	//All room events triggered
 	getline(save_file, next_line);
-	printf("room_events: %s\n", next_line.c_str());
+	//printf("room_events: %s\n", next_line.c_str());
 	convert_string_to_array(room_events, next_line, NUM_EVENTS);
 	game.set_all_room_events_triggered(room_events);
 
 	//All room objects
 	getline(save_file, next_line);
-	printf("room_objects: %s\n", next_line.c_str());
+	//printf("room_objects: %s\n", next_line.c_str());
 	convert_string_to_array(room_objects, next_line, NUM_OBJECTS);
 	game.set_all_room_objects(room_objects);
 
 	//All player objects
 	getline(save_file, next_line);
-	printf("player_objects: %s\n", next_line.c_str());
+	//printf("player_objects: %s\n", next_line.c_str());
 	convert_string_to_array(player_objects, next_line, NUM_OBJECTS);
 	game.set_all_player_objects(player_objects);
 	
 	//All is locked
 	getline(save_file, next_line);
-	printf("is_locked: %s\n", next_line.c_str());
+	//printf("is_locked: %s\n", next_line.c_str());
 	convert_string_to_array(is_locked, next_line, NUM_OBJECTS);
 	game.set_all_is_locked(is_locked);
 
