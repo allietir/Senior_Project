@@ -220,10 +220,10 @@ string Room::short_feature_text(){
 	string feature_text = "You see: ";
 	for (int i = 0; i < MAX_FIXED; i ++){
 		if ((fixed_list[i]->get_name()!="no feature name")&&(i<MAX_FIXED-1)){
-			feature_text = feature_text + fixed_list[i]->get_desc() + ". You see: ";
+			feature_text = feature_text + fixed_list[i]->get_name() + ". You see: ";
 		}
 		if ((fixed_list[i]->get_name()!="no feature name")&&(i==MAX_FIXED-1)){
-			feature_text = feature_text + fixed_list[i]->get_desc();
+			feature_text = feature_text + fixed_list[i]->get_name();
 		}
 
 	}
