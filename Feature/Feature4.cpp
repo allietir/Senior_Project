@@ -39,7 +39,7 @@ if (get_times_toggled(OPEN)>=1)
 
 int Feature4::open(int room_id, int feat_obj_id){
 	
-	string open_response = "The\033[1;31mmusicbox\033[0m is opened to reveal a little ballarina. It has a switch that says 'play' ";
+	string open_response = "The \033[1;31mmusicbox\033[0m is opened to reveal a little ballarina. It has a switch that says 'play' ";
 	func_togg_count_x(OPEN);
 	printf("%s\n", open_response.c_str());
 	return 4;

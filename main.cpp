@@ -13,9 +13,9 @@ int main(int argc, char *argv[]) {
 		Game run_game;
 		//using https://stackoverflow.com/questions/19485536/redirect-output-of-an-function-printing-to-console-to-string/19499003
 		char buffer[1024];
-		memset(buffer, '\0', 1024);
+		memset(buffer, '\0', 2024);
 		FILE *fp;
-		fp = fmemopen(buffer, 1024, "w");
+		fp = fmemopen(buffer, 2024, "w");
 		if ( !fp ) { std::printf("error"); 
 		
 		return 0; }
@@ -28,9 +28,8 @@ int main(int argc, char *argv[]) {
 		fclose(fp);
 		stdout = old; //reset
 		
-		string strbuff = buffer; 
-		
-		printf("%s",word_wrap(buffer, MAX_WIDTH).c_str());
+	
+		printf("%s\n",word_wrap(buffer, MAX_WIDTH).c_str());
 		char userInput[100] = {'\0'}; 
 		int x=0;
 		int y_flag = 0;
@@ -56,8 +55,8 @@ int main(int argc, char *argv[]) {
 				y_flag = 0;
 				
 				//using https://stackoverflow.com/questions/19485536/redirect-output-of-an-function-printing-to-console-to-string/19499003
-				char buffer[1024]={'\0'};
-				FILE *fp = fmemopen(buffer, 1023, "w");
+				char buffer[2024]={'\0'};
+				FILE *fp = fmemopen(buffer, 2024, "w");
 				if ( !fp ) { std::printf("the error"); return 0; }
 				//printf("STDOUT: %i", stdout);
 				FILE *old = stdout;
@@ -71,7 +70,7 @@ int main(int argc, char *argv[]) {
 				
 				string strbuff = buffer; 
 				
-				printf("%s",word_wrap(strbuff.c_str(), 80).c_str());
+				printf("%s\n",word_wrap(strbuff.c_str(), 80).c_str());
 				//printf(word_wrap(strbuff, 80));
 				
 			}
