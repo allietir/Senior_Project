@@ -782,6 +782,9 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 				//unlock whatever object was passed
 				set_is_locked(obj_index_id, 0);
 			}
+			if (res==-47){
+				event18();
+			}
 
 			
 			if(((room_events_triggered[13]==1)&&(room_events_triggered[15]==1)&&(room_events_triggered[21]==1))|| ((room_events_triggered[20]==1)&&(room_events_triggered[15]==1)&&(room_events_triggered[21]==1)))
@@ -1265,6 +1268,12 @@ void Game::event17(){
 	set_game_events_triggered(16, 1);
 	printf("The chalice fills with the strange purple fire but feels cool in your hand.");
 	o_array[CHALICE]->set_desc("The chalice is filled with a strange purple fire, but the metal is cool in your hand.");
+}
+
+void Game::event18(){
+	set_game_events_triggered(17, 1);
+	printf("You can see a chalice within the room\n");
+	set_is_locked(CHALICE, 0);
 }
 
 

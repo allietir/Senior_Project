@@ -15,7 +15,7 @@ int Feature24::speak(){
 		func_togg_count_x(SPEAK);
 		printf("'Some things are keys, even if they don't look like keys! Please, take this \033[1;35mchalice\033[0m. It has more than once use!\n'");
 		//trigger unlock chalice in GAME
-		return 35;
+		return -47;
 	}
 	else{
 		printf("'I hope you can save your friend.\n'");
