@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
 		
 		Game run_game;
 		//using https://stackoverflow.com/questions/19485536/redirect-output-of-an-function-printing-to-console-to-string/19499003
-		char buffer[1024];
+		char buffer[2024];
 		memset(buffer, '\0', 2024);
 		FILE *fp;
 		fp = fmemopen(buffer, 2024, "w");

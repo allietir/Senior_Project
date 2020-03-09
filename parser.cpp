@@ -257,8 +257,9 @@ int checkActions(Game &game, vector<string> inputVector) {
 	}
 	else {
 		int x = game.run_func(featID, objID, verbID);
-		//if (x == -1){
-		
+		if (x == -1){
+			
+		}
 		actionStatus = 1;
 	}
 
