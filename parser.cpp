@@ -258,12 +258,7 @@ int checkActions(Game &game, vector<string> inputVector) {
 	else {
 		int x = game.run_func(featID, objID, verbID);
 		//if (x == -1){
-		if (game.get_player()->get_player_alive()==0){
-			//fflush(stdout);
-			//save_game(game);
-			//load_game(game);
-			//save_game(game);
-		}
+		
 		actionStatus = 1;
 	}
 

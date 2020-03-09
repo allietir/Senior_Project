@@ -51,7 +51,7 @@ int Feature2::smell(){
 	
 }
 int Feature2::attack(int obj_feat_id){
-	printf("obj_feat_id: %i", obj_feat_id);
+	
 	if (obj_feat_id==get_attack_obj_id())
 	{
 		printf("You have attacked with the %s.", get_obj_name(obj_feat_id).c_str());
@@ -59,6 +59,7 @@ int Feature2::attack(int obj_feat_id){
 	}
 	else if (obj_feat_id==-1){
 		printf("Attacking without a weapon does nothing.");
+		return 4;
 	}
 	else{
 		printf("Attacking with the %s does nothing.", get_obj_name(obj_feat_id).c_str());

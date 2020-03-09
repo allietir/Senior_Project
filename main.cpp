@@ -71,6 +71,13 @@ int main(int argc, char *argv[]) {
 				string strbuff = buffer; 
 				
 				printf("%s\n",word_wrap(strbuff.c_str(), 80).c_str());
+				if (run_game.get_player()->get_player_alive()==0){
+					//fflush(stdout);
+					save_game(run_game);
+					load_game(run_game);
+					save_game(run_game);
+				}
+
 				//printf(word_wrap(strbuff, 80));
 				
 			}

@@ -437,7 +437,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 	if ((obj_index_id==-1)&&(feat_index_id==-1)){
 		return 4;
 	}
-	if (user_has_item(obj_index_id)==0 && room_has_item(obj_index_id)==1 && (verb_id!=TAKE)){
+	if (user_has_item(obj_index_id)==0 && room_has_item(obj_index_id)==1 && (verb_id!=TAKE) && (obj_index_id!=-1)){
 		printf("This room has that object, but you must take it first before using it.\n");
 		return 4;
 	}
@@ -692,7 +692,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			}
 			//player is DEAD
 			if (res==-1){
-				printf("----You have died.---");
+				printf("\n----You have died.---");
 				player1.set_player_alive(0);//set to FALSE
 				
 				//return -1;
