@@ -19,6 +19,7 @@ Game::Game() {
 			set_game_events_triggered(i, 0);
 	}
 	event8counter = 0;
+	player1.set_move_count(0);
 	
 }
 
@@ -118,6 +119,7 @@ void Game::start(){
 	printf("You are currently in the %s\n", r_array[player1.get_current_room()]->get_name().c_str());
 	r_array[player1.get_current_room()]->look();
 	//set room visited to 1; 
+
 	set_times_rooms_visited(0, 1);
 }
 //-------------- V E R B  F U N C T I O N  --------------//
