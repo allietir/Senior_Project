@@ -76,6 +76,10 @@ int Feature1::climb(){
 }
 int Feature1::attack(int obj_id){
 
+	if (obj_id==DAGGER){
+		printf("It is very bad form to stab a \033[1;31mgravestone\033[0m, and the earth is not pleased.");
+		return 2;
+	}
 	if (obj_id!=-1){
 		printf("Attacking with a %s is not effective. Luckily, the \033[1;31mgravestone\033[0m does not attack back.", get_obj_name(obj_id).c_str());
 		func_togg_count_x(ATTACK);
