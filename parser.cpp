@@ -62,13 +62,14 @@ int inputParsing(Game &game, string userInput){
 	int status = 0; 
 	status = checkBasicCommands(game, clean);
 	if (status == 1) return 0; 
+	if (status == -1) return -1;
 	vector<string> wordList = splitCleanInput(clean); 
 	status = checkMoveCommands(game, wordList); 
 	if (status == 1) return 0; 
 	status = checkActions(game, wordList); 
 	if (status == 1) return 0;
 	else cout << "unknown command \n";
-	return 1;
+	return 0;
 }
 
 //sub function that cleans the input string up. 
@@ -134,6 +135,10 @@ int checkBasicCommands(Game &game, string cleanInput){
 		load_game(game);
 		//call load game
 	}
+	else if (cleanInput == "quit" || cleanInput == "quit game"){
+		cout << "Goodbye!";
+		basicStatus = -1;
+	}
 	else {
 		basicStatus = 0;
 	}
@@ -162,8 +167,14 @@ vector<string> splitCleanInput(string cleanInput){
 int checkMoveCommands(Game &game, vector<string> inputVector){
 	int moveStatus = 1;
 	while (inputVector[0] == "go" || inputVector[0] == "to" || inputVector[0] == "the") {
-		inputVector.erase(inputVector.begin());
+		inputVector.erase(inputVector.begin());	
+		if (inputVector.size() == 0){
+			cout << "please be more specific";
+			return 1;
+		}
 	}
+	
+
 
 	map<string, int>::const_iterator it;
 	it = roomIDmap.find(inputVector[0]);
