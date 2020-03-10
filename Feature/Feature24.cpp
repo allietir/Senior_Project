@@ -11,11 +11,11 @@ Feature24::Feature24() {
 	set_index_id(23);
 }
 int Feature24::speak(){
-	if (func_togg_count_x(SPEAK)==0){
+	if (get_times_toggled(SPEAK)==0){
 		func_togg_count_x(SPEAK);
 		printf("'Some things are keys, even if they don't look like keys! Please, take this \033[1;35mchalice\033[0m. It has more than once use!\n'");
 		//trigger unlock chalice in GAME
-		return 35;
+		return -47;
 	}
 	else{
 		printf("'I hope you can save your friend.\n'");

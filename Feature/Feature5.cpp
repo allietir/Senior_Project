@@ -6,11 +6,13 @@
 
 Feature5::Feature5() {
 	
+	current_time = 0;
 	set_name("\033[1;31mClock\033[0m");
 	string desc_a = "There is a clock at the end of the highway, a grandfather \033[1;31mclock\033[0m, large and imposing. What happens when the clock strikes midnight?\n" + get_time_str();
 	set_desc(desc_a);
 	set_desc_no_obj("There is a \033[1;31mclock\033[0m at the end of the highway, a grandfather \033[1;31mclock\033[0m, large and imposing. What happens when the \033[1;31mclock\033[0m strikes midnight?");
 	set_index_id(4);
+	
 	
 }
 
@@ -71,16 +73,17 @@ int Feature5::climb(){
 }
 string Feature5::get_time_str(){
 	
+	
 	string am_pm = "";
 	int PM_Time = 0;
 	if (current_time+9<=12){
 		am_pm = "AM";
-		return "It is currenty " + to_string(current_time+9) + am_pm;
+		return "It is currently " + to_string(current_time+9) + am_pm;
 	}
 	else{
 		PM_Time = current_time+9-12;
 		am_pm = "PM";
-		return "It is currenty " + to_string(PM_Time) + am_pm;
+		return "It is currently " + to_string(PM_Time) + am_pm;
 	}	 
 	return "no time at all";
 }

@@ -7,6 +7,7 @@
 Feature18::Feature18() {
 	set_name("\033[1;31mSink\033[0m");
 	set_desc("There is a \033[1;31msink\033[0m in the bathroom. It is on. There is a liquid pouring from the faucet. It is a deep, deep red and appears to have the viscocity and coppery smell of hot blood.");
+	set_desc_no_obj(get_desc());
 	set_index_id(17);
 }
 int Feature18::use(int obj_int){

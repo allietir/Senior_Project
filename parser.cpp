@@ -137,6 +137,7 @@ int checkBasicCommands(Game &game, string cleanInput){
 	}
 	else if (cleanInput == "quit" || cleanInput == "quit game"){
 		cout << "Goodbye!";
+		game.get_player()->set_player_alive(2);
 		basicStatus = -1;
 	}
 	else {

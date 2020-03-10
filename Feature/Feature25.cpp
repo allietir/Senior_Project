@@ -11,7 +11,18 @@ Feature25::Feature25() {
 	set_index_id(24);
 }
 int Feature25::use(int obj_id){
-	return 45+obj_id;
+	
+	if ((obj_id>=0)&&(obj_id<=7)){
+		func_togg_count_x(USE);
+		return 45+obj_id;
+	}
+	if (obj_id==-1){
+		printf("You need to burn something here. ");
+	}
+	else{
+		printf("Not a valid object");
+	}
+	return 4;
 }
 Feature25::~Feature25() {
 	

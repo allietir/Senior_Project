@@ -19,6 +19,7 @@ Game::Game() {
 			set_game_events_triggered(i, 0);
 	}
 	event8counter = 0;
+	player1.set_move_count(0);
 	
 }
 
@@ -60,11 +61,14 @@ void Game::init_rooms() {
 		r_array[room_id]->set_has_objects(i, 1);
 		//init obj_location
 		set_obj_location(i, room_obj_set[i]);
+		r_array[room_id]->add_object_text_only_short(o_array[i]->get_name());
+		
 		
 	}
 	for (int i = 0; i < 8; i++){
 		int room_id = room_needs_object1[i];
 		r_array[room_id]->set_needs_objects(0, 1);
+		
 	}
 	//TO DO: set "needs event" to open room
 	//init times rooms visited to 0
@@ -118,6 +122,7 @@ void Game::start(){
 	printf("You are currently in the %s\n", r_array[player1.get_current_room()]->get_name().c_str());
 	r_array[player1.get_current_room()]->look();
 	//set room visited to 1; 
+
 	set_times_rooms_visited(0, 1);
 }
 //-------------- V E R B  F U N C T I O N  --------------//
@@ -732,6 +737,13 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 //			if (res==34){
 //				event5();
 //			}
+			if (res==45+obj_index_id){
+				
+				event6(res-45);
+				//return 4;
+				
+				
+			}	
 			if (res==35){
 				event7();
 			}
@@ -760,7 +772,8 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			}
 			if (res==43){
 				event16();
-			}		
+			}	
+			
 			if (res==44){
 				event17();
 			}
@@ -772,10 +785,11 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 				//unlock whatever object was passed
 				set_is_locked(obj_index_id, 0);
 			}
-
-			if (res==45+obj_index_id){
-				event6(res-45);
+			if (res==-47){
+				event18();
 			}
+
+			
 			if(((room_events_triggered[13]==1)&&(room_events_triggered[15]==1)&&(room_events_triggered[21]==1))|| ((room_events_triggered[20]==1)&&(room_events_triggered[15]==1)&&(room_events_triggered[21]==1)))
 			{
 				event5();
@@ -1163,13 +1177,14 @@ void Game::event5(){
 	set_game_events_triggered(4, 1);
 }
 void Game::event6(int obj_id){
-	printf("-------You have destroyed the %s-------", o_array[obj_id]->get_name().c_str());
+	printf("-------You have transported the %s-------\n", o_array[obj_id]->get_name().c_str());
 	set_game_events_triggered(5, 1);
 	int curr_room = player1.get_current_room();
 	player1.set_current_room(LIBRARY);
 	drop(obj_id);
 	player1.set_current_room(curr_room);
 	set_is_locked(obj_id, 1);
+	
 }
 
 void Game::event7(){
@@ -1257,6 +1272,12 @@ void Game::event17(){
 	set_game_events_triggered(16, 1);
 	printf("The chalice fills with the strange purple fire but feels cool in your hand.");
 	o_array[CHALICE]->set_desc("The chalice is filled with a strange purple fire, but the metal is cool in your hand.");
+}
+
+void Game::event18(){
+	set_game_events_triggered(17, 1);
+	printf("You can see a chalice within the room\n");
+	set_is_locked(CHALICE, 0);
 }
 
 

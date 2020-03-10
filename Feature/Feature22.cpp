@@ -7,6 +7,7 @@
 Feature22::Feature22() {
 	set_name("\033[1;31mFireplace\033[0m");
 	set_desc("There is a large \033[1;31mfireplace\033[0m in the library, but it doesn't appear to be lit. There's writing on the \033[1;31mfireplace\033[0m mantel.");
+	set_desc_no_obj(get_desc());
 	set_index_id(21);
 }
 int Feature22::read(){

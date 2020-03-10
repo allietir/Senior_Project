@@ -64,7 +64,7 @@ int main(int argc, char *argv[]) {
 				fflush(stdout);
 				
 				inputParsing(run_game, userInput);
-				
+				fflush(stdout);
 				fclose(fp);
 				stdout = old; //reset
 				
@@ -76,6 +76,10 @@ int main(int argc, char *argv[]) {
 					save_game(run_game);
 					load_game(run_game);
 					save_game(run_game);
+				}
+				else if (run_game.get_player()->get_player_alive()==2){
+					printf("Exiting game\n");
+					return 0;
 				}
 
 				//printf(word_wrap(strbuff, 80));

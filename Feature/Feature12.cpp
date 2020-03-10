@@ -7,6 +7,7 @@
 Feature12::Feature12() {
 	set_name("\033[1;31mDollhouse\033[0m");
 	set_desc("The \033[1;31mdollhouse\033[0m is dark on the inside and looks as cold and haunted as this house is.");
+	set_desc_no_obj(get_desc());
 	set_index_id(11);
 }
 int Feature12::use(int int_feat_obj){

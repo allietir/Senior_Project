@@ -7,6 +7,7 @@
 Feature20::Feature20() {
 	set_name("\033[1;31mPirate\033[0m");
 	set_desc("There is a strange \033[1;31mpirate\033[0m ghost in the attic. He seems strangely out of place, but you assume there is some reason he is here.");
+	set_desc_no_obj(get_desc());
 	set_index_id(19);
 }
 int Feature20::speak(){

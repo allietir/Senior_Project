@@ -70,6 +70,7 @@ public:
 	string long_feature_text();
 
 	void add_object_text(string object_name, string object_desc);
+	void add_object_text_only_short(string name);
 	void remove_object_text();
 	int set_get_num_exits();
 	int get_num_obj();
