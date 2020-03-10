@@ -74,8 +74,15 @@ int main(int argc, char *argv[]) {
 				if (run_game.get_player()->get_player_alive()==0){
 					//fflush(stdout);
 					save_game(run_game);
+				
+					
 					load_game(run_game);
+				
 					save_game(run_game);
+					y_flag = 0;
+					cin.clear();
+					
+					memset(userInput, '\0', 100);
 				}
 				else if (run_game.get_player()->get_player_alive()==2){
 					printf("Exiting game\n");

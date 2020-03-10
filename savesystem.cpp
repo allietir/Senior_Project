@@ -49,7 +49,7 @@ closedir(dir);
 		//write game data to save_file
 		save_file << get_game_data(game);
 		save_file.close();
-		printf("Game saved successfully.\n");
+		printf("\nGame saved successfully.");
 	}
 	else
 	{
@@ -112,7 +112,7 @@ void load_game(Game& game) {
 	system(mkdir_command);
 
 	/****These lines will only work on linux! Comment out or copy and change when testing on Windows.****/
-	printf("Available save files:\n");
+	printf("\nAvailable save files:");
 	const char ls_command[32] = "ls SaveData";
 	system(ls_command);
 
@@ -139,9 +139,9 @@ void load_game(Game& game) {
 			set_game_data(game, save_file);
 			save_file.close();
 
-			printf("Game loaded successfully.\n");
+			printf("\nGame loaded successfully.");
 
-			printf("\nWelcome back, %s.\n\n", game.get_player()->get_name().c_str());
+			printf("\nWelcome back, %s.", game.get_player()->get_name().c_str());
 		}
 		else if (prompt == "no" || prompt == "No")
 		{
@@ -225,7 +225,7 @@ void set_game_data(Game& game, ifstream& save_file) {
 //Converts a string to integers and fills them into the passed array.
 void convert_string_to_array(int* arr, string str, int num_items) {
 
-	printf("num_items: %i\n", num_items);
+	//printf("num_items: %i\n", num_items);
 	int j = 0;
 	char new_num[100]={'\0'};
 	str = str + 'x';
@@ -236,7 +236,7 @@ void convert_string_to_array(int* arr, string str, int num_items) {
 	int num_index = 0;
 	
 	//string buffer = "";
-	printf("A: %s\n", str.c_str());
+	//printf("A: %s\n", str.c_str());
 	for (unsigned int i = 0; i <str.length(); i++)
 	{
 		//printf("==========converting %c======\n", str[i]);
@@ -280,16 +280,16 @@ void convert_string_to_array(int* arr, string str, int num_items) {
 		
 		
 	}
-	printf("B: ");
-	for (int i = 0; i < num_items; i++){
-		if (i!=num_items-1){
-			printf("%i, ", arr[i]);
-		}
-		else{
-			printf("%i\n", arr[i]);
-
-		}
-	}
+	//printf("B: ");
+//	for (int i = 0; i < num_items; i++){
+//		if (i!=num_items-1){
+//			printf("%i, ", arr[i]);
+//		}
+//		else{
+//			printf("%i\n", arr[i]);
+//
+//		}
+//	}
 
 
 }
