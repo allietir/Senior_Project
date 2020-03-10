@@ -21,7 +21,7 @@ string word_wrap(string wrapString, int maxLength) {
 		size_t hasColor = wrapString.find(color, line_start);
 		if ((hasColor != string::npos) && (hasColor <= ideal_end))
 		{
-			ideal_end = ideal_end + 9;
+			ideal_end = ideal_end + 16;
 		}
 		
 		unsigned line_end = ideal_end <= wrapString.size() ? ideal_end : wrapString.size()-1;
