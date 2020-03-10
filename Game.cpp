@@ -505,8 +505,8 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 				
 				
 				
-				else if (verb.compare(STR_RVERB2)==0){ printf("You can't take that\n"); }
-				else if (verb.compare(STR_RVERB3)==0){ printf("You can't drop that\n"); }
+				if (verb.compare(STR_RVERB2)==0){ printf("You can't take that"); }
+				if (verb.compare(STR_RVERB3)==0){ printf("You can't drop that"); }
 			}
 		}
 		else if ((feat_index_id==-1)&&(obj_index_id!=-1)){
