@@ -61,11 +61,14 @@ void Game::init_rooms() {
 		r_array[room_id]->set_has_objects(i, 1);
 		//init obj_location
 		set_obj_location(i, room_obj_set[i]);
+		r_array[room_id]->add_object_text_only_short(o_array[i]->get_name());
+		
 		
 	}
 	for (int i = 0; i < 8; i++){
 		int room_id = room_needs_object1[i];
 		r_array[room_id]->set_needs_objects(0, 1);
+		
 	}
 	//TO DO: set "needs event" to open room
 	//init times rooms visited to 0
@@ -1181,6 +1184,7 @@ void Game::event6(int obj_id){
 	drop(obj_id);
 	player1.set_current_room(curr_room);
 	set_is_locked(obj_id, 1);
+	
 }
 
 void Game::event7(){
