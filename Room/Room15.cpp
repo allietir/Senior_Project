@@ -16,7 +16,7 @@ Room15::Room15() {
 
 
 	
-	string exit_desc1 = "The exit back to the \033[0;36mbasement\033[0m in the \033[0;32msouth\033[0m";
+	string exit_desc1 = "The exit back to the \033[0;36mbasement\033[0m to the \033[0;32msouth\033[0m. ";
 
 
 	set_exit_desc(exit_desc1, 1);
@@ -31,7 +31,7 @@ Room15::Room15() {
 	
 }
 int Room15::event_one(){
-	printf("You trap the \033[1;31mdemon\033[0m in the \033[1;35mlocket\033[0m");
+	printf("You trap the \033[1;31mdemon\033[0m in the \033[1;35mlocket\033[0m. ");
 	//trigger game event 4
 	set_event_triggered(0, 1);
 	return 33;

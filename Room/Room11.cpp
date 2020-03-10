@@ -16,9 +16,9 @@ Room11::Room11() {
 	set_exit_name("Door to \033[0;36mparlor\033[0m", 2);//west
 	set_exit_name("Door to \033[0;36mconservatory\033[0m", 3);//east
 	
-	string exit_desc0 = "A ladder up to the \033[0;36mattic\033[0m is in the \033[0;32mnorth\033[0m";
-	string exit_desc2 = "A door to the \033[0;36mparlor\033[0m is in the \033[0;32mwest\033[0m";
-	string exit_desc3 = "A door to the \033[0;36mconsevatory\033[0m is in the \033[0;32mweast\033[0m";
+	string exit_desc0 = "A ladder up to the \033[0;36mattic\033[0m is to the \033[0;32mnorth\033[0m. ";
+	string exit_desc2 = "A door to the \033[0;36mparlor\033[0m is in the \033[0;32mwest\033[0m. ";
+	string exit_desc3 = "A door to the \033[0;36mconsevatory\033[0m is in the \033[0;32meast\033[0m. ";
 	set_exit_desc(exit_desc0, 0);
 	set_exit_desc(exit_desc2, 2);
 	set_exit_desc(exit_desc3, 3);
@@ -32,7 +32,7 @@ Room11::Room11() {
 }
 int Room11::event_one()
 {
-	printf("The \033[1;35mkey\033[0m swirls briefly in your hand as if by magic, and points up before stilling in your hand.");
+	printf("The \033[1;35mkey\033[0m swirls briefly in your hand as if by magic, and points up before stilling in your hand. ");
 	set_event_triggered(0, 1);
 	return 4;
 }
