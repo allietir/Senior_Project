@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 		while (x==0) {
 			
 			if (y_flag == 0){
-				printf("What would you like to do?\n");
+				printf("\nWhat would you like to do?\n");
 			}		
 			cin.getline(userInput, 100);
 			fflush(stdout);
