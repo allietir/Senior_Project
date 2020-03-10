@@ -12,9 +12,18 @@ using namespace std;
 string word_wrap(string wrapString, int maxLength) {
 	unsigned int line_start = 0;
 
+	string color = "\033[";
+
 	while (line_start < wrapString.size())
 	{
 		unsigned int ideal_end = line_start + maxLength;
+
+		size_t hasColor = wrapString.find(color, line_start);
+		if ((hasColor != string::npos) && (hasColor <= ideal_end))
+		{
+			ideal_end = ideal_end + 10;
+		}
+		
 		unsigned line_end = ideal_end <= wrapString.size() ? ideal_end : wrapString.size()-1;
 
 		//if we are at the end
