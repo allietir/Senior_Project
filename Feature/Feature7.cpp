@@ -39,9 +39,15 @@ int Feature7::give(int room_id, int obj_feat_id){
 	return 4;
 }	
 int Feature7::attack(int obj_id){
-	printf("You attack the %s with the %s. The creature raises his hand and with a single motion, stills your hand. ' You shouldn't have done that ' the creatue says, sadly. You watch in horror as the %s turns towards yourself. This is the end.\n", get_name().c_str(), get_obj_name(obj_id).c_str(), get_obj_name(obj_id).c_str());
-	func_togg_count_x(ATTACK);
-	return -1;
+	if (obj_id!=-1){
+		printf("You attack the %s with the %s. The creature raises his hand and with a single motion, stills your hand. ' You shouldn't have done that ' the creatue says, sadly. You watch in horror as the %s turns towards yourself. This is the end.\n", get_name().c_str(), get_obj_name(obj_id).c_str(),
+		get_obj_name(obj_id).c_str());
+			func_togg_count_x(ATTACK);
+			return -1;
+	}
+	printf("You can't attack with nothing.\n");
+	return 4;
+	
 } 
 Feature7::~Feature7() {
 	

@@ -50,10 +50,12 @@ closedir(dir);
 		save_file << get_game_data(game);
 		save_file.close();
 		printf("Game saved successfully.\n");
+		fflush(stdout);
 	}
 	else
 	{
 		printf("Unable to save game.\n");
+		fflush(stdout);
 	}
 
 }
@@ -113,10 +115,12 @@ void load_game(Game& game) {
 
 	/****These lines will only work on linux! Comment out or copy and change when testing on Windows.****/
 	printf("Available save files:\n");
+	fflush(stdout);
 	const char ls_command[32] = "ls SaveData";
 	system(ls_command);
-
+	fflush(stdout);
 	printf("Please type the name of the saved file you wish to load.\n");
+	fflush(stdout);
 	getline(cin, file_name);
 
 	/****The path name will have to be modified depending on testing environment.****/
@@ -131,35 +135,48 @@ void load_game(Game& game) {
 	if (save_file.is_open())
 	{
 		printf("Saved file is ready to load.\nYou will lose all unsaved progress by loading this file.\n");
-		printf("Do you want to continue? (yes/no) ");
-		getline(cin, prompt);
+		fflush(stdout);
+		printf("\nDo you want to continue? (yes/no) ");
+		fflush(stdout);
+		char prompt_c[100] = {'\0'}; 
+		cin.getline(prompt_c, 100);
+		string prompt = prompt_c;
+		fflush(stdout);
+		
+		fflush(stdin);
 		if (prompt == "yes" || prompt == "Yes")
 		{
 			//Load the game data
 			set_game_data(game, save_file);
 			save_file.close();
 
-			printf("Game loaded successfully.\n");
+			printf("\nGame loaded successfully.\n");
+			fflush(stdout);
 
-			printf("\nWelcome back, %s.\n\n", game.get_player()->get_name().c_str());
+			printf("\nWelcome back, %s.\n", game.get_player()->get_name().c_str());
+			game.get_player()->set_player_alive(1);
+			fflush(stdout);
 		}
 		else if (prompt == "no" || prompt == "No")
 		{
 			//should return to "What would you like to do?" prompt
-			printf("Returning to game...\n");
+			printf("\nReturning to game...\n");
+			fflush(stdout);
 			return;
 		}
 		else
 		{
 			//should return to "What would you like to do?" prompt
-			printf("Input not recognized. Returning to game...\n");
+			printf("\nInput not recognized. Returning to game...\n");
+			fflush(stdout);
 			return;
 		}
 	}
 	else
 	{
 		//should return to "What would you like to do?" prompt
-		printf("Saved file not recognized. Returning to game...\n");
+		printf("\nSaved file not recognized. Returning to game...\n");
+		fflush(stdout);
 	}
 
 }
@@ -225,7 +242,7 @@ void set_game_data(Game& game, ifstream& save_file) {
 //Converts a string to integers and fills them into the passed array.
 void convert_string_to_array(int* arr, string str, int num_items) {
 
-	printf("num_items: %i\n", num_items);
+	//printf("num_items: %i\n", num_items);
 	int j = 0;
 	char new_num[100]={'\0'};
 	str = str + 'x';
@@ -236,7 +253,7 @@ void convert_string_to_array(int* arr, string str, int num_items) {
 	int num_index = 0;
 	
 	//string buffer = "";
-	printf("A: %s\n", str.c_str());
+	//printf("A: %s\n", str.c_str());
 	for (unsigned int i = 0; i <str.length(); i++)
 	{
 		//printf("==========converting %c======\n", str[i]);
@@ -280,16 +297,16 @@ void convert_string_to_array(int* arr, string str, int num_items) {
 		
 		
 	}
-	printf("B: ");
-	for (int i = 0; i < num_items; i++){
-		if (i!=num_items-1){
-			printf("%i, ", arr[i]);
-		}
-		else{
-			printf("%i\n", arr[i]);
-
-		}
-	}
+	//printf("B: ");
+//	for (int i = 0; i < num_items; i++){
+//		if (i!=num_items-1){
+//			printf("%i, ", arr[i]);
+//		}
+//		else{
+//			printf("%i\n", arr[i]);
+//
+//		}
+//	}
 
 
 }
