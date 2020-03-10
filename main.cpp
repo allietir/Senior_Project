@@ -74,11 +74,13 @@ int main(int argc, char *argv[]) {
 				if (run_game.get_player()->get_player_alive()==0){
 					//fflush(stdout);
 					save_game(run_game);
-				
+					fflush(stdout);
 					
 					load_game(run_game);
+					fflush(stdout);
 				
 					save_game(run_game);
+					fflush(stdout);
 					y_flag = 0;
 					cin.clear();
 					

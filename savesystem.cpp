@@ -49,11 +49,13 @@ closedir(dir);
 		//write game data to save_file
 		save_file << get_game_data(game);
 		save_file.close();
-		printf("\nGame saved successfully.");
+		printf("Game saved successfully.\n");
+		fflush(stdout);
 	}
 	else
 	{
 		printf("Unable to save game.\n");
+		fflush(stdout);
 	}
 
 }
@@ -112,11 +114,13 @@ void load_game(Game& game) {
 	system(mkdir_command);
 
 	/****These lines will only work on linux! Comment out or copy and change when testing on Windows.****/
-	printf("\nAvailable save files:");
+	printf("Available save files:\n");
+	fflush(stdout);
 	const char ls_command[32] = "ls SaveData";
 	system(ls_command);
-
+	fflush(stdout);
 	printf("Please type the name of the saved file you wish to load.\n");
+	fflush(stdout);
 	getline(cin, file_name);
 
 	/****The path name will have to be modified depending on testing environment.****/
@@ -131,7 +135,9 @@ void load_game(Game& game) {
 	if (save_file.is_open())
 	{
 		printf("Saved file is ready to load.\nYou will lose all unsaved progress by loading this file.\n");
-		printf("Do you want to continue? (yes/no) ");
+		fflush(stdout);
+		printf("\nDo you want to continue? (yes/no) ");
+		fflush(stdout);
 		getline(cin, prompt);
 		if (prompt == "yes" || prompt == "Yes")
 		{
@@ -139,27 +145,32 @@ void load_game(Game& game) {
 			set_game_data(game, save_file);
 			save_file.close();
 
-			printf("\nGame loaded successfully.");
+			printf("\nGame loaded successfully.\n");
+			fflush(stdout);
 
-			printf("\nWelcome back, %s.", game.get_player()->get_name().c_str());
+			printf("\nWelcome back, %s.\n", game.get_player()->get_name().c_str());
+			fflush(stdout);
 		}
 		else if (prompt == "no" || prompt == "No")
 		{
 			//should return to "What would you like to do?" prompt
-			printf("Returning to game...\n");
+			printf("\nReturning to game...\n");
+			fflush(stdout);
 			return;
 		}
 		else
 		{
 			//should return to "What would you like to do?" prompt
-			printf("Input not recognized. Returning to game...\n");
+			printf("\nInput not recognized. Returning to game...\n");
+			fflush(stdout);
 			return;
 		}
 	}
 	else
 	{
 		//should return to "What would you like to do?" prompt
-		printf("Saved file not recognized. Returning to game...\n");
+		printf("\nSaved file not recognized. Returning to game...\n");
+		fflush(stdout);
 	}
 
 }
