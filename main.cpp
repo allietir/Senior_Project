@@ -46,6 +46,7 @@ int main(int argc, char *argv[]) {
 			//printf("got %s", userInput);
 			if (userInput[0]=='\0'){
 				//cout << "Nothing was entered\n";
+				//printf("nothing was entered");
 				y_flag = 1;
 				cin.clear();
 				cin.ignore(1000000000000, '\n');
@@ -78,13 +79,15 @@ int main(int argc, char *argv[]) {
 					
 					load_game(run_game);
 					fflush(stdout);
+				//	fflush(stdin);
 				
 					save_game(run_game);
 					fflush(stdout);
 					y_flag = 0;
-					cin.clear();
-					
+				//	cin.clear();
+				//	cin.ignore(1000000000000, '\n');
 					memset(userInput, '\0', 100);
+					
 				}
 				else if (run_game.get_player()->get_player_alive()==2){
 					printf("Exiting game\n");

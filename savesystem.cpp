@@ -138,7 +138,12 @@ void load_game(Game& game) {
 		fflush(stdout);
 		printf("\nDo you want to continue? (yes/no) ");
 		fflush(stdout);
-		getline(cin, prompt);
+		char prompt_c[100] = {'\0'}; 
+		cin.getline(prompt_c, 100);
+		string prompt = prompt_c;
+		fflush(stdout);
+		
+		fflush(stdin);
 		if (prompt == "yes" || prompt == "Yes")
 		{
 			//Load the game data
@@ -149,6 +154,7 @@ void load_game(Game& game) {
 			fflush(stdout);
 
 			printf("\nWelcome back, %s.\n", game.get_player()->get_name().c_str());
+			game.get_player()->set_player_alive(1);
 			fflush(stdout);
 		}
 		else if (prompt == "no" || prompt == "No")
