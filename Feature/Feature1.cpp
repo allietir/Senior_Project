@@ -37,7 +37,7 @@ int Feature1::use(int x){
 } 
 int Feature1::eat(){
 
-	string eat_response = "You can't eat the \033[1;31mgravestone\033[0m right now, unless you gain the power to digest stones  ";
+	string eat_response = "You can't eat the \033[1;31mgravestone\033[0m right now, unless you gain the power to digest stones. ";
 
 	func_togg_count_x(EAT);
 	
@@ -58,7 +58,7 @@ int Feature1::open(int x, int y){
 	return 4;
 }
 int Feature1::speak(){
-	string speak_response = "The \033[1;31mgravestone's\033[0m body doesn't seem to have any sort of ghost attached you can speak to. Hey, that's a good thing.  ";
+	string speak_response = "The \033[1;31mgravestone's\033[0m body doesn't seem to have any sort of ghost attached you can speak to. Hey, that's probably a good thing.  ";
 	func_togg_count_x(SPEAK);
 	printf("%s ", speak_response.c_str());
 	return 4;
@@ -69,7 +69,7 @@ int Feature1::give(int x, int y){
 	return 4;
 }
 int Feature1::climb(){
-	string climb_response = "It's pretty bad form to climb a \033[1;31mgravestone\033[0m. ";
+	string climb_response = "It's pretty bad form to climb on a \033[1;31mgravestone\033[0m. ";
 	func_togg_count_x(CLIMB);
 	printf("%s ", climb_response.c_str());
 	return 4;
@@ -77,11 +77,11 @@ int Feature1::climb(){
 int Feature1::attack(int obj_id){
 
 	if (obj_id==DAGGER){
-		printf("It is very bad form to stab a \033[1;31mgravestone\033[0m, and the earth is not pleased.");
+		printf("It is very bad form to stab a \033[1;31mgravestone\033[0m, and the earth is not pleased. ");
 		return 2;
 	}
 	if (obj_id!=-1){
-		printf("Attacking with a %s is not effective. Luckily, the \033[1;31mgravestone\033[0m does not attack back.", get_obj_name(obj_id).c_str());
+		printf("Attacking with a %s is not effective. Luckily, the \033[1;31mgravestone\033[0m does not attack back. ", get_obj_name(obj_id).c_str());
 		func_togg_count_x(ATTACK);
 		return 4;
 
