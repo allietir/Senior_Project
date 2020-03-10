@@ -29,11 +29,11 @@ Room7::Room7() {
 int Room7::event_one(){
 	printf("The notes on the paper light up on the page briefly before settingling back down on to the page.");
 	set_event_triggered(0, 1);
-	printf(" =======new event triggered val: %i======", get_event_triggered(0));
+	//printf(" =======new event triggered val: %i======", get_event_triggered(0));
 	return 4;
 }
 int Room7::event_two(){
-	printf("------ REACHED THIS EVENT---------- value of %i\n",  get_event_triggered(0));
+//	printf("------ REACHED THIS EVENT---------- value of %i\n",  get_event_triggered(0));
 	//this vent can only be triggered after you take the music
 	if (get_event_triggered(0)==1){
 		set_event_triggered(1, 1);
