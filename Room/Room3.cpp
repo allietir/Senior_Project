@@ -21,10 +21,10 @@ Room3::Room3() {
 	set_exit_id(1, 1);//
 	set_exit_id(6, 2);//
 	set_exit_id(7, 3);//
-	string exit_desc_0 = "At the end of the hallway to the \033[0;32mnorth\033[0m, you see a mirrored door.";
-	string exit_desc_1 = "Behind you to the \033[0;32msouth\033[0m is the staircase back to the \033[0;36mentranceway\033[0m ";
-	string exit_desc_2 = "At the \033[0;32mwest\033[0m side of the hallway, you see a door";
-	string exit_desc_3 = "At the \033[0;32meast\033[0m side of the hallway, you see a second door";
+	string exit_desc_0 = "At the end of the hallway to the \033[0;32mnorth\033[0m, you see a mirrored door. ";
+	string exit_desc_1 = "Behind you to the \033[0;32msouth\033[0m is the staircase back to the \033[0;36mentranceway\033[0m. ";
+	string exit_desc_2 = "At the \033[0;32mwest\033[0m side of the hallway, you see a door. ";
+	string exit_desc_3 = "At the \033[0;32meast\033[0m side of the hallway, you see a second door. ";
 	set_exit_desc(exit_desc_0, 0);
 	set_exit_desc(exit_desc_1, 1);
 	set_exit_desc(exit_desc_2, 2);
@@ -38,8 +38,8 @@ int Room3::event_one(){
 	printf("The \033[1;31mclock\033[0m strikes midnight:\n ");
 	printf("You find yourself upstairs. \n");
 	get_feature_x(0)->func_togg_count_x(OPEN);
-	printf("You open the grandfather \033[1;31mclock\033[0m door and you see a staircase down. Looks like you'll need to climb quite a bit to get down there... but where does it go?");
-	string desc = "The grandfather \033[1;31mclock\033[0m is open and a staircase down is revealed." + get_feature_x(0)->get_time_str();
+	printf("You open the grandfather \033[1;31mclock\033[0m door and you see a staircase down. Looks like you'll need to climb quite a bit to get down there... but where does it go? ");
+	string desc = "The grandfather \033[1;31mclock\033[0m is open and a staircase down is revealed. " + get_feature_x(0)->get_time_str();
 	get_feature_x(0)->set_desc(desc);
 	set_event_triggered(0, 1);
 	return 4;
