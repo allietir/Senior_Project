@@ -180,7 +180,7 @@ string Room::long_exit_text(){
 	return exit_text;
 }
 string Room::short_exit_text(){
-	string exit_text = "You see: ";
+	string exit_text = "You see ";
 	int exit_exist = 0;
 	for (int i = 0; i < MAX_EXITS; i++){
 		string exit_x = get_exit_name(i);
@@ -206,7 +206,7 @@ string Room::long_feature_text(){
 	for (int i = 0; i < MAX_FIXED; i ++){
 		if ((fixed_list[i]->get_name()!="no feature name")&&(i<MAX_FIXED-1)){
 
-			feature_text = feature_text + fixed_list[i]->get_desc() + " You see: ";
+			feature_text = feature_text + fixed_list[i]->get_desc() + " You see ";
 
 		}
 		if ((fixed_list[i]->get_name()!="no feature name")&&(i==MAX_FIXED-1)){
@@ -220,10 +220,10 @@ string Room::long_feature_text(){
 string Room::short_feature_text(){
 	
 
-	string feature_text = "You see: a";
+	string feature_text = "You see a ";
 	for (int i = 0; i < MAX_FIXED; i ++){
 		if ((fixed_list[i]->get_name()!="no feature name")&&(i<MAX_FIXED-1)){
-			feature_text = feature_text + fixed_list[i]->get_name() + ". You see: a";
+			feature_text = feature_text + fixed_list[i]->get_name() + ". You see a ";
 
 		}
 		if ((fixed_list[i]->get_name()!="no feature name")&&(i==MAX_FIXED-1)){
