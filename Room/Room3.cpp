@@ -35,8 +35,8 @@ Room3::Room3() {
 
 }
 int Room3::event_one(){
-	printf("The \033[1;31mclock\033[0m strikes midnight:\n ");
-	printf("You find yourself upstairs. \n");
+	printf("The \033[1;31mclock\033[0m strikes midnight: ");
+	printf("You found yourself falling through the darkness and suddenly you are transported to the front of the clock. ");
 	get_feature_x(0)->func_togg_count_x(OPEN);
 	printf("You open the grandfather \033[1;31mclock\033[0m door and you see a staircase down. Looks like you'll need to climb quite a bit to get down there... but where does it go? ");
 	string desc = "The grandfather \033[1;31mclock\033[0m is open and a staircase down is revealed. " + get_feature_x(0)->get_time_str();
