@@ -255,6 +255,9 @@ void Game::exit_room(int dir){
 	{
 		if (exit_valid(get_next_room)==0){
 		
+
+			//printf("Exiting %s", r_array[current_room]->get_name().c_str());
+
 			//printf("Success, there is an exit from the %s to the %s.", r_array[current_room]->get_name().c_str(), r_array[dir]->get_exit_dir(dir).c_str());
 			player1.set_current_room(get_next_room);
 			//update player move count
@@ -1005,7 +1008,9 @@ int Game::exit_valid(int next_room)
 				if (i==LAMP){
 					//make sure player turned lamp on
 					if (o_array[LAMP]->get_times_toggled(USE)>=1){
+
 						//printf("Success, you have the %s require to enter this room. ", o_array[i]->get_name().c_str());
+
 					}
 					else{
 						printf("Perhaps turn on the \033[1;35mlamp\033[0m before venturing into the darkness. ");
