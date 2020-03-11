@@ -118,7 +118,7 @@ void Game::gen_feat_list(){
 	//first room visited and looked at 
 void Game::start(){
 
-	printf("Welcome %s\n", player1.get_name().c_str());
+	printf("Welcome %s", player1.get_name().c_str());
 	//printf("You are currently in the %s\n", r_array[player1.get_current_room()]->get_name().c_str());
 	r_array[player1.get_current_room()]->look();
 	//set room visited to 1; 

@@ -259,8 +259,8 @@ string Room::make_lower_case(string mystring){
 	return mystring;
 }
 void Room::init_long_short_desc(){
-	string short_desc = "\nYou are currently in the " + get_name() + ".\n" + short_exit_text() + short_feature_text();
-	string long_desc = "\nYou are currently in the " + get_name() + ".\n" + get_extra_description() + long_exit_text() + long_feature_text();
+	string short_desc = "\nYou are currently in the " + get_name() + ". " + short_exit_text() + short_feature_text();
+	string long_desc = "\nYou are currently in the " + get_name() + ". " + get_extra_description() + long_exit_text() + short_feature_text();
 	set_short_description(short_desc);
 	set_long_description(long_desc);
 	

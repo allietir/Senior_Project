@@ -16,6 +16,7 @@ string word_wrap(string wrapString, int maxLength) {
 
 	while (line_start < wrapString.size())
 	{
+	//	printf("parsing %c\n", wrapString[line_start]);
 		unsigned int ideal_end = line_start + maxLength;
 
 		size_t hasColor = wrapString.find(color, line_start);
@@ -29,12 +30,15 @@ string word_wrap(string wrapString, int maxLength) {
 		//if we are at the end
 		if (line_end == wrapString.size() - 1)
 		{
+			
 			line_end++;
 		}
 		//a space is found->insert newline
 		else if (isspace(wrapString[line_end]))
 		{
+		
 			wrapString[line_end] = '\n';
+	//		wrapString[line_end] = '!';
 			line_end++;
 		}
 		//avoid inserting newline in middle of word
@@ -46,6 +50,7 @@ string word_wrap(string wrapString, int maxLength) {
 			//backtrace to a space character
 			while (end > line_start && !isspace(wrapString[end]))
 			{
+				//printf("----backtracing----");
 				end--;
 			}
 
@@ -54,11 +59,13 @@ string word_wrap(string wrapString, int maxLength) {
 			{
 				line_end = end;
 				wrapString[line_end++] = '\n';
+				//wrapString[line_end++] = '<';
 			}
 			//
 			else
 			{
 				wrapString.insert(line_end++, 1, '\n');
+				//wrapString.insert(line_end++, 1, '>');
 			}
 		}
 
