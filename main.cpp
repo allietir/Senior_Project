@@ -11,6 +11,8 @@ void convert_string_to_array(int* arr, string str);
 int main(int argc, char *argv[]) {
 		
 		Game run_game;
+		int saveflag=0;
+		int loadflag=0;
 		//using https://stackoverflow.com/questions/19485536/redirect-output-of-an-function-printing-to-console-to-string/19499003
 		char buffer[2024];
 		memset(buffer, '\0', 2024);
@@ -64,7 +66,13 @@ int main(int argc, char *argv[]) {
 				stdout = fp;
 				fflush(stdout);
 				
-				inputParsing(run_game, userInput);
+				int res = inputParsing(run_game, userInput);
+				if (run_game.get_player()->get_loading()==1){
+					loadflag = 1;
+				}
+				if (run_game.get_player()->get_saving()==1){
+					saveflag = 1;
+				}
 				fflush(stdout);
 				fclose(fp);
 				stdout = old; //reset
@@ -93,6 +101,23 @@ int main(int argc, char *argv[]) {
 					printf("Exiting game\n");
 					return 0;
 				}
+				if (loadflag==1){
+					run_game.get_player()->set_loading(0);
+					loadflag=0;
+					load_game(run_game);
+					fflush(stdout);
+					y_flag = 0;
+					memset(userInput, '\0', 100);
+				}
+				if (saveflag==1){
+					run_game.get_player()->set_saving(0);
+					saveflag=0;
+					save_game(run_game);
+					fflush(stdout);
+					y_flag = 0;
+					memset(userInput, '\0', 100);
+				}
+				
 
 				//printf(word_wrap(strbuff, 80));
 				

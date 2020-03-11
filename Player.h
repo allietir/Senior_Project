@@ -30,6 +30,13 @@ public:
 
 	int get_can_take();
 	void set_can_take(int s_can_take);
+	
+	int get_saving();
+	void set_saving(int x);
+	
+	int get_loading();
+	void set_loading(int x);
+	
 		
 	
 private:
@@ -40,6 +47,8 @@ private:
 	int move_count;
 	int player_alive;
 	int can_take;
+	int player_loading;
+	int player_saving;
 
 
 	
