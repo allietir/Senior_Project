@@ -33,9 +33,9 @@ int main(int argc, char *argv[]) {
 	
 		printf("%s\n",word_wrap(buffer, MAX_WIDTH).c_str());
 		//test doll
-		run_game.get_player()->set_current_room(NURSERY);
-		run_game.get_player()->set_has_objects(LAMP, 1);
-		run_game.get_player()->set_move_count(11);
+		//run_game.get_player()->set_current_room(NURSERY);
+		//run_game.get_player()->set_has_objects(LAMP, 1);
+		//run_game.get_player()->set_move_count(11);
 		
 		char userInput[100] = {'\0'}; 
 		int x=0;

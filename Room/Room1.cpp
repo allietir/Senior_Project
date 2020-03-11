@@ -5,8 +5,8 @@
 #include "Room1.h"
 
 Room1::Room1() {
-	set_name("\033[0;36mFront Garden\033[0m ");
-	set_extra_description("There is a general feeling of drearyness and unease in the air. ");
+	set_name("\033[0;36mFront Garden\033[0m");
+	set_extra_description("The air feels dreary and uneasy. ");
 	set_room_id(0);
 
 	set_feature_x(new Feature1, 0);
