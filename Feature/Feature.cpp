@@ -121,7 +121,7 @@ int Feature::smell(){
 int Feature::use(int obj_feat_id){
 	
 	if (obj_feat_id != -1){
-		string response = get_name() + " cannot be used with" + get_obj_name(obj_feat_id);
+		string response = get_name() + " cannot be used with " + get_obj_name(obj_feat_id);
 	printf("%s", response.c_str());
 	}
 	if (obj_feat_id == -1){
