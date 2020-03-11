@@ -227,7 +227,7 @@ string Room::short_feature_text(){
 
 		}
 		if ((fixed_list[i]->get_name()!="no feature name")&&(i==MAX_FIXED-1)){
-			feature_text = feature_text + fixed_list[i]->get_name();
+			feature_text = feature_text + fixed_list[i]->get_name() + ". ";
 		}
 
 	}
