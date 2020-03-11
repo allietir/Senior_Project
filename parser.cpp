@@ -130,11 +130,13 @@ int checkBasicCommands(Game &game, string cleanInput){
 		game.inventory();
 	}
 	else if (cleanInput == "savegame"){
-		save_game(game);
+		//save_game(game);
+		game.get_player()->set_saving(1);
 		//call savegame
 	}
 	else if (cleanInput == "loadgame"){
-		load_game(game);
+		game.get_player()->set_loading(1);
+		
 		//call load game
 	}
 	else if (cleanInput == "quit" || cleanInput == "quit game"){

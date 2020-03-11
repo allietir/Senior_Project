@@ -53,6 +53,20 @@ int Player::get_can_take(){
 void Player::set_can_take(int s_can_take){
 	can_take = s_can_take;
 }
+
+int Player::get_saving(){
+	return player_saving;
+}
+void Player::set_saving(int x){
+	player_saving = x;
+}
+int Player::get_loading(){
+	return player_loading;
+}
+void Player::set_loading(int x){
+	player_loading = x;
+}
+	
 Player::~Player() {
 	
 }
