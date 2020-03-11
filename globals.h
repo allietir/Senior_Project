@@ -159,7 +159,7 @@
 #define RVERB4 go <exit_name>
 #define RVERB5 <exit_name>
 #define RVERB6 go <exit_direction>
-#define RVERB7 <exir_direction>
+#define RVERB7 <exit_direction>
 #define RVERB8 help
 #define RVERB9 inventory
 #define RVERB10 savegame
@@ -172,7 +172,7 @@
 #define STR_RVERB4 "go <exit_name>"
 #define STR_RVERB5 "<exit_name>"
 #define STR_RVERB6 "go <exit_direction>"
-#define STR_RVERB7 "<exir_direction>"
+#define STR_RVERB7 "<exit_direction>"
 #define STR_RVERB8 "help"
 #define STR_RVERB9 "inventory"
 #define STR_RVERB10 "savegame"

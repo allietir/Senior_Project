@@ -297,11 +297,19 @@ void Game::look(){
 	printf("%s", r_array[player1.get_current_room()]->get_long_description().c_str());
 }
 void Game::help(){
+	printf("Available commands:\n");
 	for (int i = 0; i < NUM_VERB_FUNCS; i++){
 		printf("%s, ", verb_list[i].c_str());
 	}
 	for (int i = 0; i < NUM_REQ_VERBS; i++){
-		printf("%s, ", req_verb_list[i].c_str());
+		if (i == NUM_REQ_VERBS - 1) 
+		{
+			printf("%s ", req_verb_list[i].c_str());
+		}
+		else 
+		{
+			printf("%s, ", req_verb_list[i].c_str());
+		}
 	}
 }
 //-------------- V E R B  F U N C T I O N  H E L P E R S --------------//
