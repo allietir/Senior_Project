@@ -6,7 +6,9 @@
 
 Object1::Object1() {
 	set_name("\033[1;35mLamp\033[0m");
+
 	set_desc("A dusty old oil \033[1;35mlamp\033[0m, glass chipped and handle rusted. It looks like there is an enscription on the metal. ");
+
 	set_index_id(0);
 }
 int Object1::read(){
