@@ -206,11 +206,11 @@ string Room::long_feature_text(){
 	for (int i = 0; i < MAX_FIXED; i ++){
 		if ((fixed_list[i]->get_name()!="no feature name")&&(i<MAX_FIXED-1)){
 
-			feature_text = feature_text + make_lower_case(fixed_list[i]->get_desc()) + " You see ";
+			feature_text = feature_text + fixed_list[i]->get_desc() + " You see ";
 
 		}
 		if ((fixed_list[i]->get_name()!="no feature name")&&(i==MAX_FIXED-1)){
-			feature_text = feature_text + make_lower_case(fixed_list[i]->get_desc());
+			feature_text = feature_text + fixed_list[i]->get_desc();
 		}
 
 	}
@@ -257,7 +257,13 @@ void Room::remove_object_text(){
 string Room::make_lower_case(string mystring){
 	char new_str[mystring.length()];
 	for (int i = 0; i < mystring.length(); i++){
-		new_str[i]=tolower(mystring[i]);
+		if (i==0){
+			new_str[i]=tolower(mystring[i]);
+		}
+		else{
+			new_str[i]=mystring[i];
+		}
+		
 	}
 	return new_str;
 }
