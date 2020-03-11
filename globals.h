@@ -6,7 +6,7 @@
 #define MAX_EXITS 4
 #define MAX_DESCS 5
 #define NUM_VERB_FUNCS 10
-#define FRIEND_NAME "ALEX"
+#define FRIEND_NAME "Alex"
 #define MAX_EVENTS 3
 #define NUM_EVENTS 45
 #define NUM_REQ_VERBS 12
@@ -159,7 +159,7 @@
 #define RVERB4 go <exit_name>
 #define RVERB5 <exit_name>
 #define RVERB6 go <exit_direction>
-#define RVERB7 <exir_direction>
+#define RVERB7 <exit_direction>
 #define RVERB8 help
 #define RVERB9 inventory
 #define RVERB10 savegame
@@ -172,7 +172,7 @@
 #define STR_RVERB4 "go <exit_name>"
 #define STR_RVERB5 "<exit_name>"
 #define STR_RVERB6 "go <exit_direction>"
-#define STR_RVERB7 "<exir_direction>"
+#define STR_RVERB7 "<exit_direction>"
 #define STR_RVERB8 "help"
 #define STR_RVERB9 "inventory"
 #define STR_RVERB10 "savegame"

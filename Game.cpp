@@ -296,14 +296,47 @@ void Game::exit_room(int dir){
 void Game::look(){
 	printf("\n%s", r_array[player1.get_current_room()]->get_long_description().c_str());
 }
+
+//Originally, this function iterated over our list of verbs. While scalable, it was not
+//the most user-comprehensive. Print statements have been hardcoded to improve readability.
 void Game::help(){
-	for (int i = 0; i < NUM_VERB_FUNCS; i++){
+
+	printf("\n---How To Play---\n");
+	printf("Try to perform an action using the formula\n");
+	printf("<verb> + <thing>\n");
+	printf("       or\n");
+	printf("<verb> + <place>\n");
+
+	printf("\nExamples: read gravestone, take dagger, go north, go entranceway\n");
+
+	printf("\n---Available Commands---\n");
+	printf("read, smell, use, eat, play, open, speak, climb, attack, look, take, drop\n");
+	printf("go <exit_name>, <exit_name>, go <exit_direction>, go <exit_direction>\n");
+	printf("give <someone> <object>\n");
+	printf("inventory, look at, help\n");
+	printf("savegame, loadgame\n");
+
+	printf("\n---Color Legend---\n");
+	printf("\033[0;36mRoom\033[0m: you can go to these rooms.\n");
+	printf("\033[0;32mDirection\033[0m: you can also go this direction.\n");
+	printf("\033[1;35mObject\033[0m: you can take these objects into your inventory.\n");
+	printf("\033[1;31mFeature\033[0m: you cannot take these, but try to interact with them.");
+
+	/*for (int i = 0; i < NUM_VERB_FUNCS; i++){
 		printf("%s, ", verb_list[i].c_str());
 	}
 	for (int i = 0; i < NUM_REQ_VERBS; i++){
-		printf("%s, ", req_verb_list[i].c_str());
-	}
+		if (i == NUM_REQ_VERBS - 1) 
+		{
+			printf("%s ", req_verb_list[i].c_str());
+		}
+		else 
+		{
+			printf("%s, ", req_verb_list[i].c_str());
+		}
+	}*/
 }
+
 //-------------- V E R B  F U N C T I O N  H E L P E R S --------------//
 void Game::trigger_take_event(int obj_id){
 	
