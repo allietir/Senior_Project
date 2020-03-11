@@ -10,7 +10,7 @@ Object4::Object4() {
 	set_index_id(3);
 }
 int Object4::read(){
-	string read_response = "Peer Gynt, Suite No. 1, Op. 46";
+	string read_response = "Peer Gynt, Suite No. 1, Op. 46 ";
 	func_togg_count_x(0);
 	printf("%s\n", read_response.c_str());
 	return 4;

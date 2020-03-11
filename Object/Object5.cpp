@@ -10,7 +10,7 @@ Object5::Object5() {
 	set_index_id(4);
 }
 int Object5::read(){
-	string read_response = "Memento mori";
+	string read_response = "Memento mori ";
 	func_togg_count_x(0);
 	printf("%s", read_response.c_str());
 	return 4;

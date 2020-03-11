@@ -18,10 +18,10 @@ Room::Room() {
 		exit_ids[i]=-1;
 		
 	}
-	exit_direction[0]="north";
-	exit_direction[1]="south";
-	exit_direction[2]="west";
-	exit_direction[3]="east";
+	exit_direction[0]="\033[0;32mnorth\033[0m";
+	exit_direction[1]="\033[0;32msouth\033[0m";
+	exit_direction[2]="\033[0;32mwest\033[0m";
+	exit_direction[3]="\033[0;32meast\033[0m";
 	
 	init_exits();
 	room_entered = 0;
@@ -186,7 +186,7 @@ string Room::short_exit_text(){
 		string exit_x = get_exit_name(i);
 		if (exit_x!="no_exit"){
 			exit_exist = 1;
-			exit_text = exit_text + exit_x + " in the " + get_exit_dir(i) + ". \n";
+			exit_text = exit_text + exit_x + " in the " + get_exit_dir(i) + ". ";
 		}
 		
 	}
@@ -205,7 +205,9 @@ string Room::long_feature_text(){
 	string feature_text = "You see ";
 	for (int i = 0; i < MAX_FIXED; i ++){
 		if ((fixed_list[i]->get_name()!="no feature name")&&(i<MAX_FIXED-1)){
-			feature_text = feature_text + fixed_list[i]->get_desc() + ". You see ";
+
+			feature_text = feature_text + fixed_list[i]->get_desc() + " You see: ";
+
 		}
 		if ((fixed_list[i]->get_name()!="no feature name")&&(i==MAX_FIXED-1)){
 			feature_text = feature_text + fixed_list[i]->get_desc();
@@ -217,10 +219,12 @@ string Room::long_feature_text(){
 }
 string Room::short_feature_text(){
 	
-	string feature_text = "You see ";
+
+	string feature_text = "You see: a";
 	for (int i = 0; i < MAX_FIXED; i ++){
 		if ((fixed_list[i]->get_name()!="no feature name")&&(i<MAX_FIXED-1)){
-			feature_text = feature_text + fixed_list[i]->get_name() + ". You see ";
+			feature_text = feature_text + fixed_list[i]->get_name() + ". You see: a";
+
 		}
 		if ((fixed_list[i]->get_name()!="no feature name")&&(i==MAX_FIXED-1)){
 			feature_text = feature_text + fixed_list[i]->get_name();
@@ -309,15 +313,15 @@ void Room::set_num_events(int x){
 }
 
 int Room::event_one(){
-	printf("A description of event one and perhaps a game state change");
+	//printf("A description of event one and perhaps a game state change");
 	return 0;
 }
 int Room::event_two(){
-	printf("A description of event two and perhaps a game state change");
+	//printf("A description of event two and perhaps a game state change");
 	return 0;
 }
 int Room::event_three(){
-	printf("A description of event three and perhaps a game state change");
+	//printf("A description of event three and perhaps a game state change");
 	return 0;
 }
 
