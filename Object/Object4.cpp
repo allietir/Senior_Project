@@ -5,7 +5,7 @@
 #include "Object4.h"
 
 Object4::Object4() {
-	set_name("Music");
+	set_name("\033[1;35mMusic\033[0m");
 	set_desc("Several sheets of \033[1;35mpaper\033[0m with strange inscriptions on them -- musical notes.");
 	set_index_id(3);
 }

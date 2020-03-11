@@ -5,7 +5,7 @@
 #include "Object3.h"
 
 Object3::Object3() {
-	set_name("Locket");
+	set_name("\033[1;35mLocket\033[0m");
 	set_desc("The \033[1;35mlocket\033[0m is silver and small. The design appears to be very old fashioned, but it is in good condition. ");
 	set_index_id(2);
 }

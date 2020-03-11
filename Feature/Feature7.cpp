@@ -15,7 +15,7 @@ int Feature7::speak(){
 	string speak_response="";
 	if (get_times_toggled(SPEAK)==0){
 		speak_response="\"Hello? Do you need help?\"\nYou hear a voice, as if inside your head. \"I need my face. Find my face. Help me see.\" Hmm, that was confusing. Maybe ask again. ";
-		printf("%s\n", speak_response.c_str());
+		printf("%s", speak_response.c_str());
 		func_togg_count_x(SPEAK);
 		
 	}
