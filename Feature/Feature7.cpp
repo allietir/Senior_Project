@@ -21,12 +21,8 @@ int Feature7::speak(){
 	}
 	else if (get_times_toggled(SPEAK)==1)
 	{
-<<<<<<< HEAD
-		speak_response="'Your face? Where can I help you find your face? How did you lose it? I have so many questions.'\n'Let me hold the lamp for a moment. It will help me see. And then, I can see myself.";
-=======
 		speak_response="\"Your face? Where can I help you find your face? How did you lose it? I have so many questions.\"\n\"Let me hold the lamp for a moment. It will help me see. And then, I can see myself.\" ";
->>>>>>> 1805f30581ba3da5c0b9148b886942ebc58d9d65
-		printf("%s\n", speak_response.c_str());
+		printf("%s", speak_response.c_str());
 		func_togg_count_x(SPEAK);
 		return 1;
 		
@@ -57,20 +53,11 @@ int Feature7::give(int room_id, int obj_feat_id){
 }	
 int Feature7::attack(int obj_id){
 	if (obj_id!=-1){
-<<<<<<< HEAD
-		printf("You attack the %s with the %s. The creature raises his hand and with a single motion, stills your hand. ' You shouldn't have done that ' the creatue says, sadly. You watch in horror as the %s turns towards yourself. This is the end.", get_name().c_str(), get_obj_name(obj_id).c_str(),
-=======
-		printf("You attack the %s with the %s. The creature raises his hand and with a single motion, stills your hand. \"You shouldn't have done that.\" the creatue says, sadly. You watch in horror as the %s turns towards you. \"This is the end.\" ", get_name().c_str(), get_obj_name(obj_id).c_str(),
->>>>>>> 1805f30581ba3da5c0b9148b886942ebc58d9d65
-		get_obj_name(obj_id).c_str());
+		printf("You attack the %s with the %s. The creature raises his hand and with a single motion, stills your hand. \"You shouldn't have done that.\" the creatue says, sadly. You watch in horror as the %s turns towards you. \"This is the end.\" ", get_name().c_str(), get_obj_name(obj_id).c_str(), get_obj_name(obj_id).c_str());
 			func_togg_count_x(ATTACK);
 			return -1;
 	}
-<<<<<<< HEAD
-	printf("You can't attack with nothing.");
-=======
 	printf("You can't attack with nothing. ");
->>>>>>> 1805f30581ba3da5c0b9148b886942ebc58d9d65
 	return 4;
 	
 } 
