@@ -159,7 +159,8 @@ int Room::set_get_num_exits(){
 	return num_exits;
 }
 string Room::long_exit_text(){
-	string exit_text = "You see ";
+//	string exit_text = "You see ";
+	string exit_text = "";
 	int exit_exist = 0;
 	for (int i = 0; i < MAX_EXITS; i++){
 		
@@ -180,7 +181,8 @@ string Room::long_exit_text(){
 	return exit_text;
 }
 string Room::short_exit_text(){
-	string exit_text = "You see ";
+	string exit_text = "You see the ";
+	//string exit_text = "";
 	int exit_exist = 0;
 	for (int i = 0; i < MAX_EXITS; i++){
 		string exit_x = get_exit_name(i);

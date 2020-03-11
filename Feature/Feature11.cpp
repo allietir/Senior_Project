@@ -11,12 +11,15 @@ Feature11::Feature11() {
 	set_index_id(10);
 }
 int Feature11::give(int room_id, int feat_obj_id){
-	if ((feat_obj_id==DOLL)&&(room_id==NURSERY)){
-		func_togg_count_x(GIVE);
-		//printf("The \033[1;31mchild\033[0m receives the doll and smiles gratefully.");
-		//triggers event one for Room6 which triggers in Game as the unlocking of locket and the locking of doll
-		return 1;
+	if (get_times_toggled(GIVE)==0){
+		if (feat_obj_id==DOLL){
+				func_togg_count_x(GIVE);
+				printf("The \033[1;31mchild\033[0m smiles gratefully.");
+				//triggers event one for Room6 which triggers in Game as the unlocking of locket and the locking of doll
+				return 1;
+			}
 	}
+	
 	else {
 		printf("This is not what the \033[1;31mchild\033[0m needs. ");
 	}
@@ -24,7 +27,7 @@ int Feature11::give(int room_id, int feat_obj_id){
 }
 int Feature11::speak()
 {
-	if (func_togg_count_x(GIVE)>=1){
+	if (get_times_toggled(GIVE)>=1){
 		printf("The \033[1;31mchild\033[0m has nothing more to say. ");
 	}
 	else{

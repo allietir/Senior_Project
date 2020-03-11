@@ -21,6 +21,9 @@ int Feature12::use(int int_feat_obj){
 		printf("Again, you can see the \033[1;35mdoll\033[0m shrink within the house and become real\nThrough the window you see the little girl walk through a replica of the hallway outside, and you see her turn back the clock. ");
 		return 41;
 	}
+	else{
+		printf("You can't use this this dollhouse under these conditions.");
+	}
 	return 4;
 	
 }

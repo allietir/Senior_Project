@@ -231,15 +231,15 @@ void Game::inventory(){
 	printf("INVENTORY: ");
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		if (player1.get_has_objects(i)==1){
-			printf("%s ", o_array[i]->get_name().c_str());
+			printf("%s\t", o_array[i]->get_name().c_str());
 			empty = 0;
 		}
 	}
+
 	if (empty==1)
 	{
 		printf("(empty)\n ");
 	}
-	printf("\n ");
 }
 void Game::exit_room(int dir){
 	
@@ -611,6 +611,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 							res = -1;
 						}
 						else{
+						//	printf("%i: %s", obj_index_id, o_array[obj_index_id]->get_name().c_str());
 							res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB8(player1.get_current_room(), obj_index_id); 
 						}
 					}
@@ -742,13 +743,14 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 //			if (res==34){
 //				event5();
 //			}
-			if (res==45+obj_index_id){
-				
-				event6(res-45);
-				//return 4;
-				
-				
-			}	
+			//deprecated event
+//			if (res==45+obj_index_id){
+//				
+//				event6(res-45);
+//				//return 4;
+//				
+//				
+//			}	
 			if (res==35){
 				event7();
 			}
@@ -1163,7 +1165,10 @@ void Game::event2(){
 	printf("You give the child the doll. She releases the locket. ");
 	set_game_events_triggered(1, 1);
 	//unlock locket 
+	
 	set_is_locked(LOCKET, 0);
+	//r_array[NURSERY]->get_feature_x(0)->give(NURSERY, DOLL);
+	player1.set_has_objects(DOLL, 0);
 	//lock doll
 	set_is_locked(DOLL, 1);
 
@@ -1183,6 +1188,7 @@ void Game::event5(){
 	printf("----------You have re-united the ghost family! Side quest completed--------. ");
 	set_game_events_triggered(4, 1);
 }
+//deprecated event
 void Game::event6(int obj_id){
 	printf("-------You have transported the %s-------\n", o_array[obj_id]->get_name().c_str());
 	set_game_events_triggered(5, 1);

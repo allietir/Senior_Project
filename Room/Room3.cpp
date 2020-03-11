@@ -14,7 +14,7 @@ Room3::Room3() {
 	init_long_short_desc();
 	//set exits; name, direction
 	set_exit_name("Mirrored door", 0);//to chils bedroom room 6/5
-	set_exit_name("Staricase down", 1);//to Entranceway room 2/1
+	set_exit_name("Staircase down", 1);//to Entranceway room 2/1
 	set_exit_name("Left doorway", 2);//to guest bedroom, room 7/6
 	set_exit_name("Right doorway", 3);//to master bedroom, room 8/7
 	set_exit_id(5, 0);//

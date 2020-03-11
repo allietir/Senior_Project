@@ -32,6 +32,8 @@ int main(int argc, char *argv[]) {
 		
 	
 		printf("%s\n",word_wrap(buffer, MAX_WIDTH).c_str());
+		
+		
 		char userInput[100] = {'\0'}; 
 		int x=0;
 		int y_flag = 0;
@@ -48,7 +50,7 @@ int main(int argc, char *argv[]) {
 			//printf("got %s", userInput);
 			if (userInput[0]=='\0'){
 				//cout << "Nothing was entered\n";
-				//printf("nothing was entered");
+				printf("nothing was entered: press enter and type in a valid command");
 				y_flag = 1;
 				cin.clear();
 				cin.ignore(1000000000000, '\n');
