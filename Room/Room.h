@@ -85,7 +85,9 @@ public:
 	virtual int event_three();
 
 
-	int trigger_event(int event_number);	
+	int trigger_event(int event_number);
+	//helpers
+	string make_lower_case(string mystring);
   
 private:
 	
