@@ -119,7 +119,7 @@ void Game::gen_feat_list(){
 void Game::start(){
 
 	printf("Welcome %s\n", player1.get_name().c_str());
-	printf("You are currently in the %s\n", r_array[player1.get_current_room()]->get_name().c_str());
+	//printf("You are currently in the %s\n", r_array[player1.get_current_room()]->get_name().c_str());
 	r_array[player1.get_current_room()]->look();
 	//set room visited to 1; 
 
@@ -134,7 +134,7 @@ void Game::take(int object_id){
 	
 	//printf("value of is_locked:%i", is_locked[object_id]);
 	if (is_locked[object_id]==1){
-		printf("You can't take this item because it is locked\n");
+		printf("You can't take this item because it is locked.\n");
 		
 	}
 	if (is_locked[object_id]==0){
@@ -147,8 +147,8 @@ void Game::take(int object_id){
 					player1.set_has_objects(object_id, 1);
 					r_array[current_room]->set_has_objects(object_id, 0);
 					set_obj_location(object_id, -1);
-					printf("%s no longer has %s\n", r_array[current_room]->get_name().c_str(), o_array[object_id]->get_name().c_str());	
-					printf("Updated player inventory...\n");
+					//printf("%s no longer has %s\n", r_array[current_room]->get_name().c_str(), o_array[object_id]->get_name().c_str());	
+					//printf("Updated player inventory...\n");
 					inventory();
 					//printf("\n");
 					//update room description:
@@ -205,8 +205,8 @@ void Game::drop(int object_id){
 		player1.set_has_objects(object_id, 0);
 		r_array[current_room]->set_has_objects(object_id, 1);
 		set_obj_location(object_id, current_room);
-		printf("%s now has %s. ", r_array[current_room]->get_name().c_str(), o_array[object_id]->get_name().c_str());	
-		printf("Updated player inventory...");
+		//printf("%s now has %s. ", r_array[current_room]->get_name().c_str(), o_array[object_id]->get_name().c_str());	
+		//printf("Updated player inventory...");
 		inventory();
 		//add object text
 		r_array[current_room]->add_object_text(o_array[object_id]->get_name(), o_array[object_id]->get_desc());
@@ -245,7 +245,7 @@ void Game::exit_room(int dir){
 	
 	
 	int current_room = player1.get_current_room();
-	printf("You are attempting to exit: %s.", r_array[current_room]->get_name().c_str());
+	//printf("You are attempting to exit: %s.", r_array[current_room]->get_name().c_str());
 	
 	int get_next_room = r_array[current_room]->get_exit_id(dir);
 	if (get_next_room == -1){
@@ -255,7 +255,7 @@ void Game::exit_room(int dir){
 	{
 		if (exit_valid(get_next_room)==0){
 		
-			printf("Success, there is an exit from the %s to the %s.", r_array[current_room]->get_name().c_str(), r_array[dir]->get_exit_dir(dir).c_str());
+			//printf("Success, there is an exit from the %s to the %s.", r_array[current_room]->get_name().c_str(), r_array[dir]->get_exit_dir(dir).c_str());
 			player1.set_current_room(get_next_room);
 			//update player move count
 			int mc = player1.get_move_count();
@@ -280,7 +280,7 @@ void Game::exit_room(int dir){
 			}
 			//intro room
 			current_room = player1.get_current_room();
-			printf("You are entering: %s. ", r_array[current_room]->get_name().c_str());
+			//printf("You are entering: %s. ", r_array[current_room]->get_name().c_str());
 			r_array[current_room]->look();
 		}
 		else{
@@ -423,7 +423,7 @@ int Game::exit_current_from_room_id(int room_id){
 			for (int i = 0; i < MAX_EXITS; i++){
 				exit_room_id = r_array[player1.get_current_room()]->get_exit_id(i);
 				if (exit_room_id == room_id){
-					printf("you are attempting to move to %s from %s", r_array[room_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+					//printf("you are attempting to move to %s from %s", r_array[room_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
 					exit_room(i);
 					return 0;
 				}
@@ -505,8 +505,8 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 				
 				
 				
-				if (verb.compare(STR_RVERB2)==0){ printf("You can't take that"); }
-				if (verb.compare(STR_RVERB3)==0){ printf("You can't drop that"); }
+				if (verb.compare(STR_RVERB2)==0){ printf("You can't take that. "); }
+				if (verb.compare(STR_RVERB3)==0){ printf("You can't drop that. "); }
 			}
 		}
 		else if ((feat_index_id==-1)&&(obj_index_id!=-1)){
@@ -549,16 +549,16 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 										res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB3(obj_index_id); 
 									}
 									else if ((get_game_events_triggered(14)==1)&&(get_game_events_triggered(15)==1)&&(get_room_events_triggered(34)==1)){
-										printf("There is water in this cup; you can't fill it with blood");
+										printf("There is water in this cup; you can't fill it with blood. ");
 									}
 									else if ((get_game_events_triggered(14)==1)&&(get_game_events_triggered(15)==1)&&(get_room_events_triggered(34)==0)&&(get_game_events_triggered(16)==1)){
-										printf("There is fire in this cup; you can't fill it with blood");
+										printf("There is fire in this cup; you can't fill it with blood. ");
 									}
 
 									
 
 									else{
-										printf("You can't take blood from the sink yet--but why? Some invisible force is preventing you. What does the mirror have to say?");
+										printf("You can't take blood from the sink yet--but why? Some invisible force is preventing you. What does the mirror have to say? ");
 										
 									}
 								}
@@ -568,14 +568,14 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 										res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB3(obj_index_id); 
 									}
 									else if ((get_game_events_triggered(14)==1)&&(get_game_events_triggered(15)==1)&&(get_room_events_triggered(34)==0)&&(get_game_events_triggered(16)==0)){
-										printf("There is blood in this cup; you can't fill it with fire");
+										printf("There is blood in this cup; you can't fill it with fire. ");
 									}
 									else if (get_room_events_triggered(34)==1){
-										printf("There is water in this cup; you can't fill it with fire");
+										printf("There is water in this cup; you can't fill it with fire. ");
 									}
 
 									else{
-										printf("You can't take fire from the fireplace yet.\n");
+										printf("You can't take fire from the fireplace yet. ");
 										
 									}
 								}
@@ -602,7 +602,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 						}
 						else if ((feat_index_id==DEMON)&&(r_array[player1.get_current_room()]->get_feature_x(item)->get_times_toggled(USE)!=1))
 						{
-							printf("There is nothing effective in this cup to protect you. The demon notices you and you know you are done for.");
+							printf("There is nothing effective in this cup to protect you. The demon notices you and you know you are done for. ");
 							res = -1;
 						}
 						else{
@@ -619,7 +619,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 						
 						 
 						if (event8counter>=1){
-							printf("You open the book to the correct spell and read:\n'As sure as the demon is evil'\n'We will trap the dark soul and his smallness reveal'");
+							printf("You open the book to the correct spell and read:\n\'As sure as the demon is evil\'\n\'We will trap the dark soul and his smallness reveal.\'");
 							res=35;
 							
 							
@@ -681,7 +681,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 				if (event_index == 21){
 					//if the blood has been used, you can turn off the "event occured" indicator for the index, as now the chalice is back to normal and can be filled with blood or something else. 
 					//
-					printf("Blood used, chalice empty again.");
+					printf("Blood used, the chalice is empty again. ");
 					room_events_triggered[24]=0;
 				}
 				//printf("get events triggered val now: %i", get_room_events_triggered(event_index));
@@ -995,7 +995,7 @@ int Game::exit_valid(int next_room)
 		if (r_array[next_room]->get_needs_objects(i)==1){
 			int has_obj = player1.get_has_objects(i);
 			if (has_obj!=1){
-				printf("You need the %s to enter %s.\n", o_array[i]->get_name().c_str(), r_array[next_room]->get_name().c_str());
+				printf("You need the %s to enter %s. ", o_array[i]->get_name().c_str(), r_array[next_room]->get_name().c_str());
 				
 				return -1;
 			}
@@ -1003,10 +1003,10 @@ int Game::exit_valid(int next_room)
 				if (i==LAMP){
 					//make sure player turned lamp on
 					if (o_array[LAMP]->get_times_toggled(USE)>=1){
-						printf("Success, you have the %s require to enter this room.\n", o_array[i]->get_name().c_str());
+						//printf("Success, you have the %s require to enter this room. ", o_array[i]->get_name().c_str());
 					}
 					else{
-						printf("Perhaps turn on the lamp before venturing into the darkness.\n");
+						printf("Perhaps turn on the \033[1;35mlamp\033[0m before venturing into the darkness. ");
 						return -1;
 					}
 				}
@@ -1021,12 +1021,12 @@ int Game::exit_valid(int next_room)
 	if (get_needs_event(next_room)!=-1){
 		
 		if (room_events_triggered[get_needs_event(next_room)]==1){
-				printf("The correct event has been triggered to allow you to enter this room.\n");
+				//printf("The correct event has been triggered to allow you to enter this room.\n");
 				return 0;
 
 			}
 			else{
-				printf("You need to trigger the correct event to allow you to enter this room\n");
+				printf("You need to trigger the correct event to allow you to enter this room. ");
 				return -1;
 			}
 	}
@@ -1105,7 +1105,7 @@ string Game::ret_curr_obj_loc(){
 		if (curr_room!=-1){
 			room_name = r_array[curr_room]->get_name();
 			
-			str = str + "The " + obj_name + " is in the " + room_name + ".";
+			str = str + "The " + obj_name + " is in the " + room_name + ". ";
 		}
 		else if (curr_room==-1){
 			str = str + "The " + obj_name + " is in your inventory. ";
@@ -1148,7 +1148,7 @@ int Game::moves_left(){
 //----------- C A L L  E V E N T S -------//	
 void Game::event1()
 {
-	printf("The chandelair beings to flicker; the wind you've been sensing seems to pick up. Suddenly the room goes completely dark and %s only has time to gasp before you feel suddenly like you are being watched. The light turn back on. 'What the hell was that' you say, turning to look at %s. But %s is gone.\n You have to find %s. ", FRIEND_NAME, FRIEND_NAME, FRIEND_NAME, FRIEND_NAME);
+	printf("The chandelier beings to flicker; the wind you've been sensing seems to pick up. Suddenly the room goes completely dark and %s only has time to gasp before you feel suddenly like you are being watched. The light turns back on. 'What the hell was that' you say, turning to look at %s. But %s is gone.\n You have to find %s. ", FRIEND_NAME, FRIEND_NAME, FRIEND_NAME, FRIEND_NAME);
 	
 	set_game_events_triggered(0, 1);
 }
@@ -1169,11 +1169,11 @@ void Game::event3(){
 	
 }
 void Game::event4(){
-	printf("----------You have freed your friend and won the game! Objective completed-----.");
+	printf("----------You have freed your friend and won the game! Objective completed-----. ");
 	set_game_events_triggered(3, 1);
 }
 void Game::event5(){
-	printf("----------You have re-united the ghost family! Side quest completed--------.");
+	printf("----------You have re-united the ghost family! Side quest completed--------. ");
 	set_game_events_triggered(4, 1);
 }
 void Game::event6(int obj_id){
@@ -1205,7 +1205,7 @@ void Game::event9(){
 		}
 	}
 	string x = concat_obj_descs();
-	string desc = "The cupboard now has the following items within it:" + x;
+	string desc = "The cupboard now has the following items within it: " + x;
 	r_array[KITCHEN]->get_feature_x(1)->set_desc(desc);
 	look();
 	set_game_events_triggered(8, 1);
@@ -1234,7 +1234,7 @@ void Game::event14(){
 	int mc = get_player()->get_move_count();
 	if (mc-1!=0){
 		get_player()->set_move_count(mc-1);
-			printf("There are %i hours till midnight.", mc-1);
+			printf("There are %i hours till midnight. ", mc-1);
 			int ct = r_array[UPSTAIRS]->get_feature_x(0)->get_time();
 			//string s = r_array[UPSTAIRS]->get_feature_x(0)->get_time_str();
 			//printf("%s",s.c_str());
@@ -1245,13 +1245,13 @@ void Game::event14(){
 				r_array[UPSTAIRS]->init_long_short_desc();
 			}
 			else{
-				printf("You can only see midnight through going forward, not back.");
+				printf("You can only see midnight by going forward, not back. ");
 			}
 			
 
 	}
 	else{
-		printf("You can only see midnight through going forward, not back.");
+		printf("You can only see midnight by going forward, not back. ");
 	}
 	
 	
@@ -1259,24 +1259,24 @@ void Game::event14(){
 }
 void Game::event15(){
 	set_game_events_triggered(14, 1);
-	printf("You play the song to the creature of the mirror.");
+	printf("You play the song to the creature of the mirror. ");
 	r_array[BATHROOM]->get_feature_x(0)->set_togg_count_x(PLAY, 666);
 	
 }
 void Game::event16(){
 	set_game_events_triggered(15, 1);
-	printf("You cut yourself and let the blood drip into the sink.");
+	printf("You cut yourself and let the blood drip into the sink. ");
 	r_array[BATHROOM]->get_feature_x(0)->set_togg_count_x(USE, 666);
 }
 void Game::event17(){
 	set_game_events_triggered(16, 1);
-	printf("The chalice fills with the strange purple fire but feels cool in your hand.");
-	o_array[CHALICE]->set_desc("The chalice is filled with a strange purple fire, but the metal is cool in your hand.");
+	printf("The chalice fills with the strange purple fire but feels cool in your hand. ");
+	o_array[CHALICE]->set_desc("The chalice is filled with a strange purple fire, but the metal is cool in your hand. ");
 }
 
 void Game::event18(){
 	set_game_events_triggered(17, 1);
-	printf("You can see a chalice within the room\n");
+	printf("You can see a chalice within the room. ");
 	set_is_locked(CHALICE, 0);
 }
 
