@@ -6,8 +6,8 @@
 
 Feature25::Feature25() {
 	set_name("\033[1;31mStove\033[0m");
-	set_desc("There is a \033[1;31mstove\033[0m in this kitchen. It looks like it hasn't been used for years.");
-	set_desc_no_obj("There is a \033[1;31mstove\033[0m in this kitchen. It looks like it hasn't been used for years.");
+	set_desc("There is a \033[1;31mstove\033[0m in this \033[0;36mkitchen\033[0m. It looks like it hasn't been used for years. ");
+	set_desc_no_obj("There is a \033[1;31mstove\033[0m in this \033[0;36mkitchen\033[0m. It looks like it hasn't been used for years. ");
 	set_index_id(24);
 }
 int Feature25::use(int obj_id){
@@ -20,7 +20,7 @@ int Feature25::use(int obj_id){
 		printf("You need to burn something here. ");
 	}
 	else{
-		printf("Not a valid object");
+		printf("Not a valid object. ");
 	}
 	return 4;
 }

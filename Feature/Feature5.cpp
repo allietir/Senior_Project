@@ -10,7 +10,7 @@ Feature5::Feature5() {
 	set_name("\033[1;31mClock\033[0m");
 	string desc_a = "There is a clock at the end of the highway, a grandfather \033[1;31mclock\033[0m, large and imposing. What happens when the clock strikes midnight?\n" + get_time_str();
 	set_desc(desc_a);
-	set_desc_no_obj("There is a \033[1;31mclock\033[0m at the end of the highway, a grandfather \033[1;31mclock\033[0m, large and imposing. What happens when the \033[1;31mclock\033[0m strikes midnight?");
+	set_desc_no_obj("There is a \033[1;31mclock\033[0m at the end of the hallway, a grandfather \033[1;31mclock\033[0m, large and imposing. What happens when the \033[1;31mclock\033[0m strikes midnight? ");
 	set_index_id(4);
 	
 	
@@ -18,16 +18,16 @@ Feature5::Feature5() {
 
 int Feature5::read(){
 	func_togg_count_x(READ);
-	printf("The \033[1;31clock's\033[0m inscription says, 'I slow as you hasten'. Well, that certainly doesn't feel true.");
+	printf("The \033[1;31clock's\033[0m inscription says, 'I slow as you hasten'. Well, that certainly doesn't feel true. ");
 	return 4;
 }
 int Feature5::speak(){
 	if (get_times_toggled(SPEAK)==0){
 		func_togg_count_x(SPEAK);
-			printf("You say the inscription outloud, 'I slow as you hasten.' . The latch on the door creaks open, and reveals a strange looking keyhole that doesn't look like it would fit a normal key; it looks more like a daggers hilt.");
+			printf("You say the inscription outloud, \'I slow as you hasten.\' The latch on the door creaks open, and reveals a strange looking keyhole that doesn't look like it would fit a normal key; it looks more like a daggers hilt. ");
 	}
 	else{
-		printf("The door is already open on the grandfather \033[1;31mclock\033[0m.");
+		printf("The door is already open on the grandfather \033[1;31mclock\033[0m. ");
 	}
 	return 4;
 	
@@ -38,7 +38,7 @@ int Feature5::use(int obj_feat_id){
 	if (get_times_toggled(SPEAK)>=1){
 		if (obj_feat_id==DAGGER){
 			func_togg_count_x(USE);
-				printf("You use the dagger in the hilt-like key hold, and hear mechanisms unlock. Should you try to open it?");
+				printf("You use the dagger in the hilt-like key hole and hear mechanisms unlock. Should you try to open it? ");
 			}
 	}
 	else{
@@ -51,11 +51,11 @@ int Feature5::use(int obj_feat_id){
 int Feature5::open(int room_id, int obj_feat_id){
 	if (get_times_toggled(USE)>=1){
 		func_togg_count_x(OPEN);
-		printf("You open the door and you see a staircase down. Looks like you'll need to climb quite a bit to get down there... but where does it go?");
+		printf("You open the door and you see a staircase down. Looks like you'll need to climb quite far to get down there... but where does it go? ");
 		string desc = "The grandfather \033[1;31mclock\033[0m is open and a staircase down is revealed.\n" + get_time_str();
 		
 		set_desc(desc);
-		set_desc_no_obj("The grandfather \033[1;31mclock\033[0m is open and a staircase down is revealed.");
+		set_desc_no_obj("The grandfather \033[1;31mclock\033[0m is open and a staircase down is revealed. ");
 	}
 	return 4;
 }//5
@@ -63,11 +63,11 @@ int Feature5::climb(){
 	if (func_togg_count_x(OPEN)>=1)
 	{
 		func_togg_count_x(CLIMB);
-		printf("You climb down into the darkness.");
+		printf("You climb down into the darkness. ");
 		return CRYPT+10;
 	}
 	else{
-		printf("There is nothing to climb up or down to.");
+		printf("There is nothing to climb up or down to. ");
 	}
 	return 4;
 }
@@ -85,7 +85,7 @@ string Feature5::get_time_str(){
 		am_pm = "PM";
 		return "It is currently " + to_string(PM_Time) + am_pm;
 	}	 
-	return "no time at all";
+	return "no time at all. ";
 }
 int Feature5::get_time(){
 	return current_time;
