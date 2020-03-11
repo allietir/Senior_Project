@@ -307,20 +307,20 @@ void Game::help(){
 	printf("       or\n");
 	printf("<verb> + <place>\n");
 
-	printf("\nHere are examples: read gravestone, take dagger, go north, go entranceway\n");
+	printf("\nExamples: read gravestone, take dagger, go north, go entranceway\n");
 
-	printf("---Available Commands---\n");
+	printf("\n---Available Commands---\n");
 	printf("read, smell, use, eat, play, open, speak, climb, attack, look, take, drop\n");
 	printf("go <exit_name>, <exit_name>, go <exit_direction>, go <exit_direction>\n");
 	printf("give <someone> <object>\n");
 	printf("inventory, look at, help\n");
 	printf("savegame, loadgame\n");
 
-	printf("---Color Legend---\n");
+	printf("\n---Color Legend---\n");
 	printf("\033[0;36mRoom\033[0m: you can go to these rooms.\n");
 	printf("\033[0;32mDirection\033[0m: you can also go this direction.\n");
 	printf("\033[1;35mObject\033[0m: you can take these objects into your inventory.\n");
-	printf("\033[1;31mFeature\033[0m: you cannot take these, but try to interact with them.\n");
+	printf("\033[1;31mFeature\033[0m: you cannot take these, but try to interact with them.");
 
 	/*for (int i = 0; i < NUM_VERB_FUNCS; i++){
 		printf("%s, ", verb_list[i].c_str());
