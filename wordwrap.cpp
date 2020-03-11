@@ -8,7 +8,9 @@
 
 using namespace std;
 
-//In this case maxLength should be a global variable from globals.h
+//In this case maxLength will be a global variable from globals.h
+//This is a C++ implementation of what is here:
+//http://www.cplusplus.com/forum/beginner/132223/
 string word_wrap(string wrapString, int maxLength) {
 	unsigned int line_start = 0;
 
@@ -18,6 +20,7 @@ string word_wrap(string wrapString, int maxLength) {
 	{
 		unsigned int ideal_end = line_start + maxLength;
 
+		//take into account extra characters from embedded ascii colors
 		size_t hasColor = wrapString.find(color, line_start);
 		if ((hasColor != string::npos) && (hasColor <= ideal_end))
 		{
