@@ -6,7 +6,7 @@
 #define MAX_EXITS 4
 #define MAX_DESCS 5
 #define NUM_VERB_FUNCS 10
-#define FRIEND_NAME "ALEX"
+#define FRIEND_NAME "Alex"
 #define MAX_EVENTS 3
 #define NUM_EVENTS 45
 #define NUM_REQ_VERBS 12
