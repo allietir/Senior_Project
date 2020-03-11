@@ -5,12 +5,14 @@
 #include "Object1.h"
 
 Object1::Object1() {
-	set_name("Lamp");
-	set_desc("A dusty old oil \033[1;35mlamp\033[0m, glass chipped and handle rusted. It looks like there is an enscription on the metal");
+	set_name("\033[1;35mLamp\033[0m");
+
+	set_desc("A dusty old oil \033[1;35mlamp\033[0m, glass chipped and handle rusted. It looks like there is an enscription on the metal. ");
+
 	set_index_id(0);
 }
 int Object1::read(){
-	string read_response = "Vos postulo mihi tenebris";
+	string read_response = "Vos postulo mihi tenebris. ";
 	func_togg_count_x(READ);
 	printf("%s\n", read_response.c_str());
 	return 4;

@@ -5,6 +5,7 @@
 #include <iterator>
 #include <map>
 #include <algorithm>
+#include <cstring>
 
 #include "Game.h"
 #include "parser.h"
@@ -68,7 +69,8 @@ int inputParsing(Game &game, string userInput){
 	if (status == 1) return 0; 
 	status = checkActions(game, wordList); 
 	if (status == 1) return 0;
-	else cout << "unknown command \n";
+	cout << "\nunknown command";
+	fflush(stdout);
 	return 0;
 }
 
@@ -119,7 +121,7 @@ int checkBasicCommands(Game &game, string cleanInput){
 		game.look();
 	}
 	else if (cleanInput == "help"){
-		cout << "help called \n";
+		//cout << "help called \n";
 		//call help function
 		game.help();
 	}
@@ -170,7 +172,7 @@ int checkMoveCommands(Game &game, vector<string> inputVector){
 	while (inputVector[0] == "go" || inputVector[0] == "to" || inputVector[0] == "the") {
 		inputVector.erase(inputVector.begin());	
 		if (inputVector.size() == 0){
-			cout << "please be more specific";
+			cout << "\nplease be more specific";
 			return 1;
 		}
 	}
@@ -235,7 +237,7 @@ int checkActions(Game &game, vector<string> inputVector) {
 			if (verbID == -1) verbID = verbIT->second;
 			else {
 				actionStatus = -1;
-				cout << "\ntoo many verbs\n";
+				cout << "\ntoo many verbs";
 				return actionStatus;
 			}
 		}
@@ -246,7 +248,7 @@ int checkActions(Game &game, vector<string> inputVector) {
 			if (featID == -1) featID = featIT->second;
 			else {
 				actionStatus = -1;
-				cout << "\ntoo many features\n";
+				cout << "\ntoo many features";
 				return actionStatus;
 			}
 		}
@@ -257,15 +259,16 @@ int checkActions(Game &game, vector<string> inputVector) {
 			if (objID == -1) objID = objIT->second;
 			else {
 				actionStatus = -1;
-				cout << "\ntoo many objects\n";
+				cout << "\ntoo many objects";
 				return actionStatus;
 			}
 		}
 	}
-	cout << "\n";
+	//cout << "\n";
 	if (verbID == -1 || (featID == -1 && objID == -1)) {
 		actionStatus = 0;
-		cout << "incorrect arguments found\n";
+		cout << "\nincorrect arguments found";
+		fflush(stdout);
 	}
 	else {
 		int x = game.run_func(featID, objID, verbID);
