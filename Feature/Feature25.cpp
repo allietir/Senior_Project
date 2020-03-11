@@ -12,15 +12,24 @@ Feature25::Feature25() {
 }
 int Feature25::use(int obj_id){
 	
-	if ((obj_id>=0)&&(obj_id<=7)){
-		func_togg_count_x(USE);
-		return 45+obj_id;
-	}
-	if (obj_id==-1){
-		printf("You need to burn something here. ");
+//	if ((obj_id>=0)&&(obj_id<=7)){
+//		func_togg_count_x(USE);
+//		return 45+obj_id;
+//	}
+//	if (obj_id==-1){
+//		printf("You need to burn something here. ");
+//	}
+//	else{
+//		printf("Not a valid object. ");
+//	}
+//	return 4;
+	if (obj_id!=-1){
+		printf("Oh no! Your %s has caught on fire! You should be more careful. Ah well, no harm done.", get_obj_name(obj_id).c_str());
+		return 4;
 	}
 	else{
-		printf("Not a valid object. ");
+		printf("Nothing used with stove.");
+		return 4;
 	}
 	return 4;
 }
