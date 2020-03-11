@@ -435,6 +435,8 @@ int Game::exit_current_from_room_id(int room_id){
 }
 int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 	
+	
+	
 	if ((user_or_room_has_item(obj_index_id)==0)&&(obj_index_id!=-1)){
 		printf("You cannot access %s object within %s.",   o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
 		return -777;
@@ -474,7 +476,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 	string feat_string;
 	if (item==-2){
 			//printf("--------Ret val of accesing %s at %i is %i-------", feat_list[feat_index_id].c_str(), feat_index_id, item);
-			//printf("You cannot access this feature within %s.\n",   r_array[player1.get_current_room()]->get_name().c_str());
+			printf("You cannot access this feature within %s.",   r_array[player1.get_current_room()]->get_name().c_str());
 			return -777;
 		}
 	else if (item!=-1){
