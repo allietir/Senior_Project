@@ -294,7 +294,7 @@ void Game::exit_room(int dir){
 
 }
 void Game::look(){
-	r_array[player1.get_current_room()]->look();
+	printf("%s", r_array[player1.get_current_room()]->get_long_description().c_str());
 }
 void Game::help(){
 	for (int i = 0; i < NUM_VERB_FUNCS; i++){
