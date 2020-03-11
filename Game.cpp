@@ -119,7 +119,7 @@ void Game::gen_feat_list(){
 void Game::start(){
 
 	printf("Welcome %s\n", player1.get_name().c_str());
-	printf("You are currently in the %s\n", r_array[player1.get_current_room()]->get_name().c_str());
+	//printf("You are currently in the %s\n", r_array[player1.get_current_room()]->get_name().c_str());
 	r_array[player1.get_current_room()]->look();
 	//set room visited to 1; 
 
@@ -245,7 +245,7 @@ void Game::exit_room(int dir){
 	
 	
 	int current_room = player1.get_current_room();
-	printf("You are attempting to exit: %s.", r_array[current_room]->get_name().c_str());
+	//printf("You are attempting to exit: %s.", r_array[current_room]->get_name().c_str());
 	
 	int get_next_room = r_array[current_room]->get_exit_id(dir);
 	if (get_next_room == -1){
@@ -255,7 +255,8 @@ void Game::exit_room(int dir){
 	{
 		if (exit_valid(get_next_room)==0){
 		
-			printf("Success, there is an exit from the %s to the %s.", r_array[current_room]->get_name().c_str(), r_array[dir]->get_exit_dir(dir).c_str());
+			printf("Exiting %s", r_array[current_room]->get_name().c_str());
+			//printf("Success, there is an exit from the %s to the %s.", r_array[current_room]->get_name().c_str(), r_array[dir]->get_exit_dir(dir).c_str());
 			player1.set_current_room(get_next_room);
 			//update player move count
 			int mc = player1.get_move_count();
@@ -280,7 +281,7 @@ void Game::exit_room(int dir){
 			}
 			//intro room
 			current_room = player1.get_current_room();
-			printf("You are entering: %s. ", r_array[current_room]->get_name().c_str());
+			//printf("You are entering: %s. ", r_array[current_room]->get_name().c_str());
 			r_array[current_room]->look();
 		}
 		else{
@@ -423,7 +424,7 @@ int Game::exit_current_from_room_id(int room_id){
 			for (int i = 0; i < MAX_EXITS; i++){
 				exit_room_id = r_array[player1.get_current_room()]->get_exit_id(i);
 				if (exit_room_id == room_id){
-					printf("you are attempting to move to %s from %s", r_array[room_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+					//printf("you are attempting to move to %s from %s", r_array[room_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
 					exit_room(i);
 					return 0;
 				}
@@ -1005,7 +1006,7 @@ int Game::exit_valid(int next_room)
 				if (i==LAMP){
 					//make sure player turned lamp on
 					if (o_array[LAMP]->get_times_toggled(USE)>=1){
-						printf("Success, you have the %s require to enter this room.\n", o_array[i]->get_name().c_str());
+						//printf("Success, you have the %s require to enter this room.\n", o_array[i]->get_name().c_str());
 					}
 					else{
 						printf("Perhaps turn on the lamp before venturing into the darkness.\n");
