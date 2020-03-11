@@ -317,10 +317,10 @@ void Game::help(){
 	printf("savegame, loadgame\n");
 
 	printf("---Color Legend---\n");
-	printf("\033[0;36mRoom\033[0m: you can go to these rooms.");
-	printf("\033[0;32mDirection\033[0m: you can also go this direction.");
-	printf("\033[1;35mObject\033[0m: you can take these objects into your inventory.");
-	printf("\033[1;31mFeature\033[0m: you cannot take these, but try to interact with them.");
+	printf("\033[0;36mRoom\033[0m: you can go to these rooms.\n");
+	printf("\033[0;32mDirection\033[0m: you can also go this direction.\n");
+	printf("\033[1;35mObject\033[0m: you can take these objects into your inventory.\n");
+	printf("\033[1;31mFeature\033[0m: you cannot take these, but try to interact with them.\n");
 
 	/*for (int i = 0; i < NUM_VERB_FUNCS; i++){
 		printf("%s, ", verb_list[i].c_str());
