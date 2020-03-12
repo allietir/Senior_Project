@@ -239,7 +239,7 @@ int checkActions(Game &game, vector<string> inputVector) {
 			if (verbID == -1) verbID = verbIT->second;
 			else {
 				actionStatus = -1;
-				cout << "\ntoo many verbs. ";
+				//cout << "\ntoo many verbs. ";
 				return actionStatus;
 			}
 		}
@@ -250,7 +250,7 @@ int checkActions(Game &game, vector<string> inputVector) {
 			if (featID == -1) featID = featIT->second;
 			else {
 				actionStatus = -1;
-				cout << "\ntoo many features. ";
+				//cout << "\ntoo many features. ";
 				return actionStatus;
 			}
 		}
@@ -261,7 +261,7 @@ int checkActions(Game &game, vector<string> inputVector) {
 			if (objID == -1) objID = objIT->second;
 			else {
 				actionStatus = -1;
-				cout << "\ntoo many objects. ";
+				//cout << "\ntoo many objects. ";
 				return actionStatus;
 			}
 		}
