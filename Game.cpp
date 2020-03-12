@@ -132,7 +132,7 @@ void Game::start(string name){
 
 	player1.set_name(name);
 
-	printf("Welcome to the game, %s. If you need info, type 'help'. Please enjoy!", player1.get_name().c_str());
+	printf("Welcome to the game, %s. If you need info, type 'help'. Please enjoy!\n", player1.get_name().c_str());
 
 	//printf("You are currently in the %s\n", r_array[player1.get_current_room()]->get_name().c_str());
 	r_array[player1.get_current_room()]->look();
@@ -246,16 +246,13 @@ void Game::inventory(){
 	int inventory_count = 0;
 	int inventory_count2 = 0;
 
-  printf("\nINVENTORY:\n ");
+  printf("\nINVENTORY:\n");
 
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		if (player1.get_has_objects(i)==1){
-			printf("%s", o_array[i]->get_name().c_str());
+			printf("%s\n", o_array[i]->get_name().c_str());
 			empty = 0;
 			inventory_count++;
-
-			printf("\n ");
-
 		}
 	}
 //	for (int i = 0; i < NUM_OBJECTS; i++){
@@ -277,9 +274,9 @@ void Game::inventory(){
 //	}
 	if (empty==1)
 	{
-		printf("(empty) ");
-		printf("\n");
+		printf("(empty)");
 	}
+	printf("\n");
 }
 void Game::exit_room(int dir){
 	
