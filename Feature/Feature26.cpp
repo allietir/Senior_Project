@@ -6,15 +6,15 @@
 
 Feature26::Feature26() {
 	set_name("\033[1;31mCupboard\033[0m");
-	set_desc("There is a \033[1;31mcupboard\033[0m in this \033[0;36mkitchen\033[0m with a handle on it. ");
-	set_desc_no_obj("There is a \033[1;31mcupboard\033[0m in this \033[0;36mkitchen\033[0m with a handle on it. ");
+	set_desc("There is a \033[1;31mcupboard\033[0m in the \033[0;36mkitchen\033[0m with a handle on it. ");
+	set_desc_no_obj("There is a \033[1;31mcupboard\033[0m in the \033[0;36mkitchen\033[0m with a handle on it. ");
 	set_index_id(25);
 }
 int Feature26::open(int room_id, int obj_id){
 	if (get_times_toggled(OPEN)==0){
 		func_togg_count_x(OPEN);
 		printf("There doesn't appear to be anything of interest in this \033[1;31mcupboard\033[0m. ");
-		set_desc("The open \033[1;31mcupboard\033[0m has nothing of interest inside. ");
+		set_desc("The open \033[1;31mcupboard\033[0m contains nothing of interest. ");
 	}
 	else{
 		printf("The \033[1;31mcupboard\033[0m is already open. ");

@@ -6,7 +6,7 @@
 
 Feature28::Feature28() {
 	set_name("\033[1;31mStatue\033[0m");
-	set_desc("The \033[1;31mstatue\033[0m is marbled, white, and beautiful, the most beautiful statue you have ever seen; it looks like if you blinked, it would come alive. The clothes are chiseled to look like just like real silk; the eyes seem to see somewhere more incredible than you could ever dream of. ");
+	set_desc("The \033[1;31mstatue\033[0m is marbled, white, and beautiful, the most beautiful statue you have ever seen; it looks like if you blinked, it would come alive. The clothes are chiseled to look like just like real, flowy silk; the eyes seem to see somewhere more incredible than you could ever dream of. ");
 	set_index_id(27);
 }
 
@@ -18,7 +18,7 @@ int Feature28::use(int obj_feat_id){
 
 	}
 	else if ((obj_feat_id==DIARY)&&(get_times_toggled(USE)>=1)){
-		printf("You've alreday used the spell. ");
+		printf("You've already used the spell. ");
 	}
 	else{
 		printf("This item can't be used with this statue. ");
@@ -39,7 +39,7 @@ int Feature28::speak(){
 			}
 			else if (get_times_toggled(SPEAK)>=2){
 					func_togg_count_x(SPEAK);
-					printf("The creature roll it's eyes. \"Fine, I'll spell it out for you. It's the \033[1;35mlamp\033[0m first, then the \033[1;35mdiary\033[0m, then your \033[1;35mlocket\033[0m, then your \033[1;35mmusic\033[0m, then your \033[1;35mdagger\033[0m, then your \033[1;35mdoll\033[0m, then the \033[1;35mkey\033[0m, and finally the \033[1;35mchalice\033[0m. I can't possibly make it clearer than that.\" ");
+					printf("The creature rolls its eyes. \"Fine, I'll spell it out for you. It's the \033[1;35mlamp\033[0m first, then the \033[1;35mdiary\033[0m, then your \033[1;35mlocket\033[0m, then your \033[1;35mmusic\033[0m, then your \033[1;35mdagger\033[0m, then your \033[1;35mdoll\033[0m, then the \033[1;35mkey\033[0m, and finally the \033[1;35mchalice\033[0m. I can't possibly make it any clearer than that.\" ");
 				}
 	}
 	

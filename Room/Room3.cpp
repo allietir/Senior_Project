@@ -7,7 +7,7 @@
 Room3::Room3() {
 	
 	set_name("\033[0;36mUpstairs Hallway\033[0m");
-	set_extra_description("The hallway is so dark and cold, it seems to go on forever. Your teeth start chattering and you pull yourself closer. ");//FEATURE mirror at end of hall
+	set_extra_description("The hallway is so dark and cold, your teeth start chattering. You hold yourself to stay warm. ");//FEATURE mirror at end of hall
 	set_room_id(2);
 	set_feature_x(new Feature5, 0);
 	set_feature_x(new Feature6, 1);
@@ -36,9 +36,9 @@ Room3::Room3() {
 }
 int Room3::event_one(){
 	printf("The \033[1;31mclock\033[0m strikes midnight: ");
-	printf("You found yourself falling through the darkness and suddenly you are transported to the front of the clock. ");
+	printf("Suddenly, you fall through the darkness and find yourself transported to the front of the clock. ");
 	get_feature_x(0)->func_togg_count_x(OPEN);
-	printf("You open the grandfather \033[1;31mclock\033[0m door and you see a staircase down. Looks like you'll need to climb quite a bit to get down there... but where does it go? ");
+	printf("You open the grandfather \033[1;31mclock\033[0m door and you see a staircase down. It appears to climb down forever... but where does it go? ");
 	string desc = "The grandfather \033[1;31mclock\033[0m is open and a staircase down is revealed. " + get_feature_x(0)->get_time_str();
 	get_feature_x(0)->set_desc(desc);
 	set_event_triggered(0, 1);

@@ -6,7 +6,7 @@
 //#define ROOM11 "Library"//exit north->attic:10 east->parlor/lounge:5 west->conservatory:12
 Room11::Room11() {
 	set_name("\033[0;36mLibrary\033[0m");
-	set_extra_description("The comforting crackling of a fire and the smell of books surround you. ");
+	set_extra_description("The comforting crackles of a fire and the smell of books surround you. ");
 	set_room_id(10);
 
 	set_feature_x(new Feature21, 0);//Fire

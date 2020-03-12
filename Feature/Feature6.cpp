@@ -16,7 +16,7 @@ int Feature6::read(){
 			printf("%s\n", read_response.c_str());
 	}
 	else{
-		string read_response = "There once was a house on a hill\nGo inside with a friend, if you will\nThere a terrible loss will take place\nYou had better get out, do have haste\nBut to save the dear soul within\nYou will have to fight several monsters within ";
+		string read_response = "There once was a house on a hill\nGo inside with a friend, if you will\nThere a terrible loss will take place\nYou had better get out, do have haste\nBut to save the dear soul within\nYou must fight the monsters within ";
 		func_togg_count_x(READ);
 		printf("%s\n", read_response.c_str());
 	}

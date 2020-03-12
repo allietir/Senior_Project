@@ -6,7 +6,7 @@
 
 Feature29::Feature29() {
 	set_name("\033[1;31mAlex\033[0m");
-	set_desc("\033[1;31mAlex\033[0m looks transfixed and bodyless; she isn't tied up and she isn't screaming, but she is standing like a dead person would stand, like a zombie or a ghost; her eyes completely white, staring at the demon before her as he seems to be sucking some sort of life force from her. ");
+	set_desc("\033[1;31mAlex\033[0m looks transfixed and bodyless; she isn't tied up and she isn't screaming, but she is standing like a dead person would stand, like a zombie or a ghost. Her eyes are completely white, staring at the demon before her as it seems to be sucking something out from her. ");
 	set_desc_no_obj(get_desc());
 	set_index_id(28);
 }

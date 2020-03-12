@@ -6,7 +6,7 @@
 //#define ROOM13 "Kitchen"//exit north->basement:14 west->dining room:4
 Room13::Room13() {
 	set_name("\033[0;36mKitchen\033[0m");
-	set_extra_description("The smell of apple pie wafts pleasently under your nose, but you don't see any pie. However, as your eyes adjust from the dark, you smell an undertone of rot and decay. ");
+	set_extra_description("The smell of apple pie pleasantly wafts under your nose, but you don't see it. However, as your eyes adjust you begin to smell an undertone of rot and decay. ");
 	set_room_id(12);
 
 	set_feature_x(new Feature25, 0);//stovetop

@@ -6,7 +6,7 @@
 
 Feature15::Feature15() {
 	set_name("\033[1;31mVampire\033[0m");
-	set_desc("A sleeping \033[1;31mvampire\033[0m that doesn't seem to adhere to the rule of sleeping in a coffin. ");
+	set_desc("A sleeping \033[1;31mvampire\033[0m that doesn't seem to adhere to the stereotype of sleeping in a coffin. ");
 	set_desc_no_obj(get_desc());
 	set_index_id(14);
 	//let the 

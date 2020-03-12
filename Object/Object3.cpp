@@ -6,7 +6,7 @@
 
 Object3::Object3() {
 	set_name("\033[1;35mLocket\033[0m");
-	set_desc("The \033[1;35mlocket\033[0m is silver and small. The design appears to be very old fashioned, but it is in good condition. ");
+	set_desc("The \033[1;35mlocket\033[0m is silver and small. The design is very old fashioned, but it is in good condition. ");
 	set_index_id(2);
 }
 int Object3::read(){
@@ -18,7 +18,7 @@ int Object3::open(int room_id, int feat_id){
 	
 	if (room_id == CRYPT)
 	{
-		printf("You open the \033[1;35mlocket\033[0m. This is the room. This is what all the signs meant. ");
+		printf("The \033[1;35mlocket\033[0m opens. This is the time you need it most. ");
 		func_togg_count_x(OPEN);
 		//triggers event 0;
 		return 0;

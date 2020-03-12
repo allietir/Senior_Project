@@ -11,7 +11,7 @@ Feature16::Feature16() {
 	set_index_id(15);
 }
 int Feature16::climb(){
-	string climb_response = "You climb down the \033[1;31mBranch\033[0m back down into the garden. ";
+	string climb_response = "You climb down the \033[1;31mbranch\033[0m back down into the garden. ";
 	func_togg_count_x(CLIMB);
 	
 	printf("%s\n", climb_response.c_str());

@@ -6,7 +6,7 @@
 //#define ROOM9 "Bathroom"//exit south->master bedroom:8 east->child room:6 exit 
 Room9::Room9() {
 	set_name("\033[0;36mBathroom\033[0m");
-	set_extra_description("The sound of water and weeping, and a sense of anxiety and horror permeates your very bones. ");
+	set_extra_description("You hear the sound of water and weeping. Anxiety and horror permeates your bones. ");
 	set_room_id(8);
 
 	set_feature_x(new Feature17, 0);//mirror

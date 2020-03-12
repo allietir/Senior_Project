@@ -32,7 +32,7 @@ Room8::Room8() {
 	
 }
 int Room8::event_one(){
-	printf("The \033[1;31mvampire\033[0m is free. \"Thank you for helping me regrain my strength. I will locate my family, and our house will be alive again.\" ");
+	printf("The \033[1;31mvampire\033[0m is free. \"Thank you for helping me regain my strength. I will find my family, and our house will be alive again.\" ");
 	set_event_triggered(0, 1);
 	return 4;
 }
