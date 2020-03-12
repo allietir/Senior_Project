@@ -10,15 +10,15 @@ using namespace std;
 void convert_string_to_array(int* arr, string str);
 int main(int argc, char *argv[]) {
 
-		printf("\n\n");
+		printf("\n");
 		//house art taken from https://ascii.co.uk/art/house
 		string ascii_art = R"(
-                                       ^V^
-                                 .----.   
-                           )   ,'  ^V^ ', 
-                *-*       (    :        : ^V^
- ^V^      _______|________%%__ '.      .'                     
-         |%%%%%%%%%%%%%%%%%%%%%| '----'     \   /  
+                                      ^V^
+                                    
+                           )     ^V^  
+                *-*       (             ^V^
+ ^V^      _______|________%%__                              
+         |%%%%%%%%%%%%%%%%%%%%%|            \   /  
     _____|%%%/^\%%%/^\%%%/^\%%%|_____     '-\| -'/-,
    /%/^\%|%%%|-|%%%|-|%%%|-|%%%|%/^\%\  -\| \ ./ |-.      
   /%%|-|%|%%%%%%%%%%%%%%%%%%%%%|%|-|��\ '.-\| /.-'   
