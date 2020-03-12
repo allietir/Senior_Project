@@ -137,7 +137,7 @@ void Game::take(int object_id){
 	
 	//printf("value of is_locked:%i", is_locked[object_id]);
 	if (is_locked[object_id]==1){
-		printf("You can't take this item because it is locked.\n");
+//		printf("You can't take this item because it is locked.\n");
 		
 	}
 	if (is_locked[object_id]==0){
