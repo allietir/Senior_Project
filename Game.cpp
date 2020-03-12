@@ -121,7 +121,25 @@ void Game::gen_feat_list(){
 	//first room visited and looked at 
 void Game::start(){
 
-	printf(""
+	string ascii_art = R"                           )
+                *-*       (
+          _______|________%%__                            
+         |%%%%%%%%%%%%%%%%%%%%%|               /   
+    _____|%%%/^\%%%/^\%%%/^\%%%|_____     '-\| -'/-,
+   /%/^\%|%%%|-|%%%|-|%%%|-|%%%|%/^\%\  -\| \ ./ |-.      
+  /%%|-|%|%%%%%%%%%%%%%%%%%%%%%|%|-|��\ '.-\| /.-'   
+ /%%%%%%%%| __  __ ___ __  __ |%%%%%%%%\     \\//         
+  |_|-|-|_||__||__|.|.|__||__||_|-|-|_|       ||
+  IIIIIIII|       |_|_|       |IIIIIIII       || 
+  ~^    ^"@@@@@@@@|   |@@@@@@@@"^    ^~    ^^/ `\^^
+                  |   |
+                                     _._
+                                    /   \\
+                                    |RIP||
+                                  \\|,,,||//";
+    printf("%s", ascii_art.c_str());
+
+/*	printf(""
 "			               )\n"
 "                *-*       (\n"
 "          _______|________%%__\n"                            
@@ -137,7 +155,7 @@ void Game::start(){
 "                                     _._\n"
 "                                    /   \\\n"
 "                                    |RIP||\n"
-"                                  \\|,,,||//\n");
+"                                  \\|,,,||//\n");*/
 
 	printf("Welcome %s.", player1.get_name().c_str());
 	//printf("You are currently in the %s\n", r_array[player1.get_current_room()]->get_name().c_str());
