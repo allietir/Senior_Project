@@ -234,7 +234,7 @@ void Game::inventory(){
 	printf("INVENTORY: ");
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		if (player1.get_has_objects(i)==1){
-			printf("%s\t", o_array[i]->get_name().c_str());
+			printf("%s\n", o_array[i]->get_name().c_str());
 			empty = 0;
 		}
 	}
@@ -739,7 +739,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			}
 			//player is DEAD
 			if (res==-1){
-				printf("\n----You have died.---");
+				printf("--------------You have died.--------------");
 				player1.set_player_alive(0);//set to FALSE
 				
 				//return -1;

@@ -13,12 +13,12 @@ int Feature6::read(){
 	if (get_times_toggled(READ)!=-666){
 		string read_response = "Bha taigh ann uaireigin air cnoc\n Gabh a-steach còmhla ri caraid, ma thogras tu\n Bidh call uamhasach a ’tachairt\n B ’fheàrr dhut faighinn a-mach, dèan cabhag\n Ach gus an anam daor a shàbhaladh taobh a-staigh\n Feumaidh tu a bhith a ’sabaid grunn uilebheistean taobh a-staigh ";
 			func_togg_count_x(READ);
-			printf("%s\n", read_response.c_str());
+			printf("%s", read_response.c_str());
 	}
 	else{
 		string read_response = "There once was a house on a hill\nGo inside with a friend, if you will\nThere a terrible loss will take place\nYou had better get out, do have haste\nBut to save the dear soul within\nYou must fight the monsters within ";
 		func_togg_count_x(READ);
-		printf("%s\n", read_response.c_str());
+		printf("%s", read_response.c_str());
 	}
 	
 	return 4;

@@ -87,7 +87,7 @@ int Feature1::attack(int obj_id){
 
 	}
 	if (obj_id==-1){
-		printf("Attacking with no object is not effective. ");
+		printf("Attacking with no object is not effective. Perhaps specify what weapon you intend to use?");
 		func_togg_count_x(ATTACK);
 		return 4;
 	}

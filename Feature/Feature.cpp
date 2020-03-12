@@ -179,14 +179,21 @@ int Feature::give(int room_id, int feat_obj_id){
 }//user to interact with some features or objects potentially
 //will allow user to exit
 int Feature::climb(){
-	string response = get_name() + " cannot be climbed";
+	string response = get_name() + " cannot be climbed. ";
 	printf("%s", response.c_str());
 	return 4;
 }//use to interact with some features to exit between rooms
 int Feature::attack(int obj_id){
-	string response = get_name() + " cannot be attacked with with this object";
-	printf("%s", response.c_str());
+	if (obj_id!=-1){
+		string response = get_name() + " cannot be attacked in this manner. ";
+			printf("%s", response.c_str());
+			return 4;
+	}
+	else{
+		printf("You can't just attack %s.", get_name().c_str());
+	}
 	return 4;
+	
 }
 
 int Feature::get_times_toggled(int function_id){

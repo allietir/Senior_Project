@@ -58,7 +58,7 @@ int Feature2::attack(int obj_feat_id){
 		return 1;
 	}
 	else if (obj_feat_id==-1){
-		printf("Attacking without a weapon does nothing. ");
+		printf("Attacking without a weapon does nothing. Perhaps specify what weapon you are intending to use?");
 		return 4;
 	}
 	else{

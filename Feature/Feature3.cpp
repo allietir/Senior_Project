@@ -17,13 +17,13 @@ int Feature3::open(int room_id, int obj_feat_id){
 	if(get_times_toggled(OPEN)==0){
 		string open_event = "The \033[1;31mportrait\033[0m groans and suddenly the father's eyes seem to shift directly towards you, but it's dark so you might be seeing things. You decide not to open the \033[1;31mportrait\033[0m again. ";
 		func_togg_count_x(OPEN);
-		printf("%s\n", open_event.c_str());
+		printf("%s", open_event.c_str());
 	}
 	else
 	{
 		string open_event = "You want to look closer, but it is too dark. What can you use to look at the details? ";
 		func_togg_count_x(OPEN);
-		printf("%s\n", open_event.c_str());
+		printf("%s", open_event.c_str());
 	}
 	return 4;
 }
@@ -33,12 +33,12 @@ int Feature3::use(int feat_obj_id){
 		if(get_times_toggled(2)==0){
 				string use_event = "You feel a chill and you see the doll in the girl arms disapear. The girl face grows even sadder, and you see a single tear drop out of the \033[1;31mportrait\033[0m and onto your feet. ";
 					func_togg_count_x(2);
-					printf("%s\n", use_event.c_str());
+					printf("%s", use_event.c_str());
 			}
 			if(get_times_toggled(2)>1){
 				string use_event = "Poor little girl. You are creeped out but sad for the family in the \033[1;31mportrait\033[0m. ";
 				func_togg_count_x(2);
-				printf("%s\n", use_event.c_str());
+				printf("%s", use_event.c_str());
 
 			}
 	}
