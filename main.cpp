@@ -20,6 +20,7 @@ int main(int argc, char *argv[]) {
 
 		printf("\n%s", word_wrap(intro_two, MAX_WIDTH).c_str());
 		cin.ignore();
+		cin.ignore();
 
 		//house art taken from https://ascii.co.uk/art/house
 		const string ascii_art = R"(
