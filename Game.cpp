@@ -132,7 +132,7 @@ void Game::start(string name){
 
 	player1.set_name(name);
 
-	printf("Welcome to the game, %s. If you need info, type 'help'. Please enjoy!\n ", player1.get_name().c_str());
+	printf("Welcome to the game, %s. If you need info, type 'help'. Please enjoy!", player1.get_name().c_str());
 
 	//printf("You are currently in the %s\n", r_array[player1.get_current_room()]->get_name().c_str());
 	r_array[player1.get_current_room()]->look();
