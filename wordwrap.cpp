@@ -30,12 +30,12 @@ string word_wrap(string wrapString, int maxLength) {
 
 		unsigned line_end = ideal_end <= wrapString.size() ? ideal_end : wrapString.size()-1;
 
-		/*size_t hasNewLine = wrapString.find('\n', line_start);
+		size_t hasNewLine = wrapString.find('\n', line_start);
 		if ((hasNewLine != string::npos) && (hasNewLine <= line_end))
 		{
-			line_start = hasNewLine;
+			line_start = hasNewLine + 1;
 			continue;
-		}*/
+		}
 
 		//if we are at the end
 		if (line_end == wrapString.size() - 1)
