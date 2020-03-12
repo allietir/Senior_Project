@@ -494,7 +494,7 @@ int Game::exit_current_from_room_id(int room_id){
 }
 int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 	
-	
+	//printf("got %i", feat_index_id);
 	
 	if ((user_or_room_has_item(obj_index_id)==0)&&(obj_index_id!=-1)){
 		printf("You cannot access %s object within %s.",   o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
@@ -559,15 +559,16 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 		if ((feat_index_id!=-1)&&(obj_index_id==-1))
 		{
 			if ((item>=0)&&(item<=1)){
-				//printf("Running %s on on FEAT %s in room %s\n", verb.c_str(), feat_string.c_str(), r_array[player1.get_current_room()]->get_name().c_str());
-				if (user_or_room_has_item(feat_index_id)==1){
+				//printf("Running %s on on FEAT %s in room %s", verb.c_str(), feat_string.c_str(), r_array[player1.get_current_room()]->get_name().c_str());
+				//if (user_or_room_has_item(feat_index_id)==1){
 					if (verb.compare(STR_RVERB1)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->RVERB1(); }
-				}
-				
-				
+					
+				//}
 				
 				if (verb.compare(STR_RVERB2)==0){ printf("You can't take that. "); }
 				if (verb.compare(STR_RVERB3)==0){ printf("You can't drop that. "); }
+				
+				
 			}
 		}
 		else if ((feat_index_id==-1)&&(obj_index_id!=-1)){
