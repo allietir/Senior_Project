@@ -231,18 +231,37 @@ void Game::drop(int object_id){
 
 void Game::inventory(){
 	int empty = 1;
+	int inventory_count = 0;
+	int inventory_count2 = 0;
 	printf("INVENTORY: ");
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		if (player1.get_has_objects(i)==1){
 			printf("%s\n", o_array[i]->get_name().c_str());
 			empty = 0;
-			printf("\n");
+			inventory_count++;
+			
 		}
 	}
-
+//	for (int i = 0; i < NUM_OBJECTS; i++){
+//		
+//		if ((player1.get_has_objects(i)==1)&&(inventory_count2<inventory_count-1)){
+//			
+//			printf("%s\n", o_array[i]->get_name().c_str());
+//			empty = 0;
+//			inventory_count2++;
+//			
+//		}
+//		else if ((player1.get_has_objects(i)==1)&&(inventory_count2==inventory_count-1)){
+//			
+//			printf("%s\n", o_array[i]->get_name().c_str());
+//			empty = 0;
+//			inventory_count2++;
+//			
+//		}
+//	}
 	if (empty==1)
 	{
-		printf("(empty)\n ");
+		printf("(empty) ");
 	}
 }
 void Game::exit_room(int dir){
