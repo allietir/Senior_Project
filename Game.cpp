@@ -233,13 +233,13 @@ void Game::inventory(){
 	int empty = 1;
 	int inventory_count = 0;
 	int inventory_count2 = 0;
-	printf("INVENTORY:\n\t");
+	printf("INVENTORY: ");
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		if (player1.get_has_objects(i)==1){
-			printf("%s\n\t", o_array[i]->get_name().c_str());
+			printf("%s", o_array[i]->get_name().c_str());
 			empty = 0;
 			inventory_count++;
-			
+			printf("\n");
 		}
 	}
 //	for (int i = 0; i < NUM_OBJECTS; i++){
@@ -262,6 +262,7 @@ void Game::inventory(){
 	if (empty==1)
 	{
 		printf("(empty) ");
+		printf("\n");
 	}
 }
 void Game::exit_room(int dir){
@@ -1286,10 +1287,12 @@ void Game::event9(){
 	
 }
 void Game::event10(){
+	printf("You have unlocked secret knowledge about the current location of the objects in the house! See the following:");
 	output_current_object_locations();
 	set_game_events_triggered(9, 1);
 }
 void Game::event11(){
+	printf("You have unlocked even more secret knowledge about the items within the house! Behold:");
 	output_feature_list_locations();
 	set_game_events_triggered(10, 1);
 }
