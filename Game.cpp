@@ -560,7 +560,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 		{
 			if ((item>=0)&&(item<=1)){
 				//printf("Running %s on on FEAT %s in room %s\n", verb.c_str(), feat_string.c_str(), r_array[player1.get_current_room()]->get_name().c_str());
-				if (user_or_room_has_item(obj_index_id)==1){
+				if (user_or_room_has_item(feat_index_id)==1){
 					if (verb.compare(STR_RVERB1)==0){ res = r_array[player1.get_current_room()]->get_feature_x(item)->RVERB1(); }
 				}
 				

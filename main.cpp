@@ -37,6 +37,18 @@ int main(int argc, char *argv[]) {
 		//run_game.get_player()->set_has_objects(LAMP, 1);
 		//run_game.get_player()->set_move_count(11);
 		
+		
+		//test chalice
+		//run_game.get_player()->set_current_room(BASEMENT);
+		//run_game.get_player()->set_has_objects(CHALICE, 1);
+		//run_game.get_player()->set_move_count(11);
+		
+		//test child
+		run_game.get_player()->set_current_room(NURSERY);
+		run_game.get_player()->set_has_objects(LAMP, 1);
+		run_game.get_player()->set_has_objects(DOLL, 1);
+		//run_game.get_player()->set_move_count(11);
+		
 		char userInput[100] = {'\0'}; 
 		int x=0;
 		int y_flag = 0;
