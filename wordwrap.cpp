@@ -33,7 +33,7 @@ string word_wrap(string wrapString, int maxLength) {
 		size_t hasNewLine = wrapString.find('\n', line_start);
 		if ((hasNewLine != string::npos) && (hasNewLine <= line_end))
 		{
-			line_start = hasNewLine;
+			//line_start = hasNewLine;
 			continue;
 		}
 
