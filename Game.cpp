@@ -7,6 +7,7 @@
 #include <string>
 #include <cstring>
 #include <fstream>
+#include <iostream>
 
 Game::Game() {
 	init_rooms();
@@ -119,9 +120,20 @@ void Game::gen_feat_list(){
 	//Room array and object array initialized
 	//POSTCONDITIONS:
 	//first room visited and looked at 
-void Game::start(){
+void Game::start(string name){
 
-	printf("Welcome %s", player1.get_name().c_str());
+	//string input;
+
+	//printf("You and your best friend Alex were hanging out like you always do. You've been through the best of times and the worst of times together. Today, you were exploring and happened upon an old, abandoned house. Let's go check it out, Alex says eagerly as they wiggle through the broken gate. You get that feeling that this is a terrible idea but decide to shrug it off and follow Alex through the gate. ");
+	//fflush(stdout);
+	//printf("First, what is your name? ");
+	//fflush(stdout);
+	//getline(cin, input);
+
+	player1.set_name(name);
+
+	printf("Welcome to the game, %s. If you need info, type 'help'. Please enjoy!\n", player1.get_name().c_str());
+
 	//printf("You are currently in the %s\n", r_array[player1.get_current_room()]->get_name().c_str());
 	r_array[player1.get_current_room()]->look();
 	//set room visited to 1; 
@@ -234,16 +246,13 @@ void Game::inventory(){
 	int inventory_count = 0;
 	
 
-  printf("\nINVENTORY:\n ");
+  printf("\nINVENTORY:\n");
 
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		if (player1.get_has_objects(i)==1){
-			printf("%s", o_array[i]->get_name().c_str());
+			printf("%s\n", o_array[i]->get_name().c_str());
 			empty = 0;
 			inventory_count++;
-
-			printf("\n ");
-
 		}
 	}
 //	for (int i = 0; i < NUM_OBJECTS; i++){
@@ -265,9 +274,9 @@ void Game::inventory(){
 //	}
 	if (empty==1)
 	{
-		printf("(empty) ");
-		printf("\n");
+		printf("(empty)");
 	}
+	printf("\n");
 }
 void Game::exit_room(int dir){
 	
@@ -310,7 +319,7 @@ void Game::exit_room(int dir){
 				event13();
 				
 					//reset move count
-					printf("------Time is resetting----");
+					//printf("------Time is resetting----");
 					player1.set_move_count(0);
 					int mc = 0;
 					
@@ -769,7 +778,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 				if (event_index == 21){
 					//if the blood has been used, you can turn off the "event occured" indicator for the index, as now the chalice is back to normal and can be filled with blood or something else. 
 					//
-					printf("Blood used, the chalice is empty again. ");
+					printf("The \033[1;31mvampire\033[0m wakes up and drinks the blood from the \033[1;35mchalice\033[0m. He hands you back the empty \033[1;35mchalice\033[0m. ");
 					room_events_triggered[24]=0;
 				}
 				//printf("get events triggered val now: %i", get_room_events_triggered(event_index));
@@ -786,7 +795,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			
 			//player is DEAD
 			if (res==-1){
-				printf("--------------You have died.--------------");
+				printf("\n--------------You have died.--------------");
 				player1.set_player_alive(0);//set to FALSE
 				
 				//return -1;
@@ -1269,16 +1278,16 @@ void Game::event3(){
 	
 }
 void Game::event4(){
-	printf("----------You have freed your friend and won the game! Objective completed-----. ");
+	printf("\n----------You have freed your friend and won the game! Objective completed----- ");
 	set_game_events_triggered(3, 1);
 }
 void Game::event5(){
-	printf("----------You have re-united the ghost family! Side quest completed--------. ");
+	printf("\n----------You have re-united the ghost family! Side quest completed-------- ");
 	set_game_events_triggered(4, 1);
 }
 //deprecated event
 void Game::event6(int obj_id){
-	printf("-------You have transported the %s-------\n", o_array[obj_id]->get_name().c_str());
+	printf("\n-------You have transported the %s------- ", o_array[obj_id]->get_name().c_str());
 	set_game_events_triggered(5, 1);
 	int curr_room = player1.get_current_room();
 	player1.set_current_room(LIBRARY);
