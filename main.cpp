@@ -9,6 +9,7 @@
 using namespace std;
 void convert_string_to_array(int* arr, string str);
 int main(int argc, char *argv[]) {
+	
 
 		string ascii_art = R"(                           )
                 *-*       (
@@ -23,9 +24,10 @@ int main(int argc, char *argv[]) {
   ~^    ^"@@@@@@@@|   |@@@@@@@@"^    ^~    ^^/ `\^^
                   |   |
                                      _._
-                                    /   \\
+WELCOME TO OUR HAUNTED HOUSE GAME!  /   \\
                                     |RIP||
                                   \\|,,,||//)";
+
 
     	printf("%s", ascii_art.c_str());
 		
