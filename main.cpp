@@ -9,47 +9,6 @@
 using namespace std;
 void convert_string_to_array(int* arr, string str);
 int main(int argc, char *argv[]) {
-/*
-		printf("\n");
-		//house art taken from https://ascii.co.uk/art/house
-		const string ascii_art = R"(
-                                      ^V^
-                                    
-                           )     ^V^  
-                *-*       (             ^V^
- ^V^      _______|________%%__                              
-         |%%%%%%%%%%%%%%%%%%%%%|            \   /  
-    _____|%%%/^\%%%/^\%%%/^\%%%|_____     '-\| -'/-,
-   /%/^\%|%%%|-|%%%|-|%%%|-|%%%|%/^\%\  -\| \ ./ |-.      
-  /%%|-|%|%%%%%%%%%%%%%%%%%%%%%|%|-|��\ '.-\| /.-'   
- /%%%%%%%%| __  __ ___ __  __ |%%%%%%%%\     \\//         
-  |_|-|-|_||__||__|.|.|__||__||_|-|-|_|       ||
-  IIIIIIII|       |_|_|       |IIIIIIII       || 
-  ~^    ^"@@@@@@@@|   |@@@@@@@@"^    ^~    ^^/ `\^^
-                  |   |
-                                     _._
-WELCOME TO OUR HAUNTED HOUSE GAME!  /   \\
-                                    |RIP||
-                                  \\|,,,||//)";
-
-    	printf("%s\n\n", ascii_art.c_str());*/
-		
-		Game run_game;
-		int saveflag=0;
-		int loadflag=0;
-		//using https://stackoverflow.com/questions/19485536/redirect-output-of-an-function-printing-to-console-to-string/19499003
-		char buffer[2024];
-		memset(buffer, '\0', 2024);
-		FILE *fp;
-		fp = fmemopen(buffer, 2024, "w");
-		if ( !fp ) { std::printf("error"); 
-		
-		return 0; }
-
-		auto old = stdout;
-		stdout = fp;
-
-		run_game.start();
 
 		printf("\n");
 		//house art taken from https://ascii.co.uk/art/house
@@ -74,6 +33,23 @@ WELCOME TO OUR HAUNTED HOUSE GAME!  /   \\
                                   \\|,,,||//)";
 
     	printf("%s\n\n", ascii_art.c_str());
+		
+		Game run_game;
+		int saveflag=0;
+		int loadflag=0;
+		//using https://stackoverflow.com/questions/19485536/redirect-output-of-an-function-printing-to-console-to-string/19499003
+		char buffer[2024];
+		memset(buffer, '\0', 2024);
+		FILE *fp;
+		fp = fmemopen(buffer, 2024, "w");
+		if ( !fp ) { std::printf("error"); 
+		
+		return 0; }
+
+		auto old = stdout;
+		stdout = fp;
+
+		run_game.start();
 		
 		fclose(fp);
 		stdout = old; //reset
