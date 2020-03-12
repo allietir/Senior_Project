@@ -10,7 +10,16 @@ using namespace std;
 void convert_string_to_array(int* arr, string str);
 int main(int argc, char *argv[]) {
 
-		printf("\n");
+		string name_input;
+		string intro_one = "You and your best friend Alex were hanging out like you always do. You've been through the best of times and the worst of times together. Today, you were exploring and happened upon an old, abandoned house. Let's go check it out, Alex says eagerly as they wiggle through the broken gate. You get that feeling that this is a terrible idea but decide to shrug it off and follow Alex through the gate... ";
+		string intro_two = "You finally reach the front of the house and get a better look at it. Whoa... that's hella creepy, says Alex. ";
+		printf("%s\n", word_wrap(intro_one, MAX_WIDTH).c_str());
+	
+		printf("First, what is your name? ");
+		getline(cin, name_input);
+
+		printf("%s\n", word_wrap(intro_two, MAX_WIDTH).c_str());
+
 		//house art taken from https://ascii.co.uk/art/house
 		const string ascii_art = R"(
                                       ^V^
@@ -49,7 +58,7 @@ WELCOME TO OUR HAUNTED HOUSE GAME!  /   \\
 		auto old = stdout;
 		stdout = fp;
 
-		run_game.start();
+		run_game.start(name_input);
 		
 		fclose(fp);
 		stdout = old; //reset
