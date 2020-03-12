@@ -69,7 +69,7 @@ int inputParsing(Game &game, string userInput){
 	if (status == 1) return 0; 
 	status = checkActions(game, wordList); 
 	if (status == 1) return 0;
-	cout << "\nunknown command";
+	cout << "\nunknown command. type \'help\' for available commands. ";
 	fflush(stdout);
 	return 0;
 }
@@ -129,12 +129,12 @@ int checkBasicCommands(Game &game, string cleanInput){
 		//cout << "inventory called \n"; 
 		game.inventory();
 	}
-	else if (cleanInput == "savegame"){
+	else if (cleanInput == "savegame" || cleanInput == "save game"){
 		//save_game(game);
 		game.get_player()->set_saving(1);
 		//call savegame
 	}
-	else if (cleanInput == "loadgame"){
+	else if (cleanInput == "loadgame" || cleanInput == "load game"){
 		game.get_player()->set_loading(1);
 		
 		//call load game
@@ -174,7 +174,7 @@ int checkMoveCommands(Game &game, vector<string> inputVector){
 	while (inputVector[0] == "go" || inputVector[0] == "to" || inputVector[0] == "the") {
 		inputVector.erase(inputVector.begin());	
 		if (inputVector.size() == 0){
-			cout << "\nplease be more specific";
+			cout << "\nplease be more specific. ";
 			return 1;
 		}
 	}
@@ -239,7 +239,7 @@ int checkActions(Game &game, vector<string> inputVector) {
 			if (verbID == -1) verbID = verbIT->second;
 			else {
 				actionStatus = -1;
-				cout << "\ntoo many verbs";
+				cout << "\ntoo many verbs. ";
 				return actionStatus;
 			}
 		}
@@ -250,7 +250,7 @@ int checkActions(Game &game, vector<string> inputVector) {
 			if (featID == -1) featID = featIT->second;
 			else {
 				actionStatus = -1;
-				cout << "\ntoo many features";
+				cout << "\ntoo many features. ";
 				return actionStatus;
 			}
 		}
@@ -261,7 +261,7 @@ int checkActions(Game &game, vector<string> inputVector) {
 			if (objID == -1) objID = objIT->second;
 			else {
 				actionStatus = -1;
-				cout << "\ntoo many objects";
+				cout << "\ntoo many objects. ";
 				return actionStatus;
 			}
 		}
@@ -269,7 +269,7 @@ int checkActions(Game &game, vector<string> inputVector) {
 	//cout << "\n";
 	if (verbID == -1 || (featID == -1 && objID == -1)) {
 		actionStatus = 0;
-		cout << "\nincorrect arguments found";
+		//cout << "\nincorrect arguments found. type \'help\' for available commands. ";
 		fflush(stdout);
 	}
 	else {
