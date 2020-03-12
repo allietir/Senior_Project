@@ -41,11 +41,13 @@ closedir(dir);
 	system(mkdir_command);
 
 	/****The path name will have to be modified depending on testing environment.****/
-	string filename_path = "SaveData/" + game.get_player()->get_name() + to_string(raw_time).substr(5);
+	string filename_raw = game.get_player()->get_name() + to_string(raw_time).substr(5);
+	string filename_path = "SaveData/" + filename_raw;
 
 	ofstream save_file(filename_path);
 	if (save_file.is_open())
 	{
+		printf("Saving game to file named %s...\n\n", filename_raw.c_str());
 		//write game data to save_file
 		save_file << get_game_data(game);
 		save_file.close();

@@ -233,13 +233,17 @@ void Game::inventory(){
 	int empty = 1;
 	int inventory_count = 0;
 	int inventory_count2 = 0;
-	printf("INVENTORY: ");
+
+  printf("\nINVENTORY:\n ");
+
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		if (player1.get_has_objects(i)==1){
 			printf("%s", o_array[i]->get_name().c_str());
 			empty = 0;
 			inventory_count++;
-			printf("\n");
+
+			printf("\n ");
+
 		}
 	}
 //	for (int i = 0; i < NUM_OBJECTS; i++){
