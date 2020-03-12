@@ -236,29 +236,29 @@ void Game::inventory(){
 	printf("INVENTORY: ");
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		if (player1.get_has_objects(i)==1){
-			printf("%s", o_array[i]->get_name().c_str());
+			printf("%s\n\t", o_array[i]->get_name().c_str());
 			empty = 0;
 			inventory_count++;
 			
 		}
 	}
-	for (int i = 0; i < NUM_OBJECTS; i++){
-		
-		if ((player1.get_has_objects(i)==1)&&(inventory_count2<inventory_count-1)){
-			
-			printf("%s\n\t", o_array[i]->get_name().c_str());
-			empty = 0;
-			inventory_count2++;
-			
-		}
-		else if ((player1.get_has_objects(i)==1)&&(inventory_count2==inventory_count-1)){
-			
-			printf("%s", o_array[i]->get_name().c_str());
-			empty = 0;
-			inventory_count2++;
-			
-		}
-	}
+//	for (int i = 0; i < NUM_OBJECTS; i++){
+//		
+//		if ((player1.get_has_objects(i)==1)&&(inventory_count2<inventory_count-1)){
+//			
+//			printf("%s\n", o_array[i]->get_name().c_str());
+//			empty = 0;
+//			inventory_count2++;
+//			
+//		}
+//		else if ((player1.get_has_objects(i)==1)&&(inventory_count2==inventory_count-1)){
+//			
+//			printf("%s", o_array[i]->get_name().c_str());
+//			empty = 0;
+//			inventory_count2++;
+//			
+//		}
+//	}
 	if (empty==1)
 	{
 		printf("(empty) ");
