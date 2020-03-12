@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
 
 		printf("\n");
 		//house art taken from https://ascii.co.uk/art/house
-		string ascii_art = R"(
+		const string ascii_art = R"(
                                       ^V^
                                     
                            )     ^V^  
