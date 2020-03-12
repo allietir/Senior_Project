@@ -9,6 +9,40 @@
 using namespace std;
 void convert_string_to_array(int* arr, string str);
 int main(int argc, char *argv[]) {
+
+		string name_input;
+		string intro_one = "You and your best friend Alex were hanging out like you always do. You've been through the best of times and the worst of times together. Today, you were exploring and happened upon an old, abandoned house. Let's go check it out, Alex says eagerly as they wiggle through the broken gate. You get that feeling that this is a terrible idea but decide to shrug it off and follow Alex through the gate... ";
+		string intro_two = "You finally reach the front of the house and get a better look at it. Whoa... that's hella creepy, says Alex. \n\nPress <Enter> to start the game. ";
+		printf("\n%s\n\n", word_wrap(intro_one, MAX_WIDTH).c_str());
+	
+		printf("First, what is your name? ");
+		getline(cin, name_input);
+
+		printf("\n%s", word_wrap(intro_two, MAX_WIDTH).c_str());
+		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+		//house art taken from https://ascii.co.uk/art/house
+		const string ascii_art = R"(
+                                      ^V^
+                                    
+                           )     ^V^  
+                *-*       (             ^V^
+ ^V^      _______|________%%__                              
+         |%%%%%%%%%%%%%%%%%%%%%|            \   /  
+    _____|%%%/^\%%%/^\%%%/^\%%%|_____     '-\| -'/-,
+   /%/^\%|%%%|-|%%%|-|%%%|-|%%%|%/^\%\  -\| \ ./ |-.      
+  /%%|-|%|%%%%%%%%%%%%%%%%%%%%%|%|-|��\ '.-\| /.-'   
+ /%%%%%%%%| __  __ ___ __  __ |%%%%%%%%\     \\//         
+  |_|-|-|_||__||__|.|.|__||__||_|-|-|_|       ||
+  IIIIIIII|       |_|_|       |IIIIIIII       || 
+  ~^    ^"@@@@@@@@|   |@@@@@@@@"^    ^~    ^^/ `\^^
+                  |   |
+                                     _._
+WELCOME TO OUR HAUNTED HOUSE GAME!  /   \\
+                                    |RIP||
+                                  \\|,,,||//)";
+
+    	printf("%s\n\n", ascii_art.c_str());
 		
 		Game run_game;
 		int saveflag=0;
@@ -25,7 +59,7 @@ int main(int argc, char *argv[]) {
 		auto old = stdout;
 		stdout = fp;
 
-		run_game.start();
+		run_game.start(name_input);
 		
 		fclose(fp);
 		stdout = old; //reset

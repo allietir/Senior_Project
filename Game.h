@@ -72,7 +72,7 @@ public:
 	//Room array and object array initialized
 	//POSTCONDITIONS:
 	//first room visited and looked at 
-	void start();
+	void start(string name);
 	
 	//-------------- V E R B  F U N C T I O N  --------------//
 	void take(int object_id);
