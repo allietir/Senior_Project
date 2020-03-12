@@ -274,9 +274,9 @@ void Game::inventory(){
 //	}
 	if (empty==1)
 	{
-		printf("(empty) ");
-		printf("\n");
+		printf("(empty)\n");
 	}
+	printf("\n");
 }
 void Game::exit_room(int dir){
 	
