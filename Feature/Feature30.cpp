@@ -6,7 +6,7 @@
 
 Feature30::Feature30(){
 	set_name("\033[1;31mDemon\033[0m");
-	set_desc("There is a terrifying \033[1;31mdemon\033[0m standing before you; the creatures eyes are huge, too big for a human face, and so red. Huge horns spiral out of the creatures head. The creatures seems to be both and impossibly terrifying shadow and a hot, horrible fire. ");
+	set_desc("There is a terrifying \033[1;31mdemon\033[0m standing before you; the creature's eyes are enormous and red. Terrifying horns spiral out of the creature's head. You cannot make out the creature's body for it appears to be composed of shadows and fire. ");
 	set_desc_no_obj(get_desc());
 	set_index_id(29);
 }
@@ -14,11 +14,11 @@ int Feature30::speak(){
 
 	if (get_times_toggled(SPEAK)==0){
 		func_togg_count_x(SPEAK);
-		printf("The \033[1;31mdemon\033[0m speaks in a thundering tone:\n\"Your friend has a darkness inside them and so they will be mine.\"\n You say to the \033[1;31mdemon\033[0m: \n\"We all have both dark and light within us.\nInstead of bringing them to the dark, why can't you step into the light?\"\nThe \033[1;31mdemon\033[0m shudders.\"It is too late for me. The one I loved chose another. I cannot bear to see the light of day.\" ");
+		printf("The \033[1;31mdemon\033[0m speaks in a thundering tone:\n\"Your friend has a darkness inside them that I will make mine.\"\n You say to the \033[1;31mdemon\033[0m: \n\"We all have both darkness and light within us.\nInstead of claiming them to the darkness, why not step into the light?\"\nThe \033[1;31mdemon\033[0m shudders.\"It is too late for me. The one I loved chose another. I cannot bear to see the light of another soul.\" ");
 	}
 	else if (get_times_toggled(SPEAK)==1){
 		func_togg_count_x(SPEAK);
-		printf("\"Whom did you love?\" You ask. The \033[1;31mdemons\033[0m eyes wander away from \033[1;31mAlex\033[0m, and seems to stop sucking the life force out of \033[1;31mAlex\033[0m.\n \"It doesn't matter. None of it matters anywmore.\" ");
+		printf("\"Who did you love?\" You ask. The \033[1;31mdemon's\033[0m eyes wander away from \033[1;31mAlex\033[0m and stops sucking the life force out of \033[1;31mAlex\033[0m.\n \"It doesn't matter. None of it matters anywmore.\" ");
 
 	}
 	else{
@@ -36,7 +36,7 @@ int Feature30::attack(int obj_feat){
 		return 35;
 	}
 	if (obj_feat==CHALICE){
-		printf("You hold out the \033[1;35mchalice\033[0m and suddenly it yanks out of your hands without your control, like it is waiting for a cue. What are the right words to say next? ");
+		printf("You hold out the \033[1;35mchalice\033[0m and it suddenly shoots out of your hand and levitates in front of you, like it is waiting for a command. What are the right words to say next? ");
 		//requires that you read a different spell from the diary before it locks the demon in the locket
 		return 36;
 	}
@@ -45,7 +45,7 @@ int Feature30::attack(int obj_feat){
 		return 35;
 	}
 	if (obj_feat==DAGGER){
-		printf("The \033[1;31mdemon\033[0m snarles and claws the \033[1;35mdagger\033[0m out of your hand with his mighty hooved arm.\nYou're losing blood fast.\nYou aren't going to make it. ");
+		printf("The \033[1;31mdemon\033[0m snarls and claws the \033[1;35mdagger\033[0m out of your hand with his mighty arm.\nYou're losing blood fast.\nYou aren't going to make it. ");
 		return -1;
 	}
 	return 4;
@@ -55,7 +55,7 @@ int Feature30::give(int event_occured, int obj_feat_id){
 	//if this is called, this means that at this point the game was able to see that the chalice has something 
 	if ((obj_feat_id==CHALICE)&&(event_occured==1))
 	{
-		printf("The \033[1;31mdemon\033[0m looks at the holy water in the chalice.\n.\"Maybe some things are worth the pain of transformation.\"\nThe \033[1;31mdemon\033[0m drinks the water and lets out a horrible shriek.\nThere are flashes of light throughout the room and you are forced to look away.\nWhen you are no longer blinded by the light, you look for a remnent of the creature, but the demon is utterly gone. ");	
+		printf("The \033[1;31mdemon\033[0m looks at the holy water in the chalice.\n.\"Maybe some things are worth the pain.\"\nThe \033[1;31mdemon\033[0m drinks the water and lets out a horrible shriek.\nFirst, white light shines through its eyes, then light begins to flash from its body, forcing you to look away.\nWhen you are no longer blinded by the light, you look for the creature, but it is nowhere to be found. ");	
 	}
 	return 0;
 

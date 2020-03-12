@@ -15,7 +15,7 @@ Room1::Room1() {
 	init_long_short_desc();
 	//set exits; name, direction
 	set_exit_name("Door", 0);
-	string exit_desc = "A large, imposing front door to the \033[0;32mnorth\033[0m, dark and heavy looking. It appears to be slightly ajar. You can see what looks like some sort of \033[0;36mentranceway\033[0m to the house. ";
+	string exit_desc = "There is a large and dark-colored front door to the \033[0;32mnorth\033[0m. It appears to be slightly ajar. You can see what looks like an \033[0;36mentranceway\033[0m to the house. ";
 	set_exit_desc(exit_desc, 0);
 	set_exit_id(1, 0);//exit at north goes to Room2
 
@@ -28,21 +28,21 @@ Room1::Room1() {
 	
 }
 int Room1::event_one(){
-	printf("The silver \033[1;35mdagger\033[0m resonates in your hand as you pick it up. The item has great power, and you can feel the power within your hand. The gilded handle reminds you of someting powerful and ancient. ");
+	printf("The silver \033[1;35mdagger\033[0m resonates with power as you pick it up. You look over the ancient runes inscribed into the handle. You feel a sense of strength and confidence as you hold onto it.  ");
 	set_event_triggered(0, 1);
 	
 	return 4;
 }
 //if you attack() tree
 int Room1::event_two(){
-	printf("The \033[1;31mtree\033[0m shakes and suddenly the face of the tree comes alive. You see a face more old and ancient and angry than any human could ever be, and in that moment you realize you have made an enormous error. That's the last thought you have before the tree swallows you whole. ");
+	printf("The \033[1;31mtree\033[0m shakes and suddenly its face comes alive. You see a menacing face, and it looks angry. Actually, it looks really really angry. Your last word escapes your lips... oops. The tree swallows you whole. ");
 	set_event_triggered(1, 1);
 	//return 4;
 	return -1;
 }
 //if you eat() knife
 int Room1::event_three(){
-	printf("The ground opens up and swallows you whole. ");
+	printf("You feel a tremor as the ground beneath you opens and swallows you whole. ");
 	set_event_triggered(2, 1);
 	return -1;
 }

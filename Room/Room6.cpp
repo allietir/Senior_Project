@@ -14,8 +14,8 @@ Room6::Room6() {
 	
 	set_exit_name("Door to \033[0;36mhallway\033[0m", 1);
 	set_exit_name("Doorway to \033[0;36mbathroom\033[0m", 3);
-	string exit_desc1 = "There's a mirrored door on the \033[0;32msouth\033[0m to the \033[0;36mhallway\033[0m, strange and fogged. ";
-	string exit_desc3 = "There's a dooway to what looks like a \033[0;36mbathroom\033[0m towards the \033[0;32meast\033[0m. You can hear water running. ";
+	string exit_desc1 = "There's a mirrored door on the \033[0;32msouth\033[0m to the \033[0;36mhallway\033[0m. ";
+	string exit_desc3 = "There's a dooway to what looks like a \033[0;36mbathroom\033[0m towards the \033[0;32meast\033[0m. You hear water running. ";
 	set_exit_desc(exit_desc1, 1);
 	set_exit_desc(exit_desc3, 3);
 	set_exit_id(2, 1);//exit at south goes to upstairs hallway
@@ -27,7 +27,7 @@ Room6::Room6() {
 }
 //when you take the locket
 int Room6::event_one(){
-	printf("The \033[1;35mlocket\033[0m is hard and small and silver in your hand. There is something comforting and yet powerful about it. The \033[1;31mchild\033[0m smiles and speaks precociously. \"Thank you. I will go find my family.\" ");
+	printf("The silver \033[1;35mlocket\033[0m is small in your hand. There is something comforting yet powerful about it. The \033[1;31mchild\033[0m smiles and speaks precociously. \"Thank you. I will go find my family.\" ");
 	set_event_triggered(0, 1);
 	//triggers nothing
 	return 4;

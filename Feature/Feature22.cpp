@@ -30,7 +30,7 @@ int Feature22::use(int obj_feat){
 	//if fire is on and you want to speak 
 	else if ((obj_feat==DIARY)&&(get_times_toggled(USE)==1)){
 		func_togg_count_x(USE);
-		printf("The fire shudders and crackles, and briefly turns purple; the \033[1;35mdiary\033[0m grows hot it in your hand, so hot you almost drop it.\n Then it flies open and reveals a spell to your eyes.\n You read it: \'Item ut in vicem dicere vessle fert ignis\' ");
+		printf("The fire shudders and crackles, and briefly turns purple; the \033[1;35mdiary\033[0m grows hot in your hand, so hot you almost drop it.\n Then it flies open and reveals a spell to your eyes.\n You read it: \'Item ut in vicem dicere vessle fert ignis\' ");
 		set_desc("The fire flickers and crackles; it is waiting for the next step. ");
 			
 	}

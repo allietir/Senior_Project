@@ -37,7 +37,7 @@ int Feature21::use(int obj_feat_obj){
 	if (get_times_toggled(USE)==0){
 		if (obj_feat_obj==DIARY){
 				func_togg_count_x(USE);
-				printf("You open the helpful \033[1;35mdiary\033[0m and see the words arrange themselves on the page.\"Ah, I see you have found the library books.\nSpeak this incantation over the bookshelf to reveal the secrets of the house:\n\'Infra dignitatem ostendere.\'\nIt's a fiddely spell, though. You may have to speak the spell and read the books more than once to gain all their secrets\".");
+				printf("You open the helpful \033[1;35mdiary\033[0m and see the words arrange themselves on the page.\"Ah, I see you have found the library books.\nSpeak this incantation over the bookshelf to reveal the secrets of the house:\n\'Infra dignitatem ostendere.\'\nIt's a fiddly spell, though. You may have to speak the spell and read the books more than once to gain all their secrets\".\nMust be a feature, not a bug. ");
 				
 			}
 	}
@@ -54,11 +54,11 @@ int Feature21::speak(){
 	}
 	else if ((get_times_toggled(SPEAK)==1)&&(get_times_toggled(USE)==1)){
 		func_togg_count_x(SPEAK);
-		printf("You speak the spell as the \033[1;35mdiary\033[0m requested, a second time, and the same book shimmers briefly, before changing the text.");
+		printf("You speak the spell as the \033[1;35mdiary\033[0m requested, a second time, and the same book shimmers briefly, before changing the text. ");
 	}
 	else if ((get_times_toggled(SPEAK)==2)&&(get_times_toggled(USE)==1)){
 		func_togg_count_x(SPEAK);
-		printf("You speak the spell as the \033[1;35mdiary\033[0m requested, a third time, and the same book sparkles before the text changes.  ");
+		printf("You speak the spell as the \033[1;35mdiary\033[0m requested, a third time, and the same book sparkles before the text changes. ");
 	}
 	else if ((get_times_toggled(SPEAK)==3)&&(get_times_toggled(USE)==1)){
 		func_togg_count_x(SPEAK);

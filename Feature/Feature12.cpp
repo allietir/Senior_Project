@@ -13,16 +13,16 @@ Feature12::Feature12() {
 int Feature12::use(int int_feat_obj){
 	if ((int_feat_obj==DOLL)&&((get_times_toggled(USE)==0))){
 		func_togg_count_x(USE);
-		printf("You can see the \033[1;35mdoll\033[0m shrink within the houseand are astonished as she appears to become a real, tiny human.\nThrough the window you see the little girl walk through a replica of the hallway outside, and you see her turn back the clock. ");
+		printf("You can see the \033[1;35mdoll\033[0m shrink within the house and are astonished as she appears to become a real, tiny human.\nThrough the window you see the little girl walk through a replica of the hallway outside, and you see her turn back the clock. ");
 		return 41;
 	}
 	else if ((int_feat_obj==DOLL)&&((get_times_toggled(USE)>=1))){
 		func_togg_count_x(USE);
-		printf("Again, you can see the \033[1;35mdoll\033[0m shrink within the house and become real\nThrough the window you see the little girl walk through a replica of the hallway outside, and you see her turn back the clock. ");
+		printf("Again, you can see the \033[1;35mdoll\033[0m shrink within the house and become real.\nThrough the window you see the little girl walk through a replica of the hallway outside, and you see her turn back the clock. ");
 		return 41;
 	}
 	else{
-		printf("You can't use this this dollhouse under these conditions.");
+		printf("You can't use this dollhouse under these conditions.");
 	}
 	return 4;
 	

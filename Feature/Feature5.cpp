@@ -8,7 +8,7 @@ Feature5::Feature5() {
 	
 	current_time = 0;
 	set_name("\033[1;31mClock\033[0m");
-	string desc_a = "There is a clock at the end of the highway, a grandfather \033[1;31mclock\033[0m, large and imposing. What happens when the clock strikes midnight?\n" + get_time_str();
+	string desc_a = "There is a clock at the end of the hallway, a grandfather \033[1;31mclock\033[0m, large and imposing. What happens when the clock strikes midnight?\n" + get_time_str();
 	set_desc(desc_a);
 	set_desc_no_obj("There is a \033[1;31mclock\033[0m at the end of the hallway, a grandfather \033[1;31mclock\033[0m, large and imposing. What happens when the \033[1;31mclock\033[0m strikes midnight? ");
 	set_index_id(4);
@@ -18,7 +18,7 @@ Feature5::Feature5() {
 
 int Feature5::read(){
 	func_togg_count_x(READ);
-	printf("The \033[1;31clock's\033[0m inscription says, 'I slow as you hasten'. Well, that certainly doesn't feel true. ");
+	printf("The \033[1;31clock's\033[0m inscription says, 'I slow as you hasten.' Well, that certainly doesn't feel true. ");
 	return 4;
 }
 int Feature5::speak(){

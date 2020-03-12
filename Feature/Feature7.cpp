@@ -7,7 +7,7 @@
 Feature7::Feature7() {
 
 	set_name("\033[1;31mFaceless\033[0m");
-	set_desc("There is a still, mummified looking man at the end of the table. The creature has no face; you don't know why but you believe it can be called \033[1;31mFaceless\033[0m. The creature is absolutly still and appears to have no features at all; no eyes, no mouth, not an orafice in sight. The creature's hands are laid on the table, enormous and clawed. ");
+	set_desc("There is a still, mummified looking man at the end of the table. The creature has no face; you don't know why but you believe it can be called \033[1;31mFaceless\033[0m. The creature is absolutly still and appears to have no features at all; no eyes, no mouth, not an orifice in sight. The creature's hands are laid on the table, enormous and clawed. ");
 	set_index_id(6);
 	set_attack_obj_id(4);//uses gilded knife to attack
 }
@@ -28,10 +28,10 @@ int Feature7::speak(){
 		
 	}
 	else if (get_times_toggled(GIVE)==1){
-		printf("The creature is gone, so you cant speak to them anymore.");
+		printf("The creature is gone, so you cant speak to them anymore. ");
 	}
 	else {
-		printf("The creature won't speak right now");
+		printf("The creature won't speak right now. ");
 		
 	}
 
@@ -46,7 +46,7 @@ int Feature7::give(int room_id, int obj_feat_id){
 		printf("The creature will not accept the %s", get_obj_name(obj_feat_id).c_str());
 	}
 	else{
-		printf("No objects are being given.");
+		printf("No objects are being given. ");
 	}
 	//in game, triggers event_one
 	return 4;

@@ -6,15 +6,15 @@
 
 Feature1::Feature1() {
 	set_name("\033[1;31mGravestone\033[0m");
-	set_desc("A gray, dreary looking \033[1;31mgravestone\033[0m with vines covering the name of the deceased. Something shiny is glinting on the floor behind the \033[1;31mgravestone\033[0m. What is it? A weapon of some sort? A \033[1;35mdagger\033[0m? ");
-	set_desc_no_obj("A gray, dreary looking \033[1;31mgravestone\033[0m with vines covering the name of the deceased. The indent of the \033[1;35mdagger\033[0m you picked up is still in the grass. ");
+	set_desc("A gray, dreary \033[1;31mgravestone\033[0m with vines covering the name of the deceased. Something shiny glints on the ground behind the \033[1;31mgravestone\033[0m. What is it? A weapon of some sort? A \033[1;35mdagger\033[0m? ");
+	set_desc_no_obj("A gray, dreary \033[1;31mgravestone\033[0m with vines covering the name of the deceased. The imprint of the \033[1;35mdagger\033[0m you picked up is still in the grass. ");
 	set_desc_w_obj(get_desc());
 	set_index_id(0);
 }
 
 int Feature1::read(){
 
-	string read_response = "The \033[1;31mgravestone's\033[0m first name is too faded to read, but the last name says 'Smith'.  That was your mothers maiden name. ";
+	string read_response = "The \033[1;31mgravestone's\033[0m first name is too faded to read, but the last name says 'Smith'. That was your mothers maiden name. ";
 
 	func_togg_count_x(0);
 	
@@ -45,7 +45,7 @@ int Feature1::eat(){
 	return 4;
 } 
 int Feature1::play(){
-	string play_response = "Playing a \033[1;31mgravestone\033[0m makes no sense.  ";
+	string play_response = "Playing a \033[1;31mgravestone\033[0m makes no sense. ";
 	func_togg_count_x(PLAY);
 	
 	printf("%s ", play_response.c_str());
@@ -58,7 +58,7 @@ int Feature1::open(int x, int y){
 	return 4;
 }
 int Feature1::speak(){
-	string speak_response = "The \033[1;31mgravestone's\033[0m body doesn't seem to have any sort of ghost attached you can speak to. Hey, that's probably a good thing.  ";
+	string speak_response = "The \033[1;31mgravestone's\033[0m body doesn't seem to have any sort of ghost attached you can speak to. Hey, that's probably a good thing. ";
 	func_togg_count_x(SPEAK);
 	printf("%s ", speak_response.c_str());
 	return 4;
@@ -87,7 +87,7 @@ int Feature1::attack(int obj_id){
 
 	}
 	if (obj_id==-1){
-		printf("Attckign with no object is not effective. ");
+		printf("Attacking with no object is not effective. ");
 		func_togg_count_x(ATTACK);
 		return 4;
 	}

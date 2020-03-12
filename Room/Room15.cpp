@@ -6,7 +6,7 @@
 //#define ROOM15 "Crypt" //exit south->basement:14
 Room15::Room15() {
 	set_name("\033[0;36mCrypt\033[0m");
-	set_extra_description("The final confrontation is at last upon you. Are you ready? ");
+	set_extra_description("The final confrontation is at least before you. Are you ready? ");
 	set_room_id(14);
 
 	set_feature_x(new Feature29, 0);//
@@ -16,7 +16,7 @@ Room15::Room15() {
 
 
 	
-	string exit_desc1 = "The exit back to the \033[0;36mbasement\033[0m to the \033[0;32msouth\033[0m. ";
+	string exit_desc1 = "The exit back to the \033[0;36mbasement\033[0m is to the \033[0;32msouth\033[0m. ";
 
 
 	set_exit_desc(exit_desc1, 1);

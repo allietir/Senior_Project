@@ -7,7 +7,7 @@
 Object1::Object1() {
 	set_name("\033[1;35mLamp\033[0m");
 
-	set_desc("A dusty old oil \033[1;35mlamp\033[0m, glass chipped and handle rusted. It looks like there is an enscription on the metal. ");
+	set_desc("A dusty old oil \033[1;35mlamp\033[0m, glass chipped and handle rusted. There is an inscription on the metal. ");
 
 	set_index_id(0);
 }
@@ -24,7 +24,7 @@ int Object1::use(int obj_feat_obj){
 	}
 	else if (get_times_toggled(USE)==1){
 		
-		printf("The \033[1;35mlamp\033[0m is already on and you can see more clearly in the room.");
+		printf("The \033[1;35mlamp\033[0m is already on and you can see clearly in the room.");
 	}
 	return 4;
 	

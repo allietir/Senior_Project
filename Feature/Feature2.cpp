@@ -6,7 +6,7 @@
 
 Feature2::Feature2() {
 	set_name("\033[1;31mTree\033[0m");
-	desc1 = "A large, gnarled looking black \033[1;31mtree\033[0m without a single leaf. It seems to be as tall as the second floor. The branches seem to poke almost directly into the open window of the second story. ";
+	desc1 = "A large, gnarled, black \033[1;31mtree\033[0m without a single leaf. It seems to be as tall as the second floor. The branches appear to poke directly into the open window of the second story. ";
 	set_desc(desc1);//
 	set_desc_no_obj(desc1);
 	set_index_id(1);
@@ -16,12 +16,12 @@ Feature2::Feature2() {
 
 int Feature2::climb(){
 	if (get_times_toggled(CLIMB)==0){
-		printf("You climb up the \033[1;31mtree\033[0m and the branch extends into a second story window that is open. The room is so dark but it looks like a master bedroom. If you climb a little more you would be able to get into the room. ");
+		printf("You climb up the \033[1;31mtree\033[0m and the branch extends into an open window on the second story. The room is dark but it looks like a master bedroom. If you climb a little more you could get in. ");
 		func_togg_count_x(8);
 		return -2;//indicate to Game that you are not able to do other things.
 	}
 	else if (get_times_toggled(CLIMB)==1){
-		printf("You climb accross the rest of the branch and get into the room. ");
+		printf("You climb accross the rest of the branch and into the room. ");
 		set_togg_count_x(CLIMB, 0);
 		return 17;
 	}

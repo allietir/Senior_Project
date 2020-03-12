@@ -6,7 +6,7 @@
 
 Object5::Object5() {
 	set_name("\033[1;35mDagger\033[0m");
-	set_desc("The \033[1;35mdagger\033[0m appears impossilby sharp, like it could cut through the very fabric of reality. ");
+	set_desc("The \033[1;35mdagger\033[0m appears impossibly sharp, like it could cut through the fabric of reality. ");
 	set_index_id(4);
 }
 int Object5::read(){

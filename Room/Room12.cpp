@@ -6,7 +6,7 @@
 //#define ROOM12 "Conservatory"//exit south->front garden:1 (SECRET) east->library:11
 Room12::Room12() {
 	set_name("\033[0;36mConservatory\033[0m");
-	set_extra_description("The smell of life and earth, the sound of water, and the feeling that something important is coming; all these sensations are perceived by you. ");
+	set_extra_description("You smell life and earth, you hear the sound of water, and you feel that something important is coming. ");
 	set_room_id(11);
 
 	set_feature_x(new Feature23, 0);//Fountain
@@ -32,7 +32,7 @@ Room12::Room12() {
 	
 }
 int Room12::event_one(){
-	printf("The \033[1;35mchalice\033[0m glows briefly and feels warm in your hands. This is important, you feel. ");
+	printf("The \033[1;35mchalice\033[0m glows and feels warm in your hands. It feels important to you. ");
 	set_event_triggered(0, 1);
 	return 4;
 }
