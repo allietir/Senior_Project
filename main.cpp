@@ -19,8 +19,7 @@ int main(int argc, char *argv[]) {
 		getline(cin, name_input);
 
 		printf("\n%s", word_wrap(intro_two, MAX_WIDTH).c_str());
-		cin.ignore();
-		cin.ignore();
+		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
 		//house art taken from https://ascii.co.uk/art/house
 		const string ascii_art = R"(
