@@ -236,6 +236,7 @@ void Game::inventory(){
 		if (player1.get_has_objects(i)==1){
 			printf("%s\t", o_array[i]->get_name().c_str());
 			empty = 0;
+			printf("\n");
 		}
 	}
 
