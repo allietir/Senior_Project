@@ -31,7 +31,7 @@ int Feature21::read(){
 		
 	}	
 	else{
-		printf("The book case has an emblem that says the follwing: 'First, use the diary. Then, speak the spell. Finally, read the new secrets'");
+		printf("The book case has an emblem that says the follwing: 'First, use the diary with me. Then, speak the spell to me. Finally, read the new secrets upon me'");
 	}
 	
 	return 4;
@@ -74,6 +74,9 @@ int Feature21::speak(){
 		func_togg_count_x(SPEAK);
 		set_togg_count_x(SPEAK, 0);
 		printf("You speak the spell again, but this causes all the books to fly back onto the shelf. You suppose the bookshelf has given up all the secrets it is willing to give. ");
+	}
+	else{
+		printf("I want to listen, but I need the right words. Perhaps there is some object you can use with me to reveal my secrets.");
 	}
 
 	return 4;
