@@ -274,7 +274,7 @@ void Game::inventory(){
 //	}
 	if (empty==1)
 	{
-		printf("(empty)\n");
+		printf("(empty)");
 	}
 	printf("\n");
 }
