@@ -47,7 +47,7 @@ closedir(dir);
 	ofstream save_file(filename_path);
 	if (save_file.is_open())
 	{
-		printf("Saving game to file named %s...\n\n", filename_raw);
+		printf("Saving game to file named %s...\n\n", filename_raw.c_str());
 		//write game data to save_file
 		save_file << get_game_data(game);
 		save_file.close();
