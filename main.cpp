@@ -11,7 +11,7 @@ void convert_string_to_array(int* arr, string str);
 int main(int argc, char *argv[]) {
 
 		string name_input;
-		string intro_one = "You and your best friend Alex\nwere hanging out like you always do.\nYou've been through the best of timesand the worst of times together. Today, you were exploring and happened upon an old, abandoned house. Let's go check it out, Alex says eagerly as they wiggle through the broken gate. You get that feeling that this is a terrible idea but decide to shrug it off and follow Alex through the gate... ";
+		string intro_one = "You and your best friend Alex\nwere hanging out like you always do.\nYou've been through the best of timesand the worst of times together. Today, you were exploring and happened upon an old, abandoned house. Let's go check it out, Alex says eagerly as they wiggle through the broken gate. You get that feeling that this is a terrible idea but decide to shrug it off and follow Alex through the gate... \n";
 		string intro_two = "You finally reach the front of the house and get a better look at it. Whoa... that's hella creepy, says Alex. \n\nPress <Enter> to start the game. ";
 		printf("\n%s\n\n", word_wrap(intro_one, MAX_WIDTH).c_str());
 	
