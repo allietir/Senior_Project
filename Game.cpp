@@ -7,6 +7,7 @@
 #include <string>
 #include <cstring>
 #include <fstream>
+#include <iostream>
 
 Game::Game() {
 	init_rooms();
