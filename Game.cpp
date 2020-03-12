@@ -121,7 +121,7 @@ void Game::gen_feat_list(){
 	//first room visited and looked at 
 void Game::start(){
 
-	/*string input = "";
+	string input = "";
 
 	printf("You and your best friend Alex were hanging out like you always do. You've been through the best of times and the worst of times together. Today, you were exploring and happened upon an old, abandoned house. Let's go check it out, Alex says eagerly as they wiggle through the broken gate. You get that feeling that this is a terrible idea but decide to shrug it off and follow Alex through the gate.\n ");
 	fflush(stdout);
@@ -129,7 +129,7 @@ void Game::start(){
 	fflush(stdout);
 	getline(cin, input);
 
-	player1.set_name(input);*/
+	player1.set_name(input);
 
 	printf("Welcome %s.", player1.get_name().c_str());
 
