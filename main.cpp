@@ -9,8 +9,8 @@
 using namespace std;
 void convert_string_to_array(int* arr, string str);
 int main(int argc, char *argv[]) {
-	
 
+		printf("\n\n");
 		string ascii_art = R"(                           )
                 *-*       (
           _______|________%%__                            
@@ -28,8 +28,7 @@ WELCOME TO OUR HAUNTED HOUSE GAME!  /   \\
                                     |RIP||
                                   \\|,,,||//)";
 
-
-    	printf("%s", ascii_art.c_str());
+    	printf("%s\n\n", ascii_art.c_str());
 		
 		Game run_game;
 		int saveflag=0;
