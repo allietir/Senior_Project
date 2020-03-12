@@ -14,7 +14,7 @@ using namespace std;
 string word_wrap(string wrapString, int maxLength) {
 	unsigned int line_start = 0;
 
-	string color = "\033[";
+	const string color = "\033[";
 
 	while (line_start < wrapString.size())
 	{
@@ -31,7 +31,7 @@ string word_wrap(string wrapString, int maxLength) {
 		unsigned line_end = ideal_end <= wrapString.size() ? ideal_end : wrapString.size()-1;
 
 		size_t hasNewLine = wrapString.find('\n', line_start);
-		if ((hasNewLine != string::npos) && (hasNewLine <= ideal_end))
+		if ((hasNewLine != string::npos) && (hasNewLine <= line_end))
 		{
 			line_start = line_end;
 			continue;
