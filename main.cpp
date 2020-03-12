@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
 		printf("First, what is your name? ");
 		getline(cin, name_input);
 
-		printf("\n\n%s", word_wrap(intro_two, MAX_WIDTH).c_str());
+		printf("\n%s", word_wrap(intro_two, MAX_WIDTH).c_str());
 		cin.ignore();
 
 		//house art taken from https://ascii.co.uk/art/house
