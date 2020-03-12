@@ -31,7 +31,7 @@ int Feature30::speak(){
 int Feature30::attack(int obj_feat){
 	//triggers open_locket
 	if (obj_feat==DIARY){
-		printf("You panic and open the \033[1;35mdiary\033[0m, and seeing strange words written, begin to chant a spell:\'naperire vas\naperire vas\naperire vas\nut daemonium in captionem\naperire vas\' ");
+		printf("You panic and open the \033[1;35mdiary\033[0m, and seeing strange words written, begin to chant a spell:\'naperire vas\naperire vas\naperire vas\nut daemonium in captionem\naperire vas\' Oh my, it looks like this spell relates to your strange locket! ");
 		//triggers opening the lock
 		return 35;
 	}
@@ -55,6 +55,7 @@ int Feature30::give(int event_occured, int obj_feat_id){
 	//if this is called, this means that at this point the game was able to see that the chalice has something 
 	if ((obj_feat_id==CHALICE)&&(event_occured==1))
 	{
+		set_togg_count_x(GIVE, 1);
 		printf("The \033[1;31mdemon\033[0m looks at the holy water in the chalice.\n.\"Maybe some things are worth the pain.\"\nThe \033[1;31mdemon\033[0m drinks the water and lets out a horrible shriek.\nFirst, white light shines through its eyes, then light begins to flash from its body, forcing you to look away.\nWhen you are no longer blinded by the light, you look for the creature, but it is nowhere to be found. ");	
 	}
 	return 0;
