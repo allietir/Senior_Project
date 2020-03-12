@@ -18,7 +18,7 @@ int Object3::open(int room_id, int feat_id){
 	
 	if (room_id == CRYPT)
 	{
-		printf("The \033[1;35mlocket\033[0m opens. This is the time you need it most. ");
+		printf("The \033[1;35mlocket\033[0m opens, just at the time you need it most. ");
 		func_togg_count_x(OPEN);
 		//triggers event 0;
 		return 0;
