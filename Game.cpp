@@ -121,7 +121,7 @@ void Game::gen_feat_list(){
 	//first room visited and looked at 
 void Game::start(){
 
-	string ascii_art = R"                           )
+	string ascii_art = R"(                           )
                 *-*       (
           _______|________%%__                            
          |%%%%%%%%%%%%%%%%%%%%%|               /   
@@ -136,7 +136,8 @@ void Game::start(){
                                      _._
                                     /   \\
                                     |RIP||
-                                  \\|,,,||//";
+                                  \\|,,,||//)";
+
     printf("%s", ascii_art.c_str());
 
 /*	printf(""
