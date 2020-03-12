@@ -8,12 +8,17 @@ Feature7::Feature7() {
 
 	set_name("\033[1;31mFaceless\033[0m");
 	set_desc("There is a still, mummified looking man at the end of the table. The creature has no face; you don't know why but you believe it can be called \033[1;31mFaceless\033[0m. The creature is absolutly still and appears to have no features at all; no eyes, no mouth, not an orifice in sight. The creature's hands are laid on the table, enormous and clawed. ");
+	set_desc_no_obj("There is a still, mummified looking man at the end of the table. The creature has no face; you don't know why but you believe it can be called \033[1;31mFaceless\033[0m. The creature is absolutly still and appears to have no features at all; no eyes, no mouth, not an orifice in sight. The creature's hands are laid on the table, enormous and clawed. ");
 	set_index_id(6);
 	set_attack_obj_id(4);//uses gilded knife to attack
 }
 int Feature7::speak(){
 	string speak_response="";
-	if (get_times_toggled(SPEAK)==0){
+	if (get_times_toggled(GIVE)>=1){
+			printf("The creature is gone, so you cant speak to them anymore. ");
+			return 4;
+	}
+	else if (get_times_toggled(SPEAK)==0){
 		speak_response="\"Hello? Do you need help?\"\nYou hear a voice, as if inside your head. \"I need my face. Find my face. Help me see.\" Hmm, that was confusing. Maybe ask again. ";
 		printf("%s", speak_response.c_str());
 		func_togg_count_x(SPEAK);
@@ -27,9 +32,7 @@ int Feature7::speak(){
 		return 1;
 		
 	}
-	else if (get_times_toggled(GIVE)==1){
-		printf("The creature is gone, so you cant speak to them anymore. ");
-	}
+	
 	else {
 		printf("The creature won't speak right now. ");
 		

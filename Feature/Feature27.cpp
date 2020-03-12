@@ -10,11 +10,15 @@ Feature27::Feature27() {
 	set_index_id(26);
 }
 int Feature27::use(int obj_id){
-	if (obj_id == CHALICE){
+	if ((obj_id == CHALICE)&&(get_times_toggled(USE)==0)){
 		printf("You place the silver \033[1;35mchalice\033[0m onto the \033[1;31mpedestal\033[0m. ");
 		func_togg_count_x(USE);
 		//triggers event one.
 		return 0;
+	}
+	if (obj_id==-1){
+		printf("You may need to use something. ");
+		return 4;
 	}
 	else
 	{

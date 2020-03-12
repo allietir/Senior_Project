@@ -1090,6 +1090,10 @@ int Game::exit_valid(int next_room)
 				return 0;
 
 			}
+			if (next_room==CRYPT){
+				printf("The door to the mysterious room is locked.");
+				return -1;
+			}
 			else{
 				printf("You need to trigger the correct event to allow you to enter this room. ");
 				return -1;
@@ -1190,8 +1194,8 @@ string Game::ret_curr_feat_list(){
 		room_name = r_array[i]->get_name();
 		feat_name0 = r_array[i]->get_feature_x(0)->get_name();
 		feat_name1 = r_array[i]->get_feature_x(1)->get_name();
-		str = str + "The " + feat_name0 + " is in the " + room_name + ".\n";
-		str = str + "The " + feat_name1 + " is in the " + room_name + ".\n";
+		str = str + "The " + feat_name0 + " is in the " + room_name + ".\n\t";
+		str = str + "The " + feat_name1 + " is in the " + room_name + ".\n\t";
 	}
 	return str;
 }
@@ -1199,7 +1203,7 @@ string Game::concat_obj_descs(){
 	string x = "";
 	for (int i = 0; i < NUM_OBJECTS; i++){
 		if (current_obj_location[i]==player1.get_current_room()){
-			x = x + o_array[i]->get_name() + "\n";
+			x = x + o_array[i]->get_name() + "\n\t";
 		}
 	}
 	return x;
@@ -1213,7 +1217,7 @@ int Game::moves_left(){
 //----------- C A L L  E V E N T S -------//	
 void Game::event1()
 {
-	printf("The chandelier beings to flicker; the wind you've been sensing seems to pick up. Suddenly the room goes completely dark and %s only has time to gasp before you feel suddenly like you are being watched. The light turns back on. 'What the hell was that' you say, turning to look at %s. But %s is gone.\n You have to find %s. ", FRIEND_NAME, FRIEND_NAME, FRIEND_NAME, FRIEND_NAME);
+	printf("The chandelier beings to flicker; the wind you've been sensing seems to pick up. Suddenly the room goes completely dark and %s only has time to gasp before you feel suddenly like you are being watched. The light turns back on. 'What the hell was that' you say, turning to look at %s. But %s is gone. You have to find %s. ", FRIEND_NAME, FRIEND_NAME, FRIEND_NAME, FRIEND_NAME);
 	
 	set_game_events_triggered(0, 1);
 }

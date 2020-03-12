@@ -36,13 +36,14 @@ int Room4::event_one(){
 }
 int Room4::event_two(){
 
-	printf("You consider the situation. You can help the \033[1;31mfaceless\033[0m monster find his face and he may attack you once he has power. You don't know what the right thing to do is.\n The creature seems to sense your thoughts. You hear his voice in your head. \"I know where your friend is. The one that came with you. I can tell you where they are. But I cannot see without my eyes. Please, lend me a \033[1;35mlamp\033[0m that will give me back my face, and I will tell you where to find your friend.\" ");
+	printf("You consider the situation. You can help the \033[1;31mfaceless\033[0m monster find his face and he may attack you once he has power. You don't know what the right thing to do is.\nThe creature seems to sense your thoughts. You hear his voice in your head. \"I know where your friend is. The one that came with you. I can tell you where they are. But I cannot see without my eyes. Please, lend me a \033[1;35mlamp\033[0m that will give me back my face, and I will tell you where to find your friend.\" ");
 
 	set_event_triggered(1, 1);
 	return 4;
 }
 int Room4::event_three(){
-	printf("The \033[1;31mfaceless\033[0m creature holds the \033[1;35mlamp\033[0m up to his face and his skin begins to melt off, leaving a disgusting puddle on the floor. However, in his place is a small, elf like creature. \"Thank you for freeing me\" says the small creature. \"I will keep my promise. Your friend is below ground. I can sense them.\"\n The creature then scurries out of the room before you can say anything else.\n Your friend is below ground? Are they buried, are they alive? Are they buried alive?! ");
+	printf("The \033[1;31mfaceless\033[0m creature holds the \033[1;35mlamp\033[0m up to his face and his skin begins to melt off, leaving a disgusting puddle on the floor. However, in his place is a small, elf like creature. \"Thank you for freeing me\" says the small creature. \"I will keep my promise. Your friend is below ground. I can sense them.\"\nThe creature then scurries out of the room before you can say anything else.\nYour friend is below ground? Are they buried, are they alive? Are they buried alive?! ");
+	get_feature_x(0)->set_desc("The creature is no longer there, but the puddle they left behind is still oozing. Gross.");
 	set_event_triggered(2, 1);
 	return 4;
 }
