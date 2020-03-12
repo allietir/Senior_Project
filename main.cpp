@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
 		//run_game.get_player()->set_move_count(11);
 		
 		//test library
-		run_game.get_player()->set_current_room(NURSERY);
+		//run_game.get_player()->set_current_room(NURSERY);
 
 		
 		
