@@ -78,6 +78,12 @@ int main(int argc, char *argv[]) {
 //		run_game.get_player()->set_has_objects(LAMP, 1);
 //		run_game.get_player()->set_move_count(12);
 		
+		//run_game.get_player()->set_current_room(PARLOR);
+//		run_game.get_player()->set_current_room(GUEST);
+//			run_game.get_player()->set_has_objects(CHALICE, 1);
+//			run_game.get_player()->set_has_objects(DAGGER, 1);
+			//run_game.get_player()->set_has_objects(MUSIC, 1);
+//			run_game.get_player()->set_has_objects(LAMP, 1);
 		char userInput[100] = {'\0'}; 
 		int x=0;
 		int y_flag = 0;

@@ -232,7 +232,7 @@ void Game::drop(int object_id){
 void Game::inventory(){
 	int empty = 1;
 	int inventory_count = 0;
-	int inventory_count2 = 0;
+	
 
   printf("\nINVENTORY:\n ");
 
@@ -777,7 +777,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 				//trigger the events now
 				//printf("rval: %i", r_array[player1.get_current_room()]->get_event_triggered(res));
 				if (r_array[player1.get_current_room()]->get_event_triggered(res)==0){
-					printf("event has been triggered");
+					//printf("event has been triggered");
 					res = r_array[player1.get_current_room()]->trigger_event(res);
 					//printf("res:%i", res);
 				}

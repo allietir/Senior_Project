@@ -48,7 +48,7 @@ int Room7::event_two(){
 
 	}
 	else{
-		printf("You have another task to complete before this event can occur. ");
+		printf("Look at the dresser; there is something you need from there before you attack. ");
 	}
 	init_long_short_desc();
 	return 4;

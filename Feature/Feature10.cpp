@@ -29,6 +29,9 @@ int Feature10::open(int room_id, int obj_id){
 		printf("The \033[1;31mpainting\033[0m swings open and reveals a staircase. ");
 		return 3;
 	}
+	else{
+		printf("Perhaps the woman in the painting has a clue about the secrets of the portrait.");
+	}
 	return 4;
 }
 Feature10::~Feature10() {
