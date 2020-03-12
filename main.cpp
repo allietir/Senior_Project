@@ -33,6 +33,8 @@ WELCOME TO OUR HAUNTED HOUSE GAME!  /   \\
                                   \\|,,,||//)";
 
     	printf("%s\n\n", ascii_art.c_str());
+
+    	printf("Welcome %s.", player1.get_name().c_str());
 		
 		Game run_game;
 		int saveflag=0;
