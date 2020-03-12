@@ -32,6 +32,9 @@ int Feature18::use(int obj_int){
 		return 0;
 		
 	}
+	else{
+		printf("There is an object you can use with this, but that isn't it. ");
+	}
 	return 4;
 }
 int Feature18::smell(){

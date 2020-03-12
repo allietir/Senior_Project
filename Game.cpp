@@ -308,6 +308,17 @@ void Game::exit_room(int dir){
 			if (player1.get_move_count()==15){
 				
 				event13();
+				
+					//reset move count
+					printf("------Time is resetting----");
+					player1.set_move_count(0);
+					int mc = 0;
+					
+					//rest time
+					r_array[UPSTAIRS]->get_feature_x(0)->set_time(mc);
+					string desc = "The grandfather \033[1;31mclock\033[0m is open and a staircase down is revealed. " + r_array[UPSTAIRS]->get_feature_x(0)->get_time_str();
+						r_array[UPSTAIRS]->get_feature_x(0)->set_desc(desc);
+				
 			}
 			//intro room
 			current_room = player1.get_current_room();
@@ -499,7 +510,7 @@ int Game::exit_current_from_room_id(int room_id){
 }
 int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 	
-	//printf("got %i", feat_index_id);
+	//printf("got %i %i %i", feat_index_id, obj_index_id, verb_id);
 	
 	if ((user_or_room_has_item(obj_index_id)==0)&&(obj_index_id!=-1)){
 		printf("You cannot access %s object within %s.",   o_array[obj_index_id]->get_name().c_str(), r_array[player1.get_current_room()]->get_name().c_str());
@@ -647,6 +658,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 									}
 								}
 								else{
+									//printf("HEREEEE");
 									res = r_array[player1.get_current_room()]->get_feature_x(item)->VERB3(obj_index_id); 
 								}
 								
@@ -706,8 +718,13 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 								if (obj_index_id==DAGGER){
 									res = o_array[obj_index_id]->VERB3(BATHROOM); 
 								}
+								else{
+									
+									res = o_array[obj_index_id]->VERB3(-1);
+								}
 							}
 							else{
+								
 								res = o_array[obj_index_id]->VERB3(-1);
 							}
 							 
@@ -718,6 +735,9 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 						if (player1.get_current_room()==BATHROOM){
 							if (obj_index_id==MUSIC){
 								res = o_array[obj_index_id]->VERB5(); 
+							}
+							else{
+								res = o_array[obj_index_id]->VERB5();
 							}
 						}
 						else{
@@ -757,12 +777,13 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 				//trigger the events now
 				//printf("rval: %i", r_array[player1.get_current_room()]->get_event_triggered(res));
 				if (r_array[player1.get_current_room()]->get_event_triggered(res)==0){
-				//	printf("event has been triggered");
+					printf("event has been triggered");
 					res = r_array[player1.get_current_room()]->trigger_event(res);
 					//printf("res:%i", res);
 				}
 				
 			}
+			
 			//player is DEAD
 			if (res==-1){
 				printf("--------------You have died.--------------");
@@ -863,6 +884,7 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			{
 				event5();
 			}
+			
 			
 			//21, 13, 15
 			//printf("FINAL RES:%i\n", res);
@@ -1340,13 +1362,13 @@ void Game::event14(){
 }
 void Game::event15(){
 	set_game_events_triggered(14, 1);
-	printf("You play the song to the creature of the mirror. ");
+	printf("You play the song to the creature of the \033[1;31mmirror\033[0m. What does the creature have to say now? ");
 	r_array[BATHROOM]->get_feature_x(0)->set_togg_count_x(PLAY, 666);
 	
 }
 void Game::event16(){
 	set_game_events_triggered(15, 1);
-	printf("You cut yourself and let the blood drip into the sink. ");
+	printf("You cut yourself and let the blood drip into the sink. Alright, that sucked. Let's see if the mirror spirit is pleased... ");
 	r_array[BATHROOM]->get_feature_x(0)->set_togg_count_x(USE, 666);
 }
 void Game::event17(){

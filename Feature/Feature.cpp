@@ -122,10 +122,10 @@ int Feature::use(int obj_feat_id){
 	
 	if (obj_feat_id != -1){
 		string response = get_name() + " cannot be used with " + get_obj_name(obj_feat_id);
-	printf("%s", response.c_str());
+		printf("%s", response.c_str());
 	}
 	if (obj_feat_id == -1){
-		string response = get_name() + " cannot be used without an object";
+		string response = get_name() + " cannot be used without an object/feature";
 		printf("%s", response.c_str());
 	}
 	return 4;
