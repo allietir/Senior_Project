@@ -49,10 +49,25 @@ int main(int argc, char *argv[]) {
 //		run_game.get_player()->set_has_objects(DOLL, 1);
 		//run_game.get_player()->set_move_count(11);
 		
+		//test library
+//		run_game.get_player()->set_current_room(LIBRARY);
+//		run_game.get_player()->set_has_objects(LAMP, 1);
+//		run_game.get_player()->set_has_objects(DIARY, 1);
+		
+		
 		char userInput[100] = {'\0'}; 
 		int x=0;
 		int y_flag = 0;
+		int just_loaded = 0;
 		while (x==0) {
+			
+			if (just_loaded==1){
+				just_loaded = 0;
+				string x = run_game.get_room_x(run_game.get_player()->get_current_room())->get_long_description();
+				printf("%s", word_wrap(x, MAX_WIDTH).c_str());
+				
+				
+			}
 			
 			if (y_flag == 0){
 				printf("\nWhat would you like to do?\n");
@@ -83,7 +98,7 @@ int main(int argc, char *argv[]) {
 				stdout = fp;
 				fflush(stdout);
 				
-				int res = inputParsing(run_game, userInput);
+				inputParsing(run_game, userInput);
 				if (run_game.get_player()->get_loading()==1){
 					loadflag = 1;
 				}
@@ -105,12 +120,13 @@ int main(int argc, char *argv[]) {
 					load_game(run_game);
 					fflush(stdout);
 				//	fflush(stdin);
-				
+					just_loaded = 1;
 					save_game(run_game);
 					fflush(stdout);
 					y_flag = 0;
 				//	cin.clear();
 				//	cin.ignore(1000000000000, '\n');
+					
 					memset(userInput, '\0', 100);
 					
 				}
@@ -121,6 +137,7 @@ int main(int argc, char *argv[]) {
 				if (loadflag==1){
 					run_game.get_player()->set_loading(0);
 					loadflag=0;
+					just_loaded = 1;
 					load_game(run_game);
 					fflush(stdout);
 					y_flag = 0;

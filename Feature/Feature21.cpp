@@ -30,6 +30,9 @@ int Feature21::read(){
 		return 40;
 		
 	}	
+	else{
+		printf("The book case has an emblem that says the follwing: 'First, use the diary. Then, speak the spell. Finally, read the new secrets'");
+	}
 	
 	return 4;
 }
@@ -37,7 +40,14 @@ int Feature21::use(int obj_feat_obj){
 	if (get_times_toggled(USE)==0){
 		if (obj_feat_obj==DIARY){
 				func_togg_count_x(USE);
-				printf("You open the helpful \033[1;35mdiary\033[0m and see the words arrange themselves on the page.\"Ah, I see you have found the library books.\nSpeak this incantation over the bookshelf to reveal the secrets of the house:\n\'Infra dignitatem ostendere.\'\nIt's a fiddly spell, though. You may have to speak the spell and read the books more than once to gain all their secrets\".\nMust be a feature, not a bug. ");
+				printf("You open the helpful \033[1;35mdiary\033[0m and see the words arrange themselves on the page.\n\t\"Ah, I see you have found the library books.\nSpeak this incantation over the bookshelf to reveal the secrets of the house:\n\t\'Infra dignitatem ostendere.\'\n\tIt's a fiddly spell, though. You may have to speak the spell and read the books more than once to gain all their secrets\". ");
+				
+			}
+			else if (obj_feat_obj==-1){
+				printf("Maybe you should try using an object with the bookshelf. ");
+			}
+			else{
+				printf("Hmm, perhaps another object would be better to use with the bookshelf. ");
 				
 			}
 	}
