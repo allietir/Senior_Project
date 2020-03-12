@@ -27,13 +27,19 @@ string word_wrap(string wrapString, int maxLength) {
 		{
 			ideal_end = ideal_end + 11;
 		}
-		
+
 		unsigned line_end = ideal_end <= wrapString.size() ? ideal_end : wrapString.size()-1;
+
+		size_t hasNewLine = wrapString.find('\n', line_start);
+		if ((hasNewLine != string::npos) && (hasNewLine <= ideal_end))
+		{
+			line_start = line_end;
+			continue;
+		}
 
 		//if we are at the end
 		if (line_end == wrapString.size() - 1)
 		{
-			
 			line_end++;
 		}
 		//a space is found->insert newline
