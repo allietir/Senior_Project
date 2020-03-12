@@ -240,7 +240,7 @@ void Room::add_object_text(string name, string desc){
 	string new_short_descs = get_short_description() + "You see a " + name + ". ";
 	set_short_description(new_short_descs);
 	
-	string new_long_descs = get_long_description() + "You see " + desc;
+	string new_long_descs = get_long_description() + "You see a " + name  + ". ";
 	set_long_description(new_long_descs);
 }
 void Room::add_object_text_only_short(string name){
