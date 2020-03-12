@@ -50,8 +50,9 @@ int main(int argc, char *argv[]) {
 		//run_game.get_player()->set_move_count(11);
 		
 		//test library
-		//run_game.get_player()->set_current_room(NURSERY);
-
+//		run_game.get_player()->set_current_room(LIBRARY);
+//		run_game.get_player()->set_has_objects(LAMP, 1);
+//		run_game.get_player()->set_has_objects(DIARY, 1);
 		
 		
 		char userInput[100] = {'\0'}; 
