@@ -124,7 +124,7 @@ WELCOME TO OUR HAUNTED HOUSE GAME!  /   \\
 //		run_game.get_player()->set_has_objects(LOCKET, 1);
 //		run_game.set_room_events_triggered(34, 1);	
 		
-		run_game.get_player()->set_move_count(13);
+		//run_game.get_player()->set_move_count(13);
 		char userInput[100] = {'\0'}; 
 		int x=0;
 		int y_flag = 0;
