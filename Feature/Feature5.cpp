@@ -8,7 +8,7 @@ Feature5::Feature5() {
 	
 	current_time = 0;
 	set_name("\033[1;31mClock\033[0m");
-	string desc_a = "There is a clock at the end of the hallway, a grandfather \033[1;31mclock\033[0m, large and imposing. What happens when the clock strikes midnight?\n" + get_time_str();
+	string desc_a = "There is a clock at the end of the hallway, a grandfather \033[1;31mclock\033[0m, large and imposing. It has a key hole that looks exactly like a dagger hilt. What happens when the clock strikes midnight?\n" + get_time_str();
 	set_desc(desc_a);
 	set_desc_no_obj("There is a \033[1;31mclock\033[0m at the end of the hallway, a grandfather \033[1;31mclock\033[0m, large and imposing. What happens when the \033[1;31mclock\033[0m strikes midnight? ");
 	set_index_id(4);
@@ -46,7 +46,7 @@ int Feature5::use(int obj_feat_id){
 
 	}
 	else{
-		printf("It's hard to interact with the \033[1;31mclock\033[0m as it is still closed. ");
+		printf("It's hard to interact with the \033[1;31mclock\033[0m as it is still closed; you should try to use an object with this, to unlock it. Then you can try to open it. ");
 	}
 	return 4;
 	
