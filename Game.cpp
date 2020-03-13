@@ -1209,6 +1209,24 @@ void Game::output_all_rooms_and_features(){
 			
 		}
 }
+void Game::output_room_event_report(){
+	int total_number_of_events=0;
+	for (int i = 0; i < NUM_ROOMS; i++){
+		printf("Room %i: %s\n", i+1, r_array[i]->get_name().c_str());
+		printf("Feature 1: %s\n", r_array[i]->get_feature_x(0)->get_name().c_str());
+		printf("Feature 2: %s\n", r_array[i]->get_feature_x(1)->get_name().c_str());
+		printf("Number of events: %d\n", r_array[i]->get_num_events());
+		int num_events = r_array[i]->get_num_events();
+		total_number_of_events = total_number_of_events + num_events;
+		for (int j = 0; j < NUM_OBJECTS; j++){
+			if (r_array[i]->get_has_objects(j)==1){
+				printf("INITAL OBJECT: %s\n", o_array[j]->get_name().c_str());
+			}
+		}
+		
+	}
+	printf("total_number_of_events: %i", total_number_of_events);
+}
 //------------  O U T P U T  H E L P E R S ---------//
 string Game::ret_curr_obj_loc(){
 	string str = "";

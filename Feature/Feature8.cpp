@@ -7,6 +7,7 @@
 Feature8::Feature8() {
 	set_name("\033[1;31mTable\033[0m");
 	set_desc("An elaborate banquet appears before you; the \033[1;31mtable\033[0m is filled with a centerpiece of fruit, and several delicious smelling dishes. There are about 10 places set. However, when you try to step forward to further look at the setting, everything fades away like a mirage. There appears to be a \033[1;35mdiary\033[0m at the edge of the \033[1;31mtable\033[0m. ");
+	set_desc_no_obj("An elaborate banquet appears before you; the \033[1;31mtable\033[0m is filled with a centerpiece of fruit, and several delicious smelling dishes. There are about 10 places set. However, when you try to step forward to further look at the setting, everything fades away like a mirage. ");
 	set_index_id(7);
 }
 int Feature8::read(){

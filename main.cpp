@@ -61,6 +61,7 @@ WELCOME TO OUR HAUNTED HOUSE GAME!  /   \\
 
 		run_game.start(name_input);
 		
+		
 		fclose(fp);
 		stdout = old; //reset
 		
