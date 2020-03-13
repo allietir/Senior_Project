@@ -7,6 +7,7 @@
 Feature28::Feature28() {
 	set_name("\033[1;31mStatue\033[0m");
 	set_desc("The \033[1;31mstatue\033[0m is marbled, white, and beautiful, the most beautiful statue you have ever seen; it looks like if you blinked, it would come alive. The clothes are chiseled to look like just like real, flowy silk; the eyes seem to see somewhere more incredible than you could ever dream of. ");
+	set_desc_no_obj(get_desc());
 	set_index_id(27);
 }
 

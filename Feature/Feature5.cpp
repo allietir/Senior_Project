@@ -40,6 +40,10 @@ int Feature5::use(int obj_feat_id){
 			func_togg_count_x(USE);
 				printf("You use the dagger in the hilt-like key hole and hear mechanisms unlock. Should you try to open it? ");
 			}
+			else{
+					printf("It's hard to interact with the \033[1;31mclock\033[0m as it is still closed. ");
+				}
+
 	}
 	else{
 		printf("It's hard to interact with the \033[1;31mclock\033[0m as it is still closed. ");
@@ -56,6 +60,9 @@ int Feature5::open(int room_id, int obj_feat_id){
 		
 		set_desc(desc);
 		set_desc_no_obj("The grandfather \033[1;31mclock\033[0m is open and a staircase down is revealed. ");
+	}
+	else{
+		printf("You must use the dagger with the door before trying to open it. ");
 	}
 	return 4;
 }//5
