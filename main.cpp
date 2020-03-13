@@ -117,14 +117,21 @@ WELCOME TO OUR HAUNTED HOUSE GAME!  /   \\
 			
 			
 		//test crypt
-		run_game.get_player()->set_current_room(CRYPT);
-		run_game.get_player()->set_has_objects(LAMP, 1);
-		run_game.get_player()->set_has_objects(DIARY, 1);
-		run_game.get_player()->set_has_objects(CHALICE, 1);
-		run_game.get_player()->set_has_objects(LOCKET, 1);
-		run_game.set_room_events_triggered(34, 1);	
-		
+//		run_game.get_player()->set_current_room(CRYPT);
+//		run_game.get_player()->set_has_objects(LAMP, 1);
+//		run_game.get_player()->set_has_objects(DIARY, 1);
+//		run_game.get_player()->set_has_objects(CHALICE, 1);
+//		run_game.get_player()->set_has_objects(LOCKET, 1);
+//		run_game.set_room_events_triggered(34, 1);	
+//		run_game.set_room_events_triggered(13, 1);	
+//		run_game.set_room_events_triggered(15, 1);	
+//		run_game.set_room_events_triggered(21, 1);	
 		//run_game.get_player()->set_move_count(13);
+		
+		//test chest
+//		run_game.get_player()->set_current_room(ATTIC);
+//		run_game.get_player()->set_has_objects(LAMP, 1);
+//		run_game.get_player()->set_has_objects(KEY, 1);
 		char userInput[100] = {'\0'}; 
 		int x=0;
 		int y_flag = 0;

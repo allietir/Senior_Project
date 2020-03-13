@@ -10,6 +10,7 @@ public:
 	Feature19();
 	virtual ~Feature19();
 	int open(int room_id, int feat_obj_id);
+	int use(int obj_feat_obj);
 	int special=666;
 };
 
