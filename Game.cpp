@@ -310,10 +310,17 @@ void Game::exit_room(int dir){
 			set_times_rooms_visited(get_next_room, get_times_room_visited(get_next_room)+1);
 				
 			//update player
-			if (player1.get_move_count()==2){
+			if ((player1.get_move_count()==2)&&(get_game_events_triggered(0)==0)){
 				
 				event1();
 			}
+			if (player1.get_move_count()>11{
+				int to_midnight = 15-player1.get_move_count();
+				if (to_midnight!=0){
+					printf("-----%i moves to midnight; be careful of your next move.----", to_midnight );
+
+				}
+							}
 			if (player1.get_move_count()==15){
 				
 				event13();
@@ -1373,13 +1380,17 @@ void Game::event15(){
 	set_game_events_triggered(14, 1);
 	printf("You play the song to the creature of the \033[1;31mmirror\033[0m. What does the creature have to say now? ");
 	r_array[BATHROOM]->get_feature_x(0)->set_togg_count_x(PLAY, 666);
+	printf("\"That song meant a lot to me, thank you.\nTo really know I can trust you, I need you to give me your blood.\nI can tell a person's spirit through their blood.\" Oh god, what can he mean? Your blood? Maybe if you use something sharp...");
+
+	
 	
 }
 void Game::event16(){
 	set_game_events_triggered(15, 1);
 	printf("You cut yourself and let the blood drip into the sink. Alright, that sucked. Let's see if the mirror spirit is pleased... ");
 	r_array[BATHROOM]->get_feature_x(0)->set_togg_count_x(USE, 666);
-}
+	printf("\"Thank you. I can tell your spirit is good. Please take some blood from the sink; I will be able to be free then. Come to the \033[0;36mmaster bedroom\033[0m.\" ");
+	}
 void Game::event17(){
 	set_game_events_triggered(16, 1);
 	printf("The chalice fills with the strange purple fire but feels cool in your hand. ");

@@ -89,19 +89,14 @@ WELCOME TO OUR HAUNTED HOUSE GAME!  /   \\
 //		run_game.get_player()->set_has_objects(DIARY, 1);
 //		run_game.get_player()->set_has_objects(CHALICE, 1);
 		
-		//test crypt
-//		run_game.get_player()->set_current_room(CRYPT);
-//		run_game.get_player()->set_has_objects(LAMP, 1);
-//		run_game.get_player()->set_has_objects(DIARY, 1);
-//		run_game.get_player()->set_has_objects(CHALICE, 1);
-//		run_game.get_player()->set_has_objects(LOCKET, 1);
-//		run_game.set_room_events_triggered(34, 1);
+
 		
 		//test bathroom
 //		run_game.get_player()->set_current_room(BATHROOM);
 //		run_game.get_player()->set_has_objects(CHALICE, 1);
 //		run_game.get_player()->set_has_objects(DAGGER, 1);
 //		run_game.get_player()->set_has_objects(MUSIC, 1);
+//		run_game.get_player()->set_has_objects(LAMP, 1);
 		
 		//test upstairs hallway
 		
@@ -118,6 +113,18 @@ WELCOME TO OUR HAUNTED HOUSE GAME!  /   \\
 //			run_game.get_player()->set_has_objects(DAGGER, 1);
 			//run_game.get_player()->set_has_objects(MUSIC, 1);
 //			run_game.get_player()->set_has_objects(LAMP, 1);
+			
+			
+			
+		//test crypt
+//		run_game.get_player()->set_current_room(CRYPT);
+//		run_game.get_player()->set_has_objects(LAMP, 1);
+//		run_game.get_player()->set_has_objects(DIARY, 1);
+//		run_game.get_player()->set_has_objects(CHALICE, 1);
+//		run_game.get_player()->set_has_objects(LOCKET, 1);
+//		run_game.set_room_events_triggered(34, 1);	
+		
+		run_game.get_player()->set_move_count(13);
 		char userInput[100] = {'\0'}; 
 		int x=0;
 		int y_flag = 0;
