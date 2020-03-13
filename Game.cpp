@@ -314,7 +314,7 @@ void Game::exit_room(int dir){
 				
 				event1();
 			}
-			if (player1.get_move_count()>11{
+			if (player1.get_move_count()>11){
 				int to_midnight = 15-player1.get_move_count();
 				if (to_midnight!=0){
 					printf("-----%i moves to midnight; be careful of your next move.----", to_midnight );
