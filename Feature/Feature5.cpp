@@ -8,9 +8,9 @@ Feature5::Feature5() {
 	
 	current_time = 0;
 	set_name("\033[1;31mClock\033[0m");
-	string desc_a = "There is a clock at the end of the hallway, a grandfather \033[1;31mclock\033[0m, large and imposing. It has a key hole that looks exactly like a dagger hilt. What happens when the clock strikes midnight?\n" + get_time_str();
+	string desc_a = "There is a \033[1;31mclock\033[0m at the end of the hallway, a grandfather \033[1;31mclock\033[0m, large and imposing. There's an inscription on the \033[1;31mclock\033[0m. It looks like there are two doors: one glass door, and a door inside of the; It has a key hole that looks exactly like a \033[1;35mdagger\033[0m hilt. What happens when the \033[1;31mclock\033[0m strikes midnight?\n" + get_time_str();
 	set_desc(desc_a);
-	set_desc_no_obj("There is a \033[1;31mclock\033[0m at the end of the hallway, a grandfather \033[1;31mclock\033[0m, large and imposing. What happens when the \033[1;31mclock\033[0m strikes midnight? ");
+	set_desc_no_obj(desc_a);
 	set_index_id(4);
 	
 	
@@ -18,13 +18,13 @@ Feature5::Feature5() {
 
 int Feature5::read(){
 	func_togg_count_x(READ);
-	printf("The \033[1;31clock's\033[0m inscription says, 'I slow as you hasten.' Well, that certainly doesn't feel true. ");
+	printf("The \033[1;31clock's\033[0m inscription says, 'I slow as you hasten.' Well, that certainly doesn't feel true. What if you say those words aloud, though? You feel compelled to do so. Speak the words. ");
 	return 4;
 }
 int Feature5::speak(){
 	if (get_times_toggled(SPEAK)==0){
 		func_togg_count_x(SPEAK);
-			printf("You say the inscription outloud, \'I slow as you hasten.\' The latch on the door creaks open, and reveals a strange looking keyhole that doesn't look like it would fit a normal key; it looks more like a daggers hilt. ");
+			printf("You say the inscription you read on the clock outloud, \'I slow as you hasten.\' The latch on the door creaks open, and reveals a strange looking keyhole that doesn't look like it would fit a normal key; it looks more like a \033[1;35mdagger\033[0m hilt. ");
 	}
 	else{
 		printf("The door is already open on the grandfather \033[1;31mclock\033[0m. ");
@@ -38,15 +38,15 @@ int Feature5::use(int obj_feat_id){
 	if (get_times_toggled(SPEAK)>=1){
 		if (obj_feat_id==DAGGER){
 			func_togg_count_x(USE);
-				printf("You use the dagger in the hilt-like key hole and hear mechanisms unlock. Should you try to open it? ");
+				printf("You use the \033[1;35mDagger\033[0m in the hilt-like key hole and hear mechanisms unlock. Should you try to open it? ");
 			}
 			else{
-					printf("It's hard to interact with the \033[1;31mclock\033[0m as it is still closed. ");
+					printf("An excellent attempt; simply try a different object. ");
 				}
 
 	}
 	else{
-		printf("It's hard to interact with the \033[1;31mclock\033[0m as it is still closed; you should try to use an object with this, to unlock it. Then you can try to open it. ");
+		printf("It's hard to interact with the \033[1;31mclock\033[0m as it is still closed; perhaps some information exists to open this, like a spell. Try reading the \033[1;31mclock\033[0m. ");
 	}
 	return 4;
 	
@@ -62,7 +62,7 @@ int Feature5::open(int room_id, int obj_feat_id){
 		set_desc_no_obj("The grandfather \033[1;31mclock\033[0m is open and a staircase down is revealed. ");
 	}
 	else{
-		printf("You must use the dagger with the door before trying to open it. ");
+		printf("First, read the \033[1;31mclock\033[0m and speak the spell.  Then, you must use the \033[1;35mdagger\033[0m with the \033[1;31mclock\033[0m before trying to open it. ");
 	}
 	return 4;
 }//5
@@ -106,7 +106,7 @@ void Feature5::set_time(int the_time){
 	//printf("=============%s==============", get_desc().c_str());
 }
 int Feature5::look(){
-	string desc_a = "There is a \033[1;31mclock\033[0m at the end of the highway, a grandfather \033[1;31mclock\033[0m, large and imposing. What happens when the \033[1;31mclock\033[0m strikes midnight?\n" + get_time_str();
+	string desc_a =  "There is a \033[1;31mclock\033[0m at the end of the hallway, a grandfather \033[1;31mclock\033[0m, large and imposing. There's an inscription on the \033[1;31mclock\033[0m. It looks like there are two doors: one glass door, and a door inside of the; It has a key hole that looks exactly like a \033[1;35mdagger\033[0m hilt. What happens when the \033[1;31mclock\033[0m strikes midnight?\n"+ get_time_str();
 	set_desc(desc_a);
 	Feature::look();
 	return 4;
