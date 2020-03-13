@@ -66,72 +66,7 @@ WELCOME TO OUR HAUNTED HOUSE GAME!  /   \\
 		
 	
 		printf("%s\n",word_wrap(buffer, MAX_WIDTH).c_str());
-		//test doll
-		//run_game.get_player()->set_current_room(NURSERY);
-		//run_game.get_player()->set_has_objects(LAMP, 1);
-		//run_game.get_player()->set_move_count(11);
 		
-		
-		//test chalice
-		//run_game.get_player()->set_current_room(BASEMENT);
-		//run_game.get_player()->set_has_objects(CHALICE, 1);
-		//run_game.get_player()->set_move_count(11);
-		
-		//test child
-//		run_game.get_player()->set_current_room(NURSERY);
-//		run_game.get_player()->set_has_objects(LAMP, 1);
-//		run_game.get_player()->set_has_objects(DOLL, 1);
-		//run_game.get_player()->set_move_count(11);
-		
-		//test library
-//		run_game.get_player()->set_current_room(LIBRARY);
-//		run_game.get_player()->set_has_objects(LAMP, 1);
-//		run_game.get_player()->set_has_objects(DIARY, 1);
-//		run_game.get_player()->set_has_objects(CHALICE, 1);
-		
-
-		
-		//test bathroom
-//		run_game.get_player()->set_current_room(BATHROOM);
-//		run_game.get_player()->set_has_objects(CHALICE, 1);
-//		run_game.get_player()->set_has_objects(DAGGER, 1);
-//		run_game.get_player()->set_has_objects(MUSIC, 1);
-//		run_game.get_player()->set_has_objects(LAMP, 1);
-		
-		//test upstairs hallway
-		
-//		run_game.get_player()->set_current_room(UPSTAIRS);
-//		run_game.get_player()->set_has_objects(CHALICE, 1);
-//		run_game.get_player()->set_has_objects(DAGGER, 1);
-//		run_game.get_player()->set_has_objects(MUSIC, 1);
-//		run_game.get_player()->set_has_objects(LAMP, 1);
-//		run_game.get_player()->set_move_count(12);
-		
-		//run_game.get_player()->set_current_room(PARLOR);
-//		run_game.get_player()->set_current_room(GUEST);
-//			run_game.get_player()->set_has_objects(CHALICE, 1);
-//			run_game.get_player()->set_has_objects(DAGGER, 1);
-			//run_game.get_player()->set_has_objects(MUSIC, 1);
-//			run_game.get_player()->set_has_objects(LAMP, 1);
-			
-			
-			
-		//test crypt
-//		run_game.get_player()->set_current_room(CRYPT);
-//		run_game.get_player()->set_has_objects(LAMP, 1);
-//		run_game.get_player()->set_has_objects(DIARY, 1);
-//		run_game.get_player()->set_has_objects(CHALICE, 1);
-//		run_game.get_player()->set_has_objects(LOCKET, 1);
-//		run_game.set_room_events_triggered(34, 1);	
-//		run_game.set_room_events_triggered(13, 1);	
-//		run_game.set_room_events_triggered(15, 1);	
-//		run_game.set_room_events_triggered(21, 1);	
-		//run_game.get_player()->set_move_count(13);
-		
-		//test chest
-//		run_game.get_player()->set_current_room(ATTIC);
-//		run_game.get_player()->set_has_objects(LAMP, 1);
-//		run_game.get_player()->set_has_objects(KEY, 1);
 		char userInput[100] = {'\0'}; 
 		int x=0;
 		int y_flag = 0;
