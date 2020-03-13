@@ -898,7 +898,10 @@ int Game::run_func(int feat_index_id, int obj_index_id, int verb_id){
 			
 			if(((room_events_triggered[13]==1)&&(room_events_triggered[15]==1)&&(room_events_triggered[21]==1))|| ((room_events_triggered[20]==1)&&(room_events_triggered[15]==1)&&(room_events_triggered[21]==1)))
 			{
-				event5();
+				if (get_game_events_triggered(4)==0){
+					event5();
+
+				}
 			}
 			
 			
