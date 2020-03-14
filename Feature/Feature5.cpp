@@ -75,6 +75,7 @@ int Feature5::climb(){
 		set_togg_count_x(USE, 0);
 		set_togg_count_x(SPEAK, 0);
 		set_togg_count_x(READ, 0);
+		set_togg_count_x(EAT, 0);
 		return CRYPT+10;
 	}
 	else{
@@ -110,9 +111,16 @@ void Feature5::set_time(int the_time){
 	//printf("=============%s==============", get_desc().c_str());
 }
 int Feature5::look(){
-	string desc_a =  "There is a \033[1;31mclock\033[0m at the end of the hallway, a grandfather \033[1;31mclock\033[0m, large and imposing. There's an inscription on the \033[1;31mclock\033[0m. It looks like there are two doors: one glass door, and a door inside of the; It has a key hole that looks exactly like a \033[1;35mdagger\033[0m hilt. What happens when the \033[1;31mclock\033[0m strikes midnight?\n"+ get_time_str();
-	set_desc(desc_a);
-	Feature::look();
+	if (get_times_toggled(EAT)!=666){
+		string desc_a =  "There is a \033[1;31mclock\033[0m at the end of the hallway, a grandfather \033[1;31mclock\033[0m, large and imposing. There's an inscription on the \033[1;31mclock\033[0m. It looks like there are two doors: one glass door, and a door inside of the; It has a key hole that looks exactly like a \033[1;35mdagger\033[0m hilt. What happens when the \033[1;31mclock\033[0m strikes midnight?\n"+ get_time_str();
+			set_desc(desc_a);
+			Feature::look();
+	}
+	else{
+		set_desc(desc_a);
+		Feature::look();
+	}
+	
 	return 4;
 }
 

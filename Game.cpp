@@ -334,6 +334,7 @@ void Game::exit_room(int dir){
 					r_array[UPSTAIRS]->get_feature_x(0)->set_time(mc);
 					string desc = "The grandfather \033[1;31mclock\033[0m is open and a staircase down is revealed. It is midnight. ";				
 					r_array[UPSTAIRS]->get_feature_x(0)->set_desc(desc);
+					r_array[UPSTAIRS]->get_feature_x(0)->set_togg_count_x(EAT, 666);
 				
 			}
 			//intro room
