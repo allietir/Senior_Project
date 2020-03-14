@@ -116,8 +116,8 @@ int Feature5::look(){
 			set_desc(desc_a);
 			Feature::look();
 	}
-	else{
-		set_desc(desc_a);
+	else
+	{
 		Feature::look();
 	}
 	
