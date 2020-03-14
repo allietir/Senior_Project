@@ -28,6 +28,10 @@ int Feature6::use(int obj_id){
 		printf("The \033[1;31mcarpet\033[0m alights with the purple fire and then burns out, revealing new, translated text. ");
 		set_togg_count_x(READ, -666);
 	}
+	else
+	{
+		printf("The \033[1;31mcarpet\033[0m needs another object to reveal its secrets. ");
+	}
 	return 4;
 }
 Feature6::~Feature6() {

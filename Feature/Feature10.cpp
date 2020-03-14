@@ -17,6 +17,9 @@ int Feature10::speak(){
 				printf("I am going to go look for my family. Thank you for believing in me. ");
 				return 1;
 			}
+		else{
+			printf("She is asleep and cannot speak. ");
+		}
 	}
 	
 	else{

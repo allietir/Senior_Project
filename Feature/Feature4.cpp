@@ -47,6 +47,9 @@ int Feature4::open(int room_id, int feat_obj_id){
 		else if (get_times_toggled(OPEN)>=1){
 				printf("The musicbox is already open. ");
 			}
+			else{
+					printf("None of the conditions to open exist. ");
+				}
 	}
 	else if (feat_obj_id==DAGGER){
 		if (get_times_toggled(OPEN)==0){
@@ -59,9 +62,15 @@ int Feature4::open(int room_id, int feat_obj_id){
 		else if (get_times_toggled(OPEN)>=1){
 				printf("The musicbox is already open. ");
 			}
+			else{
+					printf("None of the conditions to open exist. ");
+				}
 	}
 	else if (get_times_toggled(OPEN)>=1){
 		printf("The musicbox is already open. ");
+	}
+	else{
+		printf("None of the conditions to open exist. ");
 	}
 	return 4;
 	

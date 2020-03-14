@@ -19,6 +19,9 @@ int Feature20::speak(){
 		set_togg_count_x(SPEAK, 0);
 		printf("And who am I? The little \033[1;31mgirl\033[0m that lived in this house used to love tales of adventure and romance. Her father--you may find him in the master bedroom of this house--used to tell her tales of a \033[1;31mpirate\033[0m who would adventure over the world and find treasure. I am the guardian of her treasure now. ");
 	}
+	else{
+		printf("You can't speak to the \033[1;31mpirate\033[0m at this time. ");
+	}
 	return 4;
 }
 Feature20::~Feature20() {

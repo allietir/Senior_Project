@@ -42,6 +42,12 @@ int Feature28::speak(){
 					func_togg_count_x(SPEAK);
 					printf("The creature rolls its eyes. \"Fine, I'll spell it out for you. It's the \033[1;35mlamp\033[0m first, then the \033[1;35mdiary\033[0m, then your \033[1;35mlocket\033[0m, then your \033[1;35mmusic\033[0m, then your \033[1;35mdagger\033[0m, then your \033[1;35mdoll\033[0m, then the \033[1;35mkey\033[0m, and finally the \033[1;35mchalice\033[0m. I can't possibly make it any clearer than that.\" ");
 				}
+				else{
+					printf("You can't speak to \033[1;31mstatue\033[0m right now. ");
+				}
+	}
+	else{
+		printf("You can't speak to \033[1;31mstatue\033[0m right now. ");
 	}
 	
 	return 4;

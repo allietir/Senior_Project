@@ -25,6 +25,9 @@ int Feature18::use(int obj_int){
 
 				printf("The \033[1;31msink\033[0m turns back on and the blood continues to pour out. ");
 			}
+			else{
+				printf("The use of the \033[1;31msink\033[0m isn't available at this time ");
+			}
 
 	}
 	else if (obj_int==CHALICE){

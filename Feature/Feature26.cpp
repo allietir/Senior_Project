@@ -27,6 +27,9 @@ int Feature26::use(int feat_obj){
 		printf("You chant the following spell:\'Ego tetigit hoc omnium sententia mea ut reveletur\' ");
 		return 37;
 	}
+	else{
+		printf("I believe a different object could be of use with this \033[1;31mcupboard\033[0m. ");
+	}
 	return 4;
 }
 

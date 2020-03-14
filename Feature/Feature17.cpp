@@ -29,6 +29,9 @@ int Feature17::speak(){
 	else if (get_times_toggled(USE)==666){
 		printf("\"That song meant a lot to me, thank you.\nTo really know I can trust you, I need you to give me your blood.\nI can tell a person's spirit through their blood.\" Oh god, what can he mean? Your blood? Maybe if you use something sharp...");
 	}
+	else{
+		printf("None of the conditions to speak to \033[1;31mmirror\033[0m in a productive way exist at this time. ");
+	}
 	return 4;
 }
 Feature17::~Feature17() {

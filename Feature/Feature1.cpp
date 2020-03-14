@@ -91,6 +91,9 @@ int Feature1::attack(int obj_id){
 		func_togg_count_x(ATTACK);
 		return 4;
 	}
+	else{
+		printf("You can't attack in this manner. ");
+	}
 
 	return 4;
 }

@@ -54,6 +54,9 @@ int Feature22::speak(){
 		set_togg_count_x(USE, -666);
 		set_desc("The fire emits a purple glow and throws occasional sparkles and blue smoke. ");
 	}
+	else{
+		printf("The conditiosn to speak to the \033[1;31mfireplace\033[0m do not currently exist. ");
+	}
 	return 4;
 }
 

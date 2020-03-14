@@ -25,6 +25,9 @@ int Feature15::give(int event_occured, int obj_id){
 	else if (obj_id!=CHALICE){
 		printf("You can't give the \033[1;31mvampire\033[0m this object. ");
 	}
+	else{
+		printf("None of the conditions to give the \033[1;31mvampire\033[0m anything exist at this time. ");
+	}
 	return 4;
 }
 int Feature15::speak(){

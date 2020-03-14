@@ -25,6 +25,9 @@ int Feature2::climb(){
 		set_togg_count_x(CLIMB, 0);
 		return 17;
 	}
+	else{
+		printf("You can't climb under these conditions. ");
+	}
 	return 5;
 }
 

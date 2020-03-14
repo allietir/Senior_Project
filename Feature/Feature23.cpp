@@ -29,6 +29,9 @@ int Feature23::eat(){
 		set_togg_count_x(USE, 0);
 		return BASEMENT + 10;
 	}
+	else{
+		printf("The \033[1;31mfountain\033[0m can't be eaten in this manner; use a 033[1;35mchalice\033[0m first. ");
+	}
 	return 4;
 }
 Feature23::~Feature23() {

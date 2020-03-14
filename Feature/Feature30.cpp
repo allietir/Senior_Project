@@ -48,6 +48,9 @@ int Feature30::attack(int obj_feat){
 		printf("The \033[1;31mdemon\033[0m snarls and claws the \033[1;35mdagger\033[0m out of your hand with his mighty arm.\nYou're losing blood fast.\nYou aren't going to make it. ");
 		return -1;
 	}
+	else{
+		printf("This is not the way to attack the \033[1;31mdemon\033[0m. ");
+	}
 	return 4;
 	
 }
@@ -57,8 +60,14 @@ int Feature30::give(int event_occured, int obj_feat_id){
 	{
 		set_togg_count_x(GIVE, 1);
 		printf("The \033[1;31mdemon\033[0m looks at the holy water in the chalice.\n.\"Maybe some things are worth the pain.\"\nThe \033[1;31mdemon\033[0m drinks the water and lets out a horrible shriek.\nFirst, white light shines through its eyes, then light begins to flash from its body, forcing you to look away.\nWhen you are no longer blinded by the light, you look for the creature, but it is nowhere to be found. ");	
+		return 0;
 	}
-	return 0;
+	else{
+		printf("You need to consider a different object to give the \033[1;31mdemon\033[0m; then again, maybe this is the right object, but must be transformed in some way. ");
+		return 4;
+	}
+	return 4;
+	
 
 }
 Feature30::~Feature30() {

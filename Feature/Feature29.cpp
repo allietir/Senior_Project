@@ -25,6 +25,9 @@ int Feature29::give(int room_id, int obj_feat_id){
 	{
 		return 0;
 	}
+	else{
+		printf("You can't give anything to Alex in this manner. ");
+	}
 	return 4;
 
 	
