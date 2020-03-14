@@ -332,8 +332,8 @@ void Game::exit_room(int dir){
 					
 					//rest time
 					r_array[UPSTAIRS]->get_feature_x(0)->set_time(mc);
-					string desc = "The grandfather \033[1;31mclock\033[0m is open and a staircase down is revealed. " + r_array[UPSTAIRS]->get_feature_x(0)->get_time_str();
-						r_array[UPSTAIRS]->get_feature_x(0)->set_desc(desc);
+					string desc = "The grandfather \033[1;31mclock\033[0m is open and a staircase down is revealed. It is midnight. " +					
+					r_array[UPSTAIRS]->get_feature_x(0)->set_desc(desc);
 				
 			}
 			//intro room

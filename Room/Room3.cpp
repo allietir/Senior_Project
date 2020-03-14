@@ -39,7 +39,7 @@ int Room3::event_one(){
 	printf("Suddenly, you fall through the darkness and find yourself transported to the front of the clock. ");
 	get_feature_x(0)->func_togg_count_x(OPEN);
 	printf("You open the grandfather \033[1;31mclock\033[0m door and you see a staircase down. It appears to climb down forever... but where does it go? ");
-	
+	get_feature_x(0)->set_desc("You see a staircase down. It appears to climb down forever... but where does it go? It's midnight now. ");
 	set_event_triggered(0, 1);
 	return 77;
 	

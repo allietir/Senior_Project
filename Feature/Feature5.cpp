@@ -70,7 +70,11 @@ int Feature5::climb(){
 	if (func_togg_count_x(OPEN)>=1)
 	{
 		func_togg_count_x(CLIMB);
-		printf("You climb down into the darkness. ");
+		printf("You climb down into the darkness and hear the doors slam behind you. ");
+		set_togg_count_x(OPEN, 0);
+		set_togg_count_x(USE, 0);
+		set_togg_count_x(SPEAK, 0);
+		set_togg_count_x(READ, 0);
 		return CRYPT+10;
 	}
 	else{
