@@ -10,7 +10,7 @@ Feature5::Feature5() {
 	set_name("\033[1;31mClock\033[0m");
 	string desc_a = "There is a \033[1;31mclock\033[0m at the end of the hallway, a grandfather \033[1;31mclock\033[0m, large and imposing. There's an inscription on the \033[1;31mclock\033[0m. It looks like there are two doors: one glass door, and a door inside of the; It has a key hole that looks exactly like a \033[1;35mdagger\033[0m hilt. What happens when the \033[1;31mclock\033[0m strikes midnight?\n" + get_time_str();
 	set_desc(desc_a);
-	set_desc_no_obj(desc_a);
+	set_desc_no_obj("There is a \033[1;31mclock\033[0m at the end of the hallway, a grandfather \033[1;31mclock\033[0m, large and imposing. There's an inscription on the \033[1;31mclock\033[0m. It looks like there are two doors: one glass door, and a door inside of the; It has a key hole that looks exactly like a \033[1;35mdagger\033[0m hilt. What happens when the \033[1;31mclock\033[0m strikes midnight?\n");
 	set_index_id(4);
 	
 	
@@ -113,8 +113,8 @@ void Feature5::set_time(int the_time){
 int Feature5::look(){
 	if (get_times_toggled(EAT)!=666){
 		string desc_a =  "There is a \033[1;31mclock\033[0m at the end of the hallway, a grandfather \033[1;31mclock\033[0m, large and imposing. There's an inscription on the \033[1;31mclock\033[0m. It looks like there are two doors: one glass door, and a door inside of the; It has a key hole that looks exactly like a \033[1;35mdagger\033[0m hilt. What happens when the \033[1;31mclock\033[0m strikes midnight?\n"+ get_time_str();
-			set_desc(desc_a);
-			Feature::look();
+		set_desc(desc_a);
+		Feature::look();
 	}
 	else
 	{
