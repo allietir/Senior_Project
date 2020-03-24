@@ -8,7 +8,7 @@
 
 To clean .o's, `make clean`
 
-### Project Description
+## Project Description
 The theme of the game is a mild dark and psychological horror with some occasional creative
 tints of comedy and silliness. For comparison, the theme can be closely compared to the board
 game Betrayal at House on the Hill.
