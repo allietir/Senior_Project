@@ -1,3 +1,4 @@
+# Haunted House Adventure Game Senior Project
 ## How to install the game 
 ### Log onto the school flip server
 -  Ensure your flip terminal window size is at least 100 columns.
