@@ -1,13 +1,4 @@
 # Haunted House Adventure Game Senior Project
-## How to install the game 
-### Log onto the school flip server
--  Ensure your flip terminal window size is at least 100 columns.
-- Upload zip FeelingRoomy.zip 
-- Unzip the files
-- Run `make` 
-- Run ./main
-
-To clean .o's, `make clean`
 
 ## Project Description
 The theme of the game is a mild dark and psychological horror with some occasional creative
@@ -36,3 +27,15 @@ as look, take, eat and climb. There is a help function that can be called to dis
 can be used, or at least tried.
 
 At any time the user can save the game or load a valid game file.
+
+## How to install the game
+Note: This game was made to run on OSU's servers. There is no guarantee that it will run perfectly 
+in other environments.
+### Log onto the school flip server
+-  Ensure your flip terminal window size is at least 100 columns.
+- Upload zip FeelingRoomy.zip 
+- Unzip the files
+- Run `make` 
+- Run ./main
+
+To clean .o's, `make clean`
