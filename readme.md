@@ -48,10 +48,10 @@ We were required to meet the following requirements while designing and implemen
   - Your game must have at least 15 "rooms" (beach, basement, dungeon cell, cyberspace virtual reality area, plane of existence, emotion, etc.).
   - Each room must have at least two "features" that can be examined (a fish on the ground, lightning bolts in the sky, a wooden chair, a smoky smell, etc.).
   - Room descriptions:
-   -   When you go into a room for the first time, the game must print a long-form description of the room (a paragraph, say).
-   - When entering the room at a later time, a short-form description should be used instead. This takes up less space then repeating the entire long-form description when you move back to that room.
-   - You can also have additional explanations after the long or short-form description that talk about something that happens to occur while you're there (e.g. "A train whistle sounds across the lonely field").
-   - Exits from a room must be described in both the short-form and long-form descriptions, and should include a direction. For example: "There is a dank-smelling staircase, descending into the dark, at the end of the hall on the north wall", or "I can see clouds to the east and west that I think I can jump to from here".
+    - When you go into a room for the first time, the game must print a long-form description of the room (a paragraph, say).
+    - When entering the room at a later time, a short-form description should be used instead. This takes up less space then repeating the entire long-form description when you move back to that room.
+    - You can also have additional explanations after the long or short-form description that talk about something that happens to occur while you're there (e.g. "A train whistle sounds across the lonely field").
+    - Exits from a room must be described in both the short-form and long-form descriptions, and should include a direction. For example: "There is a dank-smelling staircase, descending into the dark, at the end of the hall on the north wall", or "I can see clouds to the east and west that I think I can jump to from here".
 - Objects
   - There must be at least 8 objects that you can acquire to your player inventory that have an effect on the game (e.g. a lamp that allows you to proceed safely down a dark corridor, a key that unlocks a car trunk, etc.).
   - These objects must be droppable in any room and should stay there, to perhaps be picked up later. Note that this can be overridden fictionally for some areas: lava-filled rooms for example may not allow the player to drop objects, or dropping crumbs of bread in a garden might cause them to be eaten or moved by birds, and thus changed the next time you come through.
