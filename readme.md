@@ -48,11 +48,11 @@ To clean .o's, `make clean`
 
 ## Game Diagrams
 
-<img src="Assets/Image/room_map.png" alt="Room Map" width="70%" height="70%">
+<img src="Assets/Image/room_map.png" alt="Room Map" width="75%" height="75%">
 
-<img src="Assets/Image/object_map.png" alt="Object Map" width="70%" height="70%">
+<img src="Assets/Image/object_map.png" alt="Object Map" width="75%" height="75%">
 
-<img src="Assets/Image/object_diagram.png" alt="Object Diagram" width="70%" height="70%">
+<img src="Assets/Image/object_diagram.png" alt="Object Diagram" width="75%" height="75%">
 
 ## Requirements
 We were required to meet the following requirements while designing and implementing this project:
