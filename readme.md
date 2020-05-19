@@ -1,7 +1,7 @@
 # Haunted House Adventure Game Senior Project
 This is a fork of our group's project and is intended to be used for portfolio purposes.
 
-<img src="Assets/Image/intro_ss.png" alt="Intro Screenshot" width="75%" height="75%">
+<img src="Assets/Image/intro_ss.png" alt="Intro Screenshot" width="70%" height="70%">
 
 ## Project Description
 The theme of the game is a mild dark and psychological horror with some occasional creative
@@ -31,6 +31,8 @@ can be used, or at least tried.
 
 At any time the user can save the game or load a valid game file.
 
+<img src="Assets/Image/oops_ss.png" alt="Oops Screenshot" width="70%" height="70%">
+
 ## How to install the game
 Note: This game was made to run on OSU's Linux servers. There is no guarantee that it will run perfectly 
 in other environments, but there is a chance it will run on on other Linux distributions.
@@ -43,6 +45,14 @@ in other environments, but there is a chance it will run on on other Linux distr
 - Run ./main
 
 To clean .o's, `make clean`
+
+## Game Diagrams
+
+<img src="Assets/Image/room_map.png" alt="Room Map" width="70%" height="70%">
+
+<img src="Assets/Image/object_map.png" alt="Object Map" width="70%" height="70%">
+
+<img src="Assets/Image/object_diagram.png" alt="Object Diagram" width="70%" height="70%">
 
 ## Requirements
 We were required to meet the following requirements while designing and implementing this project:
