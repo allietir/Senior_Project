@@ -1,8 +1,7 @@
 # Haunted House Adventure Game Senior Project
 This is a fork of our group's project and is intended to be used for portfolio purposes.
 
-<img src="Assets/Image/intro_ss.png" alt="Intro Screenshot" width="50%" height="50%">
-![Screenshot](Assets/Image/intro_ss.png "Intro Screenshot") 
+<img src="Assets/Image/intro_ss.png" alt="Intro Screenshot" width="75%" height="75%">
 
 ## Project Description
 The theme of the game is a mild dark and psychological horror with some occasional creative
