@@ -29,8 +29,8 @@ can be used, or at least tried.
 At any time the user can save the game or load a valid game file.
 
 ## How to install the game
-Note: This game was made to run on OSU's servers. There is no guarantee that it will run perfectly 
-in other environments.
+Note: This game was made to run on OSU's Linux servers. There is no guarantee that it will run perfectly 
+in other environments, but there is a chance it will run on on other Linux distributions.
 ### Log onto the school flip server
 -  Ensure your flip terminal window size is at least 100 columns.
 - Upload zip FeelingRoomy.zip 
